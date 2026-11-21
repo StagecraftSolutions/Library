@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "sysboxx_joint",
+  "name": "SYSBOXX Verbindungsprofil Alu 12 BE (19″) zwischen zwei Reihen",
+  "category": "rack/sysboxx",
+  "kind": "accessory",
+  "group": "Zubehör",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYPV-12",
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Katalog S. 418 · Preis nicht gefunden · ob der Bausatz ab 4 HE schon Verbindungsprofile enthält, bei Sommer prüfen"
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-extra:joint",
+    "order": 0
+  }
+}

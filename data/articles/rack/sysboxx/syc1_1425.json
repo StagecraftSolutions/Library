@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syc1_1425",
+  "name": "Steckverbinder-Modul USB 2.0 female → Schraubklemme 4-pol, 2 HE, 1 BE",
+  "shortName": "USB",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC1-1425",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 67
+  },
+  "io": {
+    "front": [
+      {"type": "usba", "count": 1, "label": "USB 2.0"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc1_1425",
+    "order": 15,
+    "extra": {
+      "be": 1,
+      "kind": "mod",
+      "screws": 4,
+      "els": [
+        {"t": "usba", "x": 17.8, "y": 44.45, "s": 12, "l": "USB 2.0"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "atemc_1me_4k",
+  "name": "ATEM 1 M/E Constellation 4K",
+  "category": "video/bildmischer",
+  "kind": "device",
+  "area": "Video",
+  "group": "Blackmagic · ATEM Constellation",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/atemconstellation",
+  "rack": {
+    "mount": "bmd",
+    "fraction": 0.6666666666666666,
+    "depth": 176
+  },
+  "mount": {
+    "fits": ["bmd-urs","tray19","desk"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Control panel"},
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "knob", "count": 1, "label": "knobs"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 18, "label": "12G-SDI In/Out, Multiview, Reference"},
+      {"type": "rj45", "count": 2, "label": "Ethernet, Talkback"},
+      {"type": "jack", "count": 2, "label": "Analog-Audio In"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "dev:atemc_1me_4k",
+    "order": 36
+  }
+}

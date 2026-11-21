@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb22_schuko",
+  "name": "Frontblech 1 × Ausschnitt Schuko, 2 HE, 2 BE",
+  "shortName": "Ausschn. Schuko",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB22-SCHUKO",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "cutout"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 19.25
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb22_schuko",
+    "order": 33,
+    "extra": {
+      "be": 2,
+      "kind": "cut",
+      "screws": 4,
+      "fits": "Schuko-Einbausteckdose",
+      "cut": [
+        {"t": "c", "x": 35.6, "y": 44.45, "d": 40}
+      ],
+      "acc": ["schuko"]
+    }
+  }
+}

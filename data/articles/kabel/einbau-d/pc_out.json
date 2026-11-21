@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pc_out",
+  "name": "powerCON TRUE1 Out (Loch aufbohren)",
+  "shortName": "TRUE1 OUT",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3FPX-LY TR1",
+  "connectorType": "true1_out",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_true1", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 4.5,
+    "source": "cart"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_out",
+    "order": 1,
+    "extra": {"fit": "d", "g": "pcout"}
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "acc_cable",
+  "name": "Kabelbinder für Zugentlastung (Pack)",
+  "category": "rack/zubehoer",
+  "kind": "accessory",
+  "partNumber": "",
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "acc:cable",
+    "order": 6
+  }
+}

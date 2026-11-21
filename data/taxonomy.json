@@ -1,0 +1,85 @@
+[
+  { "id": "rack", "name": "Racks & Cases", "icon": "rack", "description": "Rack-Cases, Schränke, Rackschienen, Rackwannen, Systemrahmen, Blenden, Anschlussfelder und Schubladen – alles, worin oder woran Technik eingebaut wird.",
+    "children": [
+      { "id": "cases", "name": "Rack-Cases & Rackmodule", "description": "Transportcases mit 19″-Rackschienen vorn und ggf. hinten, Höhen als Varianten." },
+      { "id": "schraenke", "name": "Serverschränke & Racks", "description": "Stand- und Wandschränke, offene Racks." },
+      { "id": "schienen", "name": "Rackschienen & Befestigung", "description": "Rackschienen, Käfigmuttern, Gleitmuttern, Rackschrauben." },
+      { "id": "wannen", "name": "Rackwannen & Systemrahmen", "description": "Standard-Rackwannen und Spezialwannen (Blackmagic Universal Rack Shelf, Rackkits für Geräte halber Breite) samt Kit-Zubehör." },
+      { "id": "sysboxx", "name": "SYSBOXX-System", "description": "Sommer Cable SYSBOXX: Gehäuse-Bausätze, Frontbleche, Steckverbinder-Module und Zubehör." },
+      { "id": "anschlussfelder", "name": "Anschlussfelder", "description": "U-Rackblenden mit D-Löchern und fertige I/O-Panels." },
+      { "id": "blenden", "name": "Blenden", "description": "Blind-, Lüftungs-, Beschriftungs- und Bürstenblenden." },
+      { "id": "schubladen", "name": "Schubladen & Einlagen", "description": "Rackschubladen und Schaumstoffeinlagen." },
+      { "id": "zubehoer", "name": "Kabelmanagement & Zubehör", "description": "Kabelabfangschienen, Kabelbinder, Racklights und Kleinteile fürs Rack." },
+      { "id": "casebau", "name": "Case-Hardware", "description": "Ecken, Griffe, Rollen, Verschlüsse, Profile, Einbauschalen, Shockmount-Systeme." }
+    ] },
+  { "id": "audio", "name": "Audio", "icon": "audio", "description": "Mischpulte, Stageboxen, Endstufen, Prozessoren, Audionetzwerk und Lautsprecher.",
+    "children": [
+      { "id": "mischpulte", "name": "Mischpulte & Rack-Cores", "description": "Digitalmischpulte, Rack-Mixer und Cores." },
+      { "id": "stageboxen", "name": "Stageboxen & I/O", "description": "Stageboxen, Splitter und I/O-Erweiterungen." },
+      { "id": "endstufen", "name": "Endstufen & Amped Controller", "description": "Leistungsverstärker, auch mit DSP." },
+      { "id": "prozessoren", "name": "Prozessoren & Effekte", "description": "Lautsprecher-Management, EQ, Effekte, Signal Engines." },
+      { "id": "netzwerk", "name": "Audionetzwerk", "description": "Dante/Milan/AES50-Bridges, Router und Audio-Switches." },
+      { "id": "monitoring", "name": "Personal-Monitoring", "description": "Monitor-Hubs und Personal-Mixer." },
+      { "id": "lautsprecher", "name": "Lautsprecher & Subwoofer", "description": "Topteile, Line Arrays, Subwoofer, Bühnenmonitore." },
+      { "id": "mikrofone", "name": "Mikrofone", "description": "Gesangs-, Instrumenten- und Messmikrofone." }
+    ] },
+  { "id": "funk", "name": "Funk & In-Ear", "icon": "funk", "description": "Funkempfänger, In-Ear-Sender, Antennen und RF-Zubehör.",
+    "children": [
+      { "id": "empfaenger", "name": "Funkempfänger", "description": "Empfänger für Funkmikrofone." },
+      { "id": "inear", "name": "In-Ear-Sender", "description": "Sender für In-Ear-Monitoring." },
+      { "id": "antennen", "name": "Antennen & RF-Zubehör", "description": "Antennenverteiler, Combiner, Spectrum Manager." }
+    ] },
+  { "id": "video", "name": "Video", "icon": "video", "description": "Bildmischer, Kreuzschienen, Konverter, Recorder, Streaming, Monitoring, LED-Steuerung und Bildschirme.",
+    "children": [
+      { "id": "bildmischer", "name": "Bildmischer", "description": "Live-Produktionsmischer." },
+      { "id": "kreuzschienen", "name": "Kreuzschienen", "description": "Videohubs und Router." },
+      { "id": "konverter", "name": "Konverter & Verteiler", "description": "Signal-, Format- und IP-Konverter, Verteiler." },
+      { "id": "recorder", "name": "Aufnahme & Wiedergabe", "description": "Recorder, Player, Capture." },
+      { "id": "streaming", "name": "Streaming", "description": "Encoder, Decoder, Web Presenter." },
+      { "id": "monitoring", "name": "Monitoring & Messtechnik", "description": "Rack-Monitore, Audio-Monitore, Multiviewer-Panels." },
+      { "id": "led", "name": "LED-Steuerung", "description": "LED-Controller und Videoprozessoren für LED-Wände." },
+      { "id": "bildschirme", "name": "Bildschirme & Monitore", "description": "Vorschaumonitore, TVs, Produktionsmonitore." },
+      { "id": "kameras", "name": "Kameras", "description": "Studio-, PTZ- und Broadcastkameras." }
+    ] },
+  { "id": "licht", "name": "Licht", "icon": "licht", "description": "Lichtsteuerung, DMX-Nodes und Splitter, Dimmer und Scheinwerfer.",
+    "children": [
+      { "id": "steuerung", "name": "Lichtsteuerung", "description": "Processing Units, onPC-Hardware, Pulte." },
+      { "id": "nodes", "name": "DMX-Nodes & Splitter", "description": "Art-Net/sACN-Nodes, DMX/RDM-Splitter." },
+      { "id": "dimmer", "name": "Dimmer", "description": "Dimmer- und Schaltpacks." },
+      { "id": "scheinwerfer", "name": "Scheinwerfer", "description": "Moving Heads, Spots, Washes, Effekte." }
+    ] },
+  { "id": "netzwerk", "name": "Netzwerk", "icon": "netzwerk", "description": "Switches, Router und Gateways, Speicher und Rekorder.",
+    "children": [
+      { "id": "switches", "name": "Switches", "description": "Managed und Unmanaged Switches, Aggregation." },
+      { "id": "router", "name": "Router & Gateways", "description": "Gateways, Firewalls, Router." },
+      { "id": "speicher", "name": "Speicher & Rekorder", "description": "NAS und Netzwerk-Videorekorder." }
+    ] },
+  { "id": "it", "name": "Computer & IT", "icon": "it", "description": "Laptops, Rechner und Peripherie.",
+    "children": [
+      { "id": "laptops", "name": "Laptops", "description": "Notebooks für Show- und Produktionsbetrieb." },
+      { "id": "computer", "name": "Rechner", "description": "Desktop-, Rack- und Mini-PCs." },
+      { "id": "peripherie", "name": "Peripherie", "description": "Tastaturen, Mäuse, Hubs, Docks." }
+    ] },
+  { "id": "strom", "name": "Strom", "icon": "strom", "description": "Stromverteiler, Steckdosenleisten und USV.",
+    "children": [
+      { "id": "verteiler", "name": "Stromverteiler", "description": "19″-Stromverteiler und Power Distributor." },
+      { "id": "leisten", "name": "Steckdosenleisten", "description": "Steckdosenleisten, auch 19″." },
+      { "id": "usv", "name": "USV", "description": "Unterbrechungsfreie Stromversorgung." }
+    ] },
+  { "id": "rigging", "name": "Rigging & Stative", "icon": "rigging", "description": "Motorsteuerungen, Stative, Traversen und Halterungen.",
+    "children": [
+      { "id": "motorsteuerung", "name": "Motorsteuerungen", "description": "Kettenzug-Steuerungen." },
+      { "id": "stative", "name": "Stative", "description": "Lautsprecher-, Mikrofon-, Licht- und Monitorstative." },
+      { "id": "traversen", "name": "Traversen", "description": "Traversen und Verbinder." },
+      { "id": "halterungen", "name": "Halterungen & Klammern", "description": "VESA-Halter, Klammern, Flansche." }
+    ] },
+  { "id": "kabel", "name": "Kabel & Stecker", "icon": "kabel", "description": "Einbau- und Kabelstecker, konfektionierte Kabel, Meterware und Adapter.",
+    "children": [
+      { "id": "einbau-d", "name": "Einbaustecker D-Format", "description": "Steckverbinder fürs D-Loch, Durchführungen, Blindplatten." },
+      { "id": "einbau-panel", "name": "Einbaustecker mit Ausschnitt", "description": "Einbaustecker mit eigenem Einbauausschnitt oder Bohrung (CEE, Harting, Powerlock …)." },
+      { "id": "kabelstecker", "name": "Kabelstecker", "description": "Stecker zum Konfektionieren." },
+      { "id": "kabel", "name": "Konfektionierte Kabel", "description": "Fertige Kabel mit Steckern an beiden Enden." },
+      { "id": "meterware", "name": "Meterware", "description": "Kabel von der Rolle." },
+      { "id": "adapter", "name": "Adapter", "description": "Adapter, Peitschen, Splitter." }
+    ] }
+]

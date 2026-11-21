@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "xlr3f_a",
+  "name": "XLR 3-pol Buchse",
+  "shortName": "XLR3 F",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Amphenol",
+  "partNumber": "Amphenol AC3FDZ",
+  "connectorType": "xlr3f",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr3", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:xlr3f_a",
+    "order": 27,
+    "extra": {"fit": "d", "g": "xlrf", "p": 3}
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "cee63m_1688",
+  "name": "CEE-Anbaustecker 63 A 5-pol, Flansch 106 × 110",
+  "shortName": "CEE63 M",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "Mennekes",
+  "partNumber": "Mennekes 1688",
+  "connectorType": "cee63m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee63_5", "gender": "m"},
+    "rear": {"term": "screw"}
+  },
+  "mount": {
+    "fits": ["cutout"]
+  },
+  "cutout": {
+    "w": 106,
+    "h": 110,
+    "cut": [
+      {"t": "c", "d": 88.5},
+      {"t": "h", "x": -45, "y": -45, "d": 5.5},
+      {"t": "h", "x": 45, "y": -45, "d": 5.5},
+      {"t": "h", "x": -45, "y": 45, "d": 5.5},
+      {"t": "h", "x": 45, "y": 45, "d": 5.5}
+    ]
+  },
+  "weightKg": 0.538,
+  "price": {
+    "eur": 291.82,
+    "source": "web",
+    "note": "Ausschnitt Ø 88,5, Löcher 90 × 90 Ø 5,5 nach Mennekes-Produktinfo (Zeichnung 2 MB 155); Rastnase für Kupplungsklappe bauseits montieren."
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:cee63m_1688",
+    "order": 41,
+    "extra": {"fit": "fp", "el": {"t": "cee63m", "w": 106, "h": 110}}
+  }
+}

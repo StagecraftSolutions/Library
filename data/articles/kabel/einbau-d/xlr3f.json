@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "xlr3f",
+  "name": "XLR 3-pol Buchse",
+  "shortName": "XLR3 F",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC3FD-L-1",
+  "connectorType": "xlr3f",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr3", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 4.9,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:xlr3f",
+    "order": 4,
+    "extra": {"fit": "d", "g": "xlrf", "p": 3}
+  }
+}

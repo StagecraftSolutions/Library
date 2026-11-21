@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "udm_pro_max",
+  "name": "UniFi Dream Machine Pro Max (UDM-Pro-Max)",
+  "category": "netzwerk/router",
+  "kind": "device19",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi",
+  "manufacturer": "Ubiquiti",
+  "url": "https://eu.store.ui.com/eu/en/category/cloud-gateways-large-scale/products/udm-pro-max",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 286
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 539
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "1,3″-Touch"},
+      {"type": "rj45", "count": 9, "label": "8× GbE, 1× 2,5GbE WAN"},
+      {"type": "sfp", "count": 2, "label": "10G SFP+"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "Power"},
+      {"type": "dc", "count": 1, "label": "RPS"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:udm_pro_max",
+    "order": 87
+  }
+}

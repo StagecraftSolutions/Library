@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "kabel_xlr3",
+  "name": "Mikrofonkabel XLR 3-pol Buchse/Stecker",
+  "category": "kabel/kabel",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "xlr3", "gender": "f"},
+    "b": {"face": "xlr3", "gender": "m"},
+    "lengths": [0.5,1,2,3,5],
+    "spec": "2 × 0,22 mm², geschirmt"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

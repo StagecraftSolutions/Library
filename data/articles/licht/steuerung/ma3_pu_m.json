@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ma3_pu_m",
+  "name": "grandMA3 processing unit M",
+  "category": "licht/steuerung",
+  "kind": "device19",
+  "area": "Licht",
+  "group": "Licht · MA Lighting",
+  "manufacturer": "MA Lighting",
+  "url": "https://www.malighting.com/product/grandma3-processing-unit-m-4010510/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 372
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Touchscreen"},
+      {"type": "usba", "count": 1, "label": "USB"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 1, "label": "Power (TRUE1)"},
+      {"type": "ethercon", "count": 2, "label": "network"},
+      {"type": "xlr5", "count": 8, "label": "DMX Out"},
+      {"type": "usba", "count": 2, "label": "USB"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:ma3_pu_m",
+    "order": 144
+  }
+}

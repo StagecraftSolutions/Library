@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "db_z5604",
+  "name": "d&b Z5604 I/O-Panel (Touring Rack D40/D25/D90)",
+  "category": "rack/anschlussfelder",
+  "kind": "panel",
+  "area": "Audio",
+  "group": "Audio · Rack-Panels · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "partNumber": "Z5604.000",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/accessories/dbaudio-manual-z5600.002-z5600.003-touring-rack-d40-d25-10he-cee-1.4-en.pdf",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 6, "label": "Input A1–A4, D1/2, D3/4"},
+      {"type": "xlr", "count": 6, "label": "Input Link A1–A4, D1/2, D3/4"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 12, "label": "Internal wiring to the amplifiers"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Panel aus dem d&b Touring Rack (im Rack fest verkabelt, nicht einzeln erhältlich); Tiefe und Gewicht nicht angegeben. Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_z5604",
+    "order": 187
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ma_blank",
+  "name": "MA 2Port/4Port Node 19″-Rackkit – Leerblende",
+  "category": "rack/wannen",
+  "kind": "panel",
+  "manufacturer": "MA Lighting",
+  "partNumber": "MA 130281",
+  "mount": {
+    "fits": ["kit-ma"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 68,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:ma_blank",
+    "order": 26
+  }
+}

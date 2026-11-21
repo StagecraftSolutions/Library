@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pcb_out",
+  "name": "powerCON Out weiß (D-Format)",
+  "shortName": "PCON OUT",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3MPB",
+  "connectorType": "pcon_b",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_b", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "D-Format prüfen · Alternative Neutrik NAC3MPB-1-WOT"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pcb_out",
+    "order": 15,
+    "extra": {"fit": "d", "g": "pcb"}
+  }
+}

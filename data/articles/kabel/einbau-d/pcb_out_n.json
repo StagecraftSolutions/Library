@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pcb_out_n",
+  "name": "powerCON Out weiß (D-Format)",
+  "shortName": "PCON OUT",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAC3MPB-1-WOT",
+  "connectorType": "pcon_b",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_b", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pcb_out_n",
+    "order": 26,
+    "extra": {"fit": "d", "g": "pcb"}
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "nl4fx",
+  "name": "speakON 4-pol Kabelstecker",
+  "shortName": "NL4 Kabel",
+  "category": "kabel/kabelstecker",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NL4FX",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "speakon4", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  }
+}

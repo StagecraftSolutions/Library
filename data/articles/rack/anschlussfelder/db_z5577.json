@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "db_z5577",
+  "name": "d&b Z5577 Netzverteiler 32 A CEE (Touring Rack 6× D80)",
+  "category": "rack/anschlussfelder",
+  "kind": "panel",
+  "area": "Audio",
+  "group": "Audio · Rack-Panels · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "partNumber": "Z5577.000",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/accessories/dbaudio-manual-z5576.000-1.1-en.pdf",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "brk", "count": 3, "label": "Aux Mains L1–L3 (16 A)"},
+      {"type": "powercon", "count": 3, "label": "Mains Out L1, L2, L3"}
+    ],
+    "rear": [
+      {"type": "gland", "count": 1, "label": "Mains In (fixed cord, CEE 32 A plug)"},
+      {"type": "gland", "count": 6, "label": "Mains to Amp 1–6"},
+      {"type": "powercon", "count": 4, "label": "Aux Out L1 PoE, L1 DS10, L2, L3"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Panel aus dem d&b Touring Rack (im Rack fest verkabelt, nicht einzeln erhältlich); Tiefe und Gewicht nicht angegeben. Höhe aus der Zeichnung. Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_z5577",
+    "order": 184
+  }
+}

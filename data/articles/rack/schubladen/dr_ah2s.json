@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "dr_ah2s",
+  "name": "Rackschublade 2 HE Short, Stahl, abschließbar, 210 mm tief",
+  "category": "rack/schubladen",
+  "kind": "drawer",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87402 S",
+  "description": "210 mm Außentiefe, innen 401 × 74 × 200 mm, 25 kg, Vollauszug, abschließbar.",
+  "url": "https://www.adamhall.com/shop/en/brands/rack-drawer-02-short-87402s",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 210
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 4.8,
+  "price": {
+    "eur": 52,
+    "source": "web",
+    "note": "Thomann 494619"
+  },
+  "specs": {
+    "innerHeight": null,
+    "innerDepth": null,
+    "lock": null,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:dr_ah2s",
+    "order": 27
+  }
+}

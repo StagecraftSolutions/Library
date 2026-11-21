@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "eurolite_sb1200b",
+  "name": "Eurolite SB-1200B Stromverteiler 63 A",
+  "category": "strom/verteiler",
+  "kind": "device19",
+  "area": "Strom",
+  "group": "Strom",
+  "manufacturer": "Eurolite",
+  "url": "https://www.steinigke.de/mpn30248381-eurolite-sb-1200b-stromverteiler.html",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 310
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 593.81
+  },
+  "io": {
+    "front": [
+      {"type": "rcd", "count": 1, "label": "FI Typ B 63 A/30 mA 4-pin"},
+      {"type": "brk", "count": 12, "label": "2× LS C16 3-pin, 2× LS C32 3-pin"},
+      {"type": "cee16f", "count": 2, "label": "CEE 16 A Out"}
+    ],
+    "rear": [
+      {"type": "cee32f", "count": 2, "label": "CEE 32 A Out"},
+      {"type": "gland", "count": 1, "label": "supply cable 1 m CEE 63 A"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:eurolite_sb1200b",
+    "order": 159
+  }
+}

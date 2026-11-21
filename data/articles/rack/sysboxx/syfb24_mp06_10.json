@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb24_mp06_10",
+  "name": "Frontblech Rechteck-Ausschnitt MP06/MP10 (Harting Han 6B/10B, ILME), 2 HE, 4 BE",
+  "shortName": "Ausschn. Harting 6B/10B",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB24-MP06-10",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "cutout"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 42.8
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb24_mp06_10",
+    "order": 41,
+    "extra": {
+      "be": 4,
+      "kind": "cut",
+      "screws": 8,
+      "fits": "Harting Han 6B oder 10B, ILME MP06/MP10",
+      "cut": [
+        {"t": "r", "x": 71.2, "y": 44.45, "w": 60, "h": 35}
+      ],
+      "acc": ["han10f","han10m","han6f","han6m"]
+    }
+  }
+}

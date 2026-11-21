@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "stairville_dmxsplit4",
+  "name": "Stairville DMX Splitter 4 MKIII 19″",
+  "category": "licht/nodes",
+  "kind": "device19",
+  "area": "Licht",
+  "group": "Licht · DMX",
+  "manufacturer": "Stairville",
+  "url": "https://www.thomann.de/de/stairville_dmx_splitter_4_mkiii_19.htm",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 130
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 98
+  },
+  "io": {
+    "front": [
+      {"type": "xlr5", "count": 1, "label": "DMX In (5-pin)"},
+      {"type": "xlr", "count": 1, "label": "DMX In (3-pin)"},
+      {"type": "xlr5", "count": 5, "label": "DMX Thru, Out 1–4 (5-pin)"},
+      {"type": "xlrf", "count": 5, "label": "DMX Thru, Out 1–4 (3-pin)"},
+      {"type": "btn", "count": 1, "label": "Power switch"}
+    ],
+    "rear": [
+      {"type": "gland", "count": 1, "label": "Power cable with Schuko plug"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Tiefe und Gewicht nicht angegeben – nachmessen. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:stairville_dmxsplit4",
+    "order": 216
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "meter_ls4",
+  "name": "Lautsprecherkabel 4 × 2,5 mm² (Meterware)",
+  "category": "kabel/meterware",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "bulk",
+    "spec": "4 × 2,5 mm², für speakON"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Meterware, Preis je m"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

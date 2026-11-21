@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "panel_d16tb",
+  "name": "U-Rackblende 1 HE · 16× D · Zugentlastung",
+  "shortName": "1 HE · 16 D · Zugentlastung",
+  "category": "rack/anschlussfelder",
+  "kind": "panel",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872225",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"],
+    "provides": [
+      {"system": "d-hole"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "adamhall.com · Preis nur mit Login"
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "panel:d16tb",
+    "order": 2,
+    "extra": {"cols": 16, "rows": 1}
+  }
+}

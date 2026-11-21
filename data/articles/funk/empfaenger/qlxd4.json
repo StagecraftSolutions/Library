@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "qlxd4",
+  "name": "Shure QLXD4 (halbe Breite)",
+  "category": "funk/empfaenger",
+  "kind": "device",
+  "area": "Funk",
+  "group": "Funk · Shure",
+  "manufacturer": "Shure",
+  "url": "https://www.shure.com/de-DE/search?q=QLXD4",
+  "rack": {
+    "mount": "half",
+    "fraction": 0.5,
+    "width": 214,
+    "height": 43,
+    "depth": 180
+  },
+  "mount": {
+    "fits": ["kit-shure","tray19","desk"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 2, "label": "Antenna A/B"},
+      {"type": "xlr", "count": 1, "label": "Audio Out"},
+      {"type": "jack", "count": 1, "label": "Audio Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "dc", "count": 1, "label": "15 V"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:qlxd4",
+    "order": 44
+  }
+}

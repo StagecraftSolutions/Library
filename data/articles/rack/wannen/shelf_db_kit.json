@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "shelf_db_kit",
+  "name": "d&b Rackmontage-Kit für zwei Geräte halber Breite",
+  "shortName": "d&b-Rackkit",
+  "category": "rack/wannen",
+  "kind": "carrier",
+  "manufacturer": "d&b audiotechnik",
+  "partNumber": "5D/5DM: im Lieferumfang · DN1: Z2624.000",
+  "description": "Zwei d&b-Geräte halber Breite (5D, 5DM, DN1) nebeneinander mit Rackohren und 19″-Brückenadapter auf 1 HE.",
+  "url": "https://www.dbaudio.com",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"],
+    "provides": [
+      {"system": "kit-db"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "liegt 5D/5DM bei; für DN1 als Z2624.000 (einzeln Z2624.001)"
+  },
+  "specs": {
+    "innerWidth": null,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "shelf:db_kit",
+    "order": 5,
+    "extra": {
+      "kitType": "db",
+      "mode": "grid",
+      "cells": 2,
+      "acc": ["half"],
+      "kit": true,
+      "depth": 0
+    }
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "usb3",
+  "name": "USB-3.0-Durchführung",
+  "shortName": "USB 3",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAUSB3-B",
+  "connectorType": "usb",
+  "connector": {
+    "form": "d",
+    "front": {"face": "usb3_a", "gender": "f"},
+    "rear": {"face": "usb3_a", "gender": "f"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:usb3",
+    "order": 32,
+    "extra": {"fit": "d", "g": "usb"}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "kabel_true1_c13",
+  "name": "Netzkabel powerCON TRUE1 auf Kaltgeräte C13",
+  "category": "kabel/kabel",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "powercon_true1", "gender": "m"},
+    "b": {"face": "iec_c14", "gender": "f"},
+    "lengths": [0.5,1,2,3],
+    "spec": "H07RN-F 3G1,5"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

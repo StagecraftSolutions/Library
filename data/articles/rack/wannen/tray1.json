@@ -1,0 +1,56 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "tray1",
+  "name": "Rackwanne 1 HE, 375 mm tief, 25 kg",
+  "category": "rack/wannen",
+  "kind": "carrier",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87551",
+  "description": "Rackwanne mit Rackohren. Geräte mit Kabelbinder oder Schrauben befestigen, bündig zur Vorderkante. Innenbreite ca. 440 mm (prüfen).",
+  "url": "https://www.adamhall.com",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 375
+  },
+  "mount": {
+    "fits": ["rail19"],
+    "provides": [
+      {"system": "tray19"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 24,
+    "source": "web",
+    "note": "envirel"
+  },
+  "specs": {
+    "innerWidth": 440,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:tray1",
+    "order": 3,
+    "shelf": {
+      "key": "ah_1u",
+      "order": 0,
+      "bom": "tray1",
+      "n": "Rackwanne 1 HE, 375 mm tief (Adam Hall 87551)",
+      "short": "Rackwanne 1 HE",
+      "mk": "Adam Hall",
+      "he": 1,
+      "mode": "free",
+      "innerW": 440,
+      "depth": 375,
+      "acc": ["free","bmd","half"],
+      "url": "https://www.adamhall.com",
+      "info": "Rackwanne mit Rackohren. Geräte mit Kabelbinder oder Schrauben befestigen, bündig zur Vorderkante. Innenbreite ca. 440 mm (prüfen)."
+    }
+  }
+}

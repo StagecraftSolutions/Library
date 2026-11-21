@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "swisson_xsp5r5r",
+  "name": "Swisson XSP-5R-5R DMX-Splitter doppelt",
+  "category": "licht/nodes",
+  "kind": "device19",
+  "area": "Licht",
+  "group": "Licht · Swisson",
+  "manufacturer": "Swisson",
+  "partNumber": "10 11 82",
+  "url": "https://www.swisson.com/produkte/data-distribution/dmx-splitter-booster-xsp/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 112
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 1.8,
+  "io": {
+    "front": [
+      {"type": "xlr5", "count": 2, "label": "DMX In"},
+      {"type": "xlrf", "count": 12, "label": "2× Thru, 10× Out"},
+      {"type": "btn", "count": 2, "label": "Terminierung"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 2, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "notes": "Netzanschlüsse hinten (Kaltgeräte laut Handbuch), Lage geschätzt",
+  "rackmanufaktur": {
+    "key": "dev:swisson_xsp5r5r",
+    "order": 152
+  }
+}

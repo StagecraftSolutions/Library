@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "nl4",
+  "name": "speakON 4-pol",
+  "shortName": "NL4",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NL4MP",
+  "connectorType": "nl4",
+  "connector": {
+    "form": "d",
+    "front": {"face": "speakon4", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:nl4",
+    "order": 12,
+    "extra": {"fit": "d", "g": "nl4"}
+  }
+}

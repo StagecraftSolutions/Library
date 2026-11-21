@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "vent0_5",
+  "name": "U-Lüftungsblende 0,5 HE, Rundlochung, Stahl 1,5 mm",
+  "category": "rack/blenden",
+  "kind": "panel",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872205 VR",
+  "rack": {
+    "mount": "rack",
+    "units": 0.5,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 5.5,
+    "source": "web",
+    "note": "Music Store / Thomann (dort als 872005 VR)"
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:vent0_5",
+    "order": 5
+  }
+}

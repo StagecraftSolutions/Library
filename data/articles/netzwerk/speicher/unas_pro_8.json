@@ -1,0 +1,52 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "unas_pro_8",
+  "name": "UniFi UNAS Pro 8",
+  "category": "netzwerk/speicher",
+  "kind": "device19",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi Speicher & Strom",
+  "manufacturer": "Ubiquiti",
+  "url": "https://eu.store.ui.com/eu/en/category/network-storage/products/unas-pro-8",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 480
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 719
+  },
+  "io": {
+    "front": [
+      {"type": "sd", "count": 8, "label": "drive bays 3,5″"}
+    ],
+    "rear": [
+      {"type": "rj45", "count": 1, "label": "10GbE"},
+      {"type": "sfp", "count": 2, "label": "10G SFP+"},
+      {"type": "iec", "count": 2, "label": "Netzteile Hot-Swap"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:unas_pro_8",
+    "order": 111
+  }
+}

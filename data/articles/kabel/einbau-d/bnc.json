@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "bnc",
+  "name": "BNC-Durchführung",
+  "shortName": "BNC",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NBB-75DFIB",
+  "connectorType": "bnc",
+  "connector": {
+    "form": "d",
+    "front": {"face": "bnc", "gender": "f"},
+    "rear": {"face": "bnc", "gender": "f"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:bnc",
+    "order": 11,
+    "extra": {"fit": "d", "g": "bnc"}
+  }
+}

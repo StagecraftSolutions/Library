@@ -1,0 +1,88 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "case_thsd600",
+  "name": "Thon SD System Rack 600",
+  "shortName": "Thon SD 600",
+  "category": "rack/cases",
+  "kind": "case",
+  "group": "Thomann · Thon mit Schiene hinten",
+  "manufacturer": "Thon",
+  "description": "9 mm Multiplex, Shockmount-Innenrack. Versetzbare Rackschienen vorn und hinten, variable Einbautiefe 40–50 cm. Außen ca. 615 × 605 mm.",
+  "rack": {
+    "mount": "rack"
+  },
+  "mount": {
+    "fits": [],
+    "provides": [
+      {"system": "rail19", "side": "front", "fastener": "cage"},
+      {"system": "rail19", "side": "rear", "fastener": "cage"}
+    ]
+  },
+  "weightKg": null,
+  "specs": {
+    "railType": "käfigmutter",
+    "rearRail": "serienmäßig",
+    "usableDepth": 500,
+    "shockmount": true,
+    "lids": null,
+    "castors": null,
+    "material": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "variants": [
+    {
+      "units": 6,
+      "partNumber": "Thon SD 6U System Rack 600 · Thomann 513390",
+      "price": {"eur": 585, "source": "web"},
+      "dimensions": "ca. 615 × 527 × 605 mm"
+    },
+    {
+      "units": 8,
+      "partNumber": "Thon SD 8U System Rack 600 · Thomann 513391",
+      "price": {"eur": 625, "source": "web"},
+      "dimensions": "ca. 615 × 616 × 605 mm"
+    },
+    {
+      "units": 10,
+      "partNumber": "Thon SD 10U System Rack 600 · Thomann 513392",
+      "price": {"eur": 645, "source": "web"},
+      "dimensions": "ca. 615 × 705 × 605 mm"
+    },
+    {
+      "units": 12,
+      "partNumber": "Thon SD 12U System Rack 600 · Thomann 513393",
+      "price": {"eur": 665, "source": "web"},
+      "dimensions": "ca. 615 × 793 × 605 mm"
+    },
+    {
+      "units": 14,
+      "partNumber": "Thon SD 14U System Rack 600 · Thomann 551139",
+      "price": {"eur": 739, "source": "web"},
+      "dimensions": "ca. 615 × 882 × 605 mm"
+    },
+    {
+      "units": 16,
+      "partNumber": "Thon SD 16U System Rack 600 · Thomann 535730",
+      "price": {"eur": 779, "source": "web"},
+      "dimensions": "ca. 615 × 971 × 605 mm"
+    }
+  ],
+  "rackmanufaktur": {
+    "key": "case:thSD600",
+    "order": 7,
+    "extra": {
+      "shop": "Thomann",
+      "fix": true,
+      "rear": "std",
+      "rail": "hole",
+      "railMin": 400,
+      "railMax": 500,
+      "shock": true,
+      "use": 500
+    }
+  }
+}

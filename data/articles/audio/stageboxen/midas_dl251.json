@@ -1,0 +1,52 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "midas_dl251",
+  "name": "Midas DL251 Stagebox 48/16",
+  "category": "audio/stageboxen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Stagebox",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/en/products/0606-AAU",
+  "rack": {
+    "mount": "rack",
+    "units": 5,
+    "depth": 250
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 48, "label": "Mic In (Midas PRO)"},
+      {"type": "lcd", "count": 1, "label": "Status"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 16, "label": "Line Out"},
+      {"type": "ethercon", "count": 3, "label": "AES50"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "din", "count": 3, "label": "MIDI In/Out/Thru"},
+      {"type": "iec", "count": 2, "label": "Netzteile redundant"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:midas_dl251",
+    "order": 133
+  }
+}

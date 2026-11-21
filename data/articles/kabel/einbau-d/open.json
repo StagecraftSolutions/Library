@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "open",
+  "name": "Loch offen (ohne Einsatz)",
+  "shortName": "offen",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "–",
+  "partNumber": "",
+  "connectorType": "open",
+  "connector": {
+    "form": "d"
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "user"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:open",
+    "order": 23,
+    "extra": {"fit": "d", "g": "open", "nobom": true}
+  }
+}

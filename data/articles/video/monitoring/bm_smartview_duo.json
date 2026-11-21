@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "bm_smartview_duo",
+  "name": "Blackmagic SmartView Duo",
+  "category": "video/monitoring",
+  "kind": "device19",
+  "area": "Video",
+  "group": "Blackmagic · Monitoring",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/products/smartview",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 60
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 1.43,
+  "price": {
+    "eur": 400
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 2, "label": "8″ LCD"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 4, "label": "SDI In 1/2 + Loop Out"},
+      {"type": "rj45", "count": 2, "label": "Ethernet In/Out"},
+      {"type": "db9", "count": 1, "label": "Tally"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "dc", "count": 1, "label": "12 V DC"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Abgekündigt, Nachfolger SmartView Duo 2. Tiefe ohne Stecker geschätzt. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:bm_smartview_duo",
+    "order": 220
+  }
+}

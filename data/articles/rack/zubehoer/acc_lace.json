@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "acc_lace",
+  "name": "Kabelabfangschiene (Lacing Bar) 1 HE, Rückseite",
+  "category": "rack/zubehoer",
+  "kind": "accessory",
+  "partNumber": "",
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "acc:lace",
+    "order": 5
+  }
+}

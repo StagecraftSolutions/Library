@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "kabel_schuko_c13",
+  "name": "Kaltgerätekabel Schuko/C13",
+  "category": "kabel/kabel",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "schuko", "gender": "m"},
+    "b": {"face": "iec_c14", "gender": "f"},
+    "lengths": [0.5,1,2,3],
+    "spec": "3G1,0"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

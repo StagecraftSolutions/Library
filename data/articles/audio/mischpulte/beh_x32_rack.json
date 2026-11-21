@@ -1,0 +1,60 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "beh_x32_rack",
+  "name": "Behringer X32 RACK",
+  "category": "audio/mischpulte",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Mischpult",
+  "manufacturer": "Behringer",
+  "url": "https://www.behringer.com/en/products/0604-AAA",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 250
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 6.2,
+  "price": {
+    "eur": 800
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "5″-colour display"},
+      {"type": "usba", "count": 1, "label": "USB"},
+      {"type": "jack", "count": 1, "label": "Headphones"},
+      {"type": "knob", "count": 6, "label": "knobs"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "xlrf", "count": 17, "label": "16× Mic In, Talkback"},
+      {"type": "xlr", "count": 8, "label": "Out"},
+      {"type": "jack", "count": 8, "label": "6× Aux In/Out, 2× Monitor"},
+      {"type": "rca", "count": 4, "label": "Cinch In/Out"},
+      {"type": "ethercon", "count": 3, "label": "2× AES50, Ultranet"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "din", "count": 2, "label": "MIDI In/Out"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Daten aus Herstellerliste, Maße noch nicht geprüft. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:beh_x32_rack",
+    "order": 123
+  }
+}

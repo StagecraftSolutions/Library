@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "db_z5338",
+  "name": "d&b Z5338 I/O-Panel (Touring Rack D80)",
+  "category": "rack/anschlussfelder",
+  "kind": "panel",
+  "area": "Audio",
+  "group": "Audio · Rack-Panels · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "partNumber": "Z5338",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/accessories/dbaudio-manual-z5570-71.000-1.2-en.pdf",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 4, "label": "Input A1, A2 D1/2, A3, A4 D3/4"},
+      {"type": "xlr", "count": 4, "label": "Input Link A1, A2 D1/2, A3, A4 D3/4"},
+      {"type": "ethercon", "count": 4, "label": "Remote ETH1, ETH2, CAN, CAN Link"},
+      {"type": "btn", "count": 1, "label": "Terminate/Link"}
+    ],
+    "rear": []
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Panel aus dem d&b Touring Rack (im Rack fest verkabelt, nicht einzeln erhältlich); Tiefe und Gewicht nicht angegeben. Höhe aus dem Rackaufbau abgeleitet. Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_z5338",
+    "order": 183
+  }
+}

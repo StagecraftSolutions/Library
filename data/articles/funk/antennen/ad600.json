@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ad600",
+  "name": "Shure AD600 Spectrum Manager",
+  "category": "funk/antennen",
+  "kind": "device19",
+  "area": "Funk",
+  "group": "Funk · Shure · RF-Zubehör",
+  "manufacturer": "Shure",
+  "url": "https://www.shure.com/de-DE/search?q=AD600",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 320
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 4, "label": "Antenna In/Out"},
+      {"type": "rj45", "count": 2, "label": "Ethernet"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:ad600",
+    "order": 52
+  }
+}

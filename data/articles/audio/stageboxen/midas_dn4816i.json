@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "midas_dn4816i",
+  "name": "Midas DN4816-I (StageConnect In)",
+  "category": "audio/stageboxen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · StageConnect",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/search?q=DN4816",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 140
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 16, "label": "16× Line In"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 2, "label": "StageConnect In/Thru"},
+      {"type": "dc", "count": 1, "label": "power supply"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:midas_dn4816i",
+    "order": 58
+  }
+}

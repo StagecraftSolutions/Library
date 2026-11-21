@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "dr_fp3",
+  "name": "Rackschublade 3 HE, Stahl, abschließbar, 280 mm Einbautiefe",
+  "category": "rack/schubladen",
+  "kind": "drawer",
+  "manufacturer": "Flyht Pro",
+  "partNumber": "Flyht Pro Rack Drawer 19\" 3U 28 cm lock",
+  "description": "280 mm Einbautiefe (außen 300 / 295 mm), innen 410 × 70 × 270 mm (2 HE) bzw. 411 × 115 × 273 mm (3 HE), 20 kg, Vollauszug, abschließbar.",
+  "url": "https://www.thomann.de/de/flyht_pro_rack_drawer_19_2u_28_cm_lock.htm",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 295
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 5.6,
+  "price": {
+    "eur": 55,
+    "source": "web",
+    "note": "Thomann 429025"
+  },
+  "specs": {
+    "innerHeight": null,
+    "innerDepth": null,
+    "lock": null,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:dr_fp3",
+    "order": 30
+  }
+}

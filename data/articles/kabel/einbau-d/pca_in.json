@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pca_in",
+  "name": "powerCON In blau (D-Format)",
+  "shortName": "PCON IN",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3MPA",
+  "connectorType": "pcon_a",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_a", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "D-Format prüfen · Alternative Neutrik NAC3MPA-1-WOT"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pca_in",
+    "order": 14,
+    "extra": {"fit": "d", "g": "pca"}
+  }
+}

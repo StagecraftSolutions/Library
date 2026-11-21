@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "atem_mrp20",
+  "name": "ATEM Monitoring Rack Panel 20",
+  "category": "video/monitoring",
+  "kind": "device19",
+  "area": "Video",
+  "group": "Blackmagic · ATEM Constellation",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/atemconstellationip",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 100
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 1069
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 20, "label": "Eingangstasten"},
+      {"type": "btn", "count": 1, "label": "Talkback"}
+    ],
+    "rear": [
+      {"type": "sfp", "count": 2, "label": "10G-Ethernet (2110) redundant"},
+      {"type": "bnc", "count": 1, "label": "12G-SDI"},
+      {"type": "hdmi", "count": 1, "label": "HDMI"},
+      {"type": "xlr", "count": 1, "label": "Talkback"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:atem_mrp20",
+    "order": 82
+  }
+}

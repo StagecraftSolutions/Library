@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ucg_max",
+  "name": "UniFi Cloud Gateway Max",
+  "category": "netzwerk/router",
+  "kind": "device",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi",
+  "manufacturer": "Ubiquiti",
+  "url": "https://store.ui.com/eu/en/products/ucg-max",
+  "rack": {
+    "mount": "free",
+    "width": 142,
+    "height": 30,
+    "depth": 128
+  },
+  "mount": {
+    "fits": ["tray19","desk"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "0,96″-Display"}
+    ],
+    "rear": [
+      {"type": "usbc", "count": 1, "label": "Stromversorgung 5 V"},
+      {"type": "rj45", "count": 5, "label": "1× 2,5GbE WAN, 4× 2,5GbE LAN"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "dev:ucg_max",
+    "order": 40,
+    "extra": {"col": "silver"}
+  }
+}

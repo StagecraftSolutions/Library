@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "panel_d12tb",
+  "name": "U-Rackblende 1 HE · 12× D · Zugentlastung",
+  "shortName": "1 HE · 12 D · Zugentlastung",
+  "category": "rack/anschlussfelder",
+  "kind": "panel",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872215",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"],
+    "provides": [
+      {"system": "d-hole"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 9.5,
+    "source": "cart"
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "panel:d12tb",
+    "order": 0,
+    "extra": {"cols": 12, "rows": 1}
+  }
+}

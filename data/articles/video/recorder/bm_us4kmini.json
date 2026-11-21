@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "bm_us4kmini",
+  "name": "Blackmagic UltraStudio 4K Mini",
+  "category": "video/recorder",
+  "kind": "device",
+  "area": "Video",
+  "group": "Blackmagic · Aufnahme",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/ultrastudio",
+  "rack": {
+    "mount": "bmd",
+    "fraction": 0.5,
+    "depth": 190
+  },
+  "mount": {
+    "fits": ["bmd-urs","tray19","desk"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 1119
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "sd", "count": 1, "label": "SD card"},
+      {"type": "jack", "count": 2, "label": "Microphone, Headphones"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 4, "label": "12G-SDI In/Out, Reference"},
+      {"type": "hdmi", "count": 2, "label": "HDMI In/Out"},
+      {"type": "usbc", "count": 1, "label": "Thunderbolt"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:bm_us4kmini",
+    "order": 81
+  }
+}

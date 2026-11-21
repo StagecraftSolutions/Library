@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "kabel_bnc",
+  "name": "SDI-Kabel BNC 75 Ω (12G)",
+  "category": "kabel/kabel",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "bnc", "gender": "m"},
+    "b": {"face": "bnc", "gender": "m"},
+    "lengths": [0.3,0.5,1,2,3],
+    "spec": "75 Ω, 12G-SDI-tauglich"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

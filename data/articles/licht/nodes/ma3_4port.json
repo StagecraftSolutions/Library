@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ma3_4port",
+  "name": "grandMA3 4Port Node",
+  "category": "licht/nodes",
+  "kind": "device",
+  "area": "Licht",
+  "group": "Licht · MA Lighting",
+  "manufacturer": "MA Lighting",
+  "partNumber": "4010516",
+  "url": "https://www.malighting.com",
+  "rack": {
+    "mount": "half",
+    "fraction": 0.5,
+    "width": 207,
+    "height": 43,
+    "depth": 184
+  },
+  "mount": {
+    "fits": ["kit-ma","tray19","desk"]
+  },
+  "weightKg": 2,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "3,9″-colour display"},
+      {"type": "knob", "count": 1, "label": "MENU-Drehgeber"}
+    ],
+    "rear": [
+      {"type": "xlr5", "count": 4, "label": "DMX (In/Out konfigurierbar)"},
+      {"type": "rj45", "count": 1, "label": "etherCON"},
+      {"type": "powercon", "count": 1, "label": "powerCON TRUE1"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "dev:ma3_4port",
+    "order": 28,
+    "extra": {"kitType": "ma"}
+  }
+}

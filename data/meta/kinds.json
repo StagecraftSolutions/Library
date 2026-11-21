@@ -1,0 +1,101 @@
+{
+  "device19": { "n": "19″-Gerät", "d": "Gerät mit eigenen Rackohren, direkt in 19″-Rackschienen.", "sides": true, "rack": true, "io": true,
+    "props": [
+      { "k": "powerW", "n": "Leistungsaufnahme", "u": "W", "t": "num" },
+      { "k": "airflow", "n": "Luftstrom", "t": "enum", "o": ["front-back", "back-front", "side", "passiv"] },
+      { "k": "rearSupport", "n": "Hintere Abstützung nötig", "t": "bool" }
+    ] },
+  "device": { "n": "Gerät (nicht 19″)", "d": "Teilbreiten-, Klein- und Tischgeräte – Einbau über Rackwanne, Systemrahmen oder lose.", "sides": true, "rack": true, "io": true, "dims": true,
+    "props": [
+      { "k": "powerW", "n": "Leistungsaufnahme", "u": "W", "t": "num" },
+      { "k": "psu", "n": "Netzteil", "t": "enum", "o": ["intern", "extern"] }
+    ] },
+  "case": { "n": "Rack-Case", "d": "Transportcase mit 19″-Rackschienen.", "sides": true, "rack": true,
+    "props": [
+      { "k": "railType", "n": "Schienenart", "t": "enum", "o": ["käfigmutter", "gleitmutter", "rss"] },
+      { "k": "rearRail", "n": "Schiene hinten", "t": "enum", "o": ["serienmäßig", "optional", "keine"] },
+      { "k": "usableDepth", "n": "Nutztiefe", "u": "mm", "t": "num" },
+      { "k": "shockmount", "n": "Shockmount", "t": "bool" },
+      { "k": "lids", "n": "Deckel", "t": "bool" },
+      { "k": "castors", "n": "Rollen", "t": "bool" },
+      { "k": "material", "n": "Material", "t": "text" }
+    ] },
+  "cabinet": { "n": "Schrank / Rack", "d": "Serverschrank, Wandschrank oder offenes Rack.", "sides": true, "rack": true, "dims": true,
+    "props": [
+      { "k": "units", "n": "Höheneinheiten", "u": "HE", "t": "num" },
+      { "k": "railType", "n": "Schienenart", "t": "enum", "o": ["käfigmutter", "gleitmutter"] },
+      { "k": "usableDepth", "n": "Nutztiefe", "u": "mm", "t": "num" },
+      { "k": "loadKg", "n": "Traglast", "u": "kg", "t": "num" },
+      { "k": "doors", "n": "Türen", "t": "text" }
+    ] },
+  "carrier": { "n": "Rackwanne / Systemrahmen", "d": "Nimmt Geräte auf und wird selbst in 19″-Schienen geschraubt.", "sides": true, "rack": true,
+    "props": [
+      { "k": "innerWidth", "n": "Innenbreite", "u": "mm", "t": "num" },
+      { "k": "loadKg", "n": "Traglast", "u": "kg", "t": "num" }
+    ] },
+  "panel": { "n": "Blende / Feld", "d": "Blenden, Anschlussfelder, Frontbleche.", "sides": true, "rack": true,
+    "props": [
+      { "k": "material", "n": "Material", "t": "text" },
+      { "k": "thickness", "n": "Materialstärke", "u": "mm", "t": "num" },
+      { "k": "color", "n": "Farbe", "t": "text" }
+    ] },
+  "drawer": { "n": "Schublade", "d": "Rackschublade.", "sides": true, "rack": true,
+    "props": [
+      { "k": "innerHeight", "n": "Innenhöhe", "u": "mm", "t": "num" },
+      { "k": "innerDepth", "n": "Innentiefe", "u": "mm", "t": "num" },
+      { "k": "lock", "n": "Schloss", "t": "bool" },
+      { "k": "loadKg", "n": "Traglast", "u": "kg", "t": "num" }
+    ] },
+  "rail": { "n": "Rackschiene", "d": "19″-Rackschienen.", "props": [
+      { "k": "railType", "n": "Schienenart", "t": "enum", "o": ["käfigmutter", "gleitmutter", "rss"] },
+      { "k": "units", "n": "Höheneinheiten", "u": "HE", "t": "num" }
+    ] },
+  "hardware": { "n": "Befestigung", "d": "Schrauben, Käfigmuttern, Gleitmuttern.", "props": [
+      { "k": "thread", "n": "Gewinde", "t": "text" },
+      { "k": "packQty", "n": "Stück je Pack", "t": "num" }
+    ] },
+  "connector": { "n": "Steckverbinder", "d": "Einbau- und Kabelstecker.", "sides": true, "props": [] },
+  "cable": { "n": "Kabel", "d": "Konfektionierte Kabel und Meterware.", "props": [
+      { "k": "color", "n": "Farbe", "t": "text" }
+    ] },
+  "speaker": { "n": "Lautsprecher", "d": "Topteile, Subwoofer, Monitore.", "sides": true, "io": true, "dims": true,
+    "props": [
+      { "k": "active", "n": "Aktiv", "t": "bool" },
+      { "k": "powerW", "n": "Belastbarkeit / Leistung", "u": "W", "t": "num" },
+      { "k": "splMax", "n": "Max. Schalldruck", "u": "dB", "t": "num" },
+      { "k": "impedance", "n": "Impedanz", "u": "Ω", "t": "num" },
+      { "k": "freqRange", "n": "Frequenzbereich", "t": "text" },
+      { "k": "drivers", "n": "Bestückung", "t": "text" },
+      { "k": "flange", "n": "Stativflansch", "t": "text" }
+    ] },
+  "stand": { "n": "Stativ", "d": "Lautsprecher-, Mikrofon-, Licht- und Monitorstative.", "dims": true,
+    "props": [
+      { "k": "minHeight", "n": "Höhe min.", "u": "mm", "t": "num" },
+      { "k": "maxHeight", "n": "Höhe max.", "u": "mm", "t": "num" },
+      { "k": "loadKg", "n": "Traglast", "u": "kg", "t": "num" },
+      { "k": "flange", "n": "Aufnahme", "t": "text" }
+    ] },
+  "display": { "n": "Bildschirm", "d": "Monitore, TVs, Produktionsmonitore.", "sides": true, "io": true, "dims": true,
+    "props": [
+      { "k": "diagonal", "n": "Diagonale", "u": "″", "t": "num" },
+      { "k": "resolution", "n": "Auflösung", "t": "text" },
+      { "k": "vesa", "n": "VESA", "t": "text" },
+      { "k": "powerW", "n": "Leistungsaufnahme", "u": "W", "t": "num" }
+    ] },
+  "computer": { "n": "Computer", "d": "Laptops und Rechner.", "sides": true, "io": true, "dims": true,
+    "props": [
+      { "k": "cpu", "n": "Prozessor", "t": "text" },
+      { "k": "ramGb", "n": "Arbeitsspeicher", "u": "GB", "t": "num" },
+      { "k": "storageGb", "n": "Speicher", "u": "GB", "t": "num" },
+      { "k": "os", "n": "Betriebssystem", "t": "text" },
+      { "k": "screen", "n": "Bildschirm", "u": "″", "t": "num" }
+    ] },
+  "light": { "n": "Scheinwerfer", "d": "Moving Heads, Spots, Washes, Effekte.", "sides": true, "io": true, "dims": true,
+    "props": [
+      { "k": "powerW", "n": "Leistungsaufnahme", "u": "W", "t": "num" },
+      { "k": "dmxChannels", "n": "DMX-Kanäle", "t": "text" },
+      { "k": "ip", "n": "Schutzart", "t": "text" }
+    ] },
+  "accessory": { "n": "Zubehör", "d": "Kleinteile, Einlagen, Kits.", "props": [] },
+  "other": { "n": "Sonstiges", "d": "Alles andere.", "dims": true, "props": [] }
+}

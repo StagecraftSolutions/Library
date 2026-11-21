@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ps_t902",
+  "name": "Powersoft T902 Verstärker 2-Kanal",
+  "category": "audio/endstufen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Endstufen · Powersoft",
+  "manufacturer": "Powersoft",
+  "url": "https://www.powersoft.com/en/products/touring-amps/t-series/t902",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 405
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 7.8,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 6, "label": "2× Analog In, 2× Link, AES3 In/Link"},
+      {"type": "nl4", "count": 2, "label": "Outputs"},
+      {"type": "rj45", "count": 2, "label": "Ethernet/Dante"},
+      {"type": "iec", "count": 1, "label": "Power (IEC C20)"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Gewicht laut Datenblatt-Tabelle, Zuordnung prüfen",
+  "rackmanufaktur": {
+    "key": "dev:ps_t902",
+    "order": 199
+  }
+}

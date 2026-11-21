@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "nac3mx_w_top",
+  "name": "powerCON TRUE1 TOP Kabelstecker (in TRUE1-Ausgang)",
+  "shortName": "TRUE1 M Kabel",
+  "category": "kabel/kabelstecker",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAC3MX-W-TOP",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "powercon_true1", "gender": "m"},
+    "rear": {"term": "screw"}
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  }
+}

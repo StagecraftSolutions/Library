@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "sdi",
+  "name": "SDI-Durchführung BNC 75 Ω, isoliert",
+  "shortName": "SDI",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NBB-75DFIB",
+  "connectorType": "bnc",
+  "connector": {
+    "form": "d",
+    "front": {"face": "bnc", "gender": "f"},
+    "rear": {"face": "bnc", "gender": "f"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "12G-Eignung prüfen"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:sdi",
+    "order": 17,
+    "extra": {"fit": "d", "g": "bnc"}
+  }
+}

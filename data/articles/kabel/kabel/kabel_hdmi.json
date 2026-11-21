@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "kabel_hdmi",
+  "name": "HDMI-Kabel",
+  "category": "kabel/kabel",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "hdmi", "gender": "m"},
+    "b": {"face": "hdmi", "gender": "m"},
+    "lengths": [0.5,1,2,3],
+    "spec": "HDMI 2.0, 18 Gbit/s"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

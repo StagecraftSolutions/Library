@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb23_cee5",
+  "name": "Frontblech CEE 5-pol Loch, 2 HE, 3 BE",
+  "shortName": "Ausschn. CEE 5p",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB23-CEE5",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "cutout"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 36.6
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb23_cee5",
+    "order": 37,
+    "extra": {
+      "be": 3,
+      "kind": "cut",
+      "screws": 6,
+      "fits": "CEE 16/32 A 5-pol Anbaudose",
+      "cut": [
+        {"t": "c", "x": 53.4, "y": 44.45, "d": 60}
+      ],
+      "acc": ["cee16f","cee16m","cee32f","cee32m","cee16f4"]
+    }
+  }
+}

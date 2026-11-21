@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "sysboxx_screw",
+  "name": "Senkschraube M2,5 × 10 Torx 8 für SYSBOXX-Frontbleche",
+  "category": "rack/sysboxx",
+  "kind": "accessory",
+  "group": "Zubehör",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "S-M2510",
+  "weightKg": null,
+  "price": {
+    "eur": 0.26,
+    "source": "check",
+    "note": "sommercable.com · Preis je Stück, VPE 50 prüfen"
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-extra:screw",
+    "order": 2
+  }
+}

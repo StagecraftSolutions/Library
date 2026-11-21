@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "db_d20",
+  "name": "d&b D20 Verstärker",
+  "category": "audio/endstufen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Endstufen · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "url": "https://www.dbaudio.com/global/en/products/amplifiers/d20/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 460
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 10.8,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "3.5″ touchscreen"},
+      {"type": "knob", "count": 1, "label": "Scroll/edit encoder"},
+      {"type": "btn", "count": 1, "label": "Power switch"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 1, "label": "Mains In"},
+      {"type": "nl4", "count": 6, "label": "Speaker Out A–D, A/B and C/D mix 2-way"},
+      {"type": "nl8", "count": 1, "label": "4-channel Out"},
+      {"type": "ethercon", "count": 2, "label": "Ethernet (control)"},
+      {"type": "xlrf", "count": 4, "label": "Input 1–4 (analog/AES)"},
+      {"type": "xlr", "count": 4, "label": "Link 1–4"},
+      {"type": "rj45", "count": 1, "label": "CAN"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Heritage-Produkt; Ansicht nach d&b-Maßzeichnung (Datenblatt, Front) und Produktfotos (Rückseite) gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_d20",
+    "order": 168
+  }
+}

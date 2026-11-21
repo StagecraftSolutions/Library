@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "m3",
+  "name": "Rack Screw M3 × 12 schwarz, 48 Stk. (für D-Einsätze)",
+  "category": "rack/schienen",
+  "kind": "hardware",
+  "manufacturer": "Thon",
+  "partNumber": "Thon Rack Screw M3 x 12 BK",
+  "weightKg": null,
+  "price": {
+    "eur": 9.6,
+    "source": "cart"
+  },
+  "specs": {
+    "thread": null,
+    "packQty": null
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "art:m3",
+    "order": 2
+  }
+}

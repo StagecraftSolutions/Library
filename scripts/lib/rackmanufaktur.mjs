@@ -56,7 +56,7 @@ export function toRM(kind, a) {
   const o = {};
   for (const [k, p, t] of MAPS[kind]) {
     const v = getPath(a, p);
-    if (v === undefined) continue;
+    if (v === undefined || (v === null && p !== 'price.eur')) continue;   // null = Platzhalter (offen)
     o[k] = t === 'flag' ? 1 : v;
   }
   return { ...o, ...(a.rackmanufaktur?.extra || {}) };
@@ -70,11 +70,11 @@ const keyOf = (a, prefix) => a.rackmanufaktur.key.slice(prefix.length);
 // Schlüssel einer Ansicht in Rackmanufaktur: Geräte unter ihrem Schlüssel, Teile (MA-Frontblenden) mit "_"
 export const viewKey = rmKey => rmKey?.startsWith('dev:') ? rmKey.slice(4) : rmKey?.startsWith('art:') ? '_' + rmKey.slice(4) : null;
 
-export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rmDrawers = {}, connectorFaces = {}, terminations = {}, ioFaces = {} }) {
+export function exportRM(articles, { taxonomy = null, mountSystems = null, kinds = null, connectorTypes, sysboxxMeta, views = [], rmDrawers = {}, connectorFaces = {}, terminations = {}, ioFaces = {} }) {
   const devices = {};
   for (const a of withPrefix(articles, 'dev:')) {
     const o = toRM('device', a);
-    if (a.io) { o.io = {}; if (a.io.front) o.io.f = ioString(a.io.front); if (a.io.rear) o.io.r = ioString(a.io.rear); }
+    if (a.io && (a.io.front || a.io.rear)) { o.io = {}; if (a.io.front) o.io.f = ioString(a.io.front); if (a.io.rear) o.io.r = ioString(a.io.rear); }
     // Anschlussdetails (Richtung, einzelne Anschlüsse) für die Verkabelung – nur wenn vorhanden, Index = Gruppe in io.f/io.r
     const det = list => (list || []).map(p => (p.dir || p.ports ? { ...(p.dir && { dir: p.dir }), ...(p.ports && { ports: p.ports }) } : 0));
     if (a.io && ['front', 'rear'].some(s => (a.io[s] || []).some(p => p.dir || p.ports))) o.iox = { f: det(a.io.front), r: det(a.io.rear) };
@@ -104,8 +104,8 @@ export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rm
   for (const a of byOrder(articles.filter(a => a.rackmanufaktur?.key))) {
     const k = a.rackmanufaktur.key;
     if (/^(dev|sbx-)/.test(k)) continue;
-    if (a.weightKg !== undefined) weights[k] = a.weightKg;
-    for (const v of a.variants || []) if (v.weightKg !== undefined && v.units !== undefined) weights[`${k}:${v.units}`] = v.weightKg;
+    if (a.weightKg != null) weights[k] = a.weightKg;
+    for (const v of a.variants || []) if (v.weightKg != null && v.units !== undefined) weights[`${k}:${v.units}`] = v.weightKg;
   }
 
   // Rackteile im Format, das Rackmanufaktur lädt (api/v1/rackmanufaktur/parts.json)
@@ -149,7 +149,18 @@ export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rm
   }
   const wiring = { faces: connectorFaces, terminations, ioFaces, cables, plugs };
 
-  return { devices, connectors: { types: connectorTypes, connectors }, sysboxx, weights, views: viewsOut, parts, wiring };
+  // Katalog für die Auswahl im Konfigurator: Kategoriebaum, Einbausysteme und je Rackmanufaktur-Schlüssel
+  // Kategorie, Elementtyp und Einbau (fits = passt in, provides = nimmt auf). Ohne taxonomy (alter Stand) entfällt er.
+  const out = { devices, connectors: { types: connectorTypes, connectors }, sysboxx, weights, views: viewsOut, parts, wiring };
+  if (taxonomy) {
+    const items = {};
+    for (const a of articles) {
+      const k = a.rackmanufaktur?.key; if (!k) continue;
+      items[k] = { id: a.id, c: a.category, kind: a.kind, ...(a.mount?.fits?.length && { fits: a.mount.fits }), ...(a.mount?.provides?.length && { provides: a.mount.provides }), ...(a.media?.image && { img: a.media.image.url || a.media.image.file }) };
+    }
+    out.catalog = { taxonomy, systems: mountSystems, kinds: kinds && Object.fromEntries(Object.entries(kinds).map(([k, v]) => [k, { n: v.n }])), items };
+  }
+  return out;
 }
 
 export { ioParse };

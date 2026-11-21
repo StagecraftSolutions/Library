@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pc_out_nd",
+  "name": "powerCON TRUE1 Out, D-Norm (nur von vorn einbaubar)",
+  "shortName": "TRUE1 OUT",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAC3FPX-D-TRUE1",
+  "connectorType": "true1_out",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_true1", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis und Bezeichnung prüfen"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_out_nd",
+    "order": 24,
+    "extra": {"fit": "d", "g": "pcout", "mount": "f"}
+  }
+}

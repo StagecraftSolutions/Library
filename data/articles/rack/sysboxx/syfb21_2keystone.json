@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb21_2keystone",
+  "name": "Frontblech 2 × Ausschnitt Keystone (Clip-In), 2 HE, 1 BE",
+  "shortName": "Ausschn. 2× Keystone",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-2KEYSTONE",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "cutout"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 31.9
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_2keystone",
+    "order": 29,
+    "extra": {
+      "be": 1,
+      "kind": "cut",
+      "screws": 4,
+      "fits": "2 × Keystone-Modul",
+      "cut": [
+        {"t": "r", "x": 17.8, "y": 30, "w": 14.9, "h": 19.4},
+        {"t": "r", "x": 17.8, "y": 58.9, "w": 14.9, "h": 19.4}
+      ]
+    }
+  }
+}

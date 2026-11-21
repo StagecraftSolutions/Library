@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "sysboxx_80_2he",
+  "name": "SYSBOXX MKII Gehäuse-Bausatz 2 HE, 80 mm tief",
+  "category": "rack/sysboxx",
+  "kind": "carrier",
+  "group": "Gehäuse",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYG12-01-02",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 80
+  },
+  "mount": {
+    "fits": ["rail19"],
+    "provides": [
+      {"system": "sysboxx"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 113
+  },
+  "specs": {
+    "innerWidth": null,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-housing:80:2",
+    "order": 0
+  }
+}

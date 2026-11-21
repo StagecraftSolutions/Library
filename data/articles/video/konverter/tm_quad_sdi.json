@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "tm_quad_sdi",
+  "name": "Teranex Mini Quad SDI to 12G-SDI",
+  "category": "video/konverter",
+  "kind": "device",
+  "area": "Video",
+  "group": "Blackmagic · Teranex Mini",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/teranexmini",
+  "rack": {
+    "mount": "bmd",
+    "fraction": 0.3333333333333333,
+    "depth": 230
+  },
+  "mount": {
+    "fits": ["bmd-urs","tray19","desk"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 649
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Control panel"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 6, "label": "4× 3G-SDI In, 12G-SDI Out + Loop"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:tm_quad_sdi",
+    "order": 9
+  }
+}

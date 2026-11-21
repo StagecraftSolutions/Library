@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pc_in",
+  "name": "powerCON TRUE1 In",
+  "shortName": "TRUE1 IN",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3MPX TR1",
+  "connectorType": "true1_in",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_true1", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 2.9,
+    "source": "cart"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_in",
+    "order": 0,
+    "extra": {"fit": "d", "g": "pcin"}
+  }
+}

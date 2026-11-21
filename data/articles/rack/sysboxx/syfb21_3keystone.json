@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb21_3keystone",
+  "name": "Frontblech 3 × Ausschnitt Keystone 90° gedreht, 2 HE, 1 BE",
+  "shortName": "Ausschn. 3× Keystone",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-3KEYSTONE",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "cutout"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 31.9
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_3keystone",
+    "order": 30,
+    "extra": {
+      "be": 1,
+      "kind": "cut",
+      "screws": 4,
+      "fits": "3 × Keystone-Modul",
+      "cut": [
+        {"t": "r", "x": 17.8, "y": 22, "w": 19.4, "h": 14.9},
+        {"t": "r", "x": 17.8, "y": 44.45, "w": 19.4, "h": 14.9},
+        {"t": "r", "x": 17.8, "y": 66.9, "w": 19.4, "h": 14.9}
+      ]
+    }
+  }
+}

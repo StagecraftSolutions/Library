@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syc1_1075",
+  "name": "Steckverbinder-Modul DisplayPort female → DisplayPort-Einbau female, 2 HE, 1 BE",
+  "shortName": "DisplayPort",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC1-1075",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 60.5
+  },
+  "io": {
+    "front": [
+      {"type": "hdmi", "count": 1, "label": "DisplayPort"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc1_1075",
+    "order": 14,
+    "extra": {
+      "be": 1,
+      "kind": "mod",
+      "screws": 4,
+      "els": [
+        {"t": "hdmi", "x": 17.8, "y": 44.45, "s": 11, "l": "DisplayPort"}
+      ]
+    }
+  }
+}

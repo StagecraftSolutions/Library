@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "botex_dpx620",
+  "name": "Botex DPX-620 III 6-Ch. Dimmer (Harting)",
+  "category": "licht/dimmer",
+  "kind": "device19",
+  "area": "Licht",
+  "group": "Licht · Dimmer",
+  "manufacturer": "Botex",
+  "url": "https://www.prolighting.de/en/lighting-effects/lightcontroller/dimmingpacks/6-chanel-dimmingpack/botex-dpx-620-iii-h-digital-dimmerpack-harting.html",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 432
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 13,
+  "price": {
+    "eur": 459
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 4, "label": "Menu buttons"},
+      {"type": "brk", "count": 6, "label": "Channel fuses"}
+    ],
+    "rear": [
+      {"type": "han16f", "count": 1, "label": "Harting 16-pin Out (6 channels)"},
+      {"type": "gland", "count": 1, "label": "Mains In (fixed cable 5 × 4 mm², no plug, max. 3 × 40 A)"},
+      {"type": "xlr", "count": 1, "label": "DMX (3-pin)"},
+      {"type": "din", "count": 1, "label": "Analog 0–10 V"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Harting-Variante (DPX-620 III-H); Maße 483 × 89 × 432 mm und 13 kg nach ProLighting (Thomann: 13,5 kg), DMX-Buchsenzahl nicht angegeben. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:botex_dpx620",
+    "order": 225
+  }
+}

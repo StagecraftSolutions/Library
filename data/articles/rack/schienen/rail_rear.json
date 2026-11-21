@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "rail_rear",
+  "name": "2. Rackschienenpaar hinten",
+  "category": "rack/schienen",
+  "kind": "rail",
+  "manufacturer": "ProCase",
+  "partNumber": "ProCase 11910",
+  "mount": {
+    "fits": [],
+    "provides": [
+      {"system": "rail19", "side": "rear"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "procaseshop.de · Option am Rackmodul"
+  },
+  "specs": {
+    "railType": null,
+    "units": null
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "x:rail_rear",
+    "order": 0
+  }
+}

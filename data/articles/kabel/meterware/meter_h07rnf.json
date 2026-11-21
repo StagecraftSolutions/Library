@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "meter_h07rnf",
+  "name": "Gummischlauchleitung H07RN-F 3G1,5 (Meterware)",
+  "category": "kabel/meterware",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "bulk",
+    "spec": "3G1,5 mm², für powerCON/Kaltgeräte/Schuko zum Selbstanschluss"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Meterware, Preis je m"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

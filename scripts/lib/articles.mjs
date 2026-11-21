@@ -8,7 +8,7 @@ export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const DATA = join(ROOT, 'data');
 export const ARTICLES = join(DATA, 'articles');
 export const VIEWS = join(DATA, 'views');
-export const SCHEMA_REF = '../../../schema/article.schema.json';
+export const SCHEMA_REF = '../../../../schema/article.schema.json';   // data/articles/<bereich>/<unterkategorie>/<id>.json
 
 export const readJSON = p => JSON.parse(readFileSync(p, 'utf8'));
 export const writeJSON = (p, obj) => writeFileSync(p, JSON.stringify(obj, null, 2) + '\n');
@@ -16,9 +16,14 @@ export const writeJSON = (p, obj) => writeFileSync(p, JSON.stringify(obj, null, 
 // ---------- Feldreihenfolge ----------
 // Jede Artikeldatei wird in dieser Reihenfolge geschrieben, damit Diffs in Git ruhig bleiben.
 const ORDER = {
-  article: ['$schema', 'id', 'name', 'shortName', 'category', 'area', 'group', 'manufacturer', 'partNumber',
-    'connectorType', 'connector', 'cable', 'description', 'url', 'rack', 'cutout', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
-    'inventory', 'rackmanufaktur'],
+  article: ['$schema', 'id', 'name', 'shortName', 'category', 'kind', 'area', 'group', 'manufacturer', 'partNumber',
+    'connectorType', 'connector', 'cable', 'description', 'url', 'rack', 'dimensions', 'mount', 'cutout', 'weightKg', 'price', 'io', 'specs',
+    'media', 'variants', 'status', 'notes', 'inventory', 'rackmanufaktur'],
+  dimensions: ['w', 'h', 'd'],
+  mount: ['fits', 'provides'],
+  provide: ['system', 'side', 'fastener', 'optional'],
+  media: ['image', 'front', 'rear'],
+  mediaRef: ['url', 'file', 'note'],
   rack: ['mount', 'units', 'fraction', 'width', 'height', 'depth'],
   price: ['eur', 'source', 'note'],
   status: ['unchecked', 'placeholder'],
@@ -34,6 +39,10 @@ const ORDER = {
   rackmanufaktur: ['key', 'order', 'extra', 'shelf'],
 };
 
+// Reihenfolge der Eigenschaften je Elementtyp (aus data/meta/kinds.json)
+let KIND_PROPS = {};
+export const setKinds = kinds => { KIND_PROPS = Object.fromEntries(Object.entries(kinds).map(([k, v]) => [k, v.props.map(p => p.k)])); };
+
 function ordered(obj, order) {
   if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj;
   const out = {};
@@ -43,8 +52,12 @@ function ordered(obj, order) {
 }
 
 export function canon(a) {
-  const x = ordered({ $schema: SCHEMA_REF, ...a }, ORDER.article);
+  const x = ordered({ ...a, $schema: SCHEMA_REF }, ORDER.article);
   if (x.rack) x.rack = ordered(x.rack, ORDER.rack);
+  if (x.dimensions) x.dimensions = ordered(x.dimensions, ORDER.dimensions);
+  if (x.mount) { x.mount = ordered(x.mount, ORDER.mount); if (x.mount.provides) x.mount.provides = x.mount.provides.map(p => ordered(p, ORDER.provide)); }
+  if (x.media) { x.media = ordered(x.media, ORDER.media); for (const k of ORDER.media) if (x.media[k]) x.media[k] = ordered(x.media[k], ORDER.mediaRef); }
+  if (x.specs && x.kind && KIND_PROPS[x.kind]) x.specs = ordered(x.specs, KIND_PROPS[x.kind]);
   if (x.price) x.price = ordered(x.price, ORDER.price);
   if (x.status) x.status = ordered(x.status, ORDER.status);
   if (x.inventory) x.inventory = ordered(x.inventory, ORDER.inventory);
@@ -106,8 +119,23 @@ export function articleFiles(dir = ARTICLES) {
   return out;
 }
 
+// Kategoriebaum → Liste der Pfade ("audio/endstufen") mit Namen
+export function flattenTaxonomy(tree, base = '', names = []) {
+  const out = [];
+  for (const n of tree) {
+    const path = base ? `${base}/${n.id}` : n.id, nm = [...names, n.name];
+    out.push({ path, id: n.id, name: n.name, description: n.description, icon: n.icon, names: nm, leaf: !n.children?.length });
+    if (n.children?.length) out.push(...flattenTaxonomy(n.children, path, nm));
+  }
+  return out;
+}
+
 export function loadAll() {
-  const categories = readJSON(join(DATA, 'categories.json'));
+  const taxonomy = readJSON(join(DATA, 'taxonomy.json'));
+  const categories = flattenTaxonomy(taxonomy);
+  const kinds = readJSON(join(DATA, 'meta', 'kinds.json'));
+  const mountSystems = readJSON(join(DATA, 'meta', 'mount-systems.json'));
+  setKinds(kinds);
   const ioTypes = readJSON(join(DATA, 'meta', 'io-types.json'));
   const connectorTypes = readJSON(join(DATA, 'meta', 'connector-types.json'));
   const connectorFaces = readJSON(join(DATA, 'meta', 'connector-faces.json'));
@@ -126,7 +154,7 @@ export function loadAll() {
     try { views.push({ file: rel, id: basename(name, '.json'), data: readJSON(join(VIEWS, name)) }); }
     catch (e) { errors.push(`${rel}: kein gültiges JSON (${e.message})`); }
   }
-  return { categories, ioTypes, connectorTypes, connectorFaces, terminations, ioFaces, articles, views, errors };
+  return { taxonomy, categories, kinds, mountSystems, ioTypes, connectorTypes, connectorFaces, terminations, ioFaces, articles, views, errors };
 }
 
 // Ansicht: ein Zeichenelement pro Zeile, damit Diffs lesbar bleiben
@@ -167,9 +195,9 @@ export function validateMeta({ ioTypes = {}, connectorFaces = {}, ioFaces = {} }
   return errs;
 }
 
-export function validate({ categories, ioTypes, connectorTypes, connectorFaces = {}, terminations = {}, ioFaces = {}, articles, views = [], errors = [] }) {
+export function validate({ categories, kinds = {}, mountSystems = {}, ioTypes, connectorTypes, connectorFaces = {}, terminations = {}, ioFaces = {}, articles, views = [], errors = [] }) {
   const errs = [...errors, ...validateMeta({ ioTypes, connectorFaces, ioFaces })];
-  const catIds = new Set(categories.map(c => c.id));
+  const catIds = new Set(categories.filter(c => c.leaf).map(c => c.path));
   const ioSet = new Set(Object.keys(ioTypes));
   const ids = new Map(), rmKeys = new Map();
   const known = new Set(ORDER.article);
@@ -205,13 +233,59 @@ export function validate({ categories, ioTypes, connectorTypes, connectorFaces =
     }
     str(a.name, 'name', true);
     str(a.category, 'category', true);
-    if (a.category && !catIds.has(a.category)) e(`category "${a.category}" ist nicht in data/categories.json`);
-    if (a.category && !file.split('/').includes(a.category)) e(`liegt nicht im Ordner data/articles/${a.category}/`);
+    if (a.category && !catIds.has(a.category)) e(`category "${a.category}" ist keine Unterkategorie aus data/taxonomy.json (Pfad wie "audio/endstufen")`);
+    if (a.category && !file.replace(/\\/g, '/').endsWith(`data/articles/${a.category}/${a.id}.json`)) e(`liegt nicht im Ordner data/articles/${a.category}/`);
+    const K = kinds[a.kind];
+    if (a.kind === undefined) e('kind (Elementtyp) fehlt – siehe data/meta/kinds.json');
+    else if (!K) e(`kind "${a.kind}" ist nicht in data/meta/kinds.json`);
+    if (a.dimensions !== undefined) {
+      for (const k of Object.keys(a.dimensions)) if (!ORDER.dimensions.includes(k)) e(`dimensions.${k} ist unbekannt (w, h, d)`);
+      for (const k of ORDER.dimensions) num(a.dimensions[k], `dimensions.${k}`, { nullable: true });
+    }
+    if (a.mount !== undefined) {
+      const m = a.mount;
+      for (const k of Object.keys(m)) if (!ORDER.mount.includes(k)) e(`mount.${k} ist unbekannt (fits, provides)`);
+      if (!Array.isArray(m.fits)) e('mount.fits muss eine Liste sein (leer = wird nirgends eingebaut)');
+      else for (const s of m.fits) if (!mountSystems[s]) e(`mount.fits "${s}" ist nicht in data/meta/mount-systems.json`);
+      if (m.provides !== undefined) {
+        if (!Array.isArray(m.provides)) e('mount.provides muss eine Liste sein');
+        else m.provides.forEach((p, i) => {
+          for (const k of Object.keys(p)) if (!ORDER.provide.includes(k)) e(`mount.provides[${i}].${k} ist unbekannt`);
+          if (!mountSystems[p.system]) e(`mount.provides[${i}].system "${p.system}" ist nicht in data/meta/mount-systems.json`);
+          if (p.side !== undefined && !['front', 'rear'].includes(p.side)) e(`mount.provides[${i}].side muss front oder rear sein`);
+          if (p.fastener !== undefined && !mountSystems[p.system]?.fasteners?.[p.fastener]) e(`mount.provides[${i}].fastener "${p.fastener}" gibt es bei ${p.system} nicht`);
+          if (p.optional !== undefined && p.optional !== true) e(`mount.provides[${i}].optional nur true oder weglassen`);
+        });
+      }
+    }
+    if (a.specs !== undefined) {
+      const props = Object.fromEntries((K?.props || []).map(p => [p.k, p]));
+      for (const [k, v] of Object.entries(a.specs)) {
+        const p = props[k];
+        if (!p) { e(`specs.${k} ist für Elementtyp "${a.kind}" nicht definiert (data/meta/kinds.json)`); continue; }
+        if (v === null) continue;
+        if (p.t === 'num' && (typeof v !== 'number' || !Number.isFinite(v))) e(`specs.${k} muss eine Zahl sein`);
+        if (p.t === 'bool' && typeof v !== 'boolean') e(`specs.${k} muss true oder false sein`);
+        if (p.t === 'text' && typeof v !== 'string') e(`specs.${k} muss Text sein`);
+        if (p.t === 'enum' && !p.o.includes(v)) e(`specs.${k} muss eines von ${p.o.join(', ')} sein`);
+      }
+    }
+    if (a.media !== undefined) {
+      for (const [k, v] of Object.entries(a.media)) {
+        if (!ORDER.media.includes(k)) { e(`media.${k} ist unbekannt (image, front, rear)`); continue; }
+        if (v === null) continue;
+        if (typeof v !== 'object') { e(`media.${k} muss null oder {"url": …} bzw. {"file": …} sein`); continue; }
+        for (const q of Object.keys(v)) if (!ORDER.mediaRef.includes(q)) e(`media.${k}.${q} ist unbekannt (url, file, note)`);
+        if ((v.url === undefined) === (v.file === undefined)) e(`media.${k}: genau eines von url oder file angeben`);
+        if (v.url !== undefined && !/^https?:\/\//.test(v.url)) e(`media.${k}.url muss mit http:// oder https:// beginnen`);
+        if (v.file !== undefined && !existsSync(join(ROOT, 'data', 'media', v.file))) e(`media.${k}.file "${v.file}" gibt es nicht in data/media/`);
+      }
+    }
     for (const f of ['shortName', 'area', 'group', 'manufacturer', 'partNumber', 'description', 'notes']) str(a[f], f);
     if (a.url !== undefined && !/^https?:\/\//.test(a.url)) e('url muss mit http:// oder https:// beginnen');
     if (a.connectorType !== undefined && !connectorTypes[a.connectorType]) e(`connectorType "${a.connectorType}" ist nicht in data/meta/connector-types.json`);
-    num(a.weightKg, 'weightKg');
-    if (a.weightKg === 0) e('weightKg 0 ist nicht erlaubt – unbekannt = Feld weglassen');
+    num(a.weightKg, 'weightKg', { nullable: true });
+    if (a.weightKg === 0) e('weightKg 0 ist nicht erlaubt – unbekannt = null (offen)');
     price(a.price, 'price');
 
     if (a.rack !== undefined) {
@@ -219,11 +293,12 @@ export function validate({ categories, ioTypes, connectorTypes, connectorFaces =
       if (!MOUNTS.includes(r.mount)) e(`rack.mount muss eines von ${MOUNTS.join(', ')} sein`);
       num(r.units, 'rack.units'); num(r.fraction, 'rack.fraction');
       if (r.fraction > 1) e('rack.fraction muss zwischen 0 und 1 liegen');
-      num(r.width, 'rack.width'); num(r.height, 'rack.height'); num(r.depth, 'rack.depth');
+      num(r.width, 'rack.width'); num(r.height, 'rack.height'); num(r.depth, 'rack.depth', { nullable: true });
       if (r.units !== undefined && (r.units * 2) % 1) e('rack.units in 0,5-HE-Schritten');
     }
     if (a.io !== undefined) {
       for (const k of Object.keys(a.io)) if (!['front', 'rear'].includes(k)) e(`io.${k}: nur front und rear erlaubt`);
+      for (const s of ['front', 'rear']) if (a.io[s] !== null && a.io[s] !== undefined && !Array.isArray(a.io[s])) e(`io.${s} muss eine Liste oder null (offen) sein`);
       for (const s of ['front', 'rear']) (a.io[s] || []).forEach((p, i) => {
         if (!ioSet.has(p.type)) e(`io.${s}[${i}].type "${p.type}" ist unbekannt (siehe data/meta/io-types.json)`);
         num(p.count, `io.${s}[${i}].count`, { min: 1, int: true });
@@ -274,7 +349,7 @@ export function validate({ categories, ioTypes, connectorTypes, connectorFaces =
     }
     if (a.connector !== undefined) {
       const c = a.connector;
-      if (a.category !== 'steckverbinder') e('connector nur bei Steckverbindern');
+      if (a.kind !== 'connector') e('connector nur bei Elementtyp connector');
       if (!c || typeof c !== 'object') e('connector muss ein Objekt sein');
       else {
         for (const k of Object.keys(c)) if (!ORDER.connector.includes(k)) e(`connector.${k} ist unbekannt`);
@@ -298,7 +373,7 @@ export function validate({ categories, ioTypes, connectorTypes, connectorFaces =
     }
     if (a.cable !== undefined) {
       const c = a.cable;
-      if (a.category !== 'kabel') e('cable nur in der Kategorie kabel');
+      if (a.kind !== 'cable') e('cable nur bei Elementtyp cable');
       for (const k of Object.keys(c)) if (!ORDER.cable.includes(k)) e(`cable.${k} ist unbekannt`);
       if (!CABLE_KINDS.includes(c.kind)) e('cable.kind muss patch (konfektioniert) oder bulk (Meterware) sein');
       if (c.kind === 'patch') {

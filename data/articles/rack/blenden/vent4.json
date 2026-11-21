@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "vent4",
+  "name": "Gitterblende 4 HE",
+  "category": "rack/blenden",
+  "kind": "panel",
+  "partNumber": "",
+  "rack": {
+    "mount": "rack",
+    "units": 4,
+    "depth": null
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "kein Adam-Hall-Artikel gefunden"
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:vent4",
+    "order": 9
+  }
+}

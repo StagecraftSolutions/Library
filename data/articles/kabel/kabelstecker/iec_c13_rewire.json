@@ -1,0 +1,28 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "iec_c13_rewire",
+  "name": "Kaltgerätedose C13 zum Selbstanschluss",
+  "shortName": "C13 Kabel",
+  "category": "kabel/kabelstecker",
+  "kind": "connector",
+  "manufacturer": "frei wählbar",
+  "partNumber": "Kaltgeräte-Kupplung C13, Schraubanschluss",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "iec_c14", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  }
+}

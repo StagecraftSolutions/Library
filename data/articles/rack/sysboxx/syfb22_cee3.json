@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb22_cee3",
+  "name": "Frontblech CEE 3-pol Loch, 2 HE, 2 BE",
+  "shortName": "Ausschn. CEE 3p",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB22-CEE3-SCH",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "cutout"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 26.8
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb22_cee3",
+    "order": 34,
+    "extra": {
+      "be": 2,
+      "kind": "cut",
+      "screws": 4,
+      "fits": "CEE 16 A Anbaudose (3-pol; im Konfigurator CEE 16 A 5-/4-pol als Stellvertreter)",
+      "cut": [
+        {"t": "c", "x": 35.6, "y": 44.45, "d": 47}
+      ],
+      "acc": ["cee16f","cee16m","cee16f4"]
+    }
+  }
+}

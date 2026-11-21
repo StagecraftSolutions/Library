@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "blank",
+  "name": "Blindplatte D-Format",
+  "shortName": "Blind",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Millenium",
+  "partNumber": "Millenium Blanking Plate D Format",
+  "connectorType": "blank",
+  "connector": {
+    "form": "d"
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 0.7,
+    "source": "cart"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:blank",
+    "order": 3,
+    "extra": {"fit": "d", "g": "blank"}
+  }
+}

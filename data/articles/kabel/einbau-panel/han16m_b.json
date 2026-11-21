@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "han16m_b",
+  "name": "Han 16B Anbaugehäuse mit Han E 16 Stifteinsatz",
+  "shortName": "HAN16 M",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "Harting",
+  "partNumber": "Harting 09 30 016 0302 + 09 33 016 2601",
+  "connectorType": "han16m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "han_e16", "gender": "m"},
+    "rear": {"term": "crimp"}
+  },
+  "mount": {
+    "fits": ["cutout"]
+  },
+  "cutout": {
+    "w": 113,
+    "h": 43,
+    "cut": [
+      {"t": "r", "w": 82, "h": 35},
+      {"t": "h", "x": -51.5, "y": -16, "d": 4.4},
+      {"t": "h", "x": 51.5, "y": -16, "d": 4.4},
+      {"t": "h", "x": -51.5, "y": 16, "d": 4.4},
+      {"t": "h", "x": 51.5, "y": 16, "d": 4.4}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Gehäuse von vorn aufgesetzt, Einsatz von hinten; Ausschnitt 82 × 35, Löcher 103 × 32, Ø 4,4 nach Harting-Katalog S. 31.51."
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:han16m_b",
+    "order": 51,
+    "extra": {"fit": "fp", "el": {"t": "han16m", "s": 43}}
+  }
+}

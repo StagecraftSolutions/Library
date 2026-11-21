@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "nc3fxx",
+  "name": "XLR 3-pol Kabelbuchse",
+  "shortName": "XLR3 F Kabel",
+  "category": "kabel/kabelstecker",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC3FXX",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "xlr3", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  }
+}

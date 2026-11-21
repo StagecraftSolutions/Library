@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "pl_nps_n",
+  "name": "Powerlock Panel Source N (blau), 400 A",
+  "shortName": "PL N",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "ITT Cannon (Veam)",
+  "partNumber": "Veam NPS-N-BL-T4",
+  "connectorType": "powerlockm",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "powerlock", "gender": "m"},
+    "rear": {"term": "stud"}
+  },
+  "mount": {
+    "fits": ["cutout"]
+  },
+  "cutout": {
+    "w": 57,
+    "h": 57,
+    "cut": [
+      {"t": "c", "d": 44},
+      {"t": "h", "x": -21.25, "y": -21.25, "d": 5.5},
+      {"t": "h", "x": 21.25, "y": -21.25, "d": 5.5},
+      {"t": "h", "x": -21.25, "y": 21.25, "d": 5.5},
+      {"t": "h", "x": 21.25, "y": 21.25, "d": 5.5}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Flansch 57 × 57, Ausschnitt Ø 44, Löcher 42,5 × 42,5 Ø 5,5 nach ITT-Katalog S. M-7; Einbau von vorn."
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:pl_nps_n",
+    "order": 47,
+    "extra": {"fit": "fp", "el": {"t": "powerlockm", "s": 57, "c": "N"}}
+  }
+}

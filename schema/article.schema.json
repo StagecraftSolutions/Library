@@ -5,15 +5,39 @@
   "description": "Ein Artikel = eine Datei data/articles/<category>/<id>.json. Verbindlich geprüft wird mit node scripts/build.mjs --check.",
   "type": "object",
   "additionalProperties": false,
-  "required": ["id", "name", "category"],
+  "required": [
+    "id",
+    "name",
+    "category",
+    "kind"
+  ],
   "$defs": {
     "price": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "eur": { "type": ["number", "null"], "minimum": 0, "description": "Preis in EUR inkl. MwSt. (netto × 1,19); null = unbekannt" },
-        "source": { "enum": ["cart", "web", "ref", "check", "user"], "description": "cart = Warenkorbpreis, web = Webpreis, ref = gelistet ohne Preis, check = prüfen, user = eigene Angabe" },
-        "note": { "type": "string", "description": "Quelle des Preises bzw. Hinweis (Händler, Stand …)" }
+        "eur": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Preis in EUR inkl. MwSt. (netto × 1,19); null = unbekannt"
+        },
+        "source": {
+          "enum": [
+            "cart",
+            "web",
+            "ref",
+            "check",
+            "user"
+          ],
+          "description": "cart = Warenkorbpreis, web = Webpreis, ref = gelistet ohne Preis, check = prüfen, user = eigene Angabe"
+        },
+        "note": {
+          "type": "string",
+          "description": "Quelle des Preises bzw. Hinweis (Händler, Stand …)"
+        }
       }
     },
     "side": {
@@ -21,22 +45,87 @@
       "additionalProperties": false,
       "description": "Eine Anschlussseite: entweder face + gender (Steckgesicht) oder term (Anschlussart)",
       "properties": {
-        "face": { "type": "string", "description": "Steckgesicht aus data/meta/connector-faces.json" },
-        "gender": { "enum": ["m", "f"], "description": "m = Stecker/Stifte, f = Buchse" },
-        "term": { "type": "string", "description": "Anschlussart aus data/meta/terminations.json (solder, screw, crimp, pcb …)" },
-        "note": { "type": "string", "description": "Ergänzung, z. B. \"auch Flachstecker 4,8 mm\"" }
+        "face": {
+          "type": "string",
+          "description": "Steckgesicht aus data/meta/connector-faces.json"
+        },
+        "gender": {
+          "enum": [
+            "m",
+            "f"
+          ],
+          "description": "m = Stecker/Stifte, f = Buchse"
+        },
+        "term": {
+          "type": "string",
+          "description": "Anschlussart aus data/meta/terminations.json (solder, screw, crimp, pcb …)"
+        },
+        "note": {
+          "type": "string",
+          "description": "Ergänzung, z. B. \"auch Flachstecker 4,8 mm\""
+        }
       },
-      "oneOf": [ { "required": ["face", "gender"], "not": { "required": ["term"] } }, { "required": ["term"], "not": { "anyOf": [ { "required": ["face"] }, { "required": ["gender"] } ] } } ]
+      "oneOf": [
+        {
+          "required": [
+            "face",
+            "gender"
+          ],
+          "not": {
+            "required": [
+              "term"
+            ]
+          }
+        },
+        {
+          "required": [
+            "term"
+          ],
+          "not": {
+            "anyOf": [
+              {
+                "required": [
+                  "face"
+                ]
+              },
+              {
+                "required": [
+                  "gender"
+                ]
+              }
+            ]
+          }
+        }
+      ]
     },
     "port": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["type", "count"],
+      "required": [
+        "type",
+        "count"
+      ],
       "properties": {
-        "type": { "type": "string", "description": "Anschlusstyp, siehe data/meta/io-types.json" },
-        "count": { "type": "integer", "minimum": 1 },
-        "label": { "type": "string", "description": "Funktion in Englisch, wie auf dem Gerät (z. B. \"SDI In 1\"); kein Semikolon" },
-        "dir": { "enum": ["in", "out", "io"], "description": "Signalrichtung der ganzen Gruppe: in, out, io (beides/Netzwerk)" },
+        "type": {
+          "type": "string",
+          "description": "Anschlusstyp, siehe data/meta/io-types.json"
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "label": {
+          "type": "string",
+          "description": "Funktion in Englisch, wie auf dem Gerät (z. B. \"SDI In 1\"); kein Semikolon"
+        },
+        "dir": {
+          "enum": [
+            "in",
+            "out",
+            "io"
+          ],
+          "description": "Signalrichtung der ganzen Gruppe: in, out, io (beides/Netzwerk)"
+        },
         "ports": {
           "type": "array",
           "description": "Optional: einzelne Anschlüsse der Gruppe (Anzahl = count) für die Verkabelung",
@@ -44,10 +133,28 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
-              "label": { "type": "string", "description": "Beschriftung des einzelnen Anschlusses (Englisch, wie auf dem Gerät)" },
-              "face": { "type": "string", "description": "Steckgesicht aus data/meta/connector-faces.json, wenn abweichend von der Zuordnung des io-Typs (data/meta/io-faces.json)" },
-              "gender": { "enum": ["m", "f"], "description": "m = Stecker/Stifte, f = Buchse" },
-              "dir": { "enum": ["in", "out", "io"] }
+              "label": {
+                "type": "string",
+                "description": "Beschriftung des einzelnen Anschlusses (Englisch, wie auf dem Gerät)"
+              },
+              "face": {
+                "type": "string",
+                "description": "Steckgesicht aus data/meta/connector-faces.json, wenn abweichend von der Zuordnung des io-Typs (data/meta/io-faces.json)"
+              },
+              "gender": {
+                "enum": [
+                  "m",
+                  "f"
+                ],
+                "description": "m = Stecker/Stifte, f = Buchse"
+              },
+              "dir": {
+                "enum": [
+                  "in",
+                  "out",
+                  "io"
+                ]
+              }
             }
           }
         }
@@ -55,89 +162,457 @@
     }
   },
   "properties": {
-    "$schema": { "type": "string" },
-    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$", "description": "Eindeutig und gleich dem Dateinamen. Nicht mehr ändern, sobald andere Systeme darauf verweisen." },
-    "name": { "type": "string", "minLength": 1, "description": "Anzeigename (Deutsch)" },
-    "shortName": { "type": "string", "description": "Kurzname für Beschriftungen" },
-    "category": { "type": "string", "description": "Kategorie aus data/categories.json; die Datei liegt im gleichnamigen Ordner" },
-    "area": { "type": "string", "description": "Einsatzbereich bei Geräten: Audio, Video, Licht, Netzwerk, Funk, Strom, Rigging …" },
-    "group": { "type": "string", "description": "Gruppe für die Auswahl, z. B. \"Audio · Endstufen · d&b\"" },
-    "manufacturer": { "type": "string" },
-    "partNumber": { "type": "string", "description": "Artikel-/Bestellnummer" },
-    "connectorType": { "type": "string", "description": "Nur Steckverbinder: Typ aus data/meta/connector-types.json" },
+    "$schema": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9_-]*$",
+      "description": "Eindeutig und gleich dem Dateinamen. Nicht mehr ändern, sobald andere Systeme darauf verweisen."
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Anzeigename (Deutsch)"
+    },
+    "shortName": {
+      "type": "string",
+      "description": "Kurzname für Beschriftungen"
+    },
+    "category": {
+      "type": "string",
+      "description": "Unterkategorie aus data/taxonomy.json als Pfad, z. B. \"audio/endstufen\"; die Datei liegt in data/articles/<Pfad>/<id>.json"
+    },
+    "kind": {
+      "type": "string",
+      "description": "Elementtyp aus data/meta/kinds.json: device19, device, case, cabinet, carrier, panel, drawer, rail, hardware, connector, cable, speaker, stand, display, computer, light, accessory, other"
+    },
+    "area": {
+      "type": "string",
+      "description": "Einsatzbereich bei Geräten: Audio, Video, Licht, Netzwerk, Funk, Strom, Rigging …"
+    },
+    "group": {
+      "type": "string",
+      "description": "Gruppe für die Auswahl, z. B. \"Audio · Endstufen · d&b\""
+    },
+    "manufacturer": {
+      "type": "string"
+    },
+    "partNumber": {
+      "type": "string",
+      "description": "Artikel-/Bestellnummer"
+    },
+    "connectorType": {
+      "type": "string",
+      "description": "Nur Steckverbinder: Typ aus data/meta/connector-types.json"
+    },
     "connector": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["form"],
+      "required": [
+        "form"
+      ],
       "description": "Nur Steckverbinder: Bauform und beide Anschlussseiten",
       "properties": {
-        "form": { "enum": ["d", "panel", "cable"], "description": "d = Einbaustecker D-Format (D-Loch), panel = Einbaustecker mit eigenem Ausschnitt/Bohrung (cutout, eigene DXF), cable = Kabelstecker" },
-        "front": { "$ref": "#/$defs/side", "description": "Vorderseite: Steckgesicht" },
-        "rear": { "$ref": "#/$defs/side", "description": "Rückseite: Anschlussart oder (Durchführung) Steckgesicht; beim Kabelstecker der Kabelanschluss" }
+        "form": {
+          "enum": [
+            "d",
+            "panel",
+            "cable"
+          ],
+          "description": "d = Einbaustecker D-Format (D-Loch), panel = Einbaustecker mit eigenem Ausschnitt/Bohrung (cutout, eigene DXF), cable = Kabelstecker"
+        },
+        "front": {
+          "$ref": "#/$defs/side",
+          "description": "Vorderseite: Steckgesicht"
+        },
+        "rear": {
+          "$ref": "#/$defs/side",
+          "description": "Rückseite: Anschlussart oder (Durchführung) Steckgesicht; beim Kabelstecker der Kabelanschluss"
+        }
       }
     },
     "cable": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["kind"],
+      "required": [
+        "kind"
+      ],
       "description": "Nur Kategorie kabel: konfektioniertes Kabel (patch) oder Meterware (bulk)",
       "properties": {
-        "kind": { "enum": ["patch", "bulk"], "description": "patch = konfektioniert mit Steckern an beiden Enden, bulk = Meterware" },
-        "a": { "type": "object", "additionalProperties": false, "required": ["face", "gender"], "properties": { "face": { "type": "string" }, "gender": { "enum": ["m", "f"] }, "note": { "type": "string" } }, "description": "Stecker an Ende A (patch)" },
-        "b": { "type": "object", "additionalProperties": false, "required": ["face", "gender"], "properties": { "face": { "type": "string" }, "gender": { "enum": ["m", "f"] }, "note": { "type": "string" } }, "description": "Stecker an Ende B (patch)" },
-        "lengths": { "type": "array", "items": { "type": "number", "exclusiveMinimum": 0 }, "description": "Lieferbare Längen in m (patch)" },
-        "spec": { "type": "string", "description": "Aufbau, z. B. \"2 × 0,22 mm², geschirmt\"" }
+        "kind": {
+          "enum": [
+            "patch",
+            "bulk"
+          ],
+          "description": "patch = konfektioniert mit Steckern an beiden Enden, bulk = Meterware"
+        },
+        "a": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "face",
+            "gender"
+          ],
+          "properties": {
+            "face": {
+              "type": "string"
+            },
+            "gender": {
+              "enum": [
+                "m",
+                "f"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "description": "Stecker an Ende A (patch)"
+        },
+        "b": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "face",
+            "gender"
+          ],
+          "properties": {
+            "face": {
+              "type": "string"
+            },
+            "gender": {
+              "enum": [
+                "m",
+                "f"
+              ]
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "description": "Stecker an Ende B (patch)"
+        },
+        "lengths": {
+          "type": "array",
+          "items": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "description": "Lieferbare Längen in m (patch)"
+        },
+        "spec": {
+          "type": "string",
+          "description": "Aufbau, z. B. \"2 × 0,22 mm², geschirmt\""
+        }
       }
     },
-    "description": { "type": "string" },
-    "url": { "type": "string", "pattern": "^https?://", "description": "Hersteller- oder Händlerseite" },
+    "description": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "pattern": "^https?://",
+      "description": "Hersteller- oder Händlerseite"
+    },
     "rack": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["mount"],
+      "required": [
+        "mount"
+      ],
       "properties": {
-        "mount": { "enum": ["rack", "bmd", "half", "free", "desk", "none"], "description": "rack = eigene Rackohren, bmd = Blackmagic-Teilbreite, half = halbe Breite mit Kit, free = Kleingerät für Rackwanne, desk = Tischgerät, none = nicht rackbar" },
-        "units": { "type": "number", "minimum": 0, "multipleOf": 0.5, "description": "Höheneinheiten (HE)" },
-        "fraction": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "description": "Anteil der 19″-Breite (bmd/half)" },
-        "width": { "type": "number", "minimum": 0, "description": "Breite in mm (free/half)" },
-        "height": { "type": "number", "minimum": 0, "description": "Höhe in mm (free/half)" },
-        "depth": { "type": "number", "minimum": 0, "description": "Einbautiefe in mm inkl. Griffe/Stecker" }
+        "mount": {
+          "enum": [
+            "rack",
+            "bmd",
+            "half",
+            "free",
+            "desk",
+            "none"
+          ],
+          "description": "rack = eigene Rackohren, bmd = Blackmagic-Teilbreite, half = halbe Breite mit Kit, free = Kleingerät für Rackwanne, desk = Tischgerät, none = nicht rackbar"
+        },
+        "units": {
+          "type": "number",
+          "minimum": 0,
+          "multipleOf": 0.5,
+          "description": "Höheneinheiten (HE)"
+        },
+        "fraction": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "maximum": 1,
+          "description": "Anteil der 19″-Breite (bmd/half)"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Breite in mm (free/half)"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Höhe in mm (free/half)"
+        },
+        "depth": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0,
+          "description": "Einbautiefe in mm inkl. Griffe/Stecker"
+        }
       }
     },
-    "cutout": {
+    "dimensions": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["w", "h", "cut"],
-      "description": "Einbauausschnitt (Steckverbinder mit eigenem Ausschnitt); Maße in mm, Ursprung = Mitte. Ohne Angabe gilt bei Steckverbindern die D-Norm.",
+      "description": "Außenmaße in mm (Geräte ohne rack-Angaben, Lautsprecher, Bildschirme …); null = offen",
       "properties": {
-        "w": { "type": "number", "exclusiveMinimum": 0, "description": "Flanschbreite" },
-        "h": { "type": "number", "exclusiveMinimum": 0, "description": "Flanschhöhe" },
-        "cut": {
-          "type": "array", "minItems": 1,
+        "w": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "h": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "d": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "mount": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fits"
+      ],
+      "description": "Einbau: fits = Einbausysteme, in die der Artikel passt (mehrere möglich); provides = Einbausysteme, die er selbst bietet. Systeme in data/meta/mount-systems.json",
+      "properties": {
+        "fits": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "z. B. [\"bmd-urs\", \"tray19\", \"desk\"]"
+        },
+        "provides": {
+          "type": "array",
           "items": {
             "type": "object",
             "additionalProperties": false,
-            "required": ["t"],
+            "required": [
+              "system"
+            ],
             "properties": {
-              "t": { "enum": ["c", "h", "r"], "description": "c = runder Ausschnitt, h = Bohrung (Schraube), r = rechteckiger Ausschnitt" },
-              "d": { "type": "number", "exclusiveMinimum": 0, "description": "Durchmesser (c, h)" },
-              "w": { "type": "number", "exclusiveMinimum": 0, "description": "Breite (r)" },
-              "h": { "type": "number", "exclusiveMinimum": 0, "description": "Höhe (r)" },
-              "x": { "type": "number", "description": "Versatz zur Mitte, nach rechts" },
-              "y": { "type": "number", "description": "Versatz zur Mitte, nach unten" }
+              "system": {
+                "type": "string"
+              },
+              "side": {
+                "enum": [
+                  "front",
+                  "rear"
+                ]
+              },
+              "fastener": {
+                "type": "string",
+                "description": "Befestigung, z. B. cage (Käfigmuttern), slide (Gleitmuttern), rss"
+              },
+              "optional": {
+                "const": true
+              }
             }
           }
         }
       }
     },
-    "weightKg": { "type": "number", "exclusiveMinimum": 0, "description": "Gewicht in kg; unbekannt = weglassen, nie 0" },
-    "price": { "$ref": "#/$defs/price" },
+    "cutout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "w",
+        "h",
+        "cut"
+      ],
+      "description": "Einbauausschnitt (Steckverbinder mit eigenem Ausschnitt); Maße in mm, Ursprung = Mitte. Ohne Angabe gilt bei Steckverbindern die D-Norm.",
+      "properties": {
+        "w": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Flanschbreite"
+        },
+        "h": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Flanschhöhe"
+        },
+        "cut": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "t"
+            ],
+            "properties": {
+              "t": {
+                "enum": [
+                  "c",
+                  "h",
+                  "r"
+                ],
+                "description": "c = runder Ausschnitt, h = Bohrung (Schraube), r = rechteckiger Ausschnitt"
+              },
+              "d": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Durchmesser (c, h)"
+              },
+              "w": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Breite (r)"
+              },
+              "h": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Höhe (r)"
+              },
+              "x": {
+                "type": "number",
+                "description": "Versatz zur Mitte, nach rechts"
+              },
+              "y": {
+                "type": "number",
+                "description": "Versatz zur Mitte, nach unten"
+              }
+            }
+          }
+        }
+      }
+    },
+    "weightKg": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "exclusiveMinimum": 0,
+      "description": "Gewicht in kg; null = offen (Platzhalter), nie 0"
+    },
+    "price": {
+      "$ref": "#/$defs/price"
+    },
     "io": {
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "front": { "type": "array", "items": { "$ref": "#/$defs/port" } },
-        "rear": { "type": "array", "items": { "$ref": "#/$defs/port" } }
+        "front": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "null = offen"
+        },
+        "rear": {
+          "type": [
+            "array",
+            "null"
+          ],
+          "items": {
+            "$ref": "#/$defs/port"
+          },
+          "description": "null = offen"
+        }
+      }
+    },
+    "specs": {
+      "type": "object",
+      "description": "Eigenschaften je Elementtyp (data/meta/kinds.json, props); null = offen"
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Produktbild und exakte Grafiken der Vorder-/Rückseite; null = Platzhalter",
+      "properties": {
+        "image": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "file": {
+              "type": "string",
+              "description": "Datei unter data/media/ (nur eigene Fotos/Zeichnungen, keine Herstellerbilder)"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "description": "null = Platzhalter (offen); sonst {url} oder {file}"
+        },
+        "front": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "file": {
+              "type": "string",
+              "description": "Datei unter data/media/ (nur eigene Fotos/Zeichnungen, keine Herstellerbilder)"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "description": "null = Platzhalter (offen); sonst {url} oder {file}"
+        },
+        "rear": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "file": {
+              "type": "string",
+              "description": "Datei unter data/media/ (nur eigene Fotos/Zeichnungen, keine Herstellerbilder)"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "description": "null = Platzhalter (offen); sonst {url} oder {file}"
+        }
       }
     },
     "variants": {
@@ -147,13 +622,29 @@
         "type": "object",
         "additionalProperties": false,
         "properties": {
-          "units": { "type": "number" },
-          "depth": { "type": "number" },
-          "partNumber": { "type": "string" },
-          "price": { "$ref": "#/$defs/price" },
-          "weightKg": { "type": "number", "exclusiveMinimum": 0 },
-          "dimensions": { "type": "string", "description": "Außenmaße B × H × T" },
-          "usableDepth": { "type": "number" }
+          "units": {
+            "type": "number"
+          },
+          "depth": {
+            "type": "number"
+          },
+          "partNumber": {
+            "type": "string"
+          },
+          "price": {
+            "$ref": "#/$defs/price"
+          },
+          "weightKg": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "dimensions": {
+            "type": "string",
+            "description": "Außenmaße B × H × T"
+          },
+          "usableDepth": {
+            "type": "number"
+          }
         }
       }
     },
@@ -161,31 +652,63 @@
       "type": "object",
       "additionalProperties": false,
       "properties": {
-        "unchecked": { "const": true, "description": "Werte geschätzt oder noch nicht geprüft" },
-        "placeholder": { "const": true, "description": "Aus Herstellerliste übernommen, Maße/Anschlüsse offen" }
+        "unchecked": {
+          "const": true,
+          "description": "Werte geschätzt oder noch nicht geprüft"
+        },
+        "placeholder": {
+          "const": true,
+          "description": "Aus Herstellerliste übernommen, Maße/Anschlüsse offen"
+        }
       }
     },
-    "notes": { "type": "string" },
+    "notes": {
+      "type": "string"
+    },
     "inventory": {
       "type": "object",
       "additionalProperties": false,
       "description": "Eigener Bestand",
       "properties": {
-        "qty": { "type": "integer", "minimum": 0 },
-        "location": { "type": "string" },
-        "note": { "type": "string" }
+        "qty": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "location": {
+          "type": "string"
+        },
+        "note": {
+          "type": "string"
+        }
       }
     },
     "rackmanufaktur": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["key"],
+      "required": [
+        "key"
+      ],
       "description": "Verknüpfung mit Rackmanufaktur",
       "properties": {
-        "key": { "type": "string", "description": "Schlüssel in Rackmanufaktur, z. B. dev:swisson_xnd8, con:xlr3f, art:blank1, case:pro560" },
-        "order": { "type": "integer", "description": "Position in der Auswahlliste von Rackmanufaktur" },
-        "extra": { "type": "object", "description": "Felder, die nur Rackmanufaktur braucht (Footprints, Kit-Typ, Schienenart …) – unverändert übernommen" },
-        "shelf": { "type": "object", "required": ["key"], "description": "Nur Rackwannen, die im Konfigurator zugleich als Wanne (SHELVES) geführt werden: deren Schlüssel und eigene Felder; Artikelnummer und Preis kommen aus dem Artikel" }
+        "key": {
+          "type": "string",
+          "description": "Schlüssel in Rackmanufaktur, z. B. dev:swisson_xnd8, con:xlr3f, art:blank1, case:pro560"
+        },
+        "order": {
+          "type": "integer",
+          "description": "Position in der Auswahlliste von Rackmanufaktur"
+        },
+        "extra": {
+          "type": "object",
+          "description": "Felder, die nur Rackmanufaktur braucht (Footprints, Kit-Typ, Schienenart …) – unverändert übernommen"
+        },
+        "shelf": {
+          "type": "object",
+          "required": [
+            "key"
+          ],
+          "description": "Nur Rackwannen, die im Konfigurator zugleich als Wanne (SHELVES) geführt werden: deren Schlüssel und eigene Felder; Artikelnummer und Preis kommen aus dem Artikel"
+        }
       }
     }
   }

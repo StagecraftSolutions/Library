@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "nc5fxx",
+  "name": "XLR 5-pol Kabelbuchse (DMX)",
+  "shortName": "XLR5 F Kabel",
+  "category": "kabel/kabelstecker",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC5FXX",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "xlr5", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "novastar_vx600p",
+  "name": "NovaStar VX600 Pro",
+  "category": "video/led",
+  "kind": "device19",
+  "area": "Video",
+  "group": "Video · LED",
+  "manufacturer": "NovaStar",
+  "url": "https://www.novastar.tech/product/detail.html?catid=3&id=34",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 250
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "knob", "count": 1, "label": "Rotary knob"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "hdmi", "count": 5, "label": "3× In, 2× Out/Loop"},
+      {"type": "bnc", "count": 2, "label": "3G-SDI In/Loop"},
+      {"type": "sfp", "count": 3, "label": "OPT"},
+      {"type": "ethercon", "count": 6, "label": "LED outputs"},
+      {"type": "rj45", "count": 2, "label": "Control"},
+      {"type": "usba", "count": 1, "label": "USB 3.0"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:novastar_vx600p",
+    "order": 154
+  }
+}

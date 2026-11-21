@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "drawer4",
+  "name": "Rackschublade 4 HE, Stahl, abschließbar, 392 mm",
+  "category": "rack/schubladen",
+  "kind": "drawer",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87404",
+  "description": "392 mm Außentiefe, Innentiefe 373 mm, 25 kg Traglast.",
+  "url": "https://www.adamhall.com/shop/en/19-rack-drawers",
+  "rack": {
+    "mount": "rack",
+    "units": 4,
+    "depth": 392
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 85,
+    "source": "web",
+    "note": "Music Store"
+  },
+  "specs": {
+    "innerHeight": null,
+    "innerDepth": null,
+    "lock": null,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:drawer4",
+    "order": 17
+  }
+}

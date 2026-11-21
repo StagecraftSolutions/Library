@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "db_ds100m",
+  "name": "d&b DS100M Signal Engine (Milan)",
+  "category": "audio/prozessoren",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Prozessoren · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "url": "https://www.dbaudio.com/global/en/products/processing-and-matrix/ds100m/",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 481
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 11,
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Power button"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "Mains In"},
+      {"type": "rj45", "count": 4, "label": "ETH 1, ETH 2 (control), Milan primary/secondary"},
+      {"type": "usba", "count": 2, "label": "USB 1, USB 2"},
+      {"type": "bnc", "count": 5, "label": "MADI In 1–3, Word Clock In/Out"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Ansicht nach d&b-Maßzeichnung (Datenblatt, Front) und Produktfotos (Rückseite) gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_ds100m",
+    "order": 173
+  }
+}

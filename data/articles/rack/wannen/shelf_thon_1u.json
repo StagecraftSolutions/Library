@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "shelf_thon_1u",
+  "name": "Thon Rack Adapter 1U 25 (Rackwanne)",
+  "shortName": "Thon Rackwanne 1 HE",
+  "category": "rack/wannen",
+  "kind": "carrier",
+  "manufacturer": "Thomann",
+  "partNumber": "Thomann 127151",
+  "description": "Offene Wanne, ca. 435 mm innen, 255 mm tief. Geräte mit Kabelbinder oder Schrauben befestigen, bündig zur Vorderkante.",
+  "url": "https://www.thomann.de/de/thon_rackwanne_1he.htm",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 255
+  },
+  "mount": {
+    "fits": ["rail19"],
+    "provides": [
+      {"system": "tray19"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "thomann.de · Preis prüfen"
+  },
+  "specs": {
+    "innerWidth": 435,
+    "loadKg": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "shelf:thon_1u",
+    "order": 3,
+    "extra": {
+      "shop": "Thomann",
+      "mode": "free",
+      "innerW": 435,
+      "acc": ["free","bmd","half"]
+    }
+  }
+}

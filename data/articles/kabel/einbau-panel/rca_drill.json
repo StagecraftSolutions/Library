@@ -1,0 +1,45 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "rca_drill",
+  "name": "Cinch-Einbaubuchse isoliert, Bohrung Ø 8 mm",
+  "shortName": "RCA*",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "frei wählbar",
+  "partNumber": "Cinch-Einbaubuchse isoliert, Bohrung Ø 8 mm",
+  "connectorType": "rca",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "rca", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["cutout","d-hole"]
+  },
+  "cutout": {
+    "w": 12,
+    "h": 12,
+    "cut": [
+      {"t": "c", "d": 8}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Einbaustecker mit eigener Bohrung Ø 8 mm; Flanschmaß 12 × 12 geschätzt (Mutter/Scheibe)."
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:rca_drill",
+    "order": 19,
+    "extra": {"fit": "fp", "g": "rca"}
+  }
+}

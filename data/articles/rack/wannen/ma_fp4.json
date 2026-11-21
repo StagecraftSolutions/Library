@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ma_fp4",
+  "name": "MA 4Port Node 19″-Rackkit – XLR-Anschlüsse (Frontblende)",
+  "category": "rack/wannen",
+  "kind": "panel",
+  "manufacturer": "MA Lighting",
+  "partNumber": "MA 130282",
+  "mount": {
+    "fits": ["kit-ma"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 73,
+    "source": "web",
+    "note": "Thomann 562328"
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "art:ma_fp4",
+    "order": 23
+  }
+}

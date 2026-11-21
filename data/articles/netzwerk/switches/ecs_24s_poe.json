@@ -1,0 +1,52 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ecs_24s_poe",
+  "name": "UniFi Enterprise Campus 24S PoE (ECS-24S-PoE)",
+  "category": "netzwerk/switches",
+  "kind": "device19",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi Switches",
+  "manufacturer": "Ubiquiti",
+  "url": "https://eu.store.ui.com/eu/en/category/switching-enterprise/collections/enterprise-campus-stackable/products/ecs-24s-poe",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 496
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 2699
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "1,3″-Touch"},
+      {"type": "rj45", "count": 25, "label": "1× GbE, 8× 2,5GbE, 16× 10GbE, PoE+++"},
+      {"type": "sfp", "count": 6, "label": "4× 25G SFP28, 2× 100G QSFP28"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 2, "label": "Netzteile Hot-Swap"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:ecs_24s_poe",
+    "order": 104
+  }
+}

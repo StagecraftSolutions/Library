@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "la_la7_16",
+  "name": "L-Acoustics LA7.16 Amplified Controller",
+  "category": "audio/endstufen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Endstufen · L-Acoustics",
+  "manufacturer": "L-Acoustics",
+  "url": "https://www.l-acoustics.com/products/la7-16/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 450
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "knob", "count": 1, "label": "Encoder"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 4, "label": "Analog/AES In"},
+      {"type": "ethercon", "count": 2, "label": "Milan-AVB"},
+      {"type": "nl8", "count": 4, "label": "Outputs (16 channels)"},
+      {"type": "powercon", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:la_la7_16",
+    "order": 189
+  }
+}

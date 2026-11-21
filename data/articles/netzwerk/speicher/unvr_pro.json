@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "unvr_pro",
+  "name": "UniFi Protect NVR Pro (UNVR-Pro)",
+  "category": "netzwerk/speicher",
+  "kind": "device19",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi Speicher & Strom",
+  "manufacturer": "Ubiquiti",
+  "url": "https://techspecs.ui.com/unifi/physical-security/unvr-pro",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 325
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "1,3″-Touch"},
+      {"type": "sd", "count": 7, "label": "drive bays 3,5″"}
+    ],
+    "rear": [
+      {"type": "rj45", "count": 1, "label": "GbE"},
+      {"type": "sfp", "count": 1, "label": "10G SFP+"},
+      {"type": "iec", "count": 1, "label": "Power"},
+      {"type": "dc", "count": 1, "label": "RPS"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:unvr_pro",
+    "order": 114
+  }
+}

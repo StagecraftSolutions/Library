@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "bm_vh12g_40",
+  "name": "Blackmagic Videohub 40x40 12G",
+  "category": "video/kreuzschienen",
+  "kind": "device19",
+  "area": "Video",
+  "group": "Blackmagic · Videohub",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/blackmagicvideohub",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 180
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 81, "label": "40× SDI In, 40× SDI Out, Reference"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usbc", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 2, "label": "Power redundant"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:bm_vh12g_40",
+    "order": 70
+  }
+}

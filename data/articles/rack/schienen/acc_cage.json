@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "acc_cage",
+  "name": "Käfigmuttern M6, 20 Stk. (für 2-mm-Stahlschienen)",
+  "category": "rack/schienen",
+  "kind": "hardware",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 5653",
+  "weightKg": null,
+  "price": {
+    "eur": 5.5,
+    "source": "web",
+    "note": "Thomann · für 3,5-mm-Alu-Schienen: 5650"
+  },
+  "specs": {
+    "thread": null,
+    "packQty": null
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "acc:cage",
+    "order": 3,
+    "extra": {"pack": 20, "auto": "hole"}
+  }
+}

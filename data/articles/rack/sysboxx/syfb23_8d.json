@@ -1,0 +1,54 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb23_8d",
+  "name": "Frontblech 8 × D-Loch, 2 HE, 3 BE",
+  "shortName": "8× D",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "D-Loch-Bleche · Stecker frei wählbar",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB23-8D",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "d-hole"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 26.8
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb23_8d",
+    "order": 10,
+    "extra": {
+      "be": 3,
+      "kind": "d",
+      "screws": 6,
+      "holes": [
+        [14.1,25.5],
+        [40.3,25.5],
+        [66.5,25.5],
+        [92.7,25.5],
+        [14.1,63.4],
+        [40.3,63.4],
+        [66.5,63.4],
+        [92.7,63.4]
+      ]
+    }
+  }
+}

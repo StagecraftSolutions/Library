@@ -1,0 +1,55 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "db_5dm",
+  "name": "d&b 5DM Installationsverstärker (Milan)",
+  "category": "audio/endstufen",
+  "kind": "device",
+  "area": "Audio",
+  "group": "Audio · Endstufen · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/electronics/dbaudio-manual-5d-5dm-1.1-en.pdf",
+  "rack": {
+    "mount": "half",
+    "fraction": 0.5,
+    "width": 220,
+    "height": 44,
+    "depth": 435
+  },
+  "mount": {
+    "fits": ["kit-db","tray19","desk"]
+  },
+  "weightKg": 4.6,
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Status LEDs"}
+    ],
+    "rear": [
+      {
+        "type": "euroblock",
+        "count": 6,
+        "label": "2× Speaker Out (A/B, C/D), 2× Analog In/Link A1–A4, GPI 1–4, Fault"
+      },
+      {"type": "rj45", "count": 2, "label": "ETH1, ETH2 (Milan, OCA)"},
+      {"type": "iec", "count": 1, "label": "Mains In (C14)"},
+      {"type": "btn", "count": 1, "label": "Power switch"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Euroblocks von DINKLE (nicht Phoenix) laut Handbuch; Rackkit für 2 Geräte auf 1 HE liegt bei. Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_5dm",
+    "order": 177,
+    "extra": {"kitType": "db"}
+  }
+}

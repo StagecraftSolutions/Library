@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "sysboxx_strip",
+  "name": "SYSBOXX Gewindestreifen 12 BE (19″)",
+  "category": "rack/sysboxx",
+  "kind": "accessory",
+  "group": "Zubehör",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYGS-12",
+  "weightKg": null,
+  "price": {
+    "eur": 7.85,
+    "source": "web",
+    "note": "sommercable.com · 2 Stück je Profil"
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-extra:strip",
+    "order": 1
+  }
+}

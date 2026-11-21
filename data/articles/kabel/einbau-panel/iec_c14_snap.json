@@ -1,0 +1,45 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "iec_c14_snap",
+  "name": "Kaltgeräte-Einbaustecker C14, Snap-in",
+  "shortName": "C14",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "Schurter",
+  "partNumber": "Schurter 1061",
+  "connectorType": "iec_c14",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "iec_c14", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
+  "mount": {
+    "fits": ["cutout"]
+  },
+  "cutout": {
+    "w": 32,
+    "h": 23,
+    "cut": [
+      {"t": "r", "w": 28.8, "h": 19.4}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Ausschnitt 28,8 × 19,4 mm für 0,8–1,5 mm Blech (29,6 × 19,4 mm für 1,6–2 mm)"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:iec_c14_snap",
+    "order": 59,
+    "extra": {"fit": "fp", "el": {"t": "iec", "s": 16}}
+  }
+}

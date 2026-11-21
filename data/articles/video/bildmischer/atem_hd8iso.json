@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "atem_hd8iso",
+  "name": "ATEM Television Studio HD8 ISO",
+  "category": "video/bildmischer",
+  "kind": "device",
+  "area": "Video",
+  "group": "Blackmagic · ATEM",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/atemtelevisionstudio",
+  "rack": {
+    "mount": "desk",
+    "width": 585,
+    "height": 161,
+    "depth": 375
+  },
+  "mount": {
+    "fits": ["desk"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "Control panel"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 21, "label": "8× SDI In, 12× SDI Out, MADI"},
+      {"type": "hdmi", "count": 1, "label": "HDMI Out"},
+      {"type": "xlr", "count": 3, "label": "2× Analog-Audio In, Talkback"},
+      {"type": "rj45", "count": 2, "label": "Ethernet, Talkback"},
+      {"type": "usbc", "count": 2, "label": "USB-C (Aufnahme)"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "notes": "Tischpult mit eingebautem Mischer – nicht rackfähig (585 × 375 × 161 mm)",
+  "rackmanufaktur": {
+    "key": "dev:atem_hd8iso",
+    "order": 18
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "ps_x8",
+  "name": "Powersoft X8 Verstärker 8-Kanal",
+  "category": "audio/endstufen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Endstufen · Powersoft",
+  "manufacturer": "Powersoft",
+  "url": "https://www.powersoft.com/en/products/touring-amps/x-series/x8",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 495
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 24,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 12, "label": "8× Analog In, 4× AES3"},
+      {"type": "rj45", "count": 2, "label": "Ethernet/Dante"},
+      {"type": "nl8", "count": 2, "label": "Outputs"},
+      {"type": "powercon", "count": 1, "label": "Power 32 A"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "dev:ps_x8",
+    "order": 194
+  }
+}

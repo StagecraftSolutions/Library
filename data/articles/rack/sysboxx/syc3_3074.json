@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syc3_3074",
+  "name": "Steckverbinder-Modul 8 × XLR female, 2 HE, 3 BE",
+  "shortName": "8× XLR F",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC3-3074",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 190
+  },
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 8, "label": "XLR female"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc3_3074",
+    "order": 26,
+    "extra": {
+      "be": 3,
+      "kind": "mod",
+      "screws": 6,
+      "els": [
+        {"t": "xlrf", "x": 14.1, "y": 25.5, "s": 12.4, "l": "XLR F 1"},
+        {"t": "xlrf", "x": 40.3, "y": 25.5, "s": 12.4, "l": "XLR F 2"},
+        {"t": "xlrf", "x": 66.5, "y": 25.5, "s": 12.4, "l": "XLR F 3"},
+        {"t": "xlrf", "x": 92.7, "y": 25.5, "s": 12.4, "l": "XLR F 4"},
+        {"t": "xlrf", "x": 14.1, "y": 63.4, "s": 12.4, "l": "XLR F 5"},
+        {"t": "xlrf", "x": 40.3, "y": 63.4, "s": 12.4, "l": "XLR F 6"},
+        {"t": "xlrf", "x": 66.5, "y": 63.4, "s": 12.4, "l": "XLR F 7"},
+        {"t": "xlrf", "x": 92.7, "y": 63.4, "s": 12.4, "l": "XLR F 8"}
+      ]
+    }
+  }
+}

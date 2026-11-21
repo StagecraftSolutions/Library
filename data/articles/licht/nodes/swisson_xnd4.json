@@ -1,0 +1,47 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "swisson_xnd4",
+  "name": "Swisson XND-4R5 Art-Net-Node 4-fach",
+  "category": "licht/nodes",
+  "kind": "device19",
+  "area": "Licht",
+  "group": "Licht · Swisson",
+  "manufacturer": "Swisson",
+  "partNumber": "10 48 21",
+  "url": "https://www.swisson.com/produkte/data-distribution/ethernet-dmx-node/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 136
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 1.6,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "OLED"},
+      {"type": "knob", "count": 1, "label": "Encoder"},
+      {"type": "btn", "count": 7, "label": "select/cancel, link, 4× Port"},
+      {"type": "ethercon", "count": 1, "label": "Ethernet"},
+      {"type": "xlr5f", "count": 4, "label": "DMX 1–4"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 2, "label": "Power In/Thru"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "dev:swisson_xnd4",
+    "order": 147
+  }
+}

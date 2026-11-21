@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "acc_rss",
+  "name": "Geräteschrauben-Satz für RSS-Schiene, 20 Stk.",
+  "category": "rack/schienen",
+  "kind": "hardware",
+  "manufacturer": "ProCase",
+  "partNumber": "ProCase 119212",
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "procaseshop.de · auch 4er (11920) und 100er (11924)"
+  },
+  "specs": {
+    "thread": null,
+    "packQty": null
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "acc:rss",
+    "order": 0,
+    "extra": {"pack": 20, "auto": "rss"}
+  }
+}

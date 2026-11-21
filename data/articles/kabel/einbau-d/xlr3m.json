@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "xlr3m",
+  "name": "XLR 3-pol Stecker",
+  "shortName": "XLR3 M",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC3MD-L-1",
+  "connectorType": "xlr3m",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr3", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 4.9,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:xlr3m",
+    "order": 5,
+    "extra": {"fit": "d", "g": "xlrm", "p": 3}
+  }
+}

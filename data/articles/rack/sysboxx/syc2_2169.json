@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syc2_2169",
+  "name": "Steckverbinder-Modul speakON NL8MDV → 6,3 mm Flachstecker, 2 HE, 2 BE",
+  "shortName": "NL8",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC2-2169",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 84.5
+  },
+  "io": {
+    "front": [
+      {"type": "nl8", "count": 1, "label": "speakON NL8"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc2_2169",
+    "order": 20,
+    "extra": {
+      "be": 2,
+      "kind": "mod",
+      "screws": 4,
+      "els": [
+        {"t": "nl8", "x": 35.6, "y": 44.45, "s": 12.5, "l": "NL8"}
+      ]
+    }
+  }
+}

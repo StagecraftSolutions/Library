@@ -1,0 +1,53 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "showtec_psa32a12s",
+  "name": "Showtec PSA-32A12S Power Distributor",
+  "category": "strom/verteiler",
+  "kind": "device19",
+  "area": "Strom",
+  "group": "Strom",
+  "manufacturer": "Showtec",
+  "url": "https://www.thomann.de/de/showtec_psa_32a12s_power_distributor.htm",
+  "rack": {
+    "mount": "rack",
+    "units": 4,
+    "depth": 250
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 9.8,
+  "price": {
+    "eur": 300
+  },
+  "io": {
+    "front": [
+      {"type": "rcd", "count": 1, "label": "RCD"},
+      {"type": "brk", "count": 12, "label": "MCB C16"},
+      {"type": "lcd", "count": 6, "label": "3× voltmeter, 3× ammeter"},
+      {"type": "schuko", "count": 1, "label": "Schuko Out (front)"}
+    ],
+    "rear": [
+      {"type": "schuko", "count": 12, "label": "Schuko Out (3 × 4 circuits)"},
+      {"type": "gland", "count": 1, "label": "CEE 32 A In (1.5 m cable)"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Im Bestand als „Showtec PSA321“ bezeichnet – Modell prüfen. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:showtec_psa32a12s",
+    "order": 218
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "midas_dn4888",
+  "name": "Midas DN4888 (StageConnect 8×8)",
+  "category": "audio/stageboxen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · StageConnect",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/search?q=DN4888",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 169
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "xlr", "count": 16, "label": "8× Line In, 8× Line Out"},
+      {"type": "xlr", "count": 2, "label": "StageConnect"}
+    ],
+    "rear": []
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:midas_dn4888",
+    "order": 60
+  }
+}

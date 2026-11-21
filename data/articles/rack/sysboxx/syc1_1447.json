@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syc1_1447",
+  "name": "Steckverbinder-Modul powerCON TRUE1 Duplex (NAC3PX), 2 HE, 1 BE",
+  "shortName": "TRUE1 Duplex",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC1-1447",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 54
+  },
+  "io": {
+    "front": [
+      {"type": "powercon", "count": 1, "label": "powerCON TRUE1 Duplex"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc1_1447",
+    "order": 17,
+    "extra": {
+      "be": 1,
+      "kind": "mod",
+      "screws": 4,
+      "els": [
+        {"t": "powercon", "x": 17.8, "y": 44.45, "s": 13, "l": "powerCON TRUE1 Duplex"}
+      ]
+    }
+  }
+}

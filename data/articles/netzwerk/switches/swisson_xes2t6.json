@@ -1,0 +1,46 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "swisson_xes2t6",
+  "name": "Swisson XES-2T6 Gigabit-Switch (premanaged)",
+  "category": "netzwerk/switches",
+  "kind": "device19",
+  "area": "Licht",
+  "group": "Licht · Swisson",
+  "manufacturer": "Swisson",
+  "partNumber": "10 42 20",
+  "url": "https://www.swisson.com/produkte/data-distribution/premanaged-gigabit-ethernet-switch/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 136
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": 1.7,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "OLED"},
+      {"type": "knob", "count": 1, "label": "Encoder"},
+      {"type": "btn", "count": 7, "label": "cancel, 6× Port"},
+      {"type": "ethercon", "count": 8, "label": "2× Trunk, 6× Port"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 4, "label": "Primary In/Thru, Backup In/Thru"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "dev:swisson_xes2t6",
+    "order": 149
+  }
+}

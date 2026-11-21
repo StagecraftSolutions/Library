@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "acc_steel",
+  "name": "Geräteschrauben-Satz für Stahl-Rackschiene, 20 Stk.",
+  "category": "rack/schienen",
+  "kind": "hardware",
+  "manufacturer": "ProCase",
+  "partNumber": "ProCase 119261",
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "procaseshop.de · auch 4er (11925) und 100er (11929)"
+  },
+  "specs": {
+    "thread": null,
+    "packQty": null
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "acc:steel",
+    "order": 1,
+    "extra": {"pack": 20, "auto": "steel"}
+  }
+}

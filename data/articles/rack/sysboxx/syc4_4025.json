@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syc4_4025",
+  "name": "Steckverbinder-Modul 3 × Schuko Snap-In, 2 HE, 4 BE",
+  "shortName": "3× Schuko",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC4-4025",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 57
+  },
+  "io": {
+    "front": [
+      {"type": "schuko", "count": 3, "label": "Schuko"}
+    ]
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc4_4025",
+    "order": 23,
+    "extra": {
+      "be": 4,
+      "kind": "mod",
+      "screws": 8,
+      "els": [
+        {"t": "schuko", "x": 24.2, "y": 44.45, "l": "Schuko 1"},
+        {"t": "schuko", "x": 71.2, "y": 44.45, "l": "Schuko 2"},
+        {"t": "schuko", "x": 118.2, "y": 44.45, "l": "Schuko 3"}
+      ]
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "case_thl45rr",
+  "name": "Thon Rack Live 45 BK RR",
+  "shortName": "Thon Live 45 RR",
+  "category": "rack/cases",
+  "kind": "case",
+  "group": "Thomann · Thon mit Schiene hinten",
+  "manufacturer": "Thon",
+  "description": "7 mm Multiplex, schwarz. Stufenlose Rackschienen vorn und hinten, 45 cm zwischen den Schienen, 2 Deckel. Für Endstufen mit hoher Einbautiefe.",
+  "rack": {
+    "mount": "rack"
+  },
+  "mount": {
+    "fits": [],
+    "provides": [
+      {"system": "rail19", "side": "front", "fastener": "slide"},
+      {"system": "rail19", "side": "rear", "fastener": "slide"}
+    ]
+  },
+  "weightKg": null,
+  "specs": {
+    "railType": "gleitmutter",
+    "rearRail": "serienmäßig",
+    "usableDepth": 450,
+    "shockmount": null,
+    "lids": null,
+    "castors": null,
+    "material": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "variants": [
+    {
+      "units": 2,
+      "partNumber": "Thon Rack 2U Live 45 BK RR · Thomann 466792",
+      "price": {"eur": 215, "source": "web"},
+      "dimensions": "555 × ca. 144 × 635 mm"
+    },
+    {
+      "units": 3,
+      "partNumber": "Thon Rack 3U Live 45 BK RR · Thomann 466793",
+      "price": {"eur": 215, "source": "web"},
+      "dimensions": "555 × ca. 188 × 635 mm"
+    },
+    {
+      "units": 4,
+      "partNumber": "Thon Rack 4U Live 45 BK RR · Thomann 466794",
+      "price": {"eur": 222, "source": "web"},
+      "dimensions": "555 × ca. 233 × 635 mm"
+    },
+    {
+      "units": 5,
+      "partNumber": "Thon Rack 5U Live 45 BK RR · Thomann 466795",
+      "price": {"eur": 222, "source": "web"},
+      "dimensions": "555 × ca. 277 × 635 mm"
+    },
+    {
+      "units": 6,
+      "partNumber": "Thon Rack 6U Live 45 BK RR · Thomann 466796",
+      "price": {"eur": 235, "source": "web"},
+      "dimensions": "555 × ca. 322 × 635 mm"
+    },
+    {
+      "units": 8,
+      "partNumber": "Thon Rack 8U Live 45 BK RR · Thomann 466797",
+      "price": {"eur": 245, "source": "web"},
+      "dimensions": "555 × ca. 411 × 635 mm"
+    }
+  ],
+  "rackmanufaktur": {
+    "key": "case:thL45rr",
+    "order": 4,
+    "extra": {
+      "shop": "Thomann",
+      "fix": true,
+      "rear": "std",
+      "rail": "alu",
+      "railMin": 450,
+      "railMax": 450,
+      "use": 450
+    }
+  }
+}

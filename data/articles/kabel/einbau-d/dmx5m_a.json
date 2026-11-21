@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "dmx5m_a",
+  "name": "DMX 5-pol Stecker (In)",
+  "shortName": "DMX IN",
+  "category": "kabel/einbau-d",
+  "kind": "connector",
+  "manufacturer": "Amphenol",
+  "partNumber": "Amphenol AC5MMDZ",
+  "connectorType": "dmx5m",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr5", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["d-hole"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "con:dmx5m_a",
+    "order": 29,
+    "extra": {"fit": "d", "g": "xlrm", "p": 5}
+  }
+}

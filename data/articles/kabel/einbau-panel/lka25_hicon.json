@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "lka25_hicon",
+  "name": "Rund-Multipin 25-pol Einbaubuchse (LK, Shell 24)",
+  "shortName": "LKA25",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "Sommer Cable (HICON)",
+  "partNumber": "HICON HI-LK025FP",
+  "connectorType": "lka25",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "lk25", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
+  "mount": {
+    "fits": ["cutout"]
+  },
+  "cutout": {
+    "w": 44.5,
+    "h": 44.5,
+    "cut": [
+      {"t": "c", "d": 36},
+      {"t": "h", "x": -17.45, "y": -17.45, "d": 3.9},
+      {"t": "h", "x": 17.45, "y": -17.45, "d": 3.9},
+      {"t": "h", "x": -17.45, "y": 17.45, "d": 3.9},
+      {"t": "h", "x": 17.45, "y": 17.45, "d": 3.9}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Maße vom MIL-C-5015-Gegenstück ITT Cannon CA02COM-E24 übernommen (Flansch 44,5, Löcher 34,9, Ausschnitt Ø 36) – am HICON-Teil prüfen."
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:lka25_hicon",
+    "order": 56,
+    "extra": {"fit": "fp", "el": {"t": "lka25", "s": 44.5}}
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "kabel_nl4",
+  "name": "Lautsprecherkabel speakON 4-pol",
+  "category": "kabel/kabel",
+  "kind": "cable",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "speakon4", "gender": "f"},
+    "b": {"face": "speakon4", "gender": "f"},
+    "lengths": [0.5,1,2,3,5],
+    "spec": "4 × 2,5 mm²"
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  },
+  "specs": {
+    "color": null
+  },
+  "media": {
+    "image": null
+  }
+}

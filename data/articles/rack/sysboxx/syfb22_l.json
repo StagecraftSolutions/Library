@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb22_l",
+  "name": "Frontblech Leerblech, 2 HE, 2 BE",
+  "shortName": "Leer 2 BE",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "Leerbleche",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB22-L",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 18.2
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb22_l",
+    "order": 1,
+    "extra": {"be": 2, "kind": "blank", "screws": 4}
+  }
+}

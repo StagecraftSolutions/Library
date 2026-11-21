@@ -1,0 +1,50 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "tm_ip_video",
+  "name": "Teranex Mini IP Video 12G",
+  "category": "video/konverter",
+  "kind": "device",
+  "area": "Video",
+  "group": "Blackmagic · Teranex Mini",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/teranexmini",
+  "rack": {
+    "mount": "bmd",
+    "fraction": 0.3333333333333333,
+    "depth": 230
+  },
+  "mount": {
+    "fits": ["bmd-urs","tray19","desk"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 605
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Control panel"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 3, "label": "SDI In, 2× SDI Out"},
+      {"type": "rj45", "count": 1, "label": "Video over Gigabit Ethernet"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "psu": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:tm_ip_video",
+    "order": 11
+  }
+}

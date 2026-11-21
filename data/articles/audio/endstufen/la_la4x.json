@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "la_la4x",
+  "name": "L-Acoustics LA4X Amplified Controller",
+  "category": "audio/endstufen",
+  "kind": "device19",
+  "area": "Audio",
+  "group": "Audio · Endstufen · L-Acoustics",
+  "manufacturer": "L-Acoustics",
+  "url": "https://www.l-acoustics.com/products/la4x/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 400
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "knob", "count": 1, "label": "Encoder"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 8, "label": "4× Analog In, AES/EBU"},
+      {"type": "ethercon", "count": 2, "label": "Milan-AVB"},
+      {"type": "nl4", "count": 4, "label": "Outputs"},
+      {"type": "powercon", "count": 1, "label": "Power"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:la_la4x",
+    "order": 191
+  }
+}

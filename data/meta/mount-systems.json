@@ -1,0 +1,21 @@
+{
+  "rail19": { "n": "19″-Rackschiene", "d": "Rackschienen vorn (und ggf. hinten) in Case, Schrank oder offenem Rack. Hier werden 19″-Geräte, Rackwannen, Systemrahmen, Blenden und Schubladen verschraubt.",
+    "parent": [], "host": "Case, Schrank oder Rack",
+    "fasteners": {
+      "cage": "Käfigmuttern M6 – Stahlschiene mit Lochraster (0,5-HE-Raster)",
+      "slide": "Gleitmuttern – stufenlose Aluschiene",
+      "rss": "Geräteschrauben – stufenlose ProCase-RSS-Schiene"
+    } },
+  "tray19": { "n": "Rackwanne (Standard)", "d": "Fachboden mit Rackohren. Geräte stehen darauf und werden mit Kabelbindern oder Schrauben befestigt.", "parent": ["rail19"] },
+  "bmd-urs": { "n": "Blackmagic Universal Rack Shelf", "d": "Spezialwanne mit Verschraubung im Sechstel-Raster für Blackmagic-Geräte (1/3, 1/2, 2/3 Rackbreite).", "parent": ["rail19"] },
+  "kit-shure": { "n": "Shure-Rackkit", "d": "Rackmontage-Kit für zwei Shure-Geräte halber Breite (liegt den Geräten bei).", "parent": ["rail19"] },
+  "kit-ma": { "n": "MA-Rackkit", "d": "Rackmontage-Kit für zwei grandMA3-Nodes halber Breite.", "parent": ["rail19"] },
+  "kit-db": { "n": "d&b-Rackkit", "d": "Rackmontage-Kit für zwei d&b-Geräte halber Breite.", "parent": ["rail19"] },
+  "sysboxx": { "n": "SYSBOXX-Reihe", "d": "Sommer Cable SYSBOXX: je 2 HE eine Reihe mit 12 Breiteneinheiten (BE) für Frontbleche.", "parent": ["rail19"] },
+  "d-hole": { "n": "D-Loch", "d": "Normausschnitt Ø 24 mm mit 2 × M3 (D-Format) in Anschlussfeldern und D-Loch-Frontblechen.", "parent": ["rail19", "sysboxx"] },
+  "cutout": { "n": "Eigener Ausschnitt", "d": "Einbaustecker mit eigenem Ausschnitt oder Bohrung in einer Blende (Bohrplan/DXF).", "parent": ["rail19", "sysboxx"] },
+  "desk": { "n": "Lose / Tisch", "d": "Steht frei auf Tisch, Boden oder im Case-Fach.", "parent": [] },
+  "stand35": { "n": "Stativflansch 35 mm", "d": "Lautsprecher auf Stativ oder Distanzstange.", "parent": [] },
+  "vesa": { "n": "VESA-Halterung", "d": "Bildschirme an Wand-, Tisch- oder Stativhalter.", "parent": [] },
+  "truss": { "n": "Traverse / Klammer", "d": "Scheinwerfer und Lautsprecher mit Haken oder Klammer an der Traverse.", "parent": [] }
+}

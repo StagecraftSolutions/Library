@@ -1,0 +1,49 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "cee16m_70",
+  "name": "CEE-Anbaustecker 16 A 5-pol, Flansch 70 × 70",
+  "shortName": "CEE16 M",
+  "category": "kabel/einbau-panel",
+  "kind": "connector",
+  "manufacturer": "PCE",
+  "partNumber": "PCE CEE-Anbaustecker 16 A 5p 6h",
+  "connectorType": "cee16m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee16_5", "gender": "m"},
+    "rear": {"term": "screw"}
+  },
+  "mount": {
+    "fits": ["cutout"]
+  },
+  "cutout": {
+    "w": 70,
+    "h": 70,
+    "cut": [
+      {"t": "c", "d": 54},
+      {"t": "h", "x": -28, "y": -28, "d": 4.5},
+      {"t": "h", "x": 28, "y": -28, "d": 4.5},
+      {"t": "h", "x": -28, "y": 28, "d": 4.5},
+      {"t": "h", "x": 28, "y": 28, "d": 4.5}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Footprint nach Herstellerangabe (Flansch, Lochabstand); Ausschnitt-Ø nach Maßblatt prüfen."
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:cee16m_70",
+    "order": 35,
+    "extra": {"fit": "fp", "el": {"t": "cee16m", "s": 18.92}}
+  }
+}

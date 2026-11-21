@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb21_2d",
+  "name": "Frontblech 2 × D-Loch 90° gedreht, 2 HE, 1 BE",
+  "shortName": "2× D 90°",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "D-Loch-Bleche · Stecker frei wählbar",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-2D",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "d-hole"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 19.5
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_2d",
+    "order": 8,
+    "extra": {"be": 1, "kind": "d", "screws": 4, "holes": [[17.8,25.5,90],[17.8,63.4,90]]}
+  }
+}

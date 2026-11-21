@@ -1,0 +1,26 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "acc_slide",
+  "name": "Gleitmuttern M6 für stufenlose Aluschiene",
+  "category": "rack/schienen",
+  "kind": "hardware",
+  "partNumber": "",
+  "weightKg": null,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "passend zur Thon-Schiene prüfen"
+  },
+  "specs": {
+    "thread": null,
+    "packQty": null
+  },
+  "media": {
+    "image": null
+  },
+  "rackmanufaktur": {
+    "key": "acc:slide",
+    "order": 4,
+    "extra": {"pack": 10, "auto": "alu"}
+  }
+}

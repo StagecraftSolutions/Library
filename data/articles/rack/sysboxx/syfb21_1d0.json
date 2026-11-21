@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "syfb21_1d0",
+  "name": "Frontblech 1 × D-Loch, 2 HE, 1 BE",
+  "shortName": "1× D",
+  "category": "rack/sysboxx",
+  "kind": "panel",
+  "group": "D-Loch-Bleche · Stecker frei wählbar",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-1D0",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "mount": {
+    "fits": ["sysboxx"],
+    "provides": [
+      {"system": "d-hole"}
+    ]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 22.8
+  },
+  "specs": {
+    "material": null,
+    "thickness": null,
+    "color": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_1d0",
+    "order": 5,
+    "extra": {"be": 1, "kind": "d", "screws": 4, "holes": [[17.8,44.45]]}
+  }
+}

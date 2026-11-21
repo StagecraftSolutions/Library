@@ -1,0 +1,52 @@
+{
+  "$schema": "../../../../schema/article.schema.json",
+  "id": "efg",
+  "name": "UniFi Enterprise Fortress Gateway (EFG)",
+  "category": "netzwerk/router",
+  "kind": "device19",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi",
+  "manufacturer": "Ubiquiti",
+  "url": "https://eu.store.ui.com/eu/en/category/cloud-gateways-enterprise-scale/products/efg",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 325
+  },
+  "mount": {
+    "fits": ["rail19"]
+  },
+  "weightKg": null,
+  "price": {
+    "eur": 1889
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "1,3″-Touch"},
+      {"type": "rj45", "count": 2, "label": "2,5GbE"},
+      {"type": "sfp", "count": 4, "label": "2× 10G SFP+, 2× 25G SFP28"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 2, "label": "Netzteile Hot-Swap"}
+    ]
+  },
+  "specs": {
+    "powerW": null,
+    "airflow": null,
+    "rearSupport": null
+  },
+  "media": {
+    "image": null,
+    "front": null,
+    "rear": null
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:efg",
+    "order": 85
+  }
+}
