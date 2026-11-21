@@ -7,6 +7,11 @@
   "manufacturer": "ITT Cannon (Veam)",
   "partNumber": "Veam NPS-3-GY-T4",
   "connectorType": "powerlockm",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "powerlock", "gender": "m"},
+    "rear": {"term": "stud"}
+  },
   "cutout": {
     "w": 57,
     "h": 57,
@@ -22,6 +27,9 @@
     "eur": null,
     "source": "check",
     "note": "Flansch 57 × 57, Ausschnitt Ø 44, Löcher 42,5 × 42,5 Ø 5,5 nach ITT-Katalog S. M-7; Einbau von vorn."
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:pl_nps_l3",

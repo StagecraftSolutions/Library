@@ -7,6 +7,11 @@
   "manufacturer": "Harting",
   "partNumber": "Harting 09 30 016 0302 + 09 33 016 2601",
   "connectorType": "han16m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "han_e16", "gender": "m"},
+    "rear": {"term": "crimp"}
+  },
   "cutout": {
     "w": 113,
     "h": 43,
@@ -22,6 +27,9 @@
     "eur": null,
     "source": "check",
     "note": "Gehäuse von vorn aufgesetzt, Einsatz von hinten; Ausschnitt 82 × 35, Löcher 103 × 32, Ø 4,4 nach Harting-Katalog S. 31.51."
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:han16m_b",
