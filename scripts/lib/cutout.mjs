@@ -17,7 +17,7 @@ export function dDrillOf(c) {
 // Ausschnitt eines Artikels: eigener (cutout) oder bei Steckverbindern die D-Norm
 export function cutoutOf(a) {
   if (a.cutout) { const dDrill = dDrillOf(a.cutout); return { ...a.cutout, standard: null, ...(dDrill && { dDrill }) }; }
-  if (a.category !== 'steckverbinder') return null;
+  if (a.category !== 'steckverbinder' || a.connector?.form === 'cable') return null;   // Kabelstecker: kein Einbau
   const drill = a.rackmanufaktur?.extra?.drill;
   return { ...D_CUTOUT, standard: 'D', ...(drill && { drill }) };
 }
