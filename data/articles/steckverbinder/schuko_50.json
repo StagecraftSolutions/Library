@@ -7,6 +7,17 @@
   "manufacturer": "Mennekes",
   "partNumber": "Mennekes 11081",
   "connectorType": "schuko",
+  "cutout": {
+    "w": 50,
+    "h": 50,
+    "cut": [
+      {"t": "c", "d": 40},
+      {"t": "h", "x": -19, "y": -19, "d": 3.5},
+      {"t": "h", "x": 19, "y": -19, "d": 3.5},
+      {"t": "h", "x": -19, "y": 19, "d": 3.5},
+      {"t": "h", "x": 19, "y": 19, "d": 3.5}
+    ]
+  },
   "price": {
     "eur": null,
     "source": "check",
@@ -18,20 +29,6 @@
   "rackmanufaktur": {
     "key": "con:schuko_50",
     "order": 58,
-    "extra": {
-      "fit": "fp",
-      "el": {"t": "schuko"},
-      "fp": {
-        "w": 50,
-        "h": 50,
-        "cut": [
-          {"t": "c", "d": 40},
-          {"t": "h", "x": -19, "y": -19, "d": 3.5},
-          {"t": "h", "x": 19, "y": -19, "d": 3.5},
-          {"t": "h", "x": -19, "y": 19, "d": 3.5},
-          {"t": "h", "x": 19, "y": 19, "d": 3.5}
-        ]
-      }
-    }
+    "extra": {"fit": "fp", "el": {"t": "schuko"}}
   }
 }

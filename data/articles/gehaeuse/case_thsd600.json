@@ -53,13 +53,13 @@
     "order": 7,
     "extra": {
       "shop": "Thomann",
-      "use": 500,
       "fix": true,
       "rear": "std",
       "rail": "hole",
       "railMin": 400,
       "railMax": 500,
-      "shock": true
+      "shock": true,
+      "use": 500
     }
   }
 }

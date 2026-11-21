@@ -52,6 +52,7 @@ Beispiel (Preis und Bestand nur zur Veranschaulichung):
 | `price.source` | `cart` Warenkorb · `web` Webpreis · `ref` gelistet ohne Preis · `check` prüfen · `user` eigene Angabe |
 | `price.note` | Händler, Stand, Hinweis |
 | `io.front`, `io.rear` | Anschlüsse: `type` aus `data/meta/io-types.json`, `count`, `label` (Englisch, wie auf dem Gerät, ohne `;`) |
+| `cutout` | nur Steckverbinder mit eigenem Einbauausschnitt: Flansch `w` × `h` und `cut` = Liste aus `c` (runder Ausschnitt, `d`), `h` (Bohrung, `d`), `r` (Rechteck, `w`/`h`), jeweils mit Versatz `x`/`y` zur Mitte (y nach unten). Ohne `cutout` gilt die D-Norm (Ø 24 + 2 × M3). Daraus entstehen Vorschau und DXF. |
 | `variants` | Ausführungen mit eigener Artikelnummer (z. B. Case-Höhen): `units`, `depth`, `partNumber`, `price`, `weightKg`, `dimensions`, `usableDepth` |
 | `status.unchecked` | Werte geschätzt/ungeprüft (in Rackmanufaktur `chk: 1`) |
 | `status.placeholder` | aus Herstellerliste, Maße/Anschlüsse offen (in Rackmanufaktur `ph: 1`) |

@@ -84,14 +84,14 @@
     "extra": {
       "shop": "ProCase",
       "sys": 800,
-      "use": 748,
       "fix": true,
       "rear": "std",
       "rail": "steel",
       "railMin": 573,
       "railMax": 690,
       "incl": 24,
-      "shock": true
+      "shock": true,
+      "use": 748
     }
   }
 }

@@ -45,6 +45,6 @@
   "rackmanufaktur": {
     "key": "case:thEco",
     "order": 8,
-    "extra": {"shop": "Thomann", "use": 330, "fix": true, "rear": "none", "rail": "alu"}
+    "extra": {"shop": "Thomann", "fix": true, "rear": "none", "rail": "alu", "use": 330}
   }
 }

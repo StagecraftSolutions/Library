@@ -53,12 +53,12 @@
     "order": 4,
     "extra": {
       "shop": "Thomann",
-      "use": 450,
       "fix": true,
       "rear": "std",
       "rail": "alu",
       "railMin": 450,
-      "railMax": 450
+      "railMax": 450,
+      "use": 450
     }
   }
 }

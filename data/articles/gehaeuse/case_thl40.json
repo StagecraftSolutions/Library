@@ -57,6 +57,6 @@
   "rackmanufaktur": {
     "key": "case:thL40",
     "order": 9,
-    "extra": {"shop": "Thomann", "use": 370, "fix": true, "rear": "none", "rail": "alu"}
+    "extra": {"shop": "Thomann", "fix": true, "rear": "none", "rail": "alu", "use": 370}
   }
 }

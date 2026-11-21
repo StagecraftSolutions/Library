@@ -17,11 +17,13 @@ von hier beziehen.
 | `data/meta/io-types.json` | Anschlusstypen für `io` (`xlr`, `bnc`, `powercon` …) |
 | `data/meta/connector-types.json` | Steckertypen der Steckverbinder |
 | `data/meta/sysboxx.json` | SYSBOXX-Rahmendaten (Quelle, BE-Maß) |
+| `data/meta/rackmanufaktur-drawers.json` | Schubladen-Serien des Konfigurators (welcher Artikel je Höhe, Tiefen, Schloss) |
 | `schema/article.schema.json` | JSON-Schema – Editoren wie VS Code schlagen damit Felder vor und markieren Fehler |
 | `scripts/build.mjs` | prüft alle Artikel und erzeugt `public/api/v1/` |
 | `scripts/import-rackmanufaktur.mjs` | übernimmt Artikel aus einem Rackmanufaktur-Checkout |
 | `scripts/check-rackmanufaktur.mjs` | vergleicht den Rackmanufaktur-Export mit Rackmanufaktur |
-| `scripts/sync-renderer.mjs` | übernimmt den Zeichencode der Ansichten aus Rackmanufaktur nach `public/assets/rackview.*` |
+| `scripts/sync-renderer.mjs` | übernimmt den Zeichencode der Ansichten und Stecker aus Rackmanufaktur nach `public/assets/rackview.*` |
+| `scripts/lib/cutout.mjs` | Einbauausschnitt der Steckverbinder (D-Norm oder eigener) und DXF-Erzeugung |
 | `public/index.html` | Katalogseite (ohne Build-Schritt, keine externen Quellen) |
 | `public/api/` | erzeugt, nicht in Git |
 
@@ -56,10 +58,11 @@ Statische JSON-Dateien unter `/api/v1/`, CORS offen, jede Antwort mit `commit` u
 | `articles.json` | alle Artikel |
 | `articles/{id}.json` | ein Artikel (`view.front`/`view.rear` zeigt, ob es eine Ansicht gibt) |
 | `views/{id}.json` | maßstäbliche Ansicht |
+| `dxf/{id}.dxf` | Einbauausschnitt eines Steckverbinders als DXF (R12, mm, Ursprung = Steckermitte; Ebenen AUSSCHNITT, BOHRUNG, FLANSCH, MITTE, ggf. BLINDPLATTE). Im Artikel: `panelCutout` mit Geometrie, Text und Pfad |
 | `articles.csv` | Tabelle (Semikolon, UTF-8 mit BOM, Dezimalkomma) |
 | `categories.json`, `io-types.json`, `connector-types.json`, `article.schema.json` | Stammdaten |
 | `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json` | exakt das Format von `Rackmanufactur/data/*.json` |
-| `rackmanufaktur/parts.json` | Blenden, Wannen, Schubladen, Cases, Zubehör (stehen in Rackmanufaktur noch im Code) |
+| `rackmanufaktur/parts.json` | Teile, die in Rackmanufaktur noch im Code stehen: `panels` (PANELS), `art` (ART), `shelves` (SHELVES), `drawers` (DRAWERS), `cases` (CASES), `acc` (ACC_DEFAULT), `railRear` (RAIL_REAR) – siehe unten |
 
 ## Zusammenspiel mit Rackmanufaktur
 
@@ -82,4 +85,20 @@ node scripts/check-rackmanufaktur.mjs ../Rackmanufactur
 inhaltlich mit Rackmanufaktur überein (geprüft mit `check-rackmanufaktur.mjs`, nur die Feldreihenfolge kann abweichen). Danach werden Geräte, Steckverbinder
 und Gewichte nur noch hier gepflegt. Auch die maßstäblichen Ansichten (`views.json`) liegen schon hier und werden
 auf der Katalogseite mit dem Zeichencode von Rackmanufaktur dargestellt (nach Änderungen dort
-`node scripts/sync-renderer.mjs` ausführen). Die Übersetzungen bleiben vorerst in Rackmanufaktur; Blenden, Cases usw. stehen für den Umzug aus dem Code in `parts.json` bereit.
+`node scripts/sync-renderer.mjs` ausführen). Die Übersetzungen bleiben vorerst in Rackmanufaktur.
+
+### `parts.json` – die Teile aus dem Code von Rackmanufaktur
+
+Die Objekte `PANELS`, `ART`, `SHELVES`, `DRAWERS`, `CASES`, `ACC_DEFAULT` und `RAIL_REAR` aus
+`Rackmanufactur/public/index.html` als reines JSON, inhaltlich gleich (geprüft mit `check-rackmanufaktur.mjs`).
+Funktionen werden zu Tabellen je Höhe:
+
+| Code in Rackmanufaktur | in `parts.json` |
+|---|---|
+| `CASES.x.art(he)`, `price(he)`, `outer(he)`, `use(he)` | `cases.x.art`, `price`, `outer`, `use` = `{ "<HE>": Wert }` (`use` sonst eine Zahl) |
+| `DRAWERS.x.key(he)` | `drawers.x.keys` = `{ "<HE>": "<ART-Schlüssel>" }` |
+| `CASES.custom` | fehlt – das „eigene Case“ ist eine Eingabemaske und bleibt im Code |
+
+In der Library sind diese Teile normale Artikel (Kategorien Blenden, Rackwannen, Schubladen, Rack-Cases,
+Zubehör, Anschlussfelder); die Adam-Hall-Wannen sind ein Artikel (`tray1`, `tray2`) mit der Wannen-Definition in
+`rackmanufaktur.shelf`.

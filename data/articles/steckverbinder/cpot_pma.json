@@ -7,6 +7,15 @@
   "manufacturer": "Neutrik (CONNEX)",
   "partNumber": "Neutrik CP-PMA (1027373)",
   "connectorType": "cpot",
+  "cutout": {
+    "w": 54,
+    "h": 21.8,
+    "cut": [
+      {"t": "r", "w": 37, "h": 18},
+      {"t": "h", "x": -22.05, "y": 0, "d": 3.2},
+      {"t": "h", "x": 22.05, "y": 0, "d": 3.2}
+    ]
+  },
   "weightKg": 0.05,
   "price": {
     "eur": null,
@@ -19,18 +28,6 @@
   "rackmanufaktur": {
     "key": "con:cpot_pma",
     "order": 49,
-    "extra": {
-      "fit": "fp",
-      "el": {"t": "cpot", "s": 54},
-      "fp": {
-        "w": 54,
-        "h": 21.8,
-        "cut": [
-          {"t": "r", "w": 37, "h": 18},
-          {"t": "h", "x": -22.05, "y": 0, "d": 3.2},
-          {"t": "h", "x": 22.05, "y": 0, "d": 3.2}
-        ]
-      }
-    }
+    "extra": {"fit": "fp", "el": {"t": "cpot", "s": 54}}
   }
 }

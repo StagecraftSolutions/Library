@@ -138,12 +138,12 @@
     "extra": {
       "shop": "ProCase",
       "sys": 560,
-      "use": 482,
       "fix": true,
       "rear": "opt",
       "rail": "rss",
       "incl": 4,
-      "lids": true
+      "lids": true,
+      "use": 482
     }
   }
 }

@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 import { ROOT, DATA, readJSON, loadAll, validate, formatArticle, formatView } from './lib/articles.mjs';
 import { exportRM } from './lib/rackmanufaktur.mjs';
+import { cutoutOf, cutoutText, cutoutDXF } from './lib/cutout.mjs';
 
 const args = process.argv.slice(2);
 const db = loadAll();
@@ -56,6 +57,9 @@ const viewOf = new Map(db.views.map(v => [v.id, v.data]));
 const articles = db.articles.map(({ data }) => {
   const { $schema, ...a } = data, v = viewOf.get(a.id);
   if (v) a.view = { ...(v.f?.length && { front: true }), ...(v.r?.length && { rear: true }) };
+  // nur in der API: Einbauausschnitt (eigener oder D-Norm) mit Text und Pfad zur DXF-Datei
+  const c = cutoutOf(a);
+  if (c) a.panelCutout = { ...c, text: cutoutText(c), dxf: `dxf/${a.id}.dxf` };
   return a;
 })
   .sort((x, y) => x.category.localeCompare(y.category) || x.name.localeCompare(y.name, 'de'));
@@ -65,6 +69,7 @@ rmSync(OUT, { recursive: true, force: true });
 mkdirSync(join(OUT, 'articles'), { recursive: true });
 mkdirSync(join(OUT, 'rackmanufaktur'), { recursive: true });
 mkdirSync(join(OUT, 'views'), { recursive: true });
+mkdirSync(join(OUT, 'dxf'), { recursive: true });
 const put = (rel, obj) => writeFileSync(join(OUT, rel), JSON.stringify(obj) + '\n');
 
 const categories = db.categories.map(c => ({ ...c, count: articles.filter(a => a.category === c.id).length }));
@@ -72,6 +77,7 @@ const categories = db.categories.map(c => ({ ...c, count: articles.filter(a => a
 put('articles.json', { ...meta, count: articles.length, articles });
 for (const a of articles) put(`articles/${a.id}.json`, { ...meta, article: a });
 for (const v of db.views) put(`views/${v.id}.json`, { ...meta, id: v.id, view: v.data });
+for (const a of articles) if (a.panelCutout) writeFileSync(join(OUT, a.panelCutout.dxf), cutoutDXF(a.panelCutout, `${a.name}${a.partNumber ? ' (' + a.partNumber + ')' : ''}`));
 put('categories.json', { ...meta, categories });
 put('io-types.json', { ...meta, ioTypes: db.ioTypes });
 put('connector-types.json', { ...meta, connectorTypes: db.connectorTypes });
@@ -94,14 +100,14 @@ const cell = v => {
 writeFileSync(join(OUT, 'articles.csv'), '﻿' + [cols.map(c => c[0]).join(';'), ...articles.map(a => cols.map(c => cell(c[1](a))).join(';'))].join('\n') + '\n');
 
 // Rackmanufaktur-Formate (Schritt 2: Rackmanufaktur liest diese Dateien statt seiner eigenen data/*.json)
-const rm = exportRM(articles, { connectorTypes: db.connectorTypes, sysboxxMeta: readJSON(join(DATA, 'meta', 'sysboxx.json')), views: db.views });
+const rm = exportRM(articles, { connectorTypes: db.connectorTypes, sysboxxMeta: readJSON(join(DATA, 'meta', 'sysboxx.json')), views: db.views, rmDrawers: readJSON(join(DATA, 'meta', 'rackmanufaktur-drawers.json')) });
 for (const [name, obj] of Object.entries(rm)) put(`rackmanufaktur/${name}.json`, obj);
 
 put('index.json', {
   ...meta,
   count: articles.length,
   endpoints: {
-    articles: 'articles.json', article: 'articles/{id}.json', view: 'views/{id}.json', csv: 'articles.csv', categories: 'categories.json',
+    articles: 'articles.json', article: 'articles/{id}.json', view: 'views/{id}.json', dxf: 'dxf/{id}.dxf', csv: 'articles.csv', categories: 'categories.json',
     ioTypes: 'io-types.json', connectorTypes: 'connector-types.json', schema: 'article.schema.json',
     rackmanufaktur: Object.fromEntries(Object.keys(rm).map(k => [k, `rackmanufaktur/${k}.json`])),
   },

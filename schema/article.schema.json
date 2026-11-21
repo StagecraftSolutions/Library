@@ -53,6 +53,32 @@
         "depth": { "type": "number", "minimum": 0, "description": "Einbautiefe in mm inkl. Griffe/Stecker" }
       }
     },
+    "cutout": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["w", "h", "cut"],
+      "description": "Einbauausschnitt (Steckverbinder mit eigenem Ausschnitt); Maße in mm, Ursprung = Mitte. Ohne Angabe gilt bei Steckverbindern die D-Norm.",
+      "properties": {
+        "w": { "type": "number", "exclusiveMinimum": 0, "description": "Flanschbreite" },
+        "h": { "type": "number", "exclusiveMinimum": 0, "description": "Flanschhöhe" },
+        "cut": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["t"],
+            "properties": {
+              "t": { "enum": ["c", "h", "r"], "description": "c = runder Ausschnitt, h = Bohrung (Schraube), r = rechteckiger Ausschnitt" },
+              "d": { "type": "number", "exclusiveMinimum": 0, "description": "Durchmesser (c, h)" },
+              "w": { "type": "number", "exclusiveMinimum": 0, "description": "Breite (r)" },
+              "h": { "type": "number", "exclusiveMinimum": 0, "description": "Höhe (r)" },
+              "x": { "type": "number", "description": "Versatz zur Mitte, nach rechts" },
+              "y": { "type": "number", "description": "Versatz zur Mitte, nach unten" }
+            }
+          }
+        }
+      }
+    },
     "weightKg": { "type": "number", "exclusiveMinimum": 0, "description": "Gewicht in kg; unbekannt = weglassen, nie 0" },
     "price": { "$ref": "#/$defs/price" },
     "io": {
@@ -107,7 +133,8 @@
       "properties": {
         "key": { "type": "string", "description": "Schlüssel in Rackmanufaktur, z. B. dev:swisson_xnd8, con:xlr3f, art:blank1, case:pro560" },
         "order": { "type": "integer", "description": "Position in der Auswahlliste von Rackmanufaktur" },
-        "extra": { "type": "object", "description": "Felder, die nur Rackmanufaktur braucht (Footprints, Kit-Typ, Schienenart …) – unverändert übernommen" }
+        "extra": { "type": "object", "description": "Felder, die nur Rackmanufaktur braucht (Footprints, Kit-Typ, Schienenart …) – unverändert übernommen" },
+        "shelf": { "type": "object", "required": ["key"], "description": "Nur Rackwannen, die im Konfigurator zugleich als Wanne (SHELVES) geführt werden: deren Schlüssel und eigene Felder; Artikelnummer und Preis kommen aus dem Artikel" }
       }
     }
   }

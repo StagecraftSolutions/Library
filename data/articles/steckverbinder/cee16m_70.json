@@ -7,6 +7,17 @@
   "manufacturer": "PCE",
   "partNumber": "PCE CEE-Anbaustecker 16 A 5p 6h",
   "connectorType": "cee16m",
+  "cutout": {
+    "w": 70,
+    "h": 70,
+    "cut": [
+      {"t": "c", "d": 54},
+      {"t": "h", "x": -28, "y": -28, "d": 4.5},
+      {"t": "h", "x": 28, "y": -28, "d": 4.5},
+      {"t": "h", "x": -28, "y": 28, "d": 4.5},
+      {"t": "h", "x": 28, "y": 28, "d": 4.5}
+    ]
+  },
   "price": {
     "eur": null,
     "source": "check",
@@ -18,20 +29,6 @@
   "rackmanufaktur": {
     "key": "con:cee16m_70",
     "order": 35,
-    "extra": {
-      "fit": "fp",
-      "el": {"t": "cee16m", "s": 18.92},
-      "fp": {
-        "w": 70,
-        "h": 70,
-        "cut": [
-          {"t": "c", "d": 54},
-          {"t": "h", "x": -28, "y": -28, "d": 4.5},
-          {"t": "h", "x": 28, "y": -28, "d": 4.5},
-          {"t": "h", "x": -28, "y": 28, "d": 4.5},
-          {"t": "h", "x": 28, "y": 28, "d": 4.5}
-        ]
-      }
-    }
+    "extra": {"fit": "fp", "el": {"t": "cee16m", "s": 18.92}}
   }
 }

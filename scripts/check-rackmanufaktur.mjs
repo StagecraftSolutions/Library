@@ -6,10 +6,11 @@
 import { join, resolve } from 'node:path';
 import { ROOT, DATA, readJSON, loadAll } from './lib/articles.mjs';
 import { exportRM } from './lib/rackmanufaktur.mjs';
+import { readRMCode } from './lib/rmcode.mjs';
 
 const RM = resolve(process.argv[2] || join(ROOT, '..', 'Rackmanufactur'));
 const db = loadAll();
-const ex = exportRM(db.articles.map(x => x.data), { connectorTypes: db.connectorTypes, sysboxxMeta: readJSON(join(DATA, 'meta', 'sysboxx.json')), views: db.views });
+const ex = exportRM(db.articles.map(x => x.data), { connectorTypes: db.connectorTypes, sysboxxMeta: readJSON(join(DATA, 'meta', 'sysboxx.json')), views: db.views, rmDrawers: readJSON(join(DATA, 'meta', 'rackmanufaktur-drawers.json')) });
 
 const diffs = [];
 const cmp = (a, b, path) => {
@@ -25,9 +26,10 @@ cmp(ex.connectors, readJSON(join(RM, 'data', 'connectors.json')), 'connectors');
 cmp(ex.sysboxx, readJSON(join(RM, 'data', 'sysboxx.json')), 'sysboxx');
 cmp(ex.weights, readJSON(join(RM, 'data', 'weights.json')), 'weights');
 cmp(ex.views, readJSON(join(RM, 'data', 'views.json')), 'views');
+cmp(ex.parts, readRMCode(RM), 'parts');
 
 if (diffs.length) {
   console.log(`${diffs.length} Abweichungen:\n` + diffs.slice(0, 200).map(d => '  ≠ ' + d).join('\n'));
   process.exit(1);
 }
-console.log('✓ devices, connectors, sysboxx, weights, views stimmen mit Rackmanufaktur überein');
+console.log('✓ devices, connectors, sysboxx, weights, views und parts (Code-Teile) stimmen mit Rackmanufaktur überein');

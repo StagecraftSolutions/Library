@@ -9,9 +9,9 @@
 // Gedacht für die Übergangszeit, solange Rackmanufaktur seine Daten noch selbst pflegt.
 import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
-import vm from 'node:vm';
 import { ROOT, DATA, ARTICLES, VIEWS, readJSON, writeJSON, formatArticle, formatView, loadAll, ioParse } from './lib/articles.mjs';
 import { fromRM, viewKey } from './lib/rackmanufaktur.mjs';
+import { readRMCode } from './lib/rmcode.mjs';
 
 const args = process.argv.slice(2);
 const UPDATE = args.includes('--update');
@@ -24,25 +24,8 @@ const sbx = readJSON(join(RM, 'data', 'sysboxx.json'));
 const KG = readJSON(join(RM, 'data', 'weights.json'));
 const VIEWS_RM = readJSON(join(RM, 'data', 'views.json'));
 
-// Teile, die in Rackmanufaktur als JavaScript-Objekte in public/index.html stehen
-function codeParts() {
-  const html = readFileSync(join(RM, 'public', 'index.html'), 'utf8');
-  const grab = (name, close) => {
-    const i = html.indexOf(`const ${name} =`);
-    if (i < 0) throw new Error(`${name} nicht in index.html gefunden`);
-    const end = close ? html.indexOf(close, i) + close.length : html.indexOf('\n', i) + 1;
-    return html.slice(i, end);
-  };
-  const code = [
-    'const HE = 44.45;',
-    grab('range'), grab('BMD'), grab('thon', '\n});\n'), grab('pro'),
-    grab('PANELS', '\n};\n'), grab('ART', '\n};\n'), grab('CASES', '\n};\n'),
-    grab('DRAWERS', '\n};\n'), grab('SHELVES', '\n};\n'), grab('RAIL_REAR'), grab('ACC_DEFAULT', '\n];\n'),
-    '({ PANELS, ART, CASES, DRAWERS, SHELVES, RAIL_REAR, ACC_DEFAULT })',
-  ].join('\n');
-  return vm.runInNewContext(code, {});
-}
-const P = codeParts();
+// Teile, die in Rackmanufaktur als JavaScript-Objekte in public/index.html stehen (Cases mit Tabellen je Höhe)
+const P = readRMCode(RM);
 
 const MAKERS = ['Adam Hall', 'Flyht Pro', 'ProCase', 'Thomann', 'Thon', 'Neutrik', 'Seetronic', 'Millenium', 'MA', 'Blackmagic'];
 const makerOf = art => {
@@ -94,69 +77,71 @@ Object.entries(sbx.plates).forEach(([k, x], i) => {
 });
 
 // Anschlussfelder (U-Rackblenden mit D-Löchern)
-Object.entries(P.PANELS).forEach(([k, x], i) => {
-  const { a, extra } = fromRM('part', x);
+Object.entries(P.panels).forEach(([k, x], i) => {
+  const { a, extra } = fromRM('panel', x);
+  a.rack = { mount: 'rack', ...a.rack };
   if (KG['panel:' + k] !== undefined) a.weightKg = KG['panel:' + k];
-  add('panel:' + k, 'anschlussfelder', { id: 'panel_' + k, manufacturer: makerOf(x.art), ...a, rack: { mount: 'rack', units: x.he } }, extra, i);
+  add('panel:' + k, 'anschlussfelder', { id: 'panel_' + k, manufacturer: makerOf(x.art), ...a }, extra, i);
 });
 
 // ART: Blenden, Schubladen, Rackwannen, MA-Rackkit-Teile, Schrauben
 const artCat = k => /^(drawer|dr_|foam)/.test(k) ? 'schubladen' : /^(tray|ma_)/.test(k) ? 'rackwannen' : k === 'm3' ? 'zubehoer' : 'blenden';
 const artUnits = k => { const m = k.match(/^(?:vent|blank|drawer|tray|foam)(\d+(?:_5)?)$/); return m ? Number(m[1].replace('_', '.')) : k === 'label' ? 0.5 : k === 'brush' ? 1 : undefined; };
 const drawerInfo = {};
-for (const D of Object.values(P.DRAWERS)) for (const he of D.hes) drawerInfo[D.key(he)] = { info: D.info, url: D.url, depth: D.depth[he], he };
-const shelfByBom = Object.fromEntries(Object.entries(P.SHELVES).filter(([, s]) => s.bom).map(([k, s]) => [s.bom, [k, s]]));
-Object.entries(P.ART).forEach(([k, x], i) => {
-  const { a, extra } = fromRM('part', x);
-  const di = drawerInfo[k], sh = shelfByBom[k]?.[1];
-  const units = di?.he ?? sh?.he ?? artUnits(k);
-  if (units !== undefined && !/^foam/.test(k)) a.rack = { mount: 'rack', units, ...((di?.depth ?? sh?.depth) && { depth: di?.depth ?? sh?.depth }) };
-  if (di) { a.description ??= di.info; a.url ??= di.url; }
-  if (sh) { a.description ??= sh.info; a.url ??= sh.url; extra.shelf = shelfByBom[k][0]; }
+for (const D of Object.values(P.drawers)) for (const he of D.hes) drawerInfo[D.keys[he]] = { info: D.info, url: D.url, depth: D.depth[he], he };
+const shelfByBom = Object.fromEntries(Object.entries(P.shelves).filter(([, s]) => s.bom).map(([k, s]) => [s.bom, [k, s]]));
+Object.entries(P.art).forEach(([k, x], i) => {
+  const { a, extra } = fromRM('art', x);
+  const di = drawerInfo[k], sh = shelfByBom[k];
+  const units = di?.he ?? sh?.[1].he ?? artUnits(k), depth = di?.depth ?? sh?.[1].depth;
+  if (units !== undefined && !/^foam/.test(k)) a.rack = { mount: 'rack', units, ...(depth && { depth }) };
+  if (di) { a.description = di.info; a.url = di.url; }
   if (KG['art:' + k] !== undefined) a.weightKg = KG['art:' + k];
   add('art:' + k, artCat(k), { id: k, manufacturer: makerOf(x.art), ...a }, extra, i);
+  if (sh) {   // dieselbe Wanne ist auch eine Rackwanne im Konfigurator (SHELVES) – deren eigene Felder mitführen
+    const [key, def] = sh, { art, price, src, q, ...own } = def;
+    const last = out.at(-1).a;
+    last.description = def.info; last.url = def.url;
+    last.rackmanufaktur.shelf = { key, order: Object.keys(P.shelves).indexOf(key), ...own };
+  }
 });
 
 // Rackwannen und Rackkits (ohne die schon über ART erfassten Adam-Hall-Wannen)
-Object.entries(P.SHELVES).forEach(([k, x], i) => {
+Object.entries(P.shelves).forEach(([k, x], i) => {
   if (x.bom) return;
-  const { a, extra } = fromRM('part', x, ['he', 'depth']);
-  a.rack = { mount: 'rack', units: x.he, ...(x.depth ? { depth: x.depth } : {}) };
-  if (x.depth === 0) extra.depth = 0;
+  const { a, extra } = fromRM('shelf', x, ['depth']);
+  a.rack = { mount: 'rack', ...a.rack, ...(x.depth ? { depth: x.depth } : {}) };
+  if (x.depth !== undefined && !x.depth) extra.depth = x.depth;
   if (KG['shelf:' + k] !== undefined) a.weightKg = KG['shelf:' + k];
   add('shelf:' + k, 'rackwannen', { id: 'shelf_' + k, ...a }, extra, i);
 });
 
 // Rack-Cases: eine Serie, Höhen als Varianten
-Object.entries(P.CASES).forEach(([k, x], i) => {
-  if (k === 'custom') return;
-  const plain = Object.fromEntries(Object.entries(x).filter(([f, v]) => typeof v !== 'function' && f !== 'he'));
-  if (plain.maker !== undefined) { plain.mk = plain.maker; delete plain.maker; }
-  const { a, extra } = fromRM('part', plain);
-  a.variants = x.he.map(he => {
-    const v = { units: he };
-    const art = x.art(he); if (art) v.partNumber = art;
-    const price = x.price(he);
-    v.price = { eur: price ?? null, ...(x.src && { source: x.src }) };
-    if (KG[`case:${k}:${he}`] !== undefined) v.weightKg = KG[`case:${k}:${he}`];
-    if (x.outer) v.dimensions = x.outer(he);
-    if (typeof x.use === 'function') v.usableDepth = x.use(he);
+Object.entries(P.cases).forEach(([k, x], i) => {
+  const { he, art, price, src, outer, use, ...rest } = x;
+  const { a, extra } = fromRM('case', rest);
+  a.variants = he.map(u => {
+    const v = { units: u };
+    if (art[u]) v.partNumber = art[u];
+    v.price = { eur: price[u] ?? null, ...(src && { source: src }) };
+    if (KG[`case:${k}:${u}`] !== undefined) v.weightKg = KG[`case:${k}:${u}`];
+    if (outer) v.dimensions = outer[u];
+    if (use && typeof use === 'object') v.usableDepth = use[u];
     return v;
   });
-  delete a.price;
-  if (typeof x.use === 'function') delete extra.use;
+  if (use !== undefined && typeof use !== 'object') extra.use = use;
   add('case:' + k, 'gehaeuse', { id: 'case_' + k, ...a, rack: { mount: 'rack' } }, extra, i);
 });
 
 // Zubehör
-P.ACC_DEFAULT.forEach((x, i) => {
+P.acc.forEach((x, i) => {
   const { id, qty, ...rest } = x;
-  const { a, extra } = fromRM('part', rest);
+  const { a, extra } = fromRM('acc', rest);
   if (KG['acc:' + id] !== undefined) a.weightKg = KG['acc:' + id];
   add('acc:' + id, 'zubehoer', { id: 'acc_' + id, ...(makerOf(x.art) && { manufacturer: makerOf(x.art) }), ...a }, extra, i);
 });
 {
-  const { a, extra } = fromRM('part', P.RAIL_REAR);
+  const { a, extra } = fromRM('rail', P.railRear);
   if (KG['x:rail_rear'] !== undefined) a.weightKg = KG['x:rail_rear'];
   add('x:rail_rear', 'zubehoer', { id: 'rail_rear', manufacturer: 'ProCase', ...a }, extra, 0);
 }
@@ -173,6 +158,8 @@ mkdirSync(join(DATA, 'meta'), { recursive: true });
 writeJSON(join(DATA, 'meta', 'connector-types.json'), conn.types);
 const { housings, extra, plates, ...sbxMeta } = sbx;
 writeJSON(join(DATA, 'meta', 'sysboxx.json'), sbxMeta);
+// Schubladen-Serien des Konfigurators (welche Artikel je Höhe, Tiefen, Schloss) – kein eigener Artikel
+writeJSON(join(DATA, 'meta', 'rackmanufaktur-drawers.json'), P.drawers);
 
 // IDs eindeutig machen
 const existing = loadAll().articles;

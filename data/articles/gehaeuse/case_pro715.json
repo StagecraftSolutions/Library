@@ -54,11 +54,11 @@
     "extra": {
       "shop": "ProCase",
       "sys": 715,
-      "use": 637,
       "est": true,
       "rear": "opt",
       "rail": "rss",
-      "incl": 4
+      "incl": 4,
+      "use": 637
     }
   }
 }

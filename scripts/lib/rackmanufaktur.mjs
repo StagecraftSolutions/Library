@@ -4,6 +4,7 @@
 import { ioParse, ioString } from './articles.mjs';
 
 // [Feld in Rackmanufaktur, Pfad im Artikel, Art]  Art: 'flag' = 1 ↔ true
+const PRICE = [['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note'], ['chk', 'status.unchecked', 'flag']];
 export const MAPS = {
   device: [
     ['n', 'name'], ['mk', 'manufacturer'], ['g', 'group'], ['art', 'partNumber'], ['url', 'url'],
@@ -12,18 +13,23 @@ export const MAPS = {
   ],
   connector: [
     ['n', 'name'], ['s', 'shortName'], ['mk', 'manufacturer'], ['art', 'partNumber'], ['type', 'connectorType'],
-    ['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note'], ['chk', 'status.unchecked', 'flag'],
+    ['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note'], ['chk', 'status.unchecked', 'flag'], ['fp', 'cutout'],
   ],
   sbxPlate: [
     ['n', 'name'], ['s', 'shortName'], ['g', 'group'], ['art', 'partNumber'], ['price', 'price.eur'], ['kg', 'weightKg'],
     ['chk', 'status.unchecked', 'flag'],
   ],
   sbxExtra: [['n', 'name'], ['art', 'partNumber'], ['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note']],
-  part: [
-    ['n', 'name'], ['short', 'shortName'], ['mk', 'manufacturer'], ['group', 'group'], ['art', 'partNumber'], ['url', 'url'],
-    ['info', 'description'], ['he', 'rack.units'], ['depth', 'rack.depth'],
-    ['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note'], ['chk', 'status.unchecked', 'flag'],
+  // Teile, die in Rackmanufaktur noch im Code stehen (PANELS, ART, SHELVES, CASES, ACC_DEFAULT, RAIL_REAR)
+  panel: [['n', 'name'], ['short', 'shortName'], ['art', 'partNumber'], ['he', 'rack.units'], ...PRICE],
+  art: [['n', 'name'], ['art', 'partNumber'], ...PRICE],
+  shelf: [
+    ['n', 'name'], ['short', 'shortName'], ['mk', 'manufacturer'], ['art', 'partNumber'], ['url', 'url'], ['info', 'description'],
+    ['he', 'rack.units'], ['depth', 'rack.depth'], ...PRICE,
   ],
+  case: [['n', 'name'], ['short', 'shortName'], ['group', 'group'], ['maker', 'manufacturer'], ['info', 'description']],
+  acc: [['n', 'name'], ['art', 'partNumber'], ...PRICE],
+  rail: [['n', 'name'], ['art', 'partNumber'], ...PRICE],
 };
 
 const getPath = (o, p) => p.split('.').reduce((x, k) => (x == null ? undefined : x[k]), o);
@@ -62,7 +68,7 @@ const keyOf = (a, prefix) => a.rackmanufaktur.key.slice(prefix.length);
 // Schlüssel einer Ansicht in Rackmanufaktur: Geräte unter ihrem Schlüssel, Teile (MA-Frontblenden) mit "_"
 export const viewKey = rmKey => rmKey?.startsWith('dev:') ? rmKey.slice(4) : rmKey?.startsWith('art:') ? '_' + rmKey.slice(4) : null;
 
-export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [] }) {
+export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rmDrawers = {} }) {
   const devices = {};
   for (const a of withPrefix(articles, 'dev:')) {
     const o = toRM('device', a);
@@ -97,17 +103,31 @@ export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [] }) 
     for (const v of a.variants || []) if (v.weightKg !== undefined && v.units !== undefined) weights[`${k}:${v.units}`] = v.weightKg;
   }
 
-  // Teile, die in Rackmanufaktur noch als JavaScript in index.html stehen
-  const parts = {};
-  for (const [prefix, name] of [['art:', 'art'], ['panel:', 'panels'], ['shelf:', 'shelves'], ['case:', 'cases'], ['acc:', 'acc'], ['x:', 'other']]) {
-    parts[name] = {};
-    for (const a of withPrefix(articles, prefix)) {
-      const o = toRM('part', a);
-      if (a.variants) o.variants = a.variants;
-      if (a.weightKg !== undefined) o.kg = a.weightKg;
-      parts[name][keyOf(a, prefix)] = o;
+  // Teile, die in Rackmanufaktur noch als JavaScript in index.html stehen (Format: scripts/lib/rmcode.mjs)
+  const parts = { panels: {}, art: {}, shelves: {}, drawers: rmDrawers, cases: {}, acc: [], railRear: null };
+  for (const a of withPrefix(articles, 'panel:')) parts.panels[keyOf(a, 'panel:')] = toRM('panel', a);
+  for (const a of withPrefix(articles, 'art:')) {
+    parts.art[keyOf(a, 'art:')] = toRM('art', a);
+    const sh = a.rackmanufaktur.shelf;   // Rackwanne, die zugleich dieser Artikel ist (z. B. Adam Hall 87551)
+    if (sh) {   // eigener Name und Wannen-Felder aus der Definition, Artikelnummer und Preis aus dem Artikel
+      const { key, order, ...def } = sh, { n, ...buy } = toRM('art', { ...a, rackmanufaktur: {} });
+      parts.shelves[key] = { ...def, ...buy };
     }
   }
+  for (const a of withPrefix(articles, 'shelf:')) parts.shelves[keyOf(a, 'shelf:')] = toRM('shelf', a);
+  for (const a of withPrefix(articles, 'case:')) {
+    const o = toRM('case', a), V = a.variants || [], table = f => Object.fromEntries(V.map(v => [v.units, f(v)]));
+    o.he = V.map(v => v.units);
+    o.art = table(v => v.partNumber ?? '');
+    o.price = table(v => v.price?.eur ?? null);
+    if (V[0]?.price?.source) o.src = V[0].price.source;
+    if (V.some(v => v.dimensions !== undefined)) o.outer = table(v => v.dimensions);
+    if (V.some(v => v.usableDepth !== undefined)) o.use = table(v => v.usableDepth);
+    parts.cases[keyOf(a, 'case:')] = o;
+  }
+  for (const a of withPrefix(articles, 'acc:')) parts.acc.push({ id: keyOf(a, 'acc:'), ...toRM('acc', a), qty: 0 });
+  const rail = withPrefix(articles, 'x:rail_rear')[0];
+  if (rail) parts.railRear = toRM('rail', rail);
 
   const viewsOut = {};
   for (const a of byOrder(articles.filter(a => a.rackmanufaktur?.key))) {

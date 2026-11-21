@@ -33,6 +33,10 @@ const js = [
   between('const MK_SHORT =', '// Gerätekörper mit Hersteller'),
   between('function exEls(', 'const isExact ='),
   between('function panelBase(', 'let PID'),
+  // Steckverbinder: D-Einsätze (glyph/rearGlyph) und Stecker mit eigenem Ausschnitt (cpDraw)
+  line('const D_FP ='),
+  between('function glyph(t, cx, cy', '// Lochmittelpunkte eines Steckerfelds'),
+  between('function cpDraw(', 'const cpTip'),
 ].join('\n\n');
 
 const out = `// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur${commit ? ' (Commit ' + commit + ')' : ''} – nicht von Hand ändern.
@@ -59,14 +63,23 @@ function render(view, side, { units = 1, silver = false } = {}) {
   }
   return \`<svg class="rv" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 \${r2(w + 2)} \${r2(h + 2)}" role="img">\${body}</svg>\`;
 }
-return { render, HE, W19 };
+// Steckverbinder einzeln: con = Eintrag aus rackmanufaktur/connectors.json, side 'f' (vorn) oder 'r' (hinten)
+let CON = {};
+function connector(key, con, side = 'f') {
+  CON = { [key]: con, blank: con };
+  const F = con.fit === 'fp' && con.fp ? con.fp : D_FP, w = F.w + 12, h = F.h + 12;
+  const mount = con.mount || (side === 'f' ? 'f' : 'r');
+  const body = \`<rect x="\${-w / 2}" y="\${-h / 2}" width="\${w}" height="\${h}" rx="1.5" class="pnl"/>\` + cpDraw({ k: key, mount }, 0, 0, side === 'r');
+  return \`<svg class="rv" xmlns="http://www.w3.org/2000/svg" viewBox="\${-w / 2 - 1} \${-h / 2 - 1} \${w + 2} \${h + 2}" role="img">\${body}</svg>\`;
+}
+return { render, connector, HE, W19 };
 })();
 `;
 writeFileSync(join(ROOT, 'public', 'assets', 'rackview.js'), out);
 
 // ---------- CSS ----------
 const style = html.slice(0, html.indexOf('</style>'));
-const CLS = /\.(pg-|ex|dev-|on-|earslot|pnl\b|port\b)/;
+const CLS = /\.(pg-|ex|dev-|on-|earslot|pnl\b|port\b|(hole|screw|blankp|flange|face|facedk|pin|pinhole|tr1|tr1lt|pcblue|pcwhite|ocfib|rcaring|gold|cbody|cnum)(?![\w-]))/;
 const rules = [];
 for (const m of style.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
   const sel = m[1].trim();

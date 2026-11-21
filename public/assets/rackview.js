@@ -1,4 +1,4 @@
-// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 589ed30) – nicht von Hand ändern.
+// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 0f11bf9) – nicht von Hand ändern.
 // Zeichnet maßstäbliche Front- und Rückansichten (Koordinaten in mm) als SVG.
 window.RackView = (() => {
 const HE = 44.45, W19 = 482.6, EAR = 16, CW = 18;
@@ -176,6 +176,84 @@ function panelBase(x, y, w, h, cls = 'pnl') {
   return s;
 }
 
+const D_FP = { w: 26, h: 31, cut: [{ t: 'c', d: 24 }, { t: 'h', x: 9.5, y: -12, d: 3.2 }, { t: 'h', x: -9.5, y: 12, d: 3.2 }] };
+
+function glyph(t, cx, cy, mount = 'f') {
+  const c = CON[t] || CON.blank, g = c.g;
+  if (g === 'open') return `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>`;
+  const screws = `<circle cx="${cx + 9.5}" cy="${cy - 12}" r="1.3" class="screw"/><circle cx="${cx - 9.5}" cy="${cy + 12}" r="1.3" class="screw"/>`;
+  let s;
+  if (c.drill) {   // Einsatz in gebohrter Blindplatte
+    s = mount === 'r' ? `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>${screws}<circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>` : `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>${screws}`;
+  } else if (mount === 'r') {
+    s = `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>` + screws;
+    if (g === 'blank') return s + `<circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>`;
+  } else {
+    s = `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="${g === 'blank' ? 'blankp' : 'flange'}"/>` + screws;
+    if (g === 'blank') return s;
+  }
+  const pins = (n, r, cls, rad) => {
+    const ang = n === 3 ? [210, 330, 90] : [150, 210, 270, 330, 30];
+    return ang.map(a => { const q = a * Math.PI / 180; return `<circle cx="${(cx + Math.cos(q) * rad).toFixed(2)}" cy="${(cy + Math.sin(q) * rad).toFixed(2)}" r="${r}" class="${cls}"/>`; }).join('');
+  };
+  const blades = (r) => [270, 30, 150].map(a => `<rect x="${cx - 1.6}" y="${cy - r - .7}" width="3.2" height="1.4" class="pin" transform="rotate(${a + 90} ${cx} ${cy})"/>`).join('');
+  switch (g) {
+    case 'pcin':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="tr1"/><circle cx="${cx}" cy="${cy}" r="8.6" class="facedk"/><circle cx="${cx}" cy="${cy}" r="3" class="face"/>${blades(5.6)}<rect x="${cx - 1.2}" y="${cy - 11.6}" width="2.4" height="2.4" class="facedk"/>`; break;
+    case 'pcout':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="tr1"/><circle cx="${cx}" cy="${cy}" r="8.6" class="tr1lt"/><circle cx="${cx}" cy="${cy}" r="6.6" class="facedk"/>${blades(4.2)}<rect x="${cx - 1.2}" y="${cy - 11.6}" width="2.4" height="2.4" class="facedk"/>`; break;
+    case 'xlrf':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="facedk"/><circle cx="${cx}" cy="${cy}" r="9" class="face"/>${pins(c.p, c.p === 3 ? 1.5 : 1.15, 'pinhole', c.p === 3 ? 4 : 4.6)}<rect x="${cx - 3}" y="${cy - 14.6}" width="6" height="3" rx=".8" class="pin"/>`; break;
+    case 'xlrm':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="9.2" class="facedk"/>${pins(c.p, c.p === 3 ? 1.1 : .9, 'pin', c.p === 3 ? 4 : 4.6)}<rect x="${cx - 1.4}" y="${cy - 10.4}" width="2.8" height="1.8" class="face"/>`; break;
+    case 'rj45':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><rect x="${cx - 4.2}" y="${cy - 3.6}" width="8.4" height="6.4" class="face"/><rect x="${cx - 1.6}" y="${cy + 2.8}" width="3.2" height="1.6" class="face"/>`; break;
+    case 'hdmi':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><polygon points="${cx - 6},${cy - 2.3} ${cx + 6},${cy - 2.3} ${cx + 6},${cy + .4} ${cx + 4.4},${cy + 2.3} ${cx - 4.4},${cy + 2.3} ${cx - 6},${cy + .4}" class="face"/>`; break;
+    case 'usb':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><rect x="${cx - 5.4}" y="${cy - 2.4}" width="10.8" height="4.8" class="face"/><rect x="${cx - 4.4}" y="${cy - 1.6}" width="8.8" height="1.6" class="pin"/>`; break;
+    case 'bnc':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="5.6" class="pin"/><circle cx="${cx}" cy="${cy}" r="4" class="facedk"/><circle cx="${cx}" cy="${cy}" r=".9" class="pin"/>`; break;
+    case 'nl4':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8" class="facedk"/><circle cx="${cx}" cy="${cy}" r="3.2" class="face"/><rect x="${cx - 1.2}" y="${cy - 8}" width="2.4" height="3" class="face"/>`; break;
+    case 'pca': case 'pcb':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="${g === 'pca' ? 'pcblue' : 'pcwhite'}"/><circle cx="${cx}" cy="${cy}" r="8.2" class="facedk"/><circle cx="${cx}" cy="${cy}" r="3" class="face"/>${blades(5.4)}<rect x="${cx - 1.2}" y="${cy - 11.6}" width="2.4" height="2.4" class="facedk"/>`; break;
+    case 'ocon':
+      s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><rect x="${cx - 4.6}" y="${cy - 3}" width="9.2" height="6" rx="1.2" class="face"/><circle cx="${cx - 2}" cy="${cy}" r="1.1" class="ocfib"/><circle cx="${cx + 2}" cy="${cy}" r="1.1" class="ocfib"/><rect x="${cx - 1.4}" y="${cy - 10.6}" width="2.8" height="2" class="face"/>`; break;
+    case 'rca':
+      s += c.drill ? `<circle cx="${cx}" cy="${cy}" r="5.2" class="pin"/><circle cx="${cx}" cy="${cy}" r="3.4" class="rcaring"/><circle cx="${cx}" cy="${cy}" r="1.1" class="facedk"/>`
+                   : `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><circle cx="${cx}" cy="${cy}" r="4.6" class="pin"/><circle cx="${cx}" cy="${cy}" r="3" class="rcaring"/><circle cx="${cx}" cy="${cy}" r="1" class="facedk"/>`; break;
+    case 'jack':
+      s += c.drill ? `<circle cx="${cx}" cy="${cy}" r="6" class="pin"/><circle cx="${cx}" cy="${cy}" r="4.2" class="face"/><circle cx="${cx}" cy="${cy}" r="3.1" class="facedk"/>`
+                   : `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><circle cx="${cx}" cy="${cy}" r="4.4" class="face"/><circle cx="${cx}" cy="${cy}" r="3.1" class="facedk"/>`; break;
+    case 'sma':
+      s += `<polygon points="${[0, 60, 120, 180, 240, 300].map(a => { const q = a * Math.PI / 180; return `${(cx + Math.cos(q) * 4.2).toFixed(2)},${(cy + Math.sin(q) * 4.2).toFixed(2)}`; }).join(' ')}" class="gold"/><circle cx="${cx}" cy="${cy}" r="2.4" class="facedk"/><circle cx="${cx}" cy="${cy}" r=".7" class="gold"/>`; break;
+  }
+  return s;
+}
+function miniGlyph(t) { return `<svg viewBox="-14 -16 28 32" aria-hidden="true">${glyph(t, 0, 0)}</svg>`; }
+// Rückseite eines Einsatzes: von hinten eingebaut ist der Flansch hinten sichtbar
+function rearGlyph(t, cx, cy, n, mount = 'r') {
+  const c = CON[t] || CON.blank, g = c.g;
+  if (g === 'open') return `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>`;
+  if (g === 'blank') return mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/><circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>`;
+  const tr = g === 'pcin' || g === 'pcout';
+  if (c.drill) return (mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/><circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>`)
+    + `<circle cx="${cx}" cy="${cy}" r="6.5" class="cbody"/><text x="${cx}" y="${cy}" class="cnum" style="font-size:6px">${n}</text>`;
+  return (mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="flange"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>`)
+    + `<circle cx="${cx}" cy="${cy}" r="10.5" class="${tr ? 'tr1' : 'cbody'}"/>`
+    + `<text x="${cx}" y="${cy}" class="cnum${tr ? ' on-tr' : ''}">${n}</text>`;
+}
+
+function cpDraw(c, cx, cy, back) {
+  const C = CON[c.k] || CON.blank, f = v => (+v).toFixed(2);
+  if (C.fit === 'fp') {
+    if (back) { const F = C.fp; return `<rect x="${f(cx - F.w / 2)}" y="${f(cy - F.h / 2)}" width="${F.w}" height="${F.h}" rx="2" class="flange"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(Math.min(F.w, F.h) * .34)}" class="facedk"/>`; }
+    return exEls([{ ...C.el, x: +cx, y: +cy }], 0, 0);
+  }
+  return back ? rearGlyph(c.k, +f(cx), +f(cy), '', c.mount) : glyph(c.k, +f(cx), +f(cy), c.mount);
+}
+
 // Ansicht als SVG-Text. view = { hw, w, h, f, r }, side = 'f' | 'r', units = Höheneinheiten (bei Rackgeräten)
 function render(view, side, { units = 1, silver = false } = {}) {
   const L = view && view[side];
@@ -195,5 +273,14 @@ function render(view, side, { units = 1, silver = false } = {}) {
   }
   return `<svg class="rv" xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 ${r2(w + 2)} ${r2(h + 2)}" role="img">${body}</svg>`;
 }
-return { render, HE, W19 };
+// Steckverbinder einzeln: con = Eintrag aus rackmanufaktur/connectors.json, side 'f' (vorn) oder 'r' (hinten)
+let CON = {};
+function connector(key, con, side = 'f') {
+  CON = { [key]: con, blank: con };
+  const F = con.fit === 'fp' && con.fp ? con.fp : D_FP, w = F.w + 12, h = F.h + 12;
+  const mount = con.mount || (side === 'f' ? 'f' : 'r');
+  const body = `<rect x="${-w / 2}" y="${-h / 2}" width="${w}" height="${h}" rx="1.5" class="pnl"/>` + cpDraw({ k: key, mount }, 0, 0, side === 'r');
+  return `<svg class="rv" xmlns="http://www.w3.org/2000/svg" viewBox="${-w / 2 - 1} ${-h / 2 - 1} ${w + 2} ${h + 2}" role="img">${body}</svg>`;
+}
+return { render, connector, HE, W19 };
 })();

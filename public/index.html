@@ -115,13 +115,29 @@ dialog::backdrop{background:#000a;backdrop-filter:blur(2px)}
 .desc{color:var(--muted);margin:0}
 .db>*,.views>div{min-width:0}
 .views{display:grid;gap:14px}
-.views h4{margin:0 0 6px;font-size:13px;color:var(--muted);font-weight:500;display:flex;justify-content:space-between;gap:8px}
-.views h4 span{font:11px var(--mono);color:var(--faint)}
+.views h4,.cviews h4{margin:0 0 6px;font-size:13px;color:var(--muted);font-weight:500;display:flex;justify-content:space-between;gap:8px}
+.views h4 span,.cviews h4 span{font:11px var(--mono);color:var(--faint)}
 .vwell{background:#0a0c0b;border:1px solid var(--line);border-radius:6px;padding:12px;overflow-x:auto}
 .vwell.rack .rv{min-width:620px}
 .vwell.small .rv{max-width:460px;margin:auto}
 .rv .port{cursor:help}.rv .port:hover{filter:brightness(1.35)}
 .vload{color:var(--faint);font-size:13px}
+.cviews{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.cviews .vwell{display:grid;place-items:center;min-height:150px}
+.cviews .rv{max-width:220px}
+.cad{background:#0a0c0b;border:1px solid var(--line);border-radius:6px;padding:10px}
+.cad svg{display:block;width:100%;height:auto;max-height:360px}
+.cad .fl{fill:none;stroke:#7d887b;stroke-width:.35;stroke-dasharray:2 1.2}
+.cad .cut{fill:#ff5a4f14;stroke:#ff5a4f;stroke-width:.45}
+.cad .bo{fill:#6fb6e814;stroke:#6fb6e8;stroke-width:.45}
+.cad .bp{fill:none;stroke:#d946ef;stroke-width:.4;stroke-dasharray:1 .8}
+.cad .mi{stroke:#4ade80;stroke-width:.3}
+.cad .dim{stroke:#a7b0a4;stroke-width:.25}
+.cad text{fill:#cfd6cb;font-family:var(--mono)}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:8px;font:12px var(--mono);color:var(--muted)}
+.legend i{display:inline-block;width:14px;height:0;border-top:2px solid;vertical-align:middle;margin-right:6px}
+.cutnote{margin:10px 0 0;color:var(--muted);font-size:13.5px}
+@media (max-width:860px){.cviews{grid-template-columns:1fr 1fr}}
 pre{margin:0;background:#0c0f0d;border:1px solid var(--line);border-radius:6px;padding:12px;overflow:auto;font:12px/1.5 var(--mono);color:#cfd6cb;max-height:320px}
 details summary{cursor:pointer;color:var(--muted);font-size:13px}
 .actions{display:flex;gap:8px;flex-wrap:wrap}
@@ -249,13 +265,16 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
         <div><code>api/v1/articles/{id}.json</code><span>ein Artikel</span></div>
         <div><code>api/v1/articles.csv</code><span>Tabelle (Semikolon, UTF-8)</span></div>
         <div><code>api/v1/categories.json</code><span>Kategorien mit Anzahl</span></div>
+        <div><code>api/v1/views/{id}.json</code><span>maßstäbliche Ansicht</span></div>
+        <div><code>api/v1/dxf/{id}.dxf</code><span>Einbauausschnitt als DXF</span></div>
         <div><code>api/v1/io-types.json</code><span>Anschlusstypen</span></div>
         <div><code>api/v1/connector-types.json</code><span>Steckertypen</span></div>
         <div><code>api/v1/rackmanufaktur/devices.json</code><span>Geräte im RM-Format</span></div>
         <div><code>api/v1/rackmanufaktur/connectors.json</code><span>Steckverbinder im RM-Format</span></div>
         <div><code>api/v1/rackmanufaktur/sysboxx.json</code><span>SYSBOXX im RM-Format</span></div>
         <div><code>api/v1/rackmanufaktur/weights.json</code><span>Gewichte im RM-Format</span></div>
-        <div><code>api/v1/rackmanufaktur/parts.json</code><span>Blenden, Wannen, Cases, Zubehör</span></div>
+        <div><code>api/v1/rackmanufaktur/views.json</code><span>Ansichten im RM-Format</span></div>
+        <div><code>api/v1/rackmanufaktur/parts.json</code><span>Blenden, Wannen, Schubladen, Cases, Zubehör</span></div>
       </div>
     </div>
   </section>
@@ -395,6 +414,8 @@ function detail(id, push = true) {
       <h2 id="dlg-title">${esc(a.name)}</h2><div>${statusTags(a)}</div></div>
       <button class="close" type="button" aria-label="Schließen" data-close>×</button></div>
     <div class="db">
+      ${a.category === 'steckverbinder' && a.rackmanufaktur?.key?.startsWith('con:') ? `<section><h3>Vorschau</h3><div class="cviews" id="conviews"><p class="vload">Vorschau wird geladen …</p></div></section>` : ''}
+      ${a.panelCutout ? cutoutSection(a) : ''}
       ${a.view ? `<section><h3>Maßstäbliche Ansicht</h3><div class="views" id="views"><p class="vload">Ansicht wird geladen …</p></div></section>` : ''}
       ${a.description ? `<p class="desc">${esc(a.description)}</p>` : ''}
       ${a.notes ? `<p class="desc">Hinweis: ${esc(a.notes)}</p>` : ''}
@@ -414,9 +435,58 @@ function detail(id, push = true) {
   dlg.scrollTop = 0;
   S.id = id; if (push) syncURL();
   if (a.view) loadView(a);
+  if (document.getElementById('conviews')) loadConnector(a);
 }
 
 // Maßstäbliche Front-/Rückansicht (Daten aus data/views/<id>.json, gezeichnet wie in Rackmanufaktur)
+// Steckverbinder: Vorschau wie in Rackmanufaktur (Daten aus rackmanufaktur/connectors.json)
+let conData;
+async function loadConnector(a) {
+  const box = () => document.getElementById('conviews'), key = a.rackmanufaktur.key.slice(4);
+  try {
+    conData ??= await fetch('api/v1/rackmanufaktur/connectors.json', { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); });
+    const c = conData.connectors[key];
+    if (S.id !== a.id || !box() || !c) return;
+    const front = c.mount === 'f' ? 'Von vorn eingebaut' : 'Vorderseite';
+    box().innerHTML = `<div><h4>${front}</h4><div class="vwell">${window.RackView.connector(key, c, 'f')}</div></div>`
+      + `<div><h4>Rückseite<span>${c.fit === 'fp' ? 'Flansch' : c.mount === 'f' ? '' : 'von hinten eingebaut'}</span></h4><div class="vwell">${window.RackView.connector(key, c, 'r')}</div></div>`;
+  } catch (e) {
+    if (box()) box().innerHTML = '<p class="vload">Vorschau konnte nicht geladen werden.</p>';
+  }
+}
+
+// Einbauausschnitt als technische Zeichnung (gleiche Geometrie wie die DXF-Datei)
+function cutoutSVG(c) {
+  const r2 = v => +(+v).toFixed(2), N = v => nf(v, v % 1 ? 1 : 0);
+  const fs = Math.max(2.2, Math.max(c.w, c.h) / 20), pad = fs * 4.2;
+  const x0 = -c.w / 2 - pad, y0 = -c.h / 2 - pad, W = c.w + pad * 2.4, H = c.h + pad * 2.4;
+  let g = `<rect class="fl" x="${r2(-c.w / 2)}" y="${r2(-c.h / 2)}" width="${c.w}" height="${c.h}" rx="${r2(Math.min(c.w, c.h) * .06)}"/>`;
+  for (const q of c.cut) {
+    const x = q.x || 0, y = q.y || 0;
+    if (q.t === 'r') g += `<rect class="cut" x="${r2(x - q.w / 2)}" y="${r2(y - q.h / 2)}" width="${q.w}" height="${q.h}"/>`;
+    else g += `<circle class="${q.t === 'h' ? 'bo' : 'cut'}" cx="${x}" cy="${y}" r="${r2(q.d / 2)}"/>`;
+  }
+  if (c.drill) g += `<circle class="bp" cx="0" cy="0" r="${r2(c.drill / 2)}"/>`;
+  const m = Math.min(c.w, c.h) * .12;
+  g += `<line class="mi" x1="${r2(-m)}" y1="0" x2="${r2(m)}" y2="0"/><line class="mi" x1="0" y1="${r2(-m)}" x2="0" y2="${r2(m)}"/>`;
+  // Maße: Flanschbreite unten, -höhe rechts, größter Ausschnitt oben
+  const yb = c.h / 2 + fs * 1.8, xr = c.w / 2 + fs * 1.8, t = fs * .5;
+  g += `<line class="dim" x1="${r2(-c.w / 2)}" y1="${r2(yb)}" x2="${r2(c.w / 2)}" y2="${r2(yb)}"/><line class="dim" x1="${r2(-c.w / 2)}" y1="${r2(yb - t)}" x2="${r2(-c.w / 2)}" y2="${r2(yb + t)}"/><line class="dim" x1="${r2(c.w / 2)}" y1="${r2(yb - t)}" x2="${r2(c.w / 2)}" y2="${r2(yb + t)}"/>`
+    + `<text x="0" y="${r2(yb + fs * 1.25)}" font-size="${r2(fs)}" text-anchor="middle">${N(c.w)}</text>`;
+  g += `<line class="dim" x1="${r2(xr)}" y1="${r2(-c.h / 2)}" x2="${r2(xr)}" y2="${r2(c.h / 2)}"/><line class="dim" x1="${r2(xr - t)}" y1="${r2(-c.h / 2)}" x2="${r2(xr + t)}" y2="${r2(-c.h / 2)}"/><line class="dim" x1="${r2(xr - t)}" y1="${r2(c.h / 2)}" x2="${r2(xr + t)}" y2="${r2(c.h / 2)}"/>`
+    + `<text x="${r2(xr + fs * .6)}" y="0" font-size="${r2(fs)}" dominant-baseline="central">${N(c.h)}</text>`;
+  const main = c.cut.filter(q => q.t !== 'h').sort((p, q) => (q.d || q.w || 0) - (p.d || p.w || 0))[0];
+  if (main) g += `<text x="0" y="${r2(-c.h / 2 - fs * .9)}" font-size="${r2(fs)}" text-anchor="middle">${main.t === 'c' ? 'Ø ' + N(main.d) : N(main.w) + ' × ' + N(main.h)}</text>`;
+  return `<svg viewBox="${r2(x0)} ${r2(y0)} ${r2(W)} ${r2(H)}" role="img" aria-label="Einbauausschnitt">${g}</svg>`;
+}
+function cutoutSection(a) {
+  const c = a.panelCutout, hs = c.cut.filter(q => q.t === 'h');
+  return `<section><h3>Einbauausschnitt · DXF</h3><div class="cad">${cutoutSVG(c)}</div>
+    <div class="legend"><span><i style="border-color:#ff5a4f"></i>Ausschnitt</span>${hs.length ? '<span><i style="border-color:#6fb6e8"></i>Bohrung</span>' : ''}<span><i style="border-color:#7d887b;border-top-style:dashed"></i>Flansch</span><span><i style="border-color:#4ade80"></i>Mitte</span>${c.drill ? '<span><i style="border-color:#d946ef;border-top-style:dotted"></i>Blindplatte bohren</span>' : ''}</div>
+    <p class="cutnote">${esc(c.text)}${c.standard === 'D' ? ' · D-Norm' : ''}${a.status?.unchecked ? ' · Maße prüfen' : ''}. Maße in mm, Ursprung = Steckermitte.</p>
+    <div class="actions" style="margin-top:10px"><a class="btn primary" href="api/v1/${esc(c.dxf)}" download="${esc(a.id)}-ausschnitt.dxf">DXF herunterladen</a></div></section>`;
+}
+
 const viewCache = {};
 async function loadView(a) {
   const box = () => document.getElementById('views');

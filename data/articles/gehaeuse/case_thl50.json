@@ -63,6 +63,6 @@
   "rackmanufaktur": {
     "key": "case:thL50",
     "order": 10,
-    "extra": {"shop": "Thomann", "use": 470, "fix": true, "rear": "none", "rail": "alu"}
+    "extra": {"shop": "Thomann", "fix": true, "rear": "none", "rail": "alu", "use": 470}
   }
 }

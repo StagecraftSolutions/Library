@@ -7,6 +7,17 @@
   "manufacturer": "PCE",
   "partNumber": "PCE CEE-Anbausteckdose 16 A 5p 6h IP44/54",
   "connectorType": "cee16f",
+  "cutout": {
+    "w": 75,
+    "h": 75,
+    "cut": [
+      {"t": "c", "d": 56},
+      {"t": "h", "x": -30, "y": -30, "d": 4.5},
+      {"t": "h", "x": 30, "y": -30, "d": 4.5},
+      {"t": "h", "x": -30, "y": 30, "d": 4.5},
+      {"t": "h", "x": 30, "y": 30, "d": 4.5}
+    ]
+  },
   "price": {
     "eur": null,
     "source": "check",
@@ -18,20 +29,6 @@
   "rackmanufaktur": {
     "key": "con:cee16f_75",
     "order": 34,
-    "extra": {
-      "fit": "fp",
-      "el": {"t": "cee16f", "w": 75, "h": 75},
-      "fp": {
-        "w": 75,
-        "h": 75,
-        "cut": [
-          {"t": "c", "d": 56},
-          {"t": "h", "x": -30, "y": -30, "d": 4.5},
-          {"t": "h", "x": 30, "y": -30, "d": 4.5},
-          {"t": "h", "x": -30, "y": 30, "d": 4.5},
-          {"t": "h", "x": 30, "y": 30, "d": 4.5}
-        ]
-      }
-    }
+    "extra": {"fit": "fp", "el": {"t": "cee16f", "w": 75, "h": 75}}
   }
 }

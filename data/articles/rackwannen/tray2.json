@@ -20,6 +20,20 @@
   "rackmanufaktur": {
     "key": "art:tray2",
     "order": 4,
-    "extra": {"shelf": "ah_2u"}
+    "shelf": {
+      "key": "ah_2u",
+      "order": 1,
+      "bom": "tray2",
+      "n": "Rackwanne 2 HE, 375 mm tief (Adam Hall 87552)",
+      "short": "Rackwanne 2 HE",
+      "mk": "Adam Hall",
+      "he": 2,
+      "mode": "free",
+      "innerW": 440,
+      "depth": 375,
+      "acc": ["free","bmd","half"],
+      "url": "https://www.adamhall.com",
+      "info": "Rackwanne mit Rackohren, 2 HE. Geräte frei anordnen, bündig zur Vorderkante. Innenbreite ca. 440 mm (prüfen)."
+    }
   }
 }

@@ -7,6 +7,17 @@
   "manufacturer": "ITT Cannon (Veam)",
   "partNumber": "Veam NPS-1-BN-T4",
   "connectorType": "powerlockm",
+  "cutout": {
+    "w": 57,
+    "h": 57,
+    "cut": [
+      {"t": "c", "d": 44},
+      {"t": "h", "x": -21.25, "y": -21.25, "d": 5.5},
+      {"t": "h", "x": 21.25, "y": -21.25, "d": 5.5},
+      {"t": "h", "x": -21.25, "y": 21.25, "d": 5.5},
+      {"t": "h", "x": 21.25, "y": 21.25, "d": 5.5}
+    ]
+  },
   "price": {
     "eur": null,
     "source": "check",
@@ -15,20 +26,6 @@
   "rackmanufaktur": {
     "key": "con:pl_nps_l1",
     "order": 44,
-    "extra": {
-      "fit": "fp",
-      "el": {"t": "powerlockm", "s": 57, "c": "L1"},
-      "fp": {
-        "w": 57,
-        "h": 57,
-        "cut": [
-          {"t": "c", "d": 44},
-          {"t": "h", "x": -21.25, "y": -21.25, "d": 5.5},
-          {"t": "h", "x": 21.25, "y": -21.25, "d": 5.5},
-          {"t": "h", "x": -21.25, "y": 21.25, "d": 5.5},
-          {"t": "h", "x": 21.25, "y": 21.25, "d": 5.5}
-        ]
-      }
-    }
+    "extra": {"fit": "fp", "el": {"t": "powerlockm", "s": 57, "c": "L1"}}
   }
 }

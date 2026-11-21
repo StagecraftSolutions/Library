@@ -1,0 +1,79 @@
+{
+  "ah": {
+    "n": "Adam Hall Standard",
+    "short": "",
+    "hes": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "depth": {
+      "1": 392,
+      "2": 392,
+      "3": 392,
+      "4": 392
+    },
+    "lock": true,
+    "foam": true,
+    "info": "392 mm Außentiefe, Innentiefe 373 mm, 25 kg Traglast.",
+    "url": "https://www.adamhall.com/shop/en/19-rack-drawers",
+    "keys": {
+      "1": "drawer1",
+      "2": "drawer2",
+      "3": "drawer3",
+      "4": "drawer4"
+    }
+  },
+  "ah_2s": {
+    "n": "Adam Hall 87402 S Short",
+    "short": "Short",
+    "hes": [
+      2
+    ],
+    "depth": {
+      "2": 210
+    },
+    "lock": true,
+    "info": "210 mm Außentiefe, innen 401 × 74 × 200 mm, 25 kg, Vollauszug, abschließbar.",
+    "url": "https://www.adamhall.com/shop/en/brands/rack-drawer-02-short-87402s",
+    "keys": {
+      "2": "dr_ah2s"
+    }
+  },
+  "thon_2s": {
+    "n": "Thon Rack Drawer 2U Short",
+    "short": "Thon Short",
+    "hes": [
+      2
+    ],
+    "depth": {
+      "2": 210
+    },
+    "lock": false,
+    "info": "210 mm Einbautiefe, im Rack mind. 220 mm frei; innen 404 × 74 × 210 mm, ohne Schloss.",
+    "url": "https://www.thomann.de/de/thon_rack_drawer_2u_short.htm",
+    "keys": {
+      "2": "dr_thon2s"
+    }
+  },
+  "fp_28": {
+    "n": "Flyht Pro Rack Drawer 28 cm",
+    "short": "Flyht Pro 28 cm",
+    "hes": [
+      2,
+      3
+    ],
+    "depth": {
+      "2": 300,
+      "3": 295
+    },
+    "lock": true,
+    "info": "280 mm Einbautiefe (außen 300 / 295 mm), innen 410 × 70 × 270 mm (2 HE) bzw. 411 × 115 × 273 mm (3 HE), 20 kg, Vollauszug, abschließbar.",
+    "url": "https://www.thomann.de/de/flyht_pro_rack_drawer_19_2u_28_cm_lock.htm",
+    "keys": {
+      "2": "dr_fp2",
+      "3": "dr_fp3"
+    }
+  }
+}

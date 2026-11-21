@@ -17,7 +17,7 @@ export const writeJSON = (p, obj) => writeFileSync(p, JSON.stringify(obj, null, 
 // Jede Artikeldatei wird in dieser Reihenfolge geschrieben, damit Diffs in Git ruhig bleiben.
 const ORDER = {
   article: ['$schema', 'id', 'name', 'shortName', 'category', 'area', 'group', 'manufacturer', 'partNumber',
-    'connectorType', 'description', 'url', 'rack', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
+    'connectorType', 'description', 'url', 'rack', 'cutout', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
     'inventory', 'rackmanufaktur'],
   rack: ['mount', 'units', 'fraction', 'width', 'height', 'depth'],
   price: ['eur', 'source', 'note'],
@@ -26,7 +26,8 @@ const ORDER = {
   port: ['type', 'count', 'label'],
   variant: ['units', 'depth', 'partNumber', 'price', 'weightKg', 'dimensions', 'usableDepth'],
   inventory: ['qty', 'location', 'note'],
-  rackmanufaktur: ['key', 'order', 'extra'],
+  cutout: ['w', 'h', 'cut'],
+  rackmanufaktur: ['key', 'order', 'extra', 'shelf'],
 };
 
 function ordered(obj, order) {
@@ -43,6 +44,7 @@ export function canon(a) {
   if (x.price) x.price = ordered(x.price, ORDER.price);
   if (x.status) x.status = ordered(x.status, ORDER.status);
   if (x.inventory) x.inventory = ordered(x.inventory, ORDER.inventory);
+  if (x.cutout) x.cutout = ordered(x.cutout, ORDER.cutout);
   if (x.rackmanufaktur) x.rackmanufaktur = ordered(x.rackmanufaktur, ORDER.rackmanufaktur);
   if (x.io) {
     x.io = ordered(x.io, ORDER.io);
@@ -199,6 +201,18 @@ export function validate({ categories, ioTypes, connectorTypes, articles, views 
     if (a.status !== undefined) for (const [k, v] of Object.entries(a.status)) {
       if (!ORDER.status.includes(k)) e(`status.${k} ist unbekannt`);
       if (v !== true) e(`status.${k}: nur true eintragen, sonst Feld weglassen`);
+    }
+    if (a.cutout !== undefined) {
+      const c = a.cutout;
+      num(c.w, 'cutout.w', { min: 1 }); num(c.h, 'cutout.h', { min: 1 });
+      if (!Array.isArray(c.cut) || !c.cut.length) e('cutout.cut muss eine nicht leere Liste sein');
+      else c.cut.forEach((q, i) => {
+        const p = `cutout.cut[${i}]`;
+        if (!['c', 'h', 'r'].includes(q.t)) e(`${p}.t muss c (Ausschnitt rund), h (Bohrung) oder r (Ausschnitt eckig) sein`);
+        if (q.t === 'r') { num(q.w, `${p}.w`, { min: 0.1 }); num(q.h, `${p}.h`, { min: 0.1 }); if (q.w === undefined || q.h === undefined) e(`${p}: w und h angeben`); }
+        else { num(q.d, `${p}.d`, { min: 0.1 }); if (q.d === undefined) e(`${p}.d (Durchmesser) fehlt`); }
+        num(q.x, `${p}.x`, { min: -1000 }); num(q.y, `${p}.y`, { min: -1000 });
+      });
     }
     if (a.inventory !== undefined) { num(a.inventory.qty, 'inventory.qty', { int: true }); str(a.inventory.location, 'inventory.location'); str(a.inventory.note, 'inventory.note'); }
     if (a.rackmanufaktur !== undefined) {

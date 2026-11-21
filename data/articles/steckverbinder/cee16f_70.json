@@ -7,6 +7,17 @@
   "manufacturer": "PCE",
   "partNumber": "PCE CEE-Anbausteckdose 16 A 5p 6h",
   "connectorType": "cee16f",
+  "cutout": {
+    "w": 70,
+    "h": 70,
+    "cut": [
+      {"t": "c", "d": 54},
+      {"t": "h", "x": -28, "y": -28, "d": 4.5},
+      {"t": "h", "x": 28, "y": -28, "d": 4.5},
+      {"t": "h", "x": -28, "y": 28, "d": 4.5},
+      {"t": "h", "x": 28, "y": 28, "d": 4.5}
+    ]
+  },
   "price": {
     "eur": null,
     "source": "check",
@@ -18,20 +29,6 @@
   "rackmanufaktur": {
     "key": "con:cee16f_70",
     "order": 33,
-    "extra": {
-      "fit": "fp",
-      "el": {"t": "cee16f", "w": 70, "h": 70},
-      "fp": {
-        "w": 70,
-        "h": 70,
-        "cut": [
-          {"t": "c", "d": 54},
-          {"t": "h", "x": -28, "y": -28, "d": 4.5},
-          {"t": "h", "x": 28, "y": -28, "d": 4.5},
-          {"t": "h", "x": -28, "y": 28, "d": 4.5},
-          {"t": "h", "x": 28, "y": 28, "d": 4.5}
-        ]
-      }
-    }
+    "extra": {"fit": "fp", "el": {"t": "cee16f", "w": 70, "h": 70}}
   }
 }
