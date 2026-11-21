@@ -7,6 +7,11 @@
   "manufacturer": "Harting",
   "partNumber": "Harting 09 30 006 0301 + 09 33 006 2701",
   "connectorType": "han6f",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "han_e6", "gender": "f"},
+    "rear": {"term": "crimp"}
+  },
   "cutout": {
     "w": 80,
     "h": 43,
@@ -22,6 +27,9 @@
     "eur": null,
     "source": "check",
     "note": "Harting-Katalog Han B (Livebook Kap. 31, S. 31·32), Anbaugehäuse 09 30 006 0301: Flansch 80 × 43, Ausschnitt 48 × 35, Löcher 70 × 32, Ø 4,4. Gehäuse von vorn aufgesetzt, Einsatz von hinten."
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:han6f_b",

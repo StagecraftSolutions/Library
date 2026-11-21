@@ -7,6 +7,11 @@
   "manufacturer": "Sommer Cable (HICON)",
   "partNumber": "HICON HI-LK037FP",
   "connectorType": "lk37",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "lk37", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "cutout": {
     "w": 50.8,
     "h": 50.8,

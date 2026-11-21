@@ -7,6 +7,11 @@
   "manufacturer": "Harting",
   "partNumber": "Harting 09 30 010 0301 + 09 33 010 2601",
   "connectorType": "han10m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "han_e10", "gender": "m"},
+    "rear": {"term": "crimp"}
+  },
   "cutout": {
     "w": 93,
     "h": 43,
@@ -22,6 +27,9 @@
     "eur": null,
     "source": "check",
     "note": "Harting-Katalog Han B (Livebook Kap. 31, S. 31·39), Anbaugehäuse 09 30 010 0301: Flansch 93 × 43, Ausschnitt 60 × 35, Löcher 83 × 32, Ø 4,4. Gehäuse von vorn aufgesetzt, Einsatz von hinten."
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:han10m_b",
