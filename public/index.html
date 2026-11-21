@@ -338,7 +338,7 @@ const statusTags = a => (a.view ? '<span class="tag" title="maßstäbliche Ansic
 function haystack(a) {
   const io = ['front', 'rear'].flatMap(s => (a.io?.[s] || []).map(p => `${p.type} ${DB.ioTypes[p.type] || ''} ${p.label || ''}`));
   return [a.id, a.name, a.shortName, a.manufacturer, a.partNumber, a.group, a.area, a.description, a.notes, a.connectorType, a.rackmanufaktur?.key,
-    ...(a.variants || []).map(v => v.partNumber), ...io].filter(Boolean).join(' ').toLowerCase();
+    ...(a.variants || []).map(v => v.partNumber), ...io, sideTxt(a.connector?.front), sideTxt(a.connector?.rear)].filter(Boolean).join(' ').toLowerCase();
 }
 
 function apply() {
@@ -387,6 +387,10 @@ function render() {
 
 const catName = id => DB.categories.find(c => c.id === id)?.name || id;
 
+const FORM = { d: 'Einbaustecker D-Format (D-Loch)', panel: 'Einbaustecker mit eigenem Ausschnitt', cable: 'Kabelstecker' };
+// Anschlussseite eines Steckverbinders: Steckgesicht mit Geschlecht oder Anschlussart
+const sideTxt = x => !x ? '' : (x.term ? (DB.terminations[x.term]?.n || x.term)
+  : `${DB.connectorFaces[x.face]?.n || x.face} ${x.gender === 'm' ? 'Stecker' : 'Buchse'}`) + (x.note ? ` (${x.note})` : '');
 function detail(id, push = true) {
   const a = DB.articles.find(x => x.id === id); if (!a) return;
   const kv = [
@@ -397,6 +401,8 @@ function detail(id, push = true) {
     ['Gewicht', fmtKg(a.weightKg)], ['Preis', a.price && (a.price.eur != null ? fmtPrice(a.price.eur) : 'unbekannt')],
     ['Preisquelle', a.price && [SRC[a.price.source], a.price.note].filter(Boolean).join(' · ')],
     ['Steckertyp', a.connectorType && (DB.connectorTypes[a.connectorType]?.n || a.connectorType)],
+    ['Einbau', a.connector && FORM[a.connector.form]],
+    ['Vorderseite', sideTxt(a.connector?.front)], ['Rückseite', sideTxt(a.connector?.rear)],
     ['Bestand', a.inventory && [a.inventory.qty != null && `${a.inventory.qty} Stk.`, a.inventory.location, a.inventory.note].filter(Boolean).join(' · ')],
     ['Rackmanufaktur', a.rackmanufaktur?.key],
   ].filter(([, v]) => v);
@@ -532,8 +538,8 @@ function resetFilters() {
 async function init() {
   let data;
   try {
-    const [arts, cats, io, ct] = await Promise.all(['articles', 'categories', 'io-types', 'connector-types'].map(n => fetch(`api/v1/${n}.json`, { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })));
-    data = { articles: arts.articles, categories: cats.categories, ioTypes: io.ioTypes, connectorTypes: ct.connectorTypes, meta: arts };
+    const [arts, cats, io, ct, cf, tm] = await Promise.all(['articles', 'categories', 'io-types', 'connector-types', 'connector-faces', 'terminations'].map(n => fetch(`api/v1/${n}.json`, { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })));
+    data = { articles: arts.articles, categories: cats.categories, ioTypes: io.ioTypes, connectorTypes: ct.connectorTypes, connectorFaces: cf.connectorFaces, terminations: tm.terminations, meta: arts };
   } catch (e) {
     $('#stats').textContent = 'Daten konnten nicht geladen werden. Wurde „node scripts/build.mjs“ ausgeführt?';
     return;

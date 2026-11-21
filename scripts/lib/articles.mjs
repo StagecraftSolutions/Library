@@ -17,7 +17,7 @@ export const writeJSON = (p, obj) => writeFileSync(p, JSON.stringify(obj, null, 
 // Jede Artikeldatei wird in dieser Reihenfolge geschrieben, damit Diffs in Git ruhig bleiben.
 const ORDER = {
   article: ['$schema', 'id', 'name', 'shortName', 'category', 'area', 'group', 'manufacturer', 'partNumber',
-    'connectorType', 'description', 'url', 'rack', 'cutout', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
+    'connectorType', 'connector', 'description', 'url', 'rack', 'cutout', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
     'inventory', 'rackmanufaktur'],
   rack: ['mount', 'units', 'fraction', 'width', 'height', 'depth'],
   price: ['eur', 'source', 'note'],
@@ -27,6 +27,8 @@ const ORDER = {
   variant: ['units', 'depth', 'partNumber', 'price', 'weightKg', 'dimensions', 'usableDepth'],
   inventory: ['qty', 'location', 'note'],
   cutout: ['w', 'h', 'cut'],
+  connector: ['form', 'front', 'rear'],
+  side: ['face', 'gender', 'term', 'note'],
   rackmanufaktur: ['key', 'order', 'extra', 'shelf'],
 };
 
@@ -45,6 +47,10 @@ export function canon(a) {
   if (x.status) x.status = ordered(x.status, ORDER.status);
   if (x.inventory) x.inventory = ordered(x.inventory, ORDER.inventory);
   if (x.cutout) x.cutout = ordered(x.cutout, ORDER.cutout);
+  if (x.connector) {
+    x.connector = ordered(x.connector, ORDER.connector);
+    for (const s of ['front', 'rear']) if (x.connector[s]) x.connector[s] = ordered(x.connector[s], ORDER.side);
+  }
   if (x.rackmanufaktur) x.rackmanufaktur = ordered(x.rackmanufaktur, ORDER.rackmanufaktur);
   if (x.io) {
     x.io = ordered(x.io, ORDER.io);
@@ -94,6 +100,8 @@ export function loadAll() {
   const categories = readJSON(join(DATA, 'categories.json'));
   const ioTypes = readJSON(join(DATA, 'meta', 'io-types.json'));
   const connectorTypes = readJSON(join(DATA, 'meta', 'connector-types.json'));
+  const connectorFaces = readJSON(join(DATA, 'meta', 'connector-faces.json'));
+  const terminations = readJSON(join(DATA, 'meta', 'terminations.json'));
   const articles = [], errors = [];
   for (const file of articleFiles()) {
     const rel = relative(ROOT, file);
@@ -107,7 +115,7 @@ export function loadAll() {
     try { views.push({ file: rel, id: basename(name, '.json'), data: readJSON(join(VIEWS, name)) }); }
     catch (e) { errors.push(`${rel}: kein gültiges JSON (${e.message})`); }
   }
-  return { categories, ioTypes, connectorTypes, articles, views, errors };
+  return { categories, ioTypes, connectorTypes, connectorFaces, terminations, articles, views, errors };
 }
 
 // Ansicht: ein Zeichenelement pro Zeile, damit Diffs lesbar bleiben
@@ -125,7 +133,9 @@ const ID_RE = /^[a-z0-9][a-z0-9_-]*$/;
 const MOUNTS = ['rack', 'bmd', 'half', 'free', 'desk', 'none'];
 const PRICE_SOURCES = ['cart', 'web', 'ref', 'check', 'user'];
 
-export function validate({ categories, ioTypes, connectorTypes, articles, views = [], errors = [] }) {
+const FORMS = ['d', 'panel', 'cable'];
+
+export function validate({ categories, ioTypes, connectorTypes, connectorFaces = {}, terminations = {}, articles, views = [], errors = [] }) {
   const errs = [...errors];
   const catIds = new Set(categories.map(c => c.id));
   const ioSet = new Set(Object.keys(ioTypes));
@@ -213,6 +223,30 @@ export function validate({ categories, ioTypes, connectorTypes, articles, views 
         else { num(q.d, `${p}.d`, { min: 0.1 }); if (q.d === undefined) e(`${p}.d (Durchmesser) fehlt`); }
         num(q.x, `${p}.x`, { min: -1000 }); num(q.y, `${p}.y`, { min: -1000 });
       });
+    }
+    if (a.connector !== undefined) {
+      const c = a.connector;
+      if (a.category !== 'steckverbinder') e('connector nur bei Steckverbindern');
+      if (!c || typeof c !== 'object') e('connector muss ein Objekt sein');
+      else {
+        for (const k of Object.keys(c)) if (!ORDER.connector.includes(k)) e(`connector.${k} ist unbekannt`);
+        if (!FORMS.includes(c.form)) e(`connector.form muss eines von ${FORMS.join(', ')} sein (d = D-Loch, panel = eigener Ausschnitt, cable = Kabelstecker)`);
+        if (c.form === 'panel' && !a.cutout) e('connector.form "panel" braucht einen eigenen cutout (Footprint/DXF)');
+        if (c.form === 'd' && a.cutout) e('connector.form "d" passt nicht zu einem eigenen cutout – form "panel" verwenden');
+        for (const s of ['front', 'rear']) {
+          const x = c[s], p = `connector.${s}`;
+          if (x === undefined) continue;
+          for (const k of Object.keys(x)) if (!ORDER.side.includes(k)) e(`${p}.${k} ist unbekannt`);
+          if (x.term !== undefined) {
+            if (x.face !== undefined || x.gender !== undefined) e(`${p}: entweder term oder face + gender angeben`);
+            if (!terminations[x.term]) e(`${p}.term "${x.term}" ist nicht in data/meta/terminations.json`);
+          } else {
+            if (!connectorFaces[x.face]) e(`${p}.face "${x.face}" ist nicht in data/meta/connector-faces.json`);
+            if (!['m', 'f'].includes(x.gender)) e(`${p}.gender muss m (Stecker) oder f (Buchse) sein`);
+          }
+          str(x.note, `${p}.note`);
+        }
+      }
     }
     if (a.inventory !== undefined) { num(a.inventory.qty, 'inventory.qty', { int: true }); str(a.inventory.location, 'inventory.location'); str(a.inventory.note, 'inventory.note'); }
     if (a.rackmanufaktur !== undefined) {

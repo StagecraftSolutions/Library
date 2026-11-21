@@ -81,14 +81,21 @@ for (const a of articles) if (a.panelCutout) writeFileSync(join(OUT, a.panelCuto
 put('categories.json', { ...meta, categories });
 put('io-types.json', { ...meta, ioTypes: db.ioTypes });
 put('connector-types.json', { ...meta, connectorTypes: db.connectorTypes });
+put('connector-faces.json', { ...meta, connectorFaces: db.connectorFaces });
+put('terminations.json', { ...meta, terminations: db.terminations });
 writeFileSync(join(OUT, 'article.schema.json'), readFileSync(join(ROOT, 'schema', 'article.schema.json')));
+
+// Anschlussseite eines Steckverbinders als Text, z. B. "XLR 3-pol Stecker" oder "Lötanschluss"
+const sideTxt = x => !x ? '' : x.term ? (db.terminations[x.term]?.n ?? x.term)
+  : `${db.connectorFaces[x.face]?.n ?? x.face} ${x.gender === 'm' ? 'Stecker' : 'Buchse'}`;
 
 // CSV (Semikolon, UTF-8 mit BOM, damit Excel Umlaute richtig liest)
 const cols = [
   ['id', a => a.id], ['name', a => a.name], ['kategorie', a => a.category], ['bereich', a => a.area], ['gruppe', a => a.group],
-  ['hersteller', a => a.manufacturer], ['artikelnummer', a => a.partNumber], ['bauform', a => a.rack?.mount],
+  ['hersteller', a => a.manufacturer], ['artikelnummer', a => a.partNumber], ['bauform', a => a.rack?.mount ?? a.connector?.form],
   ['he', a => a.rack?.units], ['breite_anteil', a => a.rack?.fraction], ['tiefe_mm', a => a.rack?.depth],
   ['gewicht_kg', a => a.weightKg], ['preis_eur', a => a.price?.eur], ['preisquelle', a => a.price?.source],
+  ['stecker_vorn', a => sideTxt(a.connector?.front)], ['stecker_hinten', a => sideTxt(a.connector?.rear)],
   ['varianten', a => a.variants?.length], ['ansicht', a => a.view ? [a.view.front && 'vorn', a.view.rear && 'hinten'].filter(Boolean).join('+') : ''], ['ungeprueft', a => a.status?.unchecked ? 1 : ''], ['platzhalter', a => a.status?.placeholder ? 1 : ''],
   ['bestand', a => a.inventory?.qty], ['rackmanufaktur', a => a.rackmanufaktur?.key], ['url', a => a.url],
 ];
@@ -108,7 +115,7 @@ put('index.json', {
   count: articles.length,
   endpoints: {
     articles: 'articles.json', article: 'articles/{id}.json', view: 'views/{id}.json', dxf: 'dxf/{id}.dxf', csv: 'articles.csv', categories: 'categories.json',
-    ioTypes: 'io-types.json', connectorTypes: 'connector-types.json', schema: 'article.schema.json',
+    ioTypes: 'io-types.json', connectorTypes: 'connector-types.json', connectorFaces: 'connector-faces.json', terminations: 'terminations.json', schema: 'article.schema.json',
     rackmanufaktur: Object.fromEntries(Object.keys(rm).map(k => [k, `rackmanufaktur/${k}.json`])),
   },
 });

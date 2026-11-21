@@ -1,0 +1,10 @@
+{
+  "solder": { "n": "Lötanschluss (Lötkelche/-ösen)" },
+  "screw": { "n": "Schraubklemmen" },
+  "spring": { "n": "Federkraftklemmen" },
+  "crimp": { "n": "Crimpkontakte" },
+  "pcb": { "n": "Printstifte (Leiterplatte)" },
+  "faston": { "n": "Flachstecker (Faston)" },
+  "idc": { "n": "Schneidklemmen (IDC/LSA)" },
+  "stud": { "n": "Gewindebolzen (Kabelschuh)" }
+}

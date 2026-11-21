@@ -15,6 +15,7 @@ export const MAPS = {
   connector: [
     ['n', 'name'], ['s', 'shortName'], ['mk', 'manufacturer'], ['art', 'partNumber'], ['type', 'connectorType'],
     ['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note'], ['chk', 'status.unchecked', 'flag'], ['fp', 'cutout'],
+    ['sides', 'connector'],   // Bauform + Vorder-/Rückseite: { form, front, rear }
   ],
   sbxPlate: [
     ['n', 'name'], ['s', 'shortName'], ['g', 'group'], ['art', 'partNumber'], ['price', 'price.eur'], ['kg', 'weightKg'],

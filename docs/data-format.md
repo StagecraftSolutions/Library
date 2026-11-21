@@ -41,6 +41,8 @@ Beispiel (Preis und Bestand nur zur Veranschaulichung):
 | `group` | Gruppe wie in Rackmanufaktur, z. B. `Audio · Endstufen · d&b` |
 | `manufacturer`, `partNumber`, `url` | Hersteller, Artikel-/Bestellnummer, Hersteller- oder Händlerseite |
 | `connectorType` | nur Steckverbinder, Typ aus `data/meta/connector-types.json` |
+| `connector.form` | nur Steckverbinder, Bauform: `d` Einbaustecker D-Format (passt ins D-Loch) · `panel` Einbaustecker mit eigenem Ausschnitt oder Bohrung (braucht `cutout` → eigener Footprint, eigene DXF) · `cable` Kabelstecker |
+| `connector.front`, `connector.rear` | die beiden Anschlussseiten. Vorn das Steckgesicht: `face` aus `data/meta/connector-faces.json` + `gender` (`m` Stecker/Stifte, `f` Buchse). Hinten **entweder** die Anschlussart `term` aus `data/meta/terminations.json` (`solder`, `screw`, `spring`, `crimp`, `pcb`, `faston`, `idc`, `stud`) **oder** bei Durchführungen wieder `face` + `gender`. Optional `note`. Beim Kabelstecker ist `rear` der Kabelanschluss. |
 | `description`, `notes` | Beschreibung, interne Hinweise |
 | `rack.mount` | `rack` eigene Rackohren · `half` halbe Breite mit Kit · `bmd` Blackmagic-Teilbreite · `free` Kleingerät für Rackwanne · `desk` Tischgerät · `none` nicht rackbar (z. B. Lautsprecher) |
 | `rack.units` | Höheneinheiten, 0,5er-Schritte |
@@ -74,6 +76,20 @@ Beispiel (Preis und Bestand nur zur Veranschaulichung):
 
 Eintrag in `data/categories.json` ergänzen (`id`, `name`, `description`) und Ordner `data/articles/<id>/`
 anlegen. Leere Kategorien (z. B. `lautsprecher`, `kabel`) erscheinen erst, wenn sie Artikel haben.
+
+## Steckverbinder: Vorder- und Rückseite
+
+```json
+"connector": {
+  "form": "d",
+  "front": { "face": "xlr3", "gender": "m" },
+  "rear":  { "term": "solder" }
+}
+```
+
+Durchführung (z. B. etherCON NE8FDP): `"rear": { "face": "rj45", "gender": "f" }`. Rackmanufaktur nutzt die
+Rückseite für die Verkabelung im Rack (Blendenstecker ↔ Blendenstecker/Gerät). Neues Steckgesicht oder neue
+Anschlussart in `data/meta/connector-faces.json` bzw. `data/meta/terminations.json` ergänzen.
 
 ## Neuer Anschlusstyp
 

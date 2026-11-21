@@ -16,6 +16,18 @@
         "note": { "type": "string", "description": "Quelle des Preises bzw. Hinweis (Händler, Stand …)" }
       }
     },
+    "side": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Eine Anschlussseite: entweder face + gender (Steckgesicht) oder term (Anschlussart)",
+      "properties": {
+        "face": { "type": "string", "description": "Steckgesicht aus data/meta/connector-faces.json" },
+        "gender": { "enum": ["m", "f"], "description": "m = Stecker/Stifte, f = Buchse" },
+        "term": { "type": "string", "description": "Anschlussart aus data/meta/terminations.json (solder, screw, crimp, pcb …)" },
+        "note": { "type": "string", "description": "Ergänzung, z. B. \"auch Flachstecker 4,8 mm\"" }
+      },
+      "oneOf": [ { "required": ["face", "gender"], "not": { "required": ["term"] } }, { "required": ["term"], "not": { "anyOf": [ { "required": ["face"] }, { "required": ["gender"] } ] } } ]
+    },
     "port": {
       "type": "object",
       "additionalProperties": false,
@@ -38,6 +50,17 @@
     "manufacturer": { "type": "string" },
     "partNumber": { "type": "string", "description": "Artikel-/Bestellnummer" },
     "connectorType": { "type": "string", "description": "Nur Steckverbinder: Typ aus data/meta/connector-types.json" },
+    "connector": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["form"],
+      "description": "Nur Steckverbinder: Bauform und beide Anschlussseiten",
+      "properties": {
+        "form": { "enum": ["d", "panel", "cable"], "description": "d = Einbaustecker D-Format (D-Loch), panel = Einbaustecker mit eigenem Ausschnitt/Bohrung (cutout, eigene DXF), cable = Kabelstecker" },
+        "front": { "$ref": "#/$defs/side", "description": "Vorderseite: Steckgesicht" },
+        "rear": { "$ref": "#/$defs/side", "description": "Rückseite: Anschlussart oder (Durchführung) Steckgesicht; beim Kabelstecker der Kabelanschluss" }
+      }
+    },
     "description": { "type": "string" },
     "url": { "type": "string", "pattern": "^https?://", "description": "Hersteller- oder Händlerseite" },
     "rack": {
