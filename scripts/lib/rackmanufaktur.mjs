@@ -70,11 +70,14 @@ const keyOf = (a, prefix) => a.rackmanufaktur.key.slice(prefix.length);
 // Schlüssel einer Ansicht in Rackmanufaktur: Geräte unter ihrem Schlüssel, Teile (MA-Frontblenden) mit "_"
 export const viewKey = rmKey => rmKey?.startsWith('dev:') ? rmKey.slice(4) : rmKey?.startsWith('art:') ? '_' + rmKey.slice(4) : null;
 
-export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rmDrawers = {} }) {
+export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rmDrawers = {}, connectorFaces = {}, terminations = {}, ioFaces = {} }) {
   const devices = {};
   for (const a of withPrefix(articles, 'dev:')) {
     const o = toRM('device', a);
     if (a.io) { o.io = {}; if (a.io.front) o.io.f = ioString(a.io.front); if (a.io.rear) o.io.r = ioString(a.io.rear); }
+    // Anschlussdetails (Richtung, einzelne Anschlüsse) für die Verkabelung – nur wenn vorhanden, Index = Gruppe in io.f/io.r
+    const det = list => (list || []).map(p => (p.dir || p.ports ? { ...(p.dir && { dir: p.dir }), ...(p.ports && { ports: p.ports }) } : 0));
+    if (a.io && ['front', 'rear'].some(s => (a.io[s] || []).some(p => p.dir || p.ports))) o.iox = { f: det(a.io.front), r: det(a.io.rear) };
     devices[keyOf(a, 'dev:')] = o;
   }
 
@@ -137,7 +140,16 @@ export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rm
     if (v && k) viewsOut[k] = v.data;
   }
 
-  return { devices, connectors: { types: connectorTypes, connectors }, sysboxx, weights, views: viewsOut, parts };
+  // Verkabelung: Steckgesichter, Anschlussarten, Zuordnung io-Typ → Steckgesicht, Kabel und Kabelstecker
+  const cables = {}, plugs = {};
+  for (const a of articles) {
+    const buy = { n: a.name, ...(a.manufacturer && { mk: a.manufacturer }), ...(a.partNumber && { art: a.partNumber }), price: a.price?.eur ?? null, ...(a.price?.source && { src: a.price.source }), ...(a.price?.note && { q: a.price.note }), ...(a.status?.unchecked && { chk: 1 }) };
+    if (a.cable) cables[a.id] = { ...buy, ...a.cable };
+    if (a.connector?.form === 'cable') plugs[a.id] = { ...buy, front: a.connector.front, rear: a.connector.rear };
+  }
+  const wiring = { faces: connectorFaces, terminations, ioFaces, cables, plugs };
+
+  return { devices, connectors: { types: connectorTypes, connectors }, sysboxx, weights, views: viewsOut, parts, wiring };
 }
 
 export { ioParse };

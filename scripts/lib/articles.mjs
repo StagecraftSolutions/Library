@@ -17,13 +17,15 @@ export const writeJSON = (p, obj) => writeFileSync(p, JSON.stringify(obj, null, 
 // Jede Artikeldatei wird in dieser Reihenfolge geschrieben, damit Diffs in Git ruhig bleiben.
 const ORDER = {
   article: ['$schema', 'id', 'name', 'shortName', 'category', 'area', 'group', 'manufacturer', 'partNumber',
-    'connectorType', 'connector', 'description', 'url', 'rack', 'cutout', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
+    'connectorType', 'connector', 'cable', 'description', 'url', 'rack', 'cutout', 'weightKg', 'price', 'io', 'variants', 'status', 'notes',
     'inventory', 'rackmanufaktur'],
   rack: ['mount', 'units', 'fraction', 'width', 'height', 'depth'],
   price: ['eur', 'source', 'note'],
   status: ['unchecked', 'placeholder'],
   io: ['front', 'rear'],
-  port: ['type', 'count', 'label'],
+  port: ['type', 'count', 'label', 'dir', 'ports'],
+  portDetail: ['label', 'face', 'gender', 'dir'],
+  cable: ['kind', 'a', 'b', 'lengths', 'spec'],
   variant: ['units', 'depth', 'partNumber', 'price', 'weightKg', 'dimensions', 'usableDepth'],
   inventory: ['qty', 'location', 'note'],
   cutout: ['w', 'h', 'cut'],
@@ -47,6 +49,10 @@ export function canon(a) {
   if (x.status) x.status = ordered(x.status, ORDER.status);
   if (x.inventory) x.inventory = ordered(x.inventory, ORDER.inventory);
   if (x.cutout) x.cutout = ordered(x.cutout, ORDER.cutout);
+  if (x.cable) {
+    x.cable = ordered(x.cable, ORDER.cable);
+    for (const s of ['a', 'b']) if (x.cable[s]) x.cable[s] = ordered(x.cable[s], ORDER.side);
+  }
   if (x.connector) {
     x.connector = ordered(x.connector, ORDER.connector);
     for (const s of ['front', 'rear']) if (x.connector[s]) x.connector[s] = ordered(x.connector[s], ORDER.side);
@@ -54,7 +60,11 @@ export function canon(a) {
   if (x.rackmanufaktur) x.rackmanufaktur = ordered(x.rackmanufaktur, ORDER.rackmanufaktur);
   if (x.io) {
     x.io = ordered(x.io, ORDER.io);
-    for (const s of ['front', 'rear']) if (x.io[s]) x.io[s] = x.io[s].map(p => ordered(p, ORDER.port));
+    for (const s of ['front', 'rear']) if (x.io[s]) x.io[s] = x.io[s].map(p => {
+      const o = ordered(p, ORDER.port);
+      if (o.ports) o.ports = o.ports.map(d => ordered(d, ORDER.portDetail));
+      return o;
+    });
   }
   if (x.variants) x.variants = x.variants.map(v => {
     const o = ordered(v, ORDER.variant);
@@ -102,6 +112,7 @@ export function loadAll() {
   const connectorTypes = readJSON(join(DATA, 'meta', 'connector-types.json'));
   const connectorFaces = readJSON(join(DATA, 'meta', 'connector-faces.json'));
   const terminations = readJSON(join(DATA, 'meta', 'terminations.json'));
+  const ioFaces = readJSON(join(DATA, 'meta', 'io-faces.json'));
   const articles = [], errors = [];
   for (const file of articleFiles()) {
     const rel = relative(ROOT, file);
@@ -115,7 +126,7 @@ export function loadAll() {
     try { views.push({ file: rel, id: basename(name, '.json'), data: readJSON(join(VIEWS, name)) }); }
     catch (e) { errors.push(`${rel}: kein gültiges JSON (${e.message})`); }
   }
-  return { categories, ioTypes, connectorTypes, connectorFaces, terminations, articles, views, errors };
+  return { categories, ioTypes, connectorTypes, connectorFaces, terminations, ioFaces, articles, views, errors };
 }
 
 // Ansicht: ein Zeichenelement pro Zeile, damit Diffs lesbar bleiben
@@ -134,9 +145,28 @@ const MOUNTS = ['rack', 'bmd', 'half', 'free', 'desk', 'none'];
 const PRICE_SOURCES = ['cart', 'web', 'ref', 'check', 'user'];
 
 const FORMS = ['d', 'panel', 'cable'];
+const DIRS = ['in', 'out', 'io'];
+const CABLE_KINDS = ['patch', 'bulk'];
 
-export function validate({ categories, ioTypes, connectorTypes, connectorFaces = {}, terminations = {}, articles, views = [], errors = [] }) {
-  const errs = [...errors];
+// Stammdaten der Anschlussseiten: Steckgesichter, Anschlussarten, Zuordnung io-Typ → Steckgesicht
+export function validateMeta({ ioTypes = {}, connectorFaces = {}, ioFaces = {} }) {
+  const errs = [], fams = new Set(Object.entries(connectorFaces).map(([k, f]) => f.fam || k));
+  for (const [k, f] of Object.entries(connectorFaces)) {
+    if (typeof f.n !== 'string') errs.push(`connector-faces.json: ${k}.n fehlt`);
+    for (const m of f.mates || []) if (!fams.has(m) && !connectorFaces[m]) errs.push(`connector-faces.json: ${k}.mates "${m}" ist weder Steckgesicht noch Familie`);
+  }
+  for (const t of Object.keys(ioTypes)) if (!ioFaces[t]) errs.push(`io-faces.json: io-Typ "${t}" fehlt (Steckgesicht oder none eintragen)`);
+  for (const [t, m] of Object.entries(ioFaces)) {
+    if (!ioTypes[t]) errs.push(`io-faces.json: "${t}" ist kein io-Typ`);
+    if (m.none) continue;
+    if (!connectorFaces[m.face]) errs.push(`io-faces.json: ${t}.face "${m.face}" ist nicht in connector-faces.json`);
+    if (m.gender !== undefined && !['m', 'f'].includes(m.gender)) errs.push(`io-faces.json: ${t}.gender muss m oder f sein`);
+  }
+  return errs;
+}
+
+export function validate({ categories, ioTypes, connectorTypes, connectorFaces = {}, terminations = {}, ioFaces = {}, articles, views = [], errors = [] }) {
+  const errs = [...errors, ...validateMeta({ ioTypes, connectorFaces, ioFaces })];
   const catIds = new Set(categories.map(c => c.id));
   const ioSet = new Set(Object.keys(ioTypes));
   const ids = new Map(), rmKeys = new Map();
@@ -197,6 +227,22 @@ export function validate({ categories, ioTypes, connectorTypes, connectorFaces =
         num(p.count, `io.${s}[${i}].count`, { min: 1, int: true });
         str(p.label, `io.${s}[${i}].label`);
         if (typeof p.label === 'string' && p.label.includes(';')) e(`io.${s}[${i}].label darf kein ";" enthalten`);
+        for (const k of Object.keys(p)) if (!ORDER.port.includes(k)) e(`io.${s}[${i}].${k} ist unbekannt`);
+        if (p.dir !== undefined && !DIRS.includes(p.dir)) e(`io.${s}[${i}].dir muss in, out oder io sein`);
+        if (p.ports !== undefined) {
+          if (!Array.isArray(p.ports)) e(`io.${s}[${i}].ports muss eine Liste sein`);
+          else {
+            if (p.ports.length !== p.count) e(`io.${s}[${i}].ports: ${p.ports.length} Einträge, count ist ${p.count}`);
+            p.ports.forEach((d, j) => {
+              const q = `io.${s}[${i}].ports[${j}]`;
+              for (const k of Object.keys(d)) if (!ORDER.portDetail.includes(k)) e(`${q}.${k} ist unbekannt`);
+              str(d.label, `${q}.label`);
+              if (d.face !== undefined && !connectorFaces[d.face]) e(`${q}.face "${d.face}" ist nicht in data/meta/connector-faces.json`);
+              if (d.gender !== undefined && !['m', 'f'].includes(d.gender)) e(`${q}.gender muss m oder f sein`);
+              if (d.dir !== undefined && !DIRS.includes(d.dir)) e(`${q}.dir muss in, out oder io sein`);
+            });
+          }
+        }
       });
     }
     if (a.variants !== undefined) {
@@ -247,6 +293,23 @@ export function validate({ categories, ioTypes, connectorTypes, connectorFaces =
           str(x.note, `${p}.note`);
         }
       }
+    }
+    if (a.cable !== undefined) {
+      const c = a.cable;
+      if (a.category !== 'kabel') e('cable nur in der Kategorie kabel');
+      for (const k of Object.keys(c)) if (!ORDER.cable.includes(k)) e(`cable.${k} ist unbekannt`);
+      if (!CABLE_KINDS.includes(c.kind)) e('cable.kind muss patch (konfektioniert) oder bulk (Meterware) sein');
+      if (c.kind === 'patch') {
+        for (const s of ['a', 'b']) {
+          const x = c[s];
+          if (!x) { e(`cable.${s} fehlt (Stecker an diesem Ende)`); continue; }
+          for (const k of Object.keys(x)) if (!['face', 'gender', 'note'].includes(k)) e(`cable.${s}.${k} ist unbekannt`);
+          if (!connectorFaces[x.face]) e(`cable.${s}.face "${x.face}" ist nicht in data/meta/connector-faces.json`);
+          if (!['m', 'f'].includes(x.gender)) e(`cable.${s}.gender muss m oder f sein`);
+        }
+        if (c.lengths !== undefined && !(Array.isArray(c.lengths) && c.lengths.length && c.lengths.every(v => typeof v === 'number' && v > 0))) e('cable.lengths muss eine Liste positiver Längen in m sein');
+      } else if (c.a || c.b || c.lengths) e('Meterware (bulk) hat keine Enden a/b und keine lengths');
+      str(c.spec, 'cable.spec');
     }
     if (a.inventory !== undefined) { num(a.inventory.qty, 'inventory.qty', { int: true }); str(a.inventory.location, 'inventory.location'); str(a.inventory.note, 'inventory.note'); }
     if (a.rackmanufaktur !== undefined) {

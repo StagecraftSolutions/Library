@@ -83,6 +83,7 @@ put('io-types.json', { ...meta, ioTypes: db.ioTypes });
 put('connector-types.json', { ...meta, connectorTypes: db.connectorTypes });
 put('connector-faces.json', { ...meta, connectorFaces: db.connectorFaces });
 put('terminations.json', { ...meta, terminations: db.terminations });
+put('io-faces.json', { ...meta, ioFaces: db.ioFaces });
 writeFileSync(join(OUT, 'article.schema.json'), readFileSync(join(ROOT, 'schema', 'article.schema.json')));
 
 // Anschlussseite eines Steckverbinders als Text, z. B. "XLR 3-pol Stecker" oder "Lötanschluss"
@@ -107,7 +108,7 @@ const cell = v => {
 writeFileSync(join(OUT, 'articles.csv'), '﻿' + [cols.map(c => c[0]).join(';'), ...articles.map(a => cols.map(c => cell(c[1](a))).join(';'))].join('\n') + '\n');
 
 // Rackmanufaktur-Formate (Schritt 2: Rackmanufaktur liest diese Dateien statt seiner eigenen data/*.json)
-const rm = exportRM(articles, { connectorTypes: db.connectorTypes, sysboxxMeta: readJSON(join(DATA, 'meta', 'sysboxx.json')), views: db.views, rmDrawers: readJSON(join(DATA, 'meta', 'rackmanufaktur-drawers.json')) });
+const rm = exportRM(articles, { connectorTypes: db.connectorTypes, connectorFaces: db.connectorFaces, terminations: db.terminations, ioFaces: db.ioFaces, sysboxxMeta: readJSON(join(DATA, 'meta', 'sysboxx.json')), views: db.views, rmDrawers: readJSON(join(DATA, 'meta', 'rackmanufaktur-drawers.json')) });
 for (const [name, obj] of Object.entries(rm)) put(`rackmanufaktur/${name}.json`, obj);
 
 put('index.json', {
@@ -115,7 +116,7 @@ put('index.json', {
   count: articles.length,
   endpoints: {
     articles: 'articles.json', article: 'articles/{id}.json', view: 'views/{id}.json', dxf: 'dxf/{id}.dxf', csv: 'articles.csv', categories: 'categories.json',
-    ioTypes: 'io-types.json', connectorTypes: 'connector-types.json', connectorFaces: 'connector-faces.json', terminations: 'terminations.json', schema: 'article.schema.json',
+    ioTypes: 'io-types.json', connectorTypes: 'connector-types.json', connectorFaces: 'connector-faces.json', terminations: 'terminations.json', ioFaces: 'io-faces.json', schema: 'article.schema.json',
     rackmanufaktur: Object.fromEntries(Object.keys(rm).map(k => [k, `rackmanufaktur/${k}.json`])),
   },
 });
