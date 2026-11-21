@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "rj45_field",
+  "name": "RJ45-Stecker Cat 6A, feldkonfektionierbar",
+  "shortName": "RJ45 Kabel",
+  "category": "steckverbinder",
+  "manufacturer": "frei wählbar",
+  "partNumber": "RJ45-Feldstecker Cat 6A, werkzeuglos (z. B. Metz Connect)",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "rj45", "gender": "m"},
+    "rear": {"term": "idc"}
+  },
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "status": {
+    "unchecked": true
+  }
+}

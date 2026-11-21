@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bnc_crimp",
+  "name": "BNC-Crimpstecker 75 Ω (12G-SDI)",
+  "shortName": "BNC Kabel",
+  "category": "steckverbinder",
+  "manufacturer": "frei wählbar",
+  "partNumber": "BNC-Crimpstecker 75 Ω passend zum Koaxkabel",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "bnc", "gender": "m"},
+    "rear": {"term": "crimp"}
+  },
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "status": {
+    "unchecked": true
+  }
+}

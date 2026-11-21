@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "nac3fx_w_top",
+  "name": "powerCON TRUE1 TOP Kabelbuchse (zum Geräteeingang)",
+  "shortName": "TRUE1 F Kabel",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAC3FX-W-TOP",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "powercon_true1", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "status": {
+    "unchecked": true
+  }
+}
