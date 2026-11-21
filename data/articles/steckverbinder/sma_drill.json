@@ -1,16 +1,31 @@
 {
   "$schema": "../../../schema/article.schema.json",
   "id": "sma_drill",
-  "name": "SMA-Antennendurchführung in gebohrter Blindplatte",
+  "name": "SMA-Einbaubuchse (Schottverbinder Buchse/Buchse), Bohrung Ø 6,5 mm",
   "shortName": "SMA",
   "category": "steckverbinder",
   "manufacturer": "frei wählbar",
   "partNumber": "SMA-Schottverbinder Buchse/Buchse, Bohrung Ø 6,5 mm",
   "connectorType": "sma",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "sma", "gender": "f"},
+    "rear": {"face": "sma", "gender": "f"}
+  },
+  "cutout": {
+    "w": 10,
+    "h": 10,
+    "cut": [
+      {"t": "c", "d": 6.5}
+    ]
+  },
   "price": {
     "eur": null,
     "source": "check",
-    "note": "Blindplatte D wird mitbestellt"
+    "note": "Einbaustecker mit eigener Bohrung Ø 6,5 mm; Flanschmaß 10 × 10 geschätzt (Sechskantmutter)."
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:sma_drill",
