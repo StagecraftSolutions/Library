@@ -7,6 +7,11 @@
   "manufacturer": "Mennekes",
   "partNumber": "Mennekes 1688",
   "connectorType": "cee63m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee63_5", "gender": "m"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 106,
     "h": 110,

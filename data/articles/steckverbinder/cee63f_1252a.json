@@ -7,6 +7,11 @@
   "manufacturer": "Mennekes",
   "partNumber": "Mennekes 1252A",
   "connectorType": "cee63f",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee63_5", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 100,
     "h": 107,
