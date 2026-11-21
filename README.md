@@ -2,8 +2,8 @@
 
 Artikeldatenbank von Stagecraft Solutions: 19″-Geräte, Geräte halber Breite, Steckverbinder, Blenden,
 Rackwannen, Schubladen, Rack-Cases, SYSBOXX und Zubehör – durchsuchbar im Browser, als JSON/CSV
-herunterladbar und über eine statische API abrufbar. Rackmanufaktur soll seine Produktdaten künftig
-von hier beziehen.
+herunterladbar und über eine statische API abrufbar. Rackmanufaktur bezieht seine Produktdaten
+ausschließlich von hier.
 
 **Live:** <https://library.stagecraft.solutions/>
 
@@ -20,8 +20,6 @@ von hier beziehen.
 | `data/meta/rackmanufaktur-drawers.json` | Schubladen-Serien des Konfigurators (welcher Artikel je Höhe, Tiefen, Schloss) |
 | `schema/article.schema.json` | JSON-Schema – Editoren wie VS Code schlagen damit Felder vor und markieren Fehler |
 | `scripts/build.mjs` | prüft alle Artikel und erzeugt `public/api/v1/` |
-| `scripts/import-rackmanufaktur.mjs` | übernimmt Artikel aus einem Rackmanufaktur-Checkout |
-| `scripts/check-rackmanufaktur.mjs` | vergleicht den Rackmanufaktur-Export mit Rackmanufaktur |
 | `scripts/sync-renderer.mjs` | übernimmt den Zeichencode der Ansichten und Stecker aus Rackmanufaktur nach `public/assets/rackview.*` |
 | `scripts/lib/cutout.mjs` | Einbauausschnitt der Steckverbinder (D-Norm oder eigener) und DXF-Erzeugung |
 | `public/index.html` | Katalogseite (ohne Build-Schritt, keine externen Quellen) |
@@ -61,45 +59,41 @@ Statische JSON-Dateien unter `/api/v1/`, CORS offen, jede Antwort mit `commit` u
 | `dxf/{id}.dxf` | Einbauausschnitt eines Steckverbinders als DXF (R12, mm, Ursprung = Steckermitte; Ebenen AUSSCHNITT, BOHRUNG, FLANSCH, MITTE, ggf. BLINDPLATTE). Im Artikel: `panelCutout` mit Geometrie, Text und Pfad |
 | `articles.csv` | Tabelle (Semikolon, UTF-8 mit BOM, Dezimalkomma) |
 | `categories.json`, `io-types.json`, `connector-types.json`, `article.schema.json` | Stammdaten |
-| `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json`, `parts.json` | exakt das Format von `Rackmanufactur/data/*.json`; `parts.json` = Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör – siehe unten |
+| `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json`, `parts.json` | Datenquelle von Rackmanufaktur (rack.stagecraft.solutions), Format wie früher `Rackmanufactur/data/*.json`; `parts.json` = Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör – siehe unten |
 
 ## Zusammenspiel mit Rackmanufaktur
 
-**Schritt 1 (jetzt): parallel.** Rackmanufaktur pflegt seine Daten weiter selbst. Die Bibliothek wurde aus
-Rackmanufaktur befüllt (402 Artikel) und kann nachgezogen werden:
+**Die Bibliothek führt (seit 21.11.2026).** Rackmanufaktur hat keine eigenen Produktdaten mehr: Der Konfigurator
+lädt Geräte, Ansichten, Steckverbinder, SYSBOXX, Rackteile und Gewichte zur Laufzeit aus
+`api/v1/rackmanufaktur/*.json`, cacht sie im Browser und speichert je Projekt einen Schnappschuss. Neue Geräte,
+Korrekturen, Gewichte und Ansichten werden **nur noch hier** gepflegt; nach dem Deploy erscheinen sie im
+Konfigurator (bei bestehenden Projekten als Aktualisierung auf Klick).
 
-```bash
-node scripts/import-rackmanufaktur.mjs ../Rackmanufactur --update
-```
+Vor der Umstellung stimmten alle sechs Dateien inhaltlich mit den Rackmanufaktur-Daten überein (nur die
+Feldreihenfolge wich ab). Die Übergangsskripte `import-rackmanufaktur.mjs` und `check-rackmanufaktur.mjs` sind
+entfallen. Quellen und Recherche aus Rackmanufaktur: [docs/rackmanufaktur-data-sources.md](docs/rackmanufaktur-data-sources.md),
+[docs/rackmanufaktur-manufacturers-excluded.md](docs/rackmanufaktur-manufacturers-excluded.md).
 
-`--update` überschreibt die aus Rackmanufaktur stammenden Felder; reine Bibliotheksfelder (`category`, `area`,
-`inventory`, `description` …) bleiben. Ob beide Seiten übereinstimmen:
+**Rein lokal:** Rackmanufaktur kann statt der API auch einen Git-Checkout dieses Repositorys als Ordner lesen
+(Fenster „Library“ → „Library-Ordner wählen …“). Es liest `data/` und führt `scripts/lib/rackmanufaktur.mjs`
+(mit `scripts/lib/io.mjs`) direkt im Browser aus – ohne Build. Diese beiden Dateien müssen deshalb ohne
+Node-Importe auskommen; Ordnerstruktur und die Signatur von `exportRM(articles, { connectorTypes, sysboxxMeta,
+views, rmDrawers })` sind damit eine Schnittstelle zu Rackmanufaktur.
 
-```bash
-node scripts/check-rackmanufaktur.mjs ../Rackmanufactur
-```
-
-**Schritt 2: Bibliothek führt.** Rackmanufaktur holt `api/v1/rackmanufaktur/*.json` (z. B. in
-`scripts/data.mjs import`) statt seine eigenen `data/*.json` zu lesen. Die Dateien stimmen bereits
-inhaltlich mit Rackmanufaktur überein (geprüft mit `check-rackmanufaktur.mjs`, nur die Feldreihenfolge kann abweichen). Danach werden Geräte, Steckverbinder
-und Gewichte nur noch hier gepflegt. Auch die maßstäblichen Ansichten (`views.json`) liegen schon hier und werden
-auf der Katalogseite mit dem Zeichencode von Rackmanufaktur dargestellt (nach Änderungen dort
-`node scripts/sync-renderer.mjs` ausführen). Die Übersetzungen bleiben vorerst in Rackmanufaktur.
+Die maßstäblichen Ansichten werden auf der Katalogseite mit dem Zeichencode von Rackmanufaktur dargestellt (nach
+Änderungen dort `node scripts/sync-renderer.mjs` ausführen). Die Übersetzungen (deutsche Namen → Englisch) liegen
+in Rackmanufaktur (`data/i18n/catalog.json`).
 
 ### `parts.json` – Rackteile
 
-Seit Rackmanufaktur `979172a` stehen Anschlussfelder, Blenden, Wannen, Schubladen, Cases und Zubehör auch dort
-in `data/parts.json` (`panels`, `art`, `shelves`, `drawers`, `cases`, `acc`, `railRear`) statt im Code; die
-Library liefert dasselbe Format. Werte, die je Höhe verschieden sind, stehen als Tabellen:
+Anschlussfelder, Blenden, Wannen, Schubladen, Cases und Zubehör (`panels`, `art`, `shelves`, `drawers`, `cases`,
+`acc`, `railRear`) liefert die Library in diesem Format. Werte, die je Höhe verschieden sind, stehen als Tabellen:
 
 | Feld | Inhalt |
 |---|---|
 | `cases.x.art`, `price`, `outer`, `use` | `{ "<HE>": Wert }` (`use` sonst eine Zahl) |
 | `drawers.x.keys` | `{ "<HE>": "<ART-Schlüssel>" }` |
 | `CASES.custom` | fehlt – das „eigene Case“ ist eine Eingabemaske und bleibt im Code von Rackmanufaktur |
-
-Import und Abgleich lesen `data/parts.json`; bei älteren Rackmanufaktur-Ständen ohne diese Datei lesen sie die
-Objekte noch aus `public/index.html` (`scripts/lib/rmparts.mjs`).
 
 In der Library sind diese Teile normale Artikel (Kategorien Blenden, Rackwannen, Schubladen, Rack-Cases,
 Zubehör, Anschlussfelder); die Adam-Hall-Wannen sind ein Artikel (`tray1`, `tray2`) mit der Wannen-Definition in

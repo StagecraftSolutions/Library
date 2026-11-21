@@ -1,7 +1,8 @@
-// Übersetzung zwischen Bibliotheksartikeln und den Datenformaten von Rackmanufaktur.
-// Dieselben Tabellen werden für den Import (RM → Bibliothek) und den Export (Bibliothek → RM) benutzt,
-// damit beide Richtungen verlustfrei zueinander passen (geprüft mit scripts/check-rackmanufaktur.mjs).
-import { ioParse, ioString } from './articles.mjs';
+// Übersetzung zwischen Bibliotheksartikeln und den Datenformaten von Rackmanufaktur (api/v1/rackmanufaktur/*.json).
+//
+// WICHTIG: Diese Datei muss ohne Node laufen (keine node:-Importe, nur ./io.mjs). Rackmanufaktur lädt sie im Browser
+// direkt aus einem lokalen Library-Ordner (Git-Checkout) und rechnet damit data/ in seine Formate um – ohne Build.
+import { ioParse, ioString } from './io.mjs';
 
 // [Feld in Rackmanufaktur, Pfad im Artikel, Art]  Art: 'flag' = 1 ↔ true
 const PRICE = [['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note'], ['chk', 'status.unchecked', 'flag']];
@@ -103,7 +104,7 @@ export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rm
     for (const v of a.variants || []) if (v.weightKg !== undefined && v.units !== undefined) weights[`${k}:${v.units}`] = v.weightKg;
   }
 
-  // Rackteile im Format von Rackmanufactur/data/parts.json (siehe scripts/lib/rmparts.mjs)
+  // Rackteile im Format, das Rackmanufaktur lädt (api/v1/rackmanufaktur/parts.json)
   const parts = { panels: {}, art: {}, shelves: {}, drawers: rmDrawers, cases: {}, acc: [], railRear: null };
   for (const a of withPrefix(articles, 'panel:')) parts.panels[keyOf(a, 'panel:')] = toRM('panel', a);
   for (const a of withPrefix(articles, 'art:')) {
