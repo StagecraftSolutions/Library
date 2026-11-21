@@ -30,6 +30,6 @@
   "rackmanufaktur": {
     "key": "con:rca_drill",
     "order": 19,
-    "extra": {"fit": "dblank", "g": "rca", "drill": 8}
+    "extra": {"fit": "fp", "g": "rca"}
   }
 }

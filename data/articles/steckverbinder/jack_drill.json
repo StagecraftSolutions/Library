@@ -30,6 +30,6 @@
   "rackmanufaktur": {
     "key": "con:jack_drill",
     "order": 21,
-    "extra": {"fit": "dblank", "g": "jack", "drill": 9.5}
+    "extra": {"fit": "fp", "g": "jack"}
   }
 }

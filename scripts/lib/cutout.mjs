@@ -4,9 +4,19 @@
 // D-Norm: Ø 24 mm, 2 × M3 diagonal 19 × 24 mm, Flansch 26 × 31 mm (wie D_FP in Rackmanufaktur)
 export const D_CUTOUT = { w: 26, h: 31, cut: [{ t: 'c', d: 24 }, { t: 'h', x: 9.5, y: -12, d: 3.2 }, { t: 'h', x: -9.5, y: 12, d: 3.2 }] };
 
+// Einbaustecker mit eigenem Ausschnitt, der auch ins D-Loch passt: genau eine mittige runde Bohrung, keine
+// Schraublöcher, Flansch höchstens 24 × 24 mm (geht durch das Ø-24-Loch und liegt zwischen den M3-Schrauben der
+// Blindplatte). Ergebnis: Bohrungs-Ø in der D-Blindplatte, sonst 0. Gleiche Regel in Rackmanufaktur (dDrill).
+export const D_FIT_MAX = 24;
+export function dDrillOf(c) {
+  if (!c?.cut || c.w > D_FIT_MAX || c.h > D_FIT_MAX || c.cut.length !== 1) return 0;
+  const q = c.cut[0];
+  return q.t === 'c' && !q.x && !q.y ? q.d : 0;
+}
+
 // Ausschnitt eines Artikels: eigener (cutout) oder bei Steckverbindern die D-Norm
 export function cutoutOf(a) {
-  if (a.cutout) return { ...a.cutout, standard: null };
+  if (a.cutout) { const dDrill = dDrillOf(a.cutout); return { ...a.cutout, standard: null, ...(dDrill && { dDrill }) }; }
   if (a.category !== 'steckverbinder') return null;
   const drill = a.rackmanufaktur?.extra?.drill;
   return { ...D_CUTOUT, standard: 'D', ...(drill && { drill }) };
@@ -20,6 +30,7 @@ export function cutoutText(c) {
   let t = c.standard === 'D' ? 'D-Ausschnitt Ø 24 mm + 2 × Ø 3,2 mm (M3)'
     : main.map(q => q.t === 'c' ? `Ø ${N(q.d)} mm` : `Rechteck ${N(q.w)} × ${N(q.h)} mm`).join(' + ') + (hs.length ? ` + ${hs.length} × Ø ${N(hs[0].d)} mm${span}` : '');
   if (c.drill) t += `, Blindplatte mittig Ø ${N(c.drill)} mm bohren`;
+  if (c.dDrill) t += ` · passt auch ins D-Loch: Blindplatte D mittig Ø ${N(c.dDrill)} mm bohren`;
   return t;
 }
 

@@ -41,7 +41,7 @@ Beispiel (Preis und Bestand nur zur Veranschaulichung):
 | `group` | Gruppe wie in Rackmanufaktur, z. B. `Audio · Endstufen · d&b` |
 | `manufacturer`, `partNumber`, `url` | Hersteller, Artikel-/Bestellnummer, Hersteller- oder Händlerseite |
 | `connectorType` | nur Steckverbinder, Typ aus `data/meta/connector-types.json` |
-| `connector.form` | nur Steckverbinder, Bauform: `d` Einbaustecker D-Format (passt ins D-Loch) · `panel` Einbaustecker mit eigenem Ausschnitt oder Bohrung (braucht `cutout` → eigener Footprint, eigene DXF) · `cable` Kabelstecker |
+| `connector.form` | nur Steckverbinder, Bauform: `d` Einbaustecker D-Format (passt ins D-Loch) · `panel` Einbaustecker mit eigenem Ausschnitt oder Bohrung (braucht `cutout` → eigener Footprint, eigene DXF). Reicht der Platz – genau eine mittige runde Bohrung, keine Schraublöcher, Flansch ≤ 24 × 24 mm (z. B. Cinch, Klinke, SMA) –, passt er zusätzlich ins D-Loch: dann in einer mittig gebohrten D-Blindplatte (API: `panelCutout.dDrill`) · `cable` Kabelstecker |
 | `connector.front`, `connector.rear` | die beiden Anschlussseiten. Vorn das Steckgesicht: `face` aus `data/meta/connector-faces.json` + `gender` (`m` Stecker/Stifte, `f` Buchse). Hinten **entweder** die Anschlussart `term` aus `data/meta/terminations.json` (`solder`, `screw`, `spring`, `crimp`, `pcb`, `faston`, `idc`, `stud`) **oder** bei Durchführungen wieder `face` + `gender`. Optional `note`. Beim Kabelstecker ist `rear` der Kabelanschluss. |
 | `description`, `notes` | Beschreibung, interne Hinweise |
 | `rack.mount` | `rack` eigene Rackohren · `half` halbe Breite mit Kit · `bmd` Blackmagic-Teilbreite · `free` Kleingerät für Rackwanne · `desk` Tischgerät · `none` nicht rackbar (z. B. Lautsprecher) |

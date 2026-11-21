@@ -30,6 +30,6 @@
   "rackmanufaktur": {
     "key": "con:sma_drill",
     "order": 22,
-    "extra": {"fit": "dblank", "g": "sma", "drill": 6.5}
+    "extra": {"fit": "fp", "g": "sma"}
   }
 }

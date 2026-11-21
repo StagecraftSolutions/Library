@@ -42,7 +42,9 @@ Bei einem Kabelstecker ist `front` das Steckgesicht und `rear` der Kabelanschlus
    eigener DXF. Die `id` bleibt (Verweise in Rackmanufaktur-Projekten).
 4. **Rackmanufaktur: Einbaustecker mit Bohrung** – die drei Artikel nicht mehr als „Blindplatte + Bohrung“
    (`fit: dblank`, Blindplatte in der Stückliste), sondern als Stecker mit eigenem Footprint (`fit: fp`) behandeln;
-   bestehende Projekte (Schnappschuss) prüfen. *Bis dahin bleibt `rackmanufaktur.extra` unverändert.*
+   bestehende Projekte (Schnappschuss) prüfen. Einbaustecker mit eigenem Ausschnitt dürfen auch ins D-Loch, wenn
+   der Platz reicht (eine mittige Bohrung, Flansch ≤ 24 mm) – dann mit gebohrter Blindplatte; im eigenen
+   Steckerfeld wird direkt ins Blech gebohrt.
 5. **Rackmanufaktur: Ansicht „Verkabelung“** nach Schritt 2 – Rückseiten aller Blenden-Stecker und
    Geräteanschlüsse (`io.rear`) als Endpunkte, Verbindungen ziehen, Prüfung (Steckgesicht/Geschlecht passt,
    Lötanschluss braucht Kabel), Stückliste Kabel/Litzen. Eigenes Design, eigener Plan.
