@@ -1,4 +1,4 @@
-// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 1ed7802) – nicht von Hand ändern.
+// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 086847b) – nicht von Hand ändern.
 // Zeichnet maßstäbliche Front- und Rückansichten (Koordinaten in mm) als SVG.
 window.RackView = (() => {
 const HE = 44.45, W19 = 482.6, EAR = 16, CW = 18;
@@ -177,6 +177,15 @@ function panelBase(x, y, w, h, cls = 'pnl') {
 }
 
 const D_FP = { w: 26, h: 31, cut: [{ t: 'c', d: 24 }, { t: 'h', x: 9.5, y: -12, d: 3.2 }, { t: 'h', x: -9.5, y: 12, d: 3.2 }] };
+
+const dDrill = c => {
+  if (!c) return 0;
+  if (c.fit === 'dblank') return c.drill || 0;
+  const F = c.fit === 'fp' && c.fp;
+  if (!F || F.w > 24 || F.h > 24 || (F.cut || []).length !== 1) return 0;
+  const q = F.cut[0];
+  return q.t === 'c' && !q.x && !q.y ? q.d : 0;
+};
 
 function glyph(t, cx, cy, mount = 'f') {
   const c = CON[t] || CON.blank, g = c.g, dd = dDrill(c);

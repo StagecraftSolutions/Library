@@ -35,6 +35,7 @@ const js = [
   between('function panelBase(', 'let PID'),
   // Steckverbinder: D-Einsätze (glyph/rearGlyph) und Stecker mit eigenem Ausschnitt (cpDraw)
   line('const D_FP ='),
+  between('const dDrill = c =>', 'const dOK'),   // Bohrung für kleine Einbaustecker im D-Loch (von glyph/cpDraw benutzt)
   between('function glyph(t, cx, cy', '// Lochmittelpunkte eines Steckerfelds'),
   between('function cpDraw(', 'const cpTip'),
 ].join('\n\n');
