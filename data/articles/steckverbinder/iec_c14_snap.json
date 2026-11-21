@@ -7,6 +7,11 @@
   "manufacturer": "Schurter",
   "partNumber": "Schurter 1061",
   "connectorType": "iec_c14",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "iec_c14", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
   "cutout": {
     "w": 32,
     "h": 23,
@@ -18,6 +23,9 @@
     "eur": null,
     "source": "check",
     "note": "Ausschnitt 28,8 × 19,4 mm für 0,8–1,5 mm Blech (29,6 × 19,4 mm für 1,6–2 mm)"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:iec_c14_snap",

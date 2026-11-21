@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik (CONNEX)",
   "partNumber": "Neutrik CP-PMA (1027373)",
   "connectorType": "cpot",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cpot", "gender": "m"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 54,
     "h": 21.8,

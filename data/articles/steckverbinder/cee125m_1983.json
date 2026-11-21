@@ -7,6 +7,11 @@
   "manufacturer": "Mennekes",
   "partNumber": "Mennekes 1983",
   "connectorType": "cee125m",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee125_5", "gender": "m"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 130,
     "h": 130,

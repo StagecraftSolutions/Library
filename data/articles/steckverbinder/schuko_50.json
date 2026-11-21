@@ -7,6 +7,11 @@
   "manufacturer": "Mennekes",
   "partNumber": "Mennekes 11081",
   "connectorType": "schuko",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "schuko", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 50,
     "h": 50,

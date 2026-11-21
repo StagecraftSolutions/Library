@@ -7,6 +7,11 @@
   "manufacturer": "Sommer Cable (HICON)",
   "partNumber": "HICON HI-LK025FP",
   "connectorType": "lka25",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "lk25", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "cutout": {
     "w": 44.5,
     "h": 44.5,
