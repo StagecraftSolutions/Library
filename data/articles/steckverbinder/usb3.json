@@ -7,9 +7,17 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NAUSB3-B",
   "connectorType": "usb",
+  "connector": {
+    "form": "d",
+    "front": {"face": "usb3_a", "gender": "f"},
+    "rear": {"face": "usb3_a", "gender": "f"}
+  },
   "price": {
     "eur": null,
     "source": "check"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:usb3",

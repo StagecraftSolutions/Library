@@ -7,10 +7,18 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NJ3FP6C-BAG",
   "connectorType": "jack",
+  "connector": {
+    "form": "d",
+    "front": {"face": "jack63", "gender": "f"},
+    "rear": {"term": "pcb"}
+  },
   "price": {
     "eur": null,
     "source": "check",
     "note": "D-Format, stereo; mono-Stecker passen"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:jack",

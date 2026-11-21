@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NO2-4FDW-A",
   "connectorType": "ocon",
+  "connector": {
+    "form": "d",
+    "front": {"face": "opticalcon_duo", "gender": "f"},
+    "rear": {"face": "lc_duplex", "gender": "f"}
+  },
   "price": {
     "eur": null,
     "source": "check",

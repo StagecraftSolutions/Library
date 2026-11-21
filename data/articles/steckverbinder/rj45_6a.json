@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NE8FDX-P6-B",
   "connectorType": "rj45",
+  "connector": {
+    "form": "d",
+    "front": {"face": "ethercon", "gender": "f"},
+    "rear": {"face": "rj45", "gender": "f"}
+  },
   "price": {
     "eur": null,
     "source": "check"
