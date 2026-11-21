@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NBB-75DFIB",
   "connectorType": "bnc",
+  "connector": {
+    "form": "d",
+    "front": {"face": "bnc", "gender": "f"},
+    "rear": {"face": "bnc", "gender": "f"}
+  },
   "price": {
     "eur": null,
     "source": "check",

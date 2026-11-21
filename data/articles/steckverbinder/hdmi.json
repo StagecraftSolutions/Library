@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NAHDMI-W-B",
   "connectorType": "hdmi",
+  "connector": {
+    "form": "d",
+    "front": {"face": "hdmi", "gender": "f"},
+    "rear": {"face": "hdmi", "gender": "f"}
+  },
   "price": {
     "eur": 14.5,
     "source": "web",

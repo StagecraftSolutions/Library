@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NF2D-B-0",
   "connectorType": "rca",
+  "connector": {
+    "form": "d",
+    "front": {"face": "rca", "gender": "f"},
+    "rear": {"face": "rca", "gender": "f"}
+  },
   "price": {
     "eur": null,
     "source": "check",
