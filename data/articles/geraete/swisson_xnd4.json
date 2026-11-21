@@ -20,7 +20,7 @@
       {"type": "knob", "count": 1, "label": "Encoder"},
       {"type": "btn", "count": 7, "label": "select/cancel, link, 4× Port"},
       {"type": "ethercon", "count": 1, "label": "Ethernet"},
-      {"type": "xlrf", "count": 4, "label": "DMX 1–4 (5-pin female)"}
+      {"type": "xlr5f", "count": 4, "label": "DMX 1–4"}
     ],
     "rear": [
       {"type": "powercon", "count": 2, "label": "Power In/Thru"}

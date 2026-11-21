@@ -1,4 +1,4 @@
-// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 0f11bf9) – nicht von Hand ändern.
+// Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 1ed7802) – nicht von Hand ändern.
 // Zeichnet maßstäbliche Front- und Rückansichten (Koordinaten in mm) als SVG.
 window.RackView = (() => {
 const HE = 44.45, W19 = 482.6, EAR = 16, CW = 18;
@@ -6,8 +6,8 @@ const HE = 44.45, W19 = 482.6, EAR = 16, CW = 18;
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 const MK_SHORT = { 'Blackmagic Design': 'Blackmagicdesign', Ubiquiti: 'UniFi', Shure: 'SHURE', Behringer: 'behringer', Midas: 'MIDAS', Swisson: 'SWISSON', NovaStar: 'NovaStar', Eurolite: 'EUROLITE', 'd&b audiotechnik': 'd&b', 'L-Acoustics': 'L-ACOUSTICS', dBTechnologies: 'dBTechnologies', Powersoft: 'POWERSOFT' };
-const PORT_LBL = { rj45: 'RJ45', sfp: 'SFP', bnc: 'BNC', xlr: 'XLR', xlr5: 'DMX', hdmi: 'HDMI', usb: 'USB', usba: 'USB', usbc: 'USB-C', iec: 'AC', dc: 'DC', jack: '6,3', opt: 'OPT', powercon: 'PCON', cee: 'CEE 32A', cee32m: 'CEE 32A IN', cee32f: 'CEE 32A OUT', cee16m: 'CEE 16A IN', cee16f: 'CEE 16A', cee16f4: 'CEE 16A 4P', cee16m4: 'CEE 16A 4P IN', cee32f4: 'CEE 32A 4P', cee32m4: 'CEE 32A 4P IN', cee63m: 'CEE 63A IN', cee63f: 'CEE 63A', cee125m: 'CEE 125A IN', cee125f: 'CEE 125A', powerlockm: 'POWERLOCK', powerlockf: 'POWERLOCK', cpot: 'cPot', han16f: 'HAN 16', han16m: 'HAN 16 IN', han10f: 'HAN 10', han10m: 'HAN 10 IN', han6f: 'HAN 6', han6m: 'HAN 6 IN', lka25: 'LKA25', lk37: 'LK37', brk: 'LS', rcd: 'FI', sd: 'SD', ant: 'ANT' };
-const PORT_SZ = { rj45: [1.25, 1], sfp: [1.6, .7], bnc: [1, 1], xlr: [1.75, 1.75], xlr5: [1.75, 1.75], hdmi: [1.4, .55], usb: [1, .45], usba: [1, .45], usbc: [.9, .35], iec: [1.45, 1.05], jack: [.85, .85], dc: [.75, .75], opt: [.8, .8], sd: [2.4, .38], powercon: [1.9, 1.9], nl4: [1.9, 1.9], nl8: [2.1, 2.1], cee: [4.4, 4.4], cee32m: [4.6, 4.6], cee32f: [5, 5.4], cee16m: [3.7, 3.7], cee16f: [4, 4.4], cee16f4: [3.6, 4], cee16m4: [3.4, 3.4], cee32f4: [4, 4.4], cee32m4: [3.8, 3.8], cee63m: [5.5, 5.7], cee63f: [5.5, 5.9], cee125m: [6.8, 6.8], cee125f: [6.8, 6.8], powerlockm: [1, 1], powerlockf: [1, 1], cpot: [1, .4], han16f: [2.63, 1], han16m: [2.63, 1], han10f: [2.163, 1], han10m: [2.163, 1], han6f: [1.86, 1], han6m: [1.86, 1], lka25: [1, 1], lk37: [1, 1], brk: [.95, 2.4], rcd: [1.9, 2.4], ant: [.8, .8] };
+const PORT_LBL = { rj45: 'RJ45', sfp: 'SFP', bnc: 'BNC', xlr: 'XLR', xlr5: 'DMX', xlr5f: 'DMX', hdmi: 'HDMI', usb: 'USB', usba: 'USB', usbc: 'USB-C', iec: 'AC', dc: 'DC', jack: '6,3', opt: 'OPT', powercon: 'PCON', cee: 'CEE 32A', cee32m: 'CEE 32A IN', cee32f: 'CEE 32A OUT', cee16m: 'CEE 16A IN', cee16f: 'CEE 16A', cee16f4: 'CEE 16A 4P', cee16m4: 'CEE 16A 4P IN', cee32f4: 'CEE 32A 4P', cee32m4: 'CEE 32A 4P IN', cee63m: 'CEE 63A IN', cee63f: 'CEE 63A', cee125m: 'CEE 125A IN', cee125f: 'CEE 125A', powerlockm: 'POWERLOCK', powerlockf: 'POWERLOCK', cpot: 'cPot', han16f: 'HAN 16', han16m: 'HAN 16 IN', han10f: 'HAN 10', han10m: 'HAN 10 IN', han6f: 'HAN 6', han6m: 'HAN 6 IN', lka25: 'LKA25', lk37: 'LK37', brk: 'LS', rcd: 'FI', sd: 'SD', ant: 'ANT' };
+const PORT_SZ = { rj45: [1.25, 1], sfp: [1.6, .7], bnc: [1, 1], xlr: [1.75, 1.75], xlr5: [1.75, 1.75], xlr5f: [1.75, 1.75], hdmi: [1.4, .55], usb: [1, .45], usba: [1, .45], usbc: [.9, .35], iec: [1.45, 1.05], jack: [.85, .85], dc: [.75, .75], opt: [.8, .8], sd: [2.4, .38], powercon: [1.9, 1.9], nl4: [1.9, 1.9], nl8: [2.1, 2.1], cee: [4.4, 4.4], cee32m: [4.6, 4.6], cee32f: [5, 5.4], cee16m: [3.7, 3.7], cee16f: [4, 4.4], cee16f4: [3.6, 4], cee16m4: [3.4, 3.4], cee32f4: [4, 4.4], cee32m4: [3.8, 3.8], cee63m: [5.5, 5.7], cee63f: [5.5, 5.9], cee125m: [6.8, 6.8], cee125f: [6.8, 6.8], powerlockm: [1, 1], powerlockf: [1, 1], cpot: [1, .4], han16f: [2.63, 1], han16m: [2.63, 1], han10f: [2.163, 1], han10m: [2.163, 1], han6f: [1.86, 1], han6m: [1.86, 1], lka25: [1, 1], lk37: [1, 1], brk: [.95, 2.4], rcd: [1.9, 2.4], ant: [.8, .8] };
 const POWER = ['iec', 'dc', 'powercon', 'cee32m', 'cee16m', 'cee63m', 'cee125m', 'powerlockm'];
 function portLabel(p) {
   const t = p.txt || '';
@@ -99,7 +99,7 @@ function glyphAt(t, x, cy, s) {   // ein Anschluss, x = linke Kante
   const [gw, gh] = PORT_SZ[t] || [1, 1], ww = gw * s, hh = gh * s, cx = x + ww / 2, f = v => v.toFixed(2);
   switch (t) {
     case 'bnc': case 'jack': case 'dc': case 'ant': return `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2)}" class="pg-metal"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 5)}" class="pg-hole"/>`;
-    case 'xlr': case 'xlr5': return `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2)}" class="pg-ring"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2.9)}" class="pg-hole"/><rect x="${f(cx - ww / 9)}" y="${f(cy - ww / 2 - ww * .05)}" width="${f(ww / 4.5)}" height="${f(ww / 7)}" class="pg-metal"/>`;
+    case 'xlr': case 'xlr5': case 'xlr5f': return `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2)}" class="pg-ring"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2.9)}" class="pg-hole"/><rect x="${f(cx - ww / 9)}" y="${f(cy - ww / 2 - ww * .05)}" width="${f(ww / 4.5)}" height="${f(ww / 7)}" class="pg-metal"/>`;
     case 'nl4': case 'nl8': return `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2)}" class="pg-ring"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2.7)}" class="pg-hole"/><rect x="${f(cx - ww / 12)}" y="${f(cy - ww / 2.7 - ww * .04)}" width="${f(ww / 6)}" height="${f(ww / 8)}" class="pg-metal"/>`;
     case 'powercon': return `<circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 2)}" class="pg-pcon"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(ww / 3.2)}" class="pg-hole"/>`;
     case 'cee32m': case 'cee32f': case 'cee16m': case 'cee16f': case 'cee63m': case 'cee63f': case 'cee125m': case 'cee125f': case 'cee16f4': case 'cee16m4': case 'cee32f4': case 'cee32m4': return ceeGlyph(t, x, cy, ww, hh);
@@ -140,7 +140,7 @@ function exEls(L, X, Y) {
       case 'ethercon': { const r0 = (e.s || 12) * .875; g += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(r0)}" class="pg-ring"/><circle cx="${f(x)}" cy="${f(y)}" r="${f(r0 * .72)}" class="pg-hole"/><rect x="${f(x - r0 * .42)}" y="${f(y - r0 * .32)}" width="${f(r0 * .84)}" height="${f(r0 * .64)}" class="pg-port"/><rect x="${f(x - r0 * .3)}" y="${f(y - r0 - 1.5)}" width="${f(r0 * .6)}" height="2.2" class="pg-metal"/>`; break; }
       case 'din': if (e.w) { g += `<rect x="${f(x)}" y="${f(y)}" width="${e.w}" height="${e.h}" rx="1" class="ex-din"/>`; break; }   // DIN rail (with w/h) or DIN socket (with r)
         g += `<circle cx="${f(x)}" cy="${f(y)}" r="${e.r}" class="pg-ring"/><circle cx="${f(x)}" cy="${f(y)}" r="${f(e.r * .72)}" class="pg-hole"/>` + [210, 250, 290, 330, 270].map(a => { const q = a * Math.PI / 180; return `<circle cx="${f(x + Math.cos(q) * e.r * .45)}" cy="${f(y + Math.sin(q) * e.r * .45 + (a === 270 ? e.r * .1 : 0))}" r=".55" class="pg-metal"/>`; }).join(''); break;
-      case 'xlrf': { const r0 = (e.s || 11) * .875; g += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(r0)}" class="pg-ring"/><circle cx="${f(x)}" cy="${f(y)}" r="${f(r0 * .72)}" class="pg-hole"/>` + [210, 330, 90].map(a => { const q = a * Math.PI / 180; return `<circle cx="${f(x + Math.cos(q) * r0 * .38)}" cy="${f(y + Math.sin(q) * r0 * .38)}" r="${f(r0 * .1)}" class="pg-ring"/>`; }).join('') + `<rect x="${f(x - r0 * .3)}" y="${f(y - r0 - 1.5)}" width="${f(r0 * .6)}" height="2.2" class="pg-metal"/>`; break; }
+      case 'xlrf': case 'xlr5f': { const r0 = (e.s || 11) * .875, p5 = e.t === 'xlr5f'; g += `<circle cx="${f(x)}" cy="${f(y)}" r="${f(r0)}" class="pg-ring"/><circle cx="${f(x)}" cy="${f(y)}" r="${f(r0 * .72)}" class="pg-hole"/>` + (p5 ? [150, 210, 270, 330, 30] : [210, 330, 90]).map(a => { const q = a * Math.PI / 180; return `<circle cx="${f(x + Math.cos(q) * r0 * (p5 ? .44 : .38))}" cy="${f(y + Math.sin(q) * r0 * (p5 ? .44 : .38))}" r="${f(r0 * (p5 ? .08 : .1))}" class="pg-ring"/>`; }).join('') + `<rect x="${f(x - r0 * .3)}" y="${f(y - r0 - 1.5)}" width="${f(r0 * .6)}" height="2.2" class="pg-metal"/>`; break; }
       case 'fan': { let s2 = `<circle cx="${f(x)}" cy="${f(y)}" r="${e.r}" class="ex-fan"/>`; for (let yy = -e.r + 2; yy < e.r - 1; yy += 2.6) for (let xx = -e.r + 2; xx < e.r - 1; xx += 2.6) if (xx * xx + yy * yy < (e.r - 2) * (e.r - 2)) s2 += `<circle cx="${f(x + xx)}" cy="${f(y + yy)}" r=".8" class="pg-hole"/>`; g += s2; break; }
       case 'db9': g += `<circle cx="${f(x - 9.5)}" cy="${f(y)}" r="1.6" class="pg-metal"/><circle cx="${f(x + 9.5)}" cy="${f(y)}" r="1.6" class="pg-metal"/><polygon points="${f(x - 7)},${f(y - 3.4)} ${f(x + 7)},${f(y - 3.4)} ${f(x + 5.8)},${f(y + 3.4)} ${f(x - 5.8)},${f(y + 3.4)}" class="pg-ring"/><polygon points="${f(x - 5.8)},${f(y - 2.4)} ${f(x + 5.8)},${f(y - 2.4)} ${f(x + 4.8)},${f(y + 2.4)} ${f(x - 4.8)},${f(y + 2.4)}" class="pg-hole"/>`; break;
       case 'rca': g += `<circle cx="${f(x)}" cy="${f(y)}" r="3.6" class="${e.c || 'pg-rcaw'}"/><circle cx="${f(x)}" cy="${f(y)}" r="2.4" class="pg-metal"/><circle cx="${f(x)}" cy="${f(y)}" r=".8" class="pg-hole"/>`; break;
@@ -179,11 +179,14 @@ function panelBase(x, y, w, h, cls = 'pnl') {
 const D_FP = { w: 26, h: 31, cut: [{ t: 'c', d: 24 }, { t: 'h', x: 9.5, y: -12, d: 3.2 }, { t: 'h', x: -9.5, y: 12, d: 3.2 }] };
 
 function glyph(t, cx, cy, mount = 'f') {
-  const c = CON[t] || CON.blank, g = c.g;
+  const c = CON[t] || CON.blank, g = c.g, dd = dDrill(c);
   if (g === 'open') return `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>`;
   const screws = `<circle cx="${cx + 9.5}" cy="${cy - 12}" r="1.3" class="screw"/><circle cx="${cx - 9.5}" cy="${cy + 12}" r="1.3" class="screw"/>`;
   let s;
-  if (c.drill) {   // Einsatz in gebohrter Blindplatte
+  if (mount === 'own') {   // eigene Bohrung: nur Mutter/Flansch um den Stecker
+    const F = c.fp || { w: 12, h: 12 };
+    s = `<circle cx="${cx}" cy="${cy}" r="${(Math.max(F.w, F.h) / 2).toFixed(2)}" class="flange"/>`;
+  } else if (dd) {   // Einsatz in gebohrter Blindplatte
     s = mount === 'r' ? `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>${screws}<circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>` : `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>${screws}`;
   } else if (mount === 'r') {
     s = `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>` + screws;
@@ -221,10 +224,10 @@ function glyph(t, cx, cy, mount = 'f') {
     case 'ocon':
       s += `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><rect x="${cx - 4.6}" y="${cy - 3}" width="9.2" height="6" rx="1.2" class="face"/><circle cx="${cx - 2}" cy="${cy}" r="1.1" class="ocfib"/><circle cx="${cx + 2}" cy="${cy}" r="1.1" class="ocfib"/><rect x="${cx - 1.4}" y="${cy - 10.6}" width="2.8" height="2" class="face"/>`; break;
     case 'rca':
-      s += c.drill ? `<circle cx="${cx}" cy="${cy}" r="5.2" class="pin"/><circle cx="${cx}" cy="${cy}" r="3.4" class="rcaring"/><circle cx="${cx}" cy="${cy}" r="1.1" class="facedk"/>`
+      s += dd ? `<circle cx="${cx}" cy="${cy}" r="5.2" class="pin"/><circle cx="${cx}" cy="${cy}" r="3.4" class="rcaring"/><circle cx="${cx}" cy="${cy}" r="1.1" class="facedk"/>`
                    : `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><circle cx="${cx}" cy="${cy}" r="4.6" class="pin"/><circle cx="${cx}" cy="${cy}" r="3" class="rcaring"/><circle cx="${cx}" cy="${cy}" r="1" class="facedk"/>`; break;
     case 'jack':
-      s += c.drill ? `<circle cx="${cx}" cy="${cy}" r="6" class="pin"/><circle cx="${cx}" cy="${cy}" r="4.2" class="face"/><circle cx="${cx}" cy="${cy}" r="3.1" class="facedk"/>`
+      s += dd ? `<circle cx="${cx}" cy="${cy}" r="6" class="pin"/><circle cx="${cx}" cy="${cy}" r="4.2" class="face"/><circle cx="${cx}" cy="${cy}" r="3.1" class="facedk"/>`
                    : `<circle cx="${cx}" cy="${cy}" r="11" class="face"/><circle cx="${cx}" cy="${cy}" r="8.4" class="facedk"/><circle cx="${cx}" cy="${cy}" r="4.4" class="face"/><circle cx="${cx}" cy="${cy}" r="3.1" class="facedk"/>`; break;
     case 'sma':
       s += `<polygon points="${[0, 60, 120, 180, 240, 300].map(a => { const q = a * Math.PI / 180; return `${(cx + Math.cos(q) * 4.2).toFixed(2)},${(cy + Math.sin(q) * 4.2).toFixed(2)}`; }).join(' ')}" class="gold"/><circle cx="${cx}" cy="${cy}" r="2.4" class="facedk"/><circle cx="${cx}" cy="${cy}" r=".7" class="gold"/>`; break;
@@ -238,7 +241,7 @@ function rearGlyph(t, cx, cy, n, mount = 'r') {
   if (g === 'open') return `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>`;
   if (g === 'blank') return mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/><circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>`;
   const tr = g === 'pcin' || g === 'pcout';
-  if (c.drill) return (mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/><circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>`)
+  if (dDrill(c)) return (mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="blankp"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/><circle cx="${cx}" cy="${cy}" r="11.2" class="blankp"/>`)
     + `<circle cx="${cx}" cy="${cy}" r="6.5" class="cbody"/><text x="${cx}" y="${cy}" class="cnum" style="font-size:6px">${n}</text>`;
   return (mount === 'r' ? `<rect x="${cx - 13}" y="${cy - 15.5}" width="26" height="31" rx="2" class="flange"/>` : `<circle cx="${cx}" cy="${cy}" r="12" class="hole"/>`)
     + `<circle cx="${cx}" cy="${cy}" r="10.5" class="${tr ? 'tr1' : 'cbody'}"/>`
@@ -249,6 +252,7 @@ function cpDraw(c, cx, cy, back) {
   const C = CON[c.k] || CON.blank, f = v => (+v).toFixed(2);
   if (C.fit === 'fp') {
     if (back) { const F = C.fp; return `<rect x="${f(cx - F.w / 2)}" y="${f(cy - F.h / 2)}" width="${F.w}" height="${F.h}" rx="2" class="flange"/><circle cx="${f(cx)}" cy="${f(cy)}" r="${f(Math.min(F.w, F.h) * .34)}" class="facedk"/>`; }
+    if (!C.el && dDrill(C)) return glyph(c.k, +f(cx), +f(cy), 'own');   // kleiner Einbaustecker mit eigener Bohrung
     return exEls([{ ...C.el, x: +cx, y: +cy }], 0, 0);
   }
   return back ? rearGlyph(c.k, +f(cx), +f(cy), '', c.mount) : glyph(c.k, +f(cx), +f(cy), c.mount);

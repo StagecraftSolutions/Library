@@ -1,7 +1,7 @@
 {
   "rj45": "RJ45", "ethercon": "etherCON", "sfp": "SFP", "opt": "Glasfaser", "bnc": "BNC", "sma": "SMA", "ant": "Antenne",
   "hdmi": "HDMI", "usb": "USB", "usba": "USB-A", "usbc": "USB-C", "sd": "SD-Karte", "db9": "D-Sub 9",
-  "xlr": "XLR 3-pol", "xlrf": "XLR 3-pol Buchse", "xlr5": "XLR 5-pol", "combo": "XLR/Klinke Combo", "jack": "Klinke",
+  "xlr": "XLR 3-pol", "xlrf": "XLR 3-pol Buchse", "xlr5": "XLR 5-pol", "xlr5f": "XLR 5-pol Buchse", "combo": "XLR/Klinke Combo", "jack": "Klinke",
   "rca": "Cinch", "din": "DIN", "euroblock": "Euroblock", "nl4": "speakON 4-pol", "nl8": "speakON 8-pol",
   "iec": "Kaltgeräte (IEC)", "dc": "DC", "powercon": "powerCON", "schuko": "Schuko", "rcd": "FI-Schalter", "brk": "Sicherungsautomat",
   "cee16m": "CEE 16 A Stecker", "cee16f": "CEE 16 A Buchse", "cee16m4": "CEE 16 A 4-pol Stecker", "cee16f4": "CEE 16 A 4-pol Buchse",
