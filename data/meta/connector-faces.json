@@ -42,7 +42,7 @@
   "din5": {"n": "DIN 5-pol (MIDI)", "pins": 5},
   "euroblock": {"n": "Euroblock (Phoenix-Schraubklemme)"},
   "iec": {"n": "Kaltgeräte (C13/C14, Typ offen)", "fam": "iec", "any": true},
-  "dc": {"n": "DC-Versorgung (Bauform offen)", "any": true},
+  "dc": {"n": "DC-Versorgung (Bauform offen)", "fam": "dc", "any": true},
   "powercon": {"n": "powerCON (TRUE1/A/B offen)", "fam": "powercon", "any": true},
   "cee32_4": {"n": "CEE 32 A 4-pol", "pins": 4}
 }
