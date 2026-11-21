@@ -7,10 +7,18 @@
   "manufacturer": "Seetronic",
   "partNumber": "Seetronic SAC3FPX20",
   "connectorType": "true1_out",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_true1", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": 4.5,
     "source": "web",
     "note": "Thomann · nur von vorn einbaubar · Alternative: Neutrik NAC3FPX-D-TRUE1"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:pc_out_d",

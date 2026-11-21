@@ -7,10 +7,18 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NAC3FPX-D-TRUE1",
   "connectorType": "true1_out",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_true1", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": null,
     "source": "check",
     "note": "Preis und Bezeichnung prüfen"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:pc_out_nd",

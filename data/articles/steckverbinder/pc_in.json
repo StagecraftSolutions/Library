@@ -7,9 +7,17 @@
   "manufacturer": "Seetronic",
   "partNumber": "Seetronic SAC3MPX TR1",
   "connectorType": "true1_in",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_true1", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": 2.9,
     "source": "cart"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:pc_in",
