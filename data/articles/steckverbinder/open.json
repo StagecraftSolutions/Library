@@ -7,6 +7,9 @@
   "manufacturer": "–",
   "partNumber": "",
   "connectorType": "open",
+  "connector": {
+    "form": "d"
+  },
   "price": {
     "eur": null,
     "source": "user"

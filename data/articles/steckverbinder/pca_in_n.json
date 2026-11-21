@@ -7,9 +7,17 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NAC3MPA-1-WOT",
   "connectorType": "pcon_a",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_a", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
   "price": {
     "eur": null,
     "source": "check"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:pca_in_n",

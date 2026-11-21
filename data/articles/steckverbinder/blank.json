@@ -7,6 +7,9 @@
   "manufacturer": "Millenium",
   "partNumber": "Millenium Blanking Plate D Format",
   "connectorType": "blank",
+  "connector": {
+    "form": "d"
+  },
   "price": {
     "eur": 0.7,
     "source": "cart"

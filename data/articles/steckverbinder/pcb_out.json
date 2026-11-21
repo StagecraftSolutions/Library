@@ -7,10 +7,18 @@
   "manufacturer": "Seetronic",
   "partNumber": "Seetronic SAC3MPB",
   "connectorType": "pcon_b",
+  "connector": {
+    "form": "d",
+    "front": {"face": "powercon_b", "gender": "m"},
+    "rear": {"term": "faston"}
+  },
   "price": {
     "eur": null,
     "source": "check",
     "note": "D-Format prüfen · Alternative Neutrik NAC3MPB-1-WOT"
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:pcb_out",
