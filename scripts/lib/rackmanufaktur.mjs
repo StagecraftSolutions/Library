@@ -20,7 +20,7 @@ export const MAPS = {
     ['chk', 'status.unchecked', 'flag'],
   ],
   sbxExtra: [['n', 'name'], ['art', 'partNumber'], ['price', 'price.eur'], ['src', 'price.source'], ['q', 'price.note']],
-  // Teile, die in Rackmanufaktur noch im Code stehen (PANELS, ART, SHELVES, CASES, ACC_DEFAULT, RAIL_REAR)
+  // Rackteile aus parts.json (PANELS, ART, SHELVES, CASES, ACC_DEFAULT, RAIL_REAR)
   panel: [['n', 'name'], ['short', 'shortName'], ['art', 'partNumber'], ['he', 'rack.units'], ...PRICE],
   art: [['n', 'name'], ['art', 'partNumber'], ...PRICE],
   shelf: [
@@ -103,7 +103,7 @@ export function exportRM(articles, { connectorTypes, sysboxxMeta, views = [], rm
     for (const v of a.variants || []) if (v.weightKg !== undefined && v.units !== undefined) weights[`${k}:${v.units}`] = v.weightKg;
   }
 
-  // Teile, die in Rackmanufaktur noch als JavaScript in index.html stehen (Format: scripts/lib/rmcode.mjs)
+  // Rackteile im Format von Rackmanufactur/data/parts.json (siehe scripts/lib/rmparts.mjs)
   const parts = { panels: {}, art: {}, shelves: {}, drawers: rmDrawers, cases: {}, acc: [], railRear: null };
   for (const a of withPrefix(articles, 'panel:')) parts.panels[keyOf(a, 'panel:')] = toRM('panel', a);
   for (const a of withPrefix(articles, 'art:')) {

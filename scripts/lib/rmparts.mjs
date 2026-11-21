@@ -1,12 +1,20 @@
-// Liest die Teile, die in Rackmanufaktur als JavaScript in public/index.html stehen, und bringt sie in
-// reine JSON-Form (das Format von api/v1/rackmanufaktur/parts.json). Funktionen der Cases werden dabei zu
-// Tabellen je Höhe: art/price/outer/use = { "<HE>": Wert }.
+// Liest die Teile von Rackmanufaktur (Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör) im Format
+// von api/v1/rackmanufaktur/parts.json. Seit Rackmanufaktur 979172a stehen sie in data/parts.json; ältere
+// Checkouts haben sie noch als JavaScript in public/index.html – dann werden sie dort gelesen und Funktionen der
+// Cases zu Tabellen je Höhe umgewandelt: art/price/outer/use = { "<HE>": Wert }.
 // Benutzt vom Import (Rackmanufaktur → Library) und vom Abgleich (check-rackmanufaktur.mjs).
-import { readFileSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import vm from 'node:vm';
 
-export function readRMCode(rmDir) {
+export function readRMParts(rmDir) {
+  const data = join(rmDir, 'data', 'parts.json');
+  if (existsSync(data)) return JSON.parse(readFileSync(data, 'utf8'));
+  try { return readFromCode(rmDir); }
+  catch (e) { throw new Error(`Rackteile nicht gefunden: weder ${data} noch die Objekte im Code von public/index.html (${e.message})`); }
+}
+
+function readFromCode(rmDir) {
   const html = readFileSync(join(rmDir, 'public', 'index.html'), 'utf8');
   const grab = (name, close) => {
     const i = html.indexOf(`const ${name} =`);

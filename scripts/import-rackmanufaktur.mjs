@@ -11,7 +11,7 @@ import { readFileSync, mkdirSync, writeFileSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { ROOT, DATA, ARTICLES, VIEWS, readJSON, writeJSON, formatArticle, formatView, loadAll, ioParse } from './lib/articles.mjs';
 import { fromRM, viewKey } from './lib/rackmanufaktur.mjs';
-import { readRMCode } from './lib/rmcode.mjs';
+import { readRMParts } from './lib/rmparts.mjs';
 
 const args = process.argv.slice(2);
 const UPDATE = args.includes('--update');
@@ -25,7 +25,7 @@ const KG = readJSON(join(RM, 'data', 'weights.json'));
 const VIEWS_RM = readJSON(join(RM, 'data', 'views.json'));
 
 // Teile, die in Rackmanufaktur als JavaScript-Objekte in public/index.html stehen (Cases mit Tabellen je Höhe)
-const P = readRMCode(RM);
+const P = readRMParts(RM);
 
 const MAKERS = ['Adam Hall', 'Flyht Pro', 'ProCase', 'Thomann', 'Thon', 'Neutrik', 'Seetronic', 'Millenium', 'MA', 'Blackmagic'];
 const makerOf = art => {
