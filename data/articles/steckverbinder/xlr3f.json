@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NC3FD-L-1",
   "connectorType": "xlr3f",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr3", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": 4.9,
     "source": "web",

@@ -7,6 +7,11 @@
   "manufacturer": "Amphenol",
   "partNumber": "Amphenol AC3MMDZ",
   "connectorType": "xlr3m",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr3", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": null,
     "source": "check"
