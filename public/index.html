@@ -403,6 +403,9 @@ function detail(id, push = true) {
     ['Steckertyp', a.connectorType && (DB.connectorTypes[a.connectorType]?.n || a.connectorType)],
     ['Einbau', a.connector && FORM[a.connector.form]],
     ['Vorderseite', sideTxt(a.connector?.front)], ['Rückseite', sideTxt(a.connector?.rear)],
+    ['Kabel', a.cable && (a.cable.kind === 'bulk' ? 'Meterware' : `${sideTxt(a.cable.a)} ↔ ${sideTxt(a.cable.b)}`)],
+    ['Längen', a.cable?.lengths && a.cable.lengths.map(v => nf(v, 2).replace(/,?0+$/, '') + ' m').join(', ')],
+    ['Aufbau', a.cable?.spec],
     ['Bestand', a.inventory && [a.inventory.qty != null && `${a.inventory.qty} Stk.`, a.inventory.location, a.inventory.note].filter(Boolean).join(' · ')],
     ['Rackmanufaktur', a.rackmanufaktur?.key],
   ].filter(([, v]) => v);

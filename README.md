@@ -18,6 +18,7 @@ ausschließlich von hier.
 | `data/meta/connector-types.json` | Steckertypen der Steckverbinder |
 | `data/meta/connector-faces.json` | Steckgesichter für Vorder-/Rückseite der Steckverbinder (`xlr3`, `rj45`, `lc_duplex` …) |
 | `data/meta/terminations.json` | Anschlussarten der Rückseite (Löten, Schraube, Crimp, Print …) |
+| `data/meta/io-faces.json` | Zuordnung io-Typ der Geräte → Steckgesicht + Stecker/Buchse (für die Verkabelung) |
 | `data/meta/sysboxx.json` | SYSBOXX-Rahmendaten (Quelle, BE-Maß) |
 | `data/meta/rackmanufaktur-drawers.json` | Schubladen-Serien des Konfigurators (welcher Artikel je Höhe, Tiefen, Schloss) |
 | `schema/article.schema.json` | JSON-Schema – Editoren wie VS Code schlagen damit Felder vor und markieren Fehler |
@@ -60,8 +61,8 @@ Statische JSON-Dateien unter `/api/v1/`, CORS offen, jede Antwort mit `commit` u
 | `views/{id}.json` | maßstäbliche Ansicht |
 | `dxf/{id}.dxf` | Einbauausschnitt eines Steckverbinders als DXF (R12, mm, Ursprung = Steckermitte; Ebenen AUSSCHNITT, BOHRUNG, FLANSCH, MITTE, ggf. BLINDPLATTE). Im Artikel: `panelCutout` mit Geometrie, Text und Pfad |
 | `articles.csv` | Tabelle (Semikolon, UTF-8 mit BOM, Dezimalkomma) |
-| `categories.json`, `io-types.json`, `connector-types.json`, `connector-faces.json`, `terminations.json`, `article.schema.json` | Stammdaten |
-| `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json`, `parts.json` | Datenquelle von Rackmanufaktur (rack.stagecraft.solutions), Format wie früher `Rackmanufactur/data/*.json`; `parts.json` = Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör – siehe unten |
+| `categories.json`, `io-types.json`, `connector-types.json`, `connector-faces.json`, `terminations.json`, `io-faces.json`, `article.schema.json` | Stammdaten |
+| `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json`, `parts.json`, `wiring.json` | Datenquelle von Rackmanufaktur (rack.stagecraft.solutions), Format wie früher `Rackmanufactur/data/*.json`; `parts.json` = Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör – siehe unten |
 
 ## Zusammenspiel mit Rackmanufaktur
 

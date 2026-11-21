@@ -53,7 +53,8 @@ Beispiel (Preis und Bestand nur zur Veranschaulichung):
 | `price.eur` | EUR inkl. MwSt. (netto × 1,19); `null` = gelistet, Preis unbekannt |
 | `price.source` | `cart` Warenkorb · `web` Webpreis · `ref` gelistet ohne Preis · `check` prüfen · `user` eigene Angabe |
 | `price.note` | Händler, Stand, Hinweis |
-| `io.front`, `io.rear` | Anschlüsse: `type` aus `data/meta/io-types.json`, `count`, `label` (Englisch, wie auf dem Gerät, ohne `;`) |
+| `io.front`, `io.rear` | Anschlüsse: `type` aus `data/meta/io-types.json`, `count`, `label` (Englisch, wie auf dem Gerät, ohne `;`). Optional `dir` (`in`, `out`, `io`) und `ports` – siehe „Verkabelung“ |
+| `cable` | nur Kategorie `kabel`: `kind` `patch` (konfektioniert, Enden `a`/`b` mit `face` + `gender`, lieferbare `lengths` in m) oder `bulk` (Meterware); `spec` = Aufbau |
 | `cutout` | nur Steckverbinder mit eigenem Einbauausschnitt: Flansch `w` × `h` und `cut` = Liste aus `c` (runder Ausschnitt, `d`), `h` (Bohrung, `d`), `r` (Rechteck, `w`/`h`), jeweils mit Versatz `x`/`y` zur Mitte (y nach unten). Ohne `cutout` gilt die D-Norm (Ø 24 + 2 × M3). Daraus entstehen Vorschau und DXF. |
 | `variants` | Ausführungen mit eigener Artikelnummer (z. B. Case-Höhen): `units`, `depth`, `partNumber`, `price`, `weightKg`, `dimensions`, `usableDepth` |
 | `status.unchecked` | Werte geschätzt/ungeprüft (in Rackmanufaktur `chk: 1`) |
@@ -91,9 +92,37 @@ Durchführung (z. B. etherCON NE8FDP): `"rear": { "face": "rj45", "gender": "f" 
 Rückseite für die Verkabelung im Rack (Blendenstecker ↔ Blendenstecker/Gerät). Neues Steckgesicht oder neue
 Anschlussart in `data/meta/connector-faces.json` bzw. `data/meta/terminations.json` ergänzen.
 
+## Verkabelung: Geräteanschlüsse und Kabel
+
+Rackmanufaktur verbindet Anschlüsse von Geräten und Blendensteckern. Damit es weiß, was zusammenpasst:
+
+- **`data/meta/io-faces.json`** ordnet jedem io-Typ der Geräte ein Steckgesicht zu, z. B. `"xlrf": {"face": "xlr3",
+  "gender": "f"}`. Ist das Geschlecht je Anschluss verschieden (`iec`: C14-Eingang oder C13-Ausgang, `powercon`,
+  `xlr5`), fehlt `gender` und gehört in `ports`. Anzeigen, Tasten, Sicherungen usw. haben `"none": true`.
+  Jeder io-Typ muss hier stehen – `build.mjs --check` meldet fehlende.
+- **`data/meta/connector-faces.json`**: `fam` fasst Steckgesichter zusammen, die ineinander passen können
+  (`xlr3`/`xlr5` → `xlr`, `rj45`/`ethercon` → `rj45`, alle powerCON → `powercon`); `mates` nennt weitere passende
+  Familien (Combobuchse: XLR und Klinke).
+- **Einzelne Anschlüsse (optional, nach und nach):** Eine io-Gruppe kann `dir` und `ports` bekommen – eine Liste mit
+  genau `count` Einträgen `{ label, face?, gender?, dir? }`. Ohne `ports` nummeriert Rackmanufaktur die Gruppe durch.
+
+```json
+{"type": "iec", "count": 5, "label": "Mains In (C14), 4× Out (C13)", "ports": [
+  {"label": "Mains In", "face": "iec_c14", "gender": "m", "dir": "in"},
+  {"label": "Out 1", "face": "iec_c14", "gender": "f", "dir": "out"},
+  …
+]}
+```
+
+- **Kabel** (Kategorie `kabel`): konfektioniert (`"kind": "patch"`, beide Enden, Längen) oder Meterware
+  (`"kind": "bulk"`). **Kabelstecker** sind Steckverbinder mit `connector.form: "cable"` (vorn Steckgesicht, hinten
+  Anschlussart) – sie haben keinen Einbauausschnitt.
+- Export für Rackmanufaktur: `api/v1/rackmanufaktur/wiring.json` (Steckgesichter, Anschlussarten, Zuordnung,
+  Kabel, Kabelstecker); Geräte mit `dir`/`ports` bekommen in `devices.json` zusätzlich `iox`.
+
 ## Neuer Anschlusstyp
 
-In `data/meta/io-types.json` ergänzen (`"typ": "Anzeigename"`). Typen, die Rackmanufaktur zeichnen soll,
+In `data/meta/io-types.json` ergänzen (`"typ": "Anzeigename"`) und in `data/meta/io-faces.json` zuordnen. Typen, die Rackmanufaktur zeichnen soll,
 müssen dort ebenfalls bekannt sein.
 
 ## Maßstäbliche Ansicht

@@ -48,4 +48,7 @@ Bei einem Kabelstecker ist `front` das Steckgesicht und `rear` der Kabelanschlus
 5. **Rackmanufaktur: Ansicht „Verkabelung“** nach Schritt 2 – Rückseiten aller Blenden-Stecker und
    Geräteanschlüsse (`io.rear`) als Endpunkte, Verbindungen ziehen, Prüfung (Steckgesicht/Geschlecht passt,
    Lötanschluss braucht Kabel), Stückliste Kabel/Litzen. Eigenes Design, eigener Plan.
+5a. **Erledigt (Phase 0 der Verkabelung):** `io-faces.json`, `fam`/`mates`, optionale `dir`/`ports` an
+   Geräteanschlüssen, Kabel (`cable`) und Kabelstecker (`form: cable`), Export `wiring.json`. Plan der App-Seite:
+   `Rackmanufactur/docs/plan-wiring.md`.
 6. **Später:** Kabelstecker (`form: cable`) und Kabel als Artikel (Kategorie `kabel`), Pinbelegung je Steckgesicht.
