@@ -202,14 +202,130 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
   select{flex:1 1 140px}
 }
 @media (prefers-reduced-motion:no-preference){.chip,.btn,.card,tbody tr{transition:background .12s,border-color .12s,color .12s}}
+
+/* ---------- Startseite (Suche wie eine Suchmaschine) ---------- */
+.home{padding:56px 0 24px}
+.home .center{max-width:760px;margin:0 auto;text-align:center}
+.home h1{font-size:clamp(34px,5vw,54px);margin:14px 0 10px}
+.home .eyebrow{justify-content:center}
+.home .lead{margin:0 auto}
+.bigsearch{position:relative;margin:28px auto 0;max-width:720px;text-align:left}
+.bigsearch input{width:100%;height:58px;border-radius:29px;border:1px solid var(--line2);background:var(--panel);padding:0 56px 0 54px;font-size:18px;box-shadow:0 1px 2px #0f172a0d,0 8px 28px -14px #0f172a40}
+.bigsearch input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px color-mix(in srgb,var(--accent) 20%,transparent)}
+.bigsearch>svg{position:absolute;left:20px;top:19px;color:var(--faint)}
+.bigsearch button.go{position:absolute;right:8px;top:8px;height:42px;width:42px;border-radius:21px;border:0;background:var(--accent-solid);color:#fff;cursor:pointer;display:grid;place-items:center}
+.bigsearch button.go:hover{background:var(--accent-solid-hover)}
+.sugg{position:absolute;left:0;right:0;top:calc(100% + 6px);background:var(--panel);border:1px solid var(--line2);border-radius:14px;box-shadow:var(--shadow);z-index:30;overflow:hidden;max-height:min(70vh,520px);overflow-y:auto}
+.sugg h5{margin:0;padding:10px 16px 4px;font:500 10.5px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--faint)}
+.sugg button{all:unset;box-sizing:border-box;display:flex;gap:10px;align-items:baseline;width:100%;padding:8px 16px;cursor:pointer;font-size:14.5px}
+.sugg button small{color:var(--faint);font-size:12.5px;margin-left:auto;text-align:right;flex:none;max-width:45%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sugg button[aria-selected=true],.sugg button:hover{background:var(--accent-soft)}
+.sugg mark{background:none;color:var(--accent);font-weight:600}
+.quick{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:16px}
+.home .stats{justify-content:center}
+.blk{padding:34px 0 10px}
+.blk>h2{font:650 26px/1.15 var(--display);letter-spacing:-.02em;margin:10px 0 6px}
+.blk>p.lead{margin-bottom:18px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.tile{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;flex-direction:column;gap:8px;text-align:left;cursor:pointer;font:inherit;color:inherit}
+.tile:hover{border-color:var(--accent)}
+.tile .th{display:flex;align-items:center;gap:10px}
+.tile .th b{font:650 17px var(--display);color:var(--head)}
+.tile .th span{margin-left:auto;font:12px var(--mono);color:var(--faint)}
+.tile .ic{width:34px;height:34px;border-radius:9px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center;flex:none}
+.tile .subs{display:flex;flex-wrap:wrap;gap:4px 10px;font-size:13px;color:var(--muted)}
+.tile .subs a{text-decoration:none}.tile .subs a:hover{color:var(--accent);text-decoration:underline}
+.tile .subs a.empty{color:var(--faint)}
+/* Einbau-Hierarchie */
+.chain{display:grid;gap:10px}
+.lvl{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:start}
+.lvl>span{font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--faint);padding-top:10px}
+.lvl .row{gap:8px}
+.sys{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:9px 12px;cursor:pointer;text-align:left;font:inherit;color:var(--head);display:flex;flex-direction:column;gap:2px;min-width:150px}
+.sys:hover{border-color:var(--accent)}
+.sys small{color:var(--faint);font:11.5px var(--mono)}
+.arrow{color:var(--faint);font:12px var(--mono);padding-left:150px}
+@media (max-width:640px){.lvl{grid-template-columns:1fr}.lvl>span{padding:0}.arrow{padding-left:0}}
+
+/* ---------- Durchsuchen ---------- */
+.browse .tools .row{flex-wrap:nowrap}
+.browse .search{flex:1 1 auto}
+.layout{display:grid;grid-template-columns:290px minmax(0,1fr);gap:24px;align-items:start;padding-top:14px}
+.side{position:sticky;top:calc(var(--tools-h,130px) + 8px);max-height:calc(100dvh - var(--tools-h,130px) - 16px);overflow:auto;padding-right:4px;scrollbar-width:thin}
+.side>summary{display:none}
+.navsw{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line2);border-radius:8px;overflow:hidden;margin-bottom:10px}
+.navsw button{all:unset;text-align:center;font-size:12.5px;padding:7px 2px;cursor:pointer;color:var(--muted);border-left:1px solid var(--line2)}
+.navsw button:first-child{border-left:0}
+.navsw button[aria-pressed=true]{background:var(--accent-solid);color:#fff;font-weight:600}
+.tree{list-style:none;margin:0;padding:0;font-size:14px}
+.tree ul{list-style:none;margin:0;padding:0 0 0 14px;border-left:1px solid var(--line);margin-left:9px}
+.tree li>div{display:flex;align-items:center;gap:4px}
+.tree .tg{all:unset;width:18px;height:18px;display:grid;place-items:center;color:var(--faint);cursor:pointer;flex:none;font-size:10px}
+.tree .tg[hidden]{display:grid!important;visibility:hidden}
+.tree .nd{all:unset;flex:1;display:flex;gap:8px;align-items:baseline;padding:4px 6px;border-radius:5px;cursor:pointer;min-width:0}
+.tree .nd span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tree .nd small{margin-left:auto;font:11px var(--mono);color:var(--faint);flex:none}
+.tree .nd:hover{background:var(--hover);color:var(--head)}
+.tree .nd[aria-current=true]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.tree .nd.zero{color:var(--faint)}
+.tree .note{font-size:11.5px;color:var(--faint);padding:0 6px 4px 28px}
+.facet{border-top:1px solid var(--line);padding:12px 0}
+.facet h4{margin:0 0 8px;font:500 11px var(--mono);text-transform:uppercase;letter-spacing:.1em;color:var(--faint);display:flex;justify-content:space-between}
+.facet h4 button{all:unset;cursor:pointer;color:var(--accent);text-transform:none;letter-spacing:0;font-size:12px}
+.checks{display:grid;gap:2px;max-height:210px;overflow:auto}
+.checks label{display:flex;gap:8px;align-items:center;font-size:13.5px;cursor:pointer;padding:2px 0}
+.checks label small{margin-left:auto;font:11px var(--mono);color:var(--faint)}
+.checks label.zero{color:var(--faint)}
+.facet select,.facet input[type=number]{width:100%;height:36px}
+.facet input[type=number]{background:var(--panel);border:1px solid var(--line2);border-radius:7px;padding:0 10px}
+.facet .pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.facet .pair label{font-size:12px;color:var(--muted);display:grid;gap:3px}
+.hes{display:flex;flex-wrap:wrap;gap:5px}
+.hes button{height:28px;padding:0 9px;border-radius:14px;border:1px solid var(--line2);background:var(--panel);cursor:pointer;font:12px var(--mono);color:var(--muted)}
+.hes button[aria-pressed=true]{background:var(--accent-solid);border-color:var(--accent-solid);color:#fff}
+.crumbs{display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:13.5px;color:var(--muted)}
+.crumbs button{all:unset;cursor:pointer;color:var(--accent)}.crumbs button:hover{text-decoration:underline}
+.crumbs .sep{color:var(--faint)}
+.crumbs h2{margin:0;font:650 24px/1.15 var(--display);letter-spacing:-.02em;color:var(--head);width:100%}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;height:28px;padding:0 6px 0 11px;border-radius:14px;background:var(--accent-soft);color:var(--accent);font-size:12.5px;border:0;cursor:pointer}
+.pill b{font-weight:600}.pill i{font-style:normal;width:18px;height:18px;border-radius:9px;display:grid;place-items:center}
+.pill:hover i{background:var(--accent-solid);color:#fff}
+.subtiles{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.backhome{all:unset;cursor:pointer;color:var(--nav-muted);font-size:14px}
+.backhome:hover{color:var(--nav-fg)}
+@media (max-width:980px){
+  .layout{grid-template-columns:1fr}
+  .side{position:static;max-height:none;border:1px solid var(--line);border-radius:10px;padding:0 12px;background:var(--panel)}
+  .side>summary{display:flex;justify-content:space-between;padding:12px 0;cursor:pointer;font-weight:600;color:var(--head)}
+}
+
+/* ---------- Detail: Medien, Einbau, Eigenschaften ---------- */
+.media{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.media figure{margin:0;display:grid;gap:6px}
+.media figcaption{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}
+.media figcaption span{font:11px var(--mono);color:var(--faint)}
+.mph{aspect-ratio:4/3;border:1.5px dashed var(--line2);border-radius:9px;display:grid;place-items:center;text-align:center;color:var(--faint);font-size:12.5px;padding:10px;background:repeating-linear-gradient(135deg,transparent 0 10px,var(--hover) 10px 20px)}
+.mph svg{display:block;margin:0 auto 6px;opacity:.6}
+.mph code{font:11px var(--mono)}
+.media img{width:100%;aspect-ratio:4/3;object-fit:contain;border:1px solid var(--line);border-radius:9px;background:#fff}
+.mnt{display:grid;gap:8px}
+.mnt .m{border:1px solid var(--line);border-radius:8px;padding:9px 12px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:13.5px}
+.mnt .m b{color:var(--head);font-weight:600}
+.mnt .path{font:12px var(--mono);color:var(--faint);width:100%}
+.mnt .m .linkbtn{margin-left:auto}
+dd.open{color:var(--faint)!important;font-style:italic}
+.tag.open{border-style:dashed}
+@media (max-width:640px){.media{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="./" aria-label="Stagecraft Library, Katalog"><svg class="mark" viewBox="0 0 362 370" aria-hidden="true"><defs><linearGradient id="mk1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08BFFF"/><stop offset="1" stop-color="#0757FF"/></linearGradient></defs><g fill="url(#mk1)"><path d="M18 105 L344 0 L344 91 Q344 110 326 117 L18 216 Z"/><path d="M18 278 L270 202 Q296 194 270 181 L151 150 L344 169 L344 244 Q344 266 323 273 L18 370 Z"/></g></svg>Stagecraft <small>Library</small></a>
+    <a class="logo" href="./" aria-label="Stagecraft Library, Startseite"><svg class="mark" viewBox="0 0 362 370" aria-hidden="true"><defs><linearGradient id="mk1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08BFFF"/><stop offset="1" stop-color="#0757FF"/></linearGradient></defs><g fill="url(#mk1)"><path d="M18 105 L344 0 L344 91 Q344 110 326 117 L18 216 Z"/><path d="M18 278 L270 202 Q296 194 270 181 L151 150 L344 169 L344 244 Q344 266 323 273 L18 370 Z"/></g></svg>Stagecraft <small>Library</small></a>
     <nav aria-label="Hauptnavigation">
-      <a href="#katalog">Katalog</a>
+      <a href="?browse=1">Katalog</a>
+      <a href="?browse=1&amp;nav=mount">Einbausysteme</a>
       <a href="#api">API</a>
       <a href="#bearbeiten">Daten bearbeiten</a>
     </nav>
@@ -217,72 +333,104 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
 </header>
 
 <main>
-  <section class="hero wrap">
-    <p class="eyebrow">Artikeldatenbank</p>
-    <h1>Technik, die ins Rack passt.</h1>
-    <p class="lead">19″-Geräte, Geräte halber Breite, Steckverbinder, Blenden, Rackwannen, Cases und Zubehör – mit Höheneinheiten, Einbautiefen, Anschlüssen, Gewichten und Preisen. Die Daten liegen als JSON in Git und sind über eine offene API abrufbar.</p>
-    <div class="stats" id="stats" aria-live="polite">Daten werden geladen …</div>
-  </section>
-
-  <div class="tools" id="katalog">
-    <div class="wrap">
-      <div class="row">
-        <label class="search">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-          <input id="q" type="search" placeholder="Suchen: Name, Hersteller, Artikelnummer, Anschluss …" autocomplete="off" aria-label="Artikel suchen">
-          <kbd aria-hidden="true">/</kbd>
-        </label>
-        <select id="mk" aria-label="Hersteller"><option value="">Alle Hersteller</option></select>
-        <select id="area" aria-label="Bereich"><option value="">Alle Bereiche</option></select>
-        <select id="mount" aria-label="Bauform">
-          <option value="">Alle Bauformen</option>
-          <option value="rack">19″ mit Rackohren</option>
-          <option value="half">Halbe Breite</option>
-          <option value="bmd">Blackmagic-Teilbreite</option>
-          <option value="free">Kleingerät (Rackwanne)</option>
-          <option value="desk">Tischgerät</option>
-        </select>
-        <select id="st" aria-label="Datenstand">
-          <option value="">Jeder Datenstand</option>
-          <option value="ok">Geprüft</option>
-          <option value="unchecked">Ungeprüft</option>
-          <option value="placeholder">Platzhalter</option>
-          <option value="view">Mit maßstäblicher Ansicht</option>
-        </select>
+  <!-- Startseite -->
+  <div id="home">
+    <section class="home wrap">
+      <div class="center">
+        <p class="eyebrow">Artikeldatenbank</p>
+        <h1>Was suchst du?</h1>
+        <p class="lead">Geräte, Racks, Cases, Rackwannen, Steckverbinder, Kabel und Zubehör – mit Maßen, Anschlüssen, Gewichten und Einbausystem.</p>
       </div>
-      <div class="chips" id="cats" role="group" aria-label="Kategorien"></div>
-    </div>
+      <form class="bigsearch" id="homeForm" role="search" autocomplete="off">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="hq" type="search" placeholder="z. B. Teranex, 1 HE Switch, Rackwanne, XLR Buchse …" aria-label="Katalog durchsuchen" aria-autocomplete="list" aria-controls="sugg" aria-expanded="false">
+        <button class="go" type="submit" aria-label="Suchen"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <div class="sugg" id="sugg" role="listbox" hidden></div>
+      </form>
+      <div class="quick" id="quick"></div>
+      <div class="stats" id="stats" aria-live="polite">Daten werden geladen …</div>
+    </section>
+    <section class="blk wrap">
+      <p class="eyebrow">Ordner</p>
+      <h2>Kategorien</h2>
+      <p class="lead">Nach Anwendungsbereich wie im Fachhandel – Racks, Kabel und Stative als eigene Bereiche.</p>
+      <div class="tiles" id="tiles"></div>
+    </section>
+    <section class="blk wrap">
+      <p class="eyebrow">Einbau</p>
+      <h2>Was passt worin?</h2>
+      <p class="lead">Ein Case bietet 19″-Rackschienen (mit Käfig- oder Gleitmuttern). Darin sitzen 19″-Geräte direkt – oder Rackwannen und Systemrahmen, die wiederum Geräte aufnehmen. Ein Artikel kann in mehrere Systeme passen.</p>
+      <div class="chain" id="chain"></div>
+    </section>
   </div>
 
-  <div class="wrap">
-    <div class="resbar">
-      <div id="count" aria-live="polite"></div>
-      <div class="dl">
-        <button class="btn" id="reset" type="button" hidden>Filter zurücksetzen</button>
-        <a class="btn" href="api/v1/articles.json" download>JSON</a>
-        <a class="btn" href="api/v1/articles.csv" download>CSV</a>
+  <!-- Durchsuchen -->
+  <div id="browse" class="browse" hidden>
+    <div class="tools" id="katalog">
+      <div class="wrap">
+        <div class="row">
+          <label class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+            <input id="q" type="search" placeholder="Suchen: Name, Hersteller, Artikelnummer, Anschluss …" autocomplete="off" aria-label="Artikel suchen">
+            <kbd aria-hidden="true">/</kbd>
+          </label>
+          <select id="sort" aria-label="Sortierung">
+            <option value="name">Name A–Z</option>
+            <option value="manufacturer">Hersteller</option>
+            <option value="units">Höhe</option>
+            <option value="depth">Einbautiefe</option>
+            <option value="weight">Gewicht</option>
+            <option value="price">Preis</option>
+            <option value="open">Offene Felder</option>
+          </select>
+        </div>
       </div>
     </div>
-    <div class="table-wrap">
-      <table>
-        <thead><tr>
-          <th scope="col" data-sort="name"><button type="button">Artikel</button></th>
-          <th scope="col" data-sort="manufacturer"><button type="button">Hersteller</button></th>
-          <th scope="col" data-sort="partNumber"><button type="button">Artikel-Nr.</button></th>
-          <th scope="col" data-sort="units" class="num"><button type="button">Größe</button></th>
-          <th scope="col" data-sort="depth" class="num"><button type="button">Tiefe</button></th>
-          <th scope="col" data-sort="weight" class="num"><button type="button">Gewicht</button></th>
-          <th scope="col" data-sort="price" class="num"><button type="button">Preis</button></th>
-          <th scope="col">Stand</th>
-        </tr></thead>
-        <tbody id="rows"></tbody>
-      </table>
+    <div class="wrap layout">
+      <details class="side" id="side" open>
+        <summary>Ordner &amp; Filter <span id="sideCount"></span></summary>
+        <div class="navsw" role="group" aria-label="Navigation">
+          <button type="button" data-nav="cat">Kategorie</button>
+          <button type="button" data-nav="mount">Einbau</button>
+          <button type="button" data-nav="mk">Hersteller</button>
+          <button type="button" data-nav="kind">Typ</button>
+        </div>
+        <ul class="tree" id="tree"></ul>
+        <div id="facets"></div>
+      </details>
+      <div>
+        <div class="crumbs" id="crumbs"></div>
+        <div class="subtiles" id="subtiles"></div>
+        <div class="pills" id="pills"></div>
+        <div class="resbar">
+          <div id="count" aria-live="polite"></div>
+          <div class="dl">
+            <button class="btn" id="reset" type="button" hidden>Filter zurücksetzen</button>
+            <a class="btn" href="api/v1/articles.json" download>JSON</a>
+            <a class="btn" href="api/v1/articles.csv" download>CSV</a>
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead><tr>
+              <th scope="col" data-sort="name"><button type="button">Artikel</button></th>
+              <th scope="col" data-sort="manufacturer"><button type="button">Hersteller</button></th>
+              <th scope="col">Einbau</th>
+              <th scope="col" data-sort="units" class="num"><button type="button">Größe</button></th>
+              <th scope="col" data-sort="depth" class="num"><button type="button">Tiefe</button></th>
+              <th scope="col" data-sort="weight" class="num"><button type="button">Gewicht</button></th>
+              <th scope="col" data-sort="price" class="num"><button type="button">Preis</button></th>
+              <th scope="col">Stand</th>
+            </tr></thead>
+            <tbody id="rows"></tbody>
+          </table>
+        </div>
+        <div class="cards" id="cards"></div>
+        <div class="empty" id="empty" hidden>Keine Artikel gefunden. <button class="linkbtn" type="button" data-reset>Filter zurücksetzen</button></div>
+        <div class="more"><button class="btn" id="more" type="button" hidden>Weitere anzeigen</button></div>
+      </div>
     </div>
-    <div class="cards" id="cards"></div>
-    <div class="empty" id="empty" hidden>Keine Artikel gefunden. <button class="linkbtn" type="button" data-reset>Filter zurücksetzen</button></div>
-    <div class="more"><button class="btn" id="more" type="button" hidden>Weitere anzeigen</button></div>
   </div>
-
   <section class="section" id="api">
     <div class="wrap cols">
       <div>
@@ -295,7 +443,9 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
         <div><code>api/v1/articles.json</code><span>alle Artikel</span></div>
         <div><code>api/v1/articles/{id}.json</code><span>ein Artikel</span></div>
         <div><code>api/v1/articles.csv</code><span>Tabelle (Semikolon, UTF-8)</span></div>
-        <div><code>api/v1/categories.json</code><span>Kategorien mit Anzahl</span></div>
+        <div><code>api/v1/categories.json</code><span>Kategoriebaum mit Anzahl</span></div>
+        <div><code>api/v1/mount-systems.json</code><span>Einbausysteme: was passt worin</span></div>
+        <div><code>api/v1/kinds.json</code><span>Elementtypen und Eigenschaften</span></div>
         <div><code>api/v1/views/{id}.json</code><span>maßstäbliche Ansicht</span></div>
         <div><code>api/v1/dxf/{id}.dxf</code><span>Einbauausschnitt als DXF</span></div>
         <div><code>api/v1/io-types.json</code><span>Anschlusstypen</span></div>
@@ -306,6 +456,7 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
         <div><code>api/v1/rackmanufaktur/weights.json</code><span>Gewichte im RM-Format</span></div>
         <div><code>api/v1/rackmanufaktur/views.json</code><span>Ansichten im RM-Format</span></div>
         <div><code>api/v1/rackmanufaktur/parts.json</code><span>Blenden, Wannen, Schubladen, Cases, Zubehör</span></div>
+        <div><code>api/v1/rackmanufaktur/catalog.json</code><span>Kategorien und Einbau für die Auswahl</span></div>
       </div>
     </div>
   </section>
@@ -315,7 +466,7 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
       <div>
         <p class="eyebrow">Pflege</p>
         <h2>Daten bearbeiten</h2>
-        <p class="lead">Jeder Artikel ist eine eigene JSON-Datei unter <code>data/articles/&lt;kategorie&gt;/&lt;id&gt;.json</code>. Änderungen laufen über Git – mit Verlauf, Review und Pull Requests.</p>
+        <p class="lead">Jeder Artikel ist eine eigene JSON-Datei unter <code>data/articles/&lt;bereich&gt;/&lt;unterkategorie&gt;/&lt;id&gt;.json</code>. Änderungen laufen über Git – mit Verlauf, Review und Pull Requests.</p>
       </div>
       <ol class="steps">
         <li>Datei anlegen oder ändern – Editoren mit JSON-Schema-Unterstützung (z. B. VS Code) schlagen Felder vor und markieren Fehler.</li>
@@ -335,51 +486,125 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
 </footer>
 
 <dialog id="dlg" aria-labelledby="dlg-title"><div id="dlg-body"></div></dialog>
-
 <script src="assets/rackview.js"></script>
 <script>
 const REPO = 'https://github.com/StagecraftSolutions/Library';
 const PAGE = 120;
 const MOUNT = { rack: '19″', half: '½ 19″', bmd: 'Teilbreite', free: 'Kleingerät', desk: 'Tischgerät', none: '–' };
 const SRC = { cart: 'Warenkorb', web: 'Webpreis', ref: 'ohne Preis gelistet', check: 'prüfen', user: 'eigene Angabe' };
+const SIDE = { front: 'vorn', rear: 'hinten' };
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const nf = (n, d = 0) => n.toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d });
 const fmtPrice = e => e == null ? '' : nf(e, e % 1 ? 2 : 0) + ' €';
 const fmtKg = k => k == null ? '' : nf(k, k < 1 ? 3 : 1).replace(/,?0+$/, '') + ' kg';
+const fmtHE = u => nf(u, 1).replace(',0', '') + ' HE';
 const frac = f => ({ 0.5: '½', 0.333: '⅓', 0.667: '⅔', 0.25: '¼', 0.75: '¾', 0.167: '⅙' }[Math.round(f * 1000) / 1000] || nf(f, 2));
-
-let DB = { articles: [], categories: [], ioTypes: {} }, list = [], shown = PAGE;
-const S = { q: '', cat: '', mk: '', area: '', mount: '', st: '', sort: 'name', dir: 1 };
-
-// Kennzahlen je Artikel (für Sortierung und Anzeige)
-const units = a => a.rack?.units ?? (a.variants ? Math.min(...a.variants.map(v => v.units ?? Infinity)) : undefined);
-const price = a => a.price?.eur ?? (a.variants ? (a.variants.map(v => v.price?.eur).filter(x => x != null).sort((x, y) => x - y)[0]) : undefined);
-const size = a => {
-  const r = a.rack; if (!r && !a.variants) return '';
-  if (a.variants?.some(v => v.units)) { const u = a.variants.map(v => v.units).filter(Boolean); return u.length > 1 ? `${nf(Math.min(...u), 1).replace(',0', '')}–${Math.max(...u)} HE` : `${u[0]} HE`; }
-  if (!r) return '';
-  if (r.units) return `${nf(r.units, 1).replace(',0', '')} HE${r.fraction ? ' · ' + frac(r.fraction) : ''}`;
-  if (r.fraction) return frac(r.fraction) + ' Breite';
-  if (r.width && r.height) return `${nf(r.width)} × ${nf(r.height)}`;
-  return MOUNT[r.mount] || '';
+const ICON = {
+  rack: '<rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M4 8h16M4 13h16M7 5.5h.01M7 10.5h.01M7 15.5h.01"/>',
+  audio: '<path d="M4 10v4M8 7v10M12 4v16M16 8v8M20 11v2"/>',
+  funk: '<path d="M12 20v-8"/><circle cx="12" cy="10" r="2"/><path d="M8.5 6.5a5 5 0 0 0 0 7M15.5 6.5a5 5 0 0 1 0 7M5.5 3.5a9 9 0 0 0 0 13M18.5 3.5a9 9 0 0 1 0 13"/>',
+  video: '<rect x="3" y="6" width="13" height="12" rx="2"/><path d="m16 10 5-3v10l-5-3"/>',
+  licht: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.5c.7.7 1 1.5 1 2.5h6c0-1 .3-1.8 1-2.5A6 6 0 0 0 12 3Z"/>',
+  netzwerk: '<rect x="9" y="3" width="6" height="5" rx="1"/><rect x="3" y="16" width="6" height="5" rx="1"/><rect x="15" y="16" width="6" height="5" rx="1"/><path d="M12 8v4M6 16v-4h12v4"/>',
+  it: '<rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20"/>',
+  strom: '<path d="M13 2 4 14h7l-1 8 9-12h-7Z"/>',
+  rigging: '<path d="M12 3v6M8 21l4-12 4 12M6 21h12"/>',
+  kabel: '<path d="M6 3v5a3 3 0 0 0 6 0V5M9 3v2M18 21v-5a3 3 0 0 0-6 0v3M15 21v-2M12 8v8"/>',
 };
-const statusTags = a => (a.view ? '<span class="tag" title="maßstäbliche Ansicht vorhanden">Ansicht</span> ' : '') + (a.status?.placeholder ? '<span class="tag ph">Platzhalter</span> ' : '') + ((a.status?.unchecked ? '<span class="tag warn">ungeprüft</span>' : '') || (a.status?.placeholder ? '' : '<span class="tag ok">geprüft</span>'));
+const ico = (k, s = 18) => `<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${ICON[k] || ICON.rack}</svg>`;
+
+let DB = { articles: [], categories: [], taxonomy: [], ioTypes: {}, kinds: {}, systems: {} }, list = [], shown = PAGE;
+const F0 = { q: '', cat: '', mk: '', kind: '', mnt: '', he: '', dmax: '', wmax: '', io: '', st: '', miss: '' };
+const S = { browse: false, nav: 'cat', ...F0, sort: 'name', dir: 1, id: '' };
+const FILTERS = Object.keys(F0);
+
+// ---------- Kennzahlen je Artikel ----------
+const units = a => a.rack?.units ?? (a.variants?.some(v => v.units) ? Math.min(...a.variants.map(v => v.units ?? Infinity)) : undefined);
+const unitList = a => a.variants?.some(v => v.units) ? a.variants.map(v => v.units).filter(Boolean) : a.rack?.units ? [a.rack.units] : [];
+const price = a => a.price?.eur ?? (a.variants ? (a.variants.map(v => v.price?.eur).filter(x => x != null).sort((x, y) => x - y)[0]) : undefined);
+const depth = a => a.rack?.depth ?? a.dimensions?.d ?? a.specs?.usableDepth ?? undefined;
+const size = a => {
+  const r = a.rack, u = unitList(a);
+  if (u.length > 1) return `${nf(Math.min(...u), 1).replace(',0', '')}–${Math.max(...u)} HE`;
+  if (r?.units) return `${fmtHE(r.units)}${r.fraction ? ' · ' + frac(r.fraction) : ''}`;
+  if (r?.fraction) return frac(r.fraction) + ' Breite';
+  if (r?.width && r?.height) return `${nf(r.width)} × ${nf(r.height)}`;
+  const d = a.dimensions; if (d?.w && d?.h) return `${nf(d.w)} × ${nf(d.h)}`;
+  return r ? MOUNT[r.mount] || '' : '';
+};
+const sysName = k => DB.systems[k]?.n || k;
+const kindName = k => DB.kinds[k]?.n || k;
+const catName = p => DB.cat[p]?.name || p;
+const catPath = p => DB.cat[p]?.names?.join(' › ') || p;
+const mountShort = a => a.mount?.provides?.length ? 'nimmt auf: ' + [...new Set(a.mount.provides.map(p => sysName(p.system)))].join(', ')
+  : (a.mount?.fits || []).map(sysName).join(' · ');
+const statusTags = a => (a.view ? '<span class="tag" title="maßstäbliche Ansicht vorhanden">Ansicht</span> ' : '') + (a.status?.placeholder ? '<span class="tag ph">Platzhalter</span> ' : '')
+  + ((a.status?.unchecked ? '<span class="tag warn">ungeprüft</span>' : '') || (a.status?.placeholder ? '' : '<span class="tag ok">geprüft</span>'))
+  + (a.open?.length ? ` <span class="tag open" title="${esc(a.open.map(openName).join(', '))}">${a.open.length} offen</span>` : '');
+
+// Offene Felder (Platzhalter) → lesbarer Name
+const OPEN = { weightKg: 'Gewicht', 'rack.depth': 'Einbautiefe', 'io.front': 'Anschlüsse vorn', 'io.rear': 'Anschlüsse hinten', 'media.image': 'Bild', 'media.front': 'Grafik vorn', 'media.rear': 'Grafik hinten', 'dimensions.w': 'Breite', 'dimensions.h': 'Höhe', 'dimensions.d': 'Tiefe' };
+const openName = p => OPEN[p] || (p.startsWith('specs.') ? (DB.kinds._props?.[p.slice(6)] || p.slice(6)) : p);
+const MISS = [['media.image', 'Bild'], ['media.front', 'Grafik vorn'], ['media.rear', 'Grafik hinten'], ['weightKg', 'Gewicht'], ['rack.depth', 'Einbautiefe'], ['io', 'Anschlüsse'], ['specs', 'Eigenschaften'], ['any', 'irgendein Feld']];
+const missing = (a, m) => m === 'any' ? !!a.open?.length : (a.open || []).some(p => p === m || p.startsWith(m + '.'));
 
 function haystack(a) {
   const io = ['front', 'rear'].flatMap(s => (a.io?.[s] || []).map(p => `${p.type} ${DB.ioTypes[p.type] || ''} ${p.label || ''}`));
   return [a.id, a.name, a.shortName, a.manufacturer, a.partNumber, a.group, a.area, a.description, a.notes, a.connectorType, a.rackmanufaktur?.key,
-    ...(a.variants || []).map(v => v.partNumber), ...io, sideTxt(a.connector?.front), sideTxt(a.connector?.rear)].filter(Boolean).join(' ').toLowerCase();
+    ...(a.categoryNames || []), kindName(a.kind), ...(a.mount?.fits || []).map(sysName), ...(a.mount?.provides || []).map(p => sysName(p.system)),
+    ...unitList(a).map(u => `${u} he ${u}he`), ...(a.variants || []).map(v => v.partNumber), ...io, sideTxt(a.connector?.front), sideTxt(a.connector?.rear)]
+    .filter(Boolean).join(' ').toLowerCase();
 }
 
-function apply() {
-  const terms = S.q.toLowerCase().split(/\s+/).filter(Boolean);
-  list = DB.articles.filter(a =>
-    (!S.cat || a.category === S.cat) && (!S.mk || a.manufacturer === S.mk) && (!S.area || a.area === S.area) &&
-    (!S.mount || a.rack?.mount === S.mount) &&
-    (!S.st || (S.st === 'ok' ? !a.status : S.st === 'view' ? !!a.view : a.status?.[S.st])) &&
-    terms.every(t => a._h.includes(t)));
-  const key = { name: a => a.name, manufacturer: a => a.manufacturer || '', partNumber: a => a.partNumber || '', units, depth: a => a.rack?.depth, weight: a => a.weightKg, price }[S.sort];
+// ---------- Suche: freie Begriffe + Schlüssel wie he:1, hersteller:shure, typ:…, in:rackwanne ----------
+function parseQ(q) {
+  const terms = [], keys = {};
+  for (const t of q.toLowerCase().split(/\s+/).filter(Boolean)) {
+    const m = t.match(/^(he|hersteller|typ|in):(.+)$/);
+    if (m) keys[m[1]] = m[2];
+    else if (/^\d+([.,]5)?he$/.test(t)) keys.he = t.replace('he', '');
+    else terms.push(t);
+  }
+  return { terms, keys };
+}
+function score(a, terms) {
+  let s = 0; const n = a.name.toLowerCase(), mk = (a.manufacturer || '').toLowerCase(), pn = (a.partNumber || '').toLowerCase();
+  for (const t of terms) s += n.startsWith(t) ? 6 : n.includes(t) ? 4 : pn === t ? 5 : mk.includes(t) ? 2 : 1;
+  return s;
+}
+const mntMatch = (a, v) => { const [t, k] = v.split(':'); return t === 'fit' ? !!a.mount?.fits?.includes(k) : !!a.mount?.provides?.some(p => p.system === k); };
+
+// Filter; skip = Filter, der für die Zählung einer Facette ausgelassen wird
+function match(a, skip = '') {
+  const P = S._p || parseQ(S.q);
+  if (skip !== 'cat' && S.cat && !(a.category === S.cat || a.category.startsWith(S.cat + '/'))) return false;
+  if (skip !== 'mk' && S.mk && a.manufacturer !== S.mk) return false;
+  if (skip !== 'kind' && S.kind && a.kind !== S.kind) return false;
+  if (skip !== 'mnt' && S.mnt && !mntMatch(a, S.mnt)) return false;
+  if (skip !== 'he' && S.he && !unitList(a).some(u => String(u) === S.he)) return false;
+  if (skip !== 'dmax' && S.dmax && !(depth(a) != null && depth(a) <= +S.dmax)) return false;
+  if (skip !== 'wmax' && S.wmax && !(a.weightKg != null && a.weightKg <= +S.wmax)) return false;
+  if (skip !== 'io' && S.io && !['front', 'rear'].some(s => (a.io?.[s] || []).some(p => p.type === S.io))) return false;
+  if (skip !== 'st' && S.st && !(S.st === 'ok' ? !a.status : S.st === 'view' ? !!a.view : a.status?.[S.st])) return false;
+  if (skip !== 'miss' && S.miss && !missing(a, S.miss)) return false;
+  if (skip !== 'q') {
+    const k = P.keys;
+    if (k.he && !unitList(a).some(u => String(u).replace('.', ',') === k.he.replace('.', ','))) return false;
+    if (k.hersteller && !(a.manufacturer || '').toLowerCase().includes(k.hersteller)) return false;
+    if (k.typ && !kindName(a.kind).toLowerCase().includes(k.typ) && a.kind !== k.typ) return false;
+    if (k.in && !(a.mount?.fits || []).some(f => f.includes(k.in) || sysName(f).toLowerCase().includes(k.in))) return false;
+    if (!P.terms.every(t => a._h.includes(t))) return false;
+  }
+  return true;
+}
+const countBy = (skip, keyFn) => { const m = {}; for (const a of DB.articles) if (match(a, skip)) for (const k of [].concat(keyFn(a) ?? [])) m[k] = (m[k] || 0) + 1; return m; };
+
+function apply(keepShown = false) {
+  S._p = parseQ(S.q);
+  list = DB.articles.filter(a => match(a));
+  const terms = S._p.terms;
+  const key = { name: a => a.name, manufacturer: a => a.manufacturer || '', units, depth, weight: a => a.weightKg ?? undefined, price, open: a => -(a.open?.length || 0), rel: a => -score(a, terms) }[S.sort] || (a => a.name);
   list.sort((x, y) => {
     const a = key(x), b = key(y);
     if (a == null && b == null) return x.name.localeCompare(y.name, 'de');
@@ -387,49 +612,221 @@ function apply() {
     const c = typeof a === 'number' ? a - b : String(a).localeCompare(String(b), 'de', { numeric: true });
     return c * S.dir || x.name.localeCompare(y.name, 'de');
   });
-  shown = PAGE;
+  if (!keepShown) shown = PAGE;
   render();
   syncURL();
+}
+
+// ---------- Startseite ----------
+function renderHome() {
+  $('#tiles').innerHTML = DB.taxonomy.map(t => `<div class="tile" role="button" tabindex="0" data-cat="${esc(t.path)}">
+    <div class="th"><span class="ic">${ico(t.icon, 20)}</span><b>${esc(t.name)}</b><span>${nf(t.count)}</span></div>
+    <div class="subs">${(t.children || []).map(c => `<a href="?cat=${encodeURIComponent(c.path)}" data-cat="${esc(c.path)}" class="${c.count ? '' : 'empty'}">${esc(c.name)}${c.count ? ` <small>${c.count}</small>` : ''}</a>`).join('')}</div></div>`).join('');
+  const sys = DB.systems, under = p => Object.entries(sys).filter(([k, s]) => s.parent[0] === p);
+  const btn = (v, n, sub) => `<button type="button" class="sys" data-mnt="${v}"><span>${esc(n)}</span><small>${esc(sub)}</small></button>`;
+  const cnt = k => `${sys[k].providedBy ? sys[k].providedBy + ' Träger · ' : ''}${sys[k].fits} passen hinein`;
+  $('#chain').innerHTML = `
+    <div class="lvl"><span>1 · Gehäuse</span><div class="row">${btn('prov:rail19', 'Rack-Cases, Schränke, Racks', `${sys.rail19.providedBy} Artikel · Rackschienen vorn/hinten`)}</div></div>
+    <div class="arrow">↓ Rackschienen: ${Object.values(sys.rail19.fasteners).map(f => esc(f.split(' – ')[0])).join(' · ')}</div>
+    <div class="lvl"><span>2 · 19″-Einbau</span><div class="row">${btn('fit:rail19', sys.rail19.n, cnt('rail19'))}</div></div>
+    <div class="arrow">↓ Träger in den 19″-Schienen</div>
+    <div class="lvl"><span>3 · Wannen &amp; Rahmen</span><div class="row">${under('rail19').filter(([k]) => !['d-hole', 'cutout'].includes(k)).map(([k, s]) => btn('fit:' + k, s.n, cnt(k))).join('')}</div></div>
+    <div class="arrow">↓ Steckverbinder in Feldern und Blechen</div>
+    <div class="lvl"><span>4 · Stecker</span><div class="row">${['d-hole', 'cutout'].map(k => btn('fit:' + k, sys[k].n, cnt(k))).join('')}</div></div>
+    <div class="lvl" style="margin-top:8px"><span>Außerhalb</span><div class="row">${Object.entries(sys).filter(([k, s]) => !s.parent.length && k !== 'rail19').map(([k, s]) => btn('fit:' + k, s.n, `${s.fits} Artikel`)).join('')}</div></div>`;
+  const q = [['he:1 switch', 'Switch 1 HE'], ['in:wanne', 'passt in Rackwanne'], ['teranex', 'Teranex Mini'], ['xlr buchse', 'XLR-Buchse'], ['käfigmutter', 'Käfigmuttern']];
+  $('#quick').innerHTML = q.map(([v, n]) => `<button class="chip" type="button" data-q="${esc(v)}">${esc(n)}</button>`).join('');
+}
+
+// Vorschläge beim Tippen: Kategorien, Einbausysteme, Hersteller, Artikel
+let sugSel = -1, sugItems = [];
+function suggest(q) {
+  const box = $('#sugg'), P = parseQ(q), t = P.terms;
+  if (!q.trim()) { box.hidden = true; $('#hq').setAttribute('aria-expanded', 'false'); return; }
+  const hit = s => t.length && t.every(x => s.toLowerCase().includes(x));
+  const mark = s => { let h = esc(s); for (const x of t) h = h.replace(new RegExp('(' + x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + ')', 'ig'), '<mark>$1</mark>'); return h; };
+  const cats = DB.categories.filter(c => c.count && hit(c.names.join(' '))).slice(0, 4).map(c => ({ k: 'cat', v: c.path, h: mark(c.names.join(' › ')), s: `${c.count} Artikel` }));
+  const sys = Object.entries(DB.systems).filter(([, s]) => hit(s.n)).slice(0, 3).map(([k, s]) => ({ k: 'mnt', v: 'fit:' + k, h: 'passt in ' + mark(s.n), s: `${s.fits} Artikel` }));
+  const mks = [...new Set(DB.articles.map(a => a.manufacturer).filter(Boolean))].filter(hit).slice(0, 3).map(m => ({ k: 'mk', v: m, h: mark(m), s: 'Hersteller' }));
+  const arts = DB.articles.filter(a => P.terms.every(x => a._h.includes(x))).sort((x, y) => score(y, t) - score(x, t)).slice(0, 6)
+    .map(a => ({ k: 'id', v: a.id, h: mark(a.name), s: catPath(a.category) }));
+  sugItems = [{ k: 'q', v: q, h: `Alle Ergebnisse für „${esc(q)}“`, s: '' }, ...cats, ...sys, ...mks, ...arts];
+  const grp = (k, title) => { const l = sugItems.map((x, i) => [x, i]).filter(([x]) => x.k === k || (k === 'cat' && x.k === 'mnt')); return l.length ? `<h5>${title}</h5>` + l.map(([x, i]) => `<button type="button" role="option" data-si="${i}" aria-selected="${i === sugSel}"><span>${x.h}</span><small>${esc(x.s)}</small></button>`).join('') : ''; };
+  box.innerHTML = grp('q', 'Suche') + grp('cat', 'Ordner & Einbau') + grp('mk', 'Hersteller') + grp('id', 'Artikel');
+  box.hidden = false; $('#hq').setAttribute('aria-expanded', 'true');
+}
+function pickSug(i) {
+  const x = sugItems[i]; if (!x) return;
+  $('#sugg').hidden = true;
+  if (x.k === 'id') { go({ q: '' }); detail(x.v); return; }
+  go(x.k === 'q' ? { q: x.v, sort: 'rel' } : { [x.k]: x.v, q: '' });
+}
+// Wechsel in die Katalogansicht mit neuen Filtern
+function go(o = {}) {
+  Object.assign(S, F0, o, { browse: true });
+  if (o.sort) S.sort = o.sort; else if (S.sort === 'rel' && !S.q) S.sort = 'name';
+  if (o.mnt && !o.nav) S.nav = 'mount';
+  if (o.cat && !o.nav) S.nav = 'cat';
+  if (o.mk && !o.nav) S.nav = 'mk';
+  showView(); apply(); scrollTo({ top: 0 });
+}
+function showView() {
+  $('#home').hidden = S.browse; $('#browse').hidden = !S.browse;
+  $('#q').value = S.q; $('#sort').value = S.sort;
+  if (S.browse) requestAnimationFrame(setH);
+}
+
+// ---------- Ordnerbaum (Kategorie / Einbau / Hersteller / Typ) ----------
+const opened = new Set(), closed = new Set();
+function node(v, name, count, kids = '', note = '') {
+  const cur = { cat: S.cat, mount: S.mnt, mk: S.mk, kind: S.kind }[S.nav] === v;
+  const has = !!kids, isOpen = !closed.has(S.nav + v) && (opened.has(S.nav + v) || cur || (S.nav === 'cat' && S.cat.startsWith(v + '/')) || (S.nav === 'mount' && kids.includes(`data-v="${S.mnt}"`)));
+  return `<li><div><button type="button" class="tg" data-tg="${esc(v)}" ${has ? '' : 'hidden'} aria-label="auf-/zuklappen" aria-expanded="${isOpen}">${isOpen ? '▾' : '▸'}</button>
+    <button type="button" class="nd ${count ? '' : 'zero'}" data-v="${esc(v)}" ${cur ? 'aria-current="true"' : ''}><span>${esc(name)}</span><small>${count ?? ''}</small></button></div>
+    ${note ? `<div class="note">${esc(note)}</div>` : ''}${has && isOpen ? `<ul>${kids}</ul>` : ''}</li>`;
+}
+function renderTree() {
+  document.querySelectorAll('[data-nav]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.nav === S.nav)));
+  let h = '';
+  if (S.nav === 'cat') {
+    const c = countBy('cat', a => { const p = a.category.split('/'); return [p[0], a.category]; });
+    const walk = (ns) => ns.map(n => node(n.path, n.name, c[n.path] || 0, n.children ? walk(n.children) : '')).join('');
+    h = node('', 'Alle Kategorien', Object.values(countBy('cat', () => 'x'))[0] || 0) + walk(DB.taxonomy);
+  } else if (S.nav === 'mount') {
+    const c = countBy('mnt', a => [...(a.mount?.fits || []).map(f => 'fit:' + f), ...(a.mount?.provides || []).map(p => 'prov:' + p.system)].filter((v, i, l) => l.indexOf(v) === i));
+    const sys = DB.systems;
+    const sysNode = (k) => {
+      const kids = Object.entries(sys).filter(([q, s]) => s.parent[0] === k).map(([q]) => sysNode(q)).join('');
+      const prov = sys[k].providedBy ? node('prov:' + k, k === 'rail19' ? 'Cases, Schränke & Racks (Träger)' : 'Träger: ' + sys[k].n, c['prov:' + k] || 0) : '';
+      return node('fit:' + k, sys[k].n, c['fit:' + k] || 0, prov + kids, k === 'rail19' ? 'Käfigmuttern (Lochraster) oder Gleitmuttern (stufenlos)' : '');
+    };
+    h = node('', 'Alle Einbausysteme', null) + Object.entries(sys).filter(([, s]) => !s.parent.length).map(([k]) => sysNode(k)).join('');
+  } else if (S.nav === 'mk') {
+    const c = countBy('mk', a => a.manufacturer || '–');
+    h = node('', 'Alle Hersteller', null) + Object.keys(c).filter(k => k !== '–').sort((a, b) => a.localeCompare(b, 'de')).map(k => node(k, k, c[k])).join('');
+  } else {
+    const c = countBy('kind', a => a.kind);
+    h = node('', 'Alle Typen', null) + Object.entries(DB.kinds).filter(([k]) => !k.startsWith('_')).map(([k, v]) => node(k, v.n, c[k] || 0)).join('');
+  }
+  $('#tree').innerHTML = h;
+}
+
+// ---------- Filter (Facetten) ----------
+function renderFacets() {
+  const sel = (id, label, opts, val) => `<div class="facet"><h4>${label}${val ? `<button type="button" data-clr="${id}">zurücksetzen</button>` : ''}</h4><select data-f="${id}" aria-label="${esc(label)}"><option value="">Alle</option>${opts.map(([v, n, c]) => `<option value="${esc(v)}" ${v === val ? 'selected' : ''} ${c === 0 && v !== val ? 'disabled' : ''}>${esc(n)}${c != null ? ` (${c})` : ''}</option>`).join('')}</select></div>`;
+  let h = '';
+  if (S.nav !== 'cat') { const c = countBy('cat', a => [a.category.split('/')[0], a.category]); h += sel('cat', 'Kategorie', DB.categories.filter(x => c[x.path]).map(x => [x.path, (x.leaf ? '  ' : '') + x.name, c[x.path]]), S.cat); }
+  if (S.nav !== 'kind') { const c = countBy('kind', a => a.kind); h += sel('kind', 'Elementtyp', Object.entries(DB.kinds).filter(([k]) => c[k] || k === S.kind).map(([k, v]) => [k, v.n, c[k] || 0]), S.kind); }
+  if (S.nav !== 'mount') { const c = countBy('mnt', a => (a.mount?.fits || []).map(f => 'fit:' + f)); h += sel('mnt', 'Passt in', Object.entries(DB.systems).filter(([k]) => c['fit:' + k]).map(([k, v]) => ['fit:' + k, v.n, c['fit:' + k]]), S.mnt); }
+  if (S.nav !== 'mk') { const c = countBy('mk', a => a.manufacturer); h += sel('mk', 'Hersteller', Object.keys(c).filter(k => k !== 'undefined').sort((a, b) => a.localeCompare(b, 'de')).map(k => [k, k, c[k]]), S.mk); }
+  const hc = countBy('he', a => unitList(a).map(String));
+  const hes = Object.keys(hc).map(Number).sort((a, b) => a - b);
+  if (hes.length) h += `<div class="facet"><h4>Höhe${S.he ? '<button type="button" data-clr="he">zurücksetzen</button>' : ''}</h4><div class="hes">${hes.map(u => `<button type="button" data-he="${u}" aria-pressed="${S.he === String(u)}" title="${hc[u]} Artikel">${nf(u, 1).replace(',0', '')} HE</button>`).join('')}</div></div>`;
+  h += `<div class="facet"><h4>Maße${S.dmax || S.wmax ? '<button type="button" data-clr="dw">zurücksetzen</button>' : ''}</h4><div class="pair"><label>Einbautiefe bis (mm)<input type="number" min="0" step="10" data-f="dmax" value="${esc(S.dmax)}" placeholder="z. B. 450"></label><label>Gewicht bis (kg)<input type="number" min="0" step="0.5" data-f="wmax" value="${esc(S.wmax)}" placeholder="z. B. 5"></label></div></div>`;
+  const ic = countBy('io', a => [...new Set(['front', 'rear'].flatMap(s => (a.io?.[s] || []).map(p => p.type)))]);
+  h += sel('io', 'Anschluss', Object.keys(ic).sort((a, b) => (DB.ioTypes[a] || a).localeCompare(DB.ioTypes[b] || b, 'de')).map(k => [k, DB.ioTypes[k] || k, ic[k]]), S.io);
+  const sc = countBy('st', a => [a.status ? null : 'ok', a.status?.unchecked && 'unchecked', a.status?.placeholder && 'placeholder', a.view && 'view'].filter(Boolean));
+  h += sel('st', 'Datenstand', [['ok', 'Geprüft', sc.ok || 0], ['unchecked', 'Ungeprüft', sc.unchecked || 0], ['placeholder', 'Platzhalter', sc.placeholder || 0], ['view', 'Mit maßstäblicher Ansicht', sc.view || 0]], S.st);
+  const mc = countBy('miss', a => MISS.map(([k]) => missing(a, k) ? k : null).filter(Boolean));
+  h += sel('miss', 'Fehlende Daten', MISS.map(([k, n]) => [k, n + ' fehlt', mc[k] || 0]), S.miss);
+  $('#facets').innerHTML = h;
+}
+
+function renderCrumbs() {
+  let title = 'Alle Artikel', parts = [];
+  if (S.cat) { const ps = S.cat.split('/'); parts = ps.map((_, i) => ps.slice(0, i + 1).join('/')); title = catName(S.cat); }
+  const crumbs = [`<button type="button" data-home>Start</button>`, `<span class="sep">›</span><button type="button" data-crumb="">Katalog</button>`,
+    ...parts.slice(0, -1).map(p => `<span class="sep">›</span><button type="button" data-crumb="${esc(p)}">${esc(catName(p))}</button>`)];
+  if (!S.cat && S.mnt) title = (S.mnt.startsWith('prov:') ? 'Träger: ' : 'Passt in: ') + sysName(S.mnt.slice(S.mnt.indexOf(':') + 1));
+  else if (!S.cat && S.mk) title = S.mk;
+  else if (!S.cat && S.kind) title = kindName(S.kind);
+  if (S.q && !S.cat) title = `Suche: „${S.q}“`;
+  $('#crumbs').innerHTML = crumbs.join('') + `<h2>${esc(title)}</h2>`;
+  const node = S.cat && DB.taxonomy.flatMap(function f(n) { return [n, ...(n.children || []).flatMap(f)]; }).find(n => n.path === S.cat);
+  $('#subtiles').innerHTML = node?.children ? node.children.filter(c => c.count).map(c => `<button class="chip" type="button" data-cat="${esc(c.path)}">${esc(c.name)} <span>${c.count}</span></button>`).join('') : '';
+  const P = [];
+  const lab = { cat: v => catPath(v), mk: v => v, kind: kindName, mnt: v => (v.startsWith('prov:') ? 'Träger: ' : 'passt in ') + sysName(v.split(':')[1]), he: v => v.replace('.', ',') + ' HE',
+    dmax: v => `Tiefe ≤ ${v} mm`, wmax: v => `Gewicht ≤ ${v} kg`, io: v => DB.ioTypes[v] || v, st: v => ({ ok: 'geprüft', unchecked: 'ungeprüft', placeholder: 'Platzhalter', view: 'mit Ansicht' }[v]),
+    miss: v => (MISS.find(m => m[0] === v)?.[1] || v) + ' fehlt', q: v => `„${v}“` };
+  for (const k of FILTERS) if (S[k]) P.push(`<button type="button" class="pill" data-clr="${k}" title="Filter entfernen">${esc(lab[k](S[k]))}<i aria-hidden="true">×</i></button>`);
+  $('#pills').innerHTML = P.join('');
 }
 
 function render() {
   const part = list.slice(0, shown);
   $('#rows').innerHTML = part.map(a => `<tr tabindex="0" data-id="${esc(a.id)}">
-    <td><div class="nm">${esc(a.name)}</div><div class="sub">${esc(a.group || catName(a.category))}</div></td>
-    <td>${esc(a.manufacturer || '')}</td>
-    <td class="pn">${esc(a.partNumber || (a.variants ? a.variants.length + ' Varianten' : ''))}</td>
+    <td><div class="nm">${esc(a.name)}</div><div class="sub">${esc(catPath(a.category))}</div></td>
+    <td>${esc(a.manufacturer || '')}<div class="sub pn">${esc(a.partNumber || (a.variants ? a.variants.length + ' Varianten' : ''))}</div></td>
+    <td class="sub">${esc(mountShort(a))}</td>
     <td class="num">${esc(size(a))}</td>
-    <td class="num">${a.rack?.depth ? nf(a.rack.depth) + ' mm' : ''}</td>
+    <td class="num">${depth(a) != null ? nf(depth(a)) + ' mm' : ''}</td>
     <td class="num">${fmtKg(a.weightKg)}</td>
     <td class="num">${a.variants && price(a) != null ? 'ab ' : ''}${fmtPrice(price(a))}</td>
     <td>${statusTags(a)}</td></tr>`).join('');
   $('#cards').innerHTML = part.map(a => `<button class="card" type="button" data-id="${esc(a.id)}">
-    <div class="nm">${esc(a.name)}</div><div class="sub">${esc([a.manufacturer, a.group || catName(a.category)].filter(Boolean).join(' · '))}</div>
-    <div class="meta">${[size(a), a.rack?.depth && nf(a.rack.depth) + ' mm', fmtKg(a.weightKg), fmtPrice(price(a))].filter(Boolean).map(esc).join('<span>·</span>')} ${statusTags(a)}</div></button>`).join('');
-  const total = DB.articles.length, filtered = S.q || S.cat || S.mk || S.area || S.mount || S.st;
+    <div class="nm">${esc(a.name)}</div><div class="sub">${esc([a.manufacturer, catPath(a.category)].filter(Boolean).join(' · '))}</div>
+    <div class="meta">${[size(a), depth(a) != null && nf(depth(a)) + ' mm', fmtKg(a.weightKg), fmtPrice(price(a))].filter(Boolean).map(esc).join('<span>·</span>')} ${statusTags(a)}</div></button>`).join('');
+  const total = DB.articles.length, filtered = FILTERS.some(k => S[k]);
   $('#count').textContent = filtered ? `${nf(list.length)} von ${nf(total)} Artikeln` : `${nf(total)} Artikel`;
+  $('#sideCount').textContent = filtered ? `· ${FILTERS.filter(k => S[k]).length} aktiv` : '';
   $('#empty').hidden = list.length > 0;
   $('#more').hidden = list.length <= shown;
   $('#more').textContent = `Weitere anzeigen (${nf(list.length - shown)})`;
   $('#reset').hidden = !filtered;
-  document.querySelectorAll('.chip').forEach(c => c.setAttribute('aria-pressed', String(c.dataset.cat === S.cat)));
+  const sortSel = $('#sort');
+  if (S.q && !sortSel.querySelector('[value=rel]')) sortSel.insertAdjacentHTML('afterbegin', '<option value="rel">Relevanz</option>');
+  if (!S.q) sortSel.querySelector('[value=rel]')?.remove();
+  sortSel.value = S.sort;
   document.querySelectorAll('thead th[data-sort]').forEach(th => th.dataset.sort === S.sort ? th.setAttribute('aria-sort', S.dir > 0 ? 'ascending' : 'descending') : th.removeAttribute('aria-sort'));
+  renderTree(); renderFacets(); renderCrumbs();
 }
-
-const catName = id => DB.categories.find(c => c.id === id)?.name || id;
 
 const FORM = { d: 'Einbaustecker D-Format (D-Loch)', panel: 'Einbaustecker mit eigenem Ausschnitt', cable: 'Kabelstecker' };
 // Anschlussseite eines Steckverbinders: Steckgesicht mit Geschlecht oder Anschlussart
 const sideTxt = x => !x ? '' : (x.term ? (DB.terminations[x.term]?.n || x.term)
   : `${DB.connectorFaces[x.face]?.n || x.face} ${x.gender === 'm' ? 'Stecker' : 'Buchse'}`) + (x.note ? ` (${x.note})` : '');
+const OPENTXT = 'offen';
+const val = (v, f = x => x) => v === null ? null : v === undefined ? undefined : f(v);   // null = Platzhalter
+// Kette eines Einbausystems bis zum Gehäuse, z. B. Case › 19″-Rackschiene › Rackwanne
+const sysChain = k => { const out = []; let x = k; while (x) { out.unshift(sysName(x)); x = DB.systems[x]?.parent?.[0]; } if (out[0] === sysName('rail19')) out.unshift('Case/Rack'); return out.join(' › '); };
+const mediaSrc = m => m?.url || (m?.file ? `api/v1/media/${encodeURIComponent(m.file)}` : '');
+const PH_ICON = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg>';
+
+function mediaSection(a) {
+  if (!a.media) return '';
+  const T = { image: ['Produktbild', 'Foto oder Link'], front: ['Grafik vorn', 'exakte Frontansicht'], rear: ['Grafik hinten', 'exakte Rückansicht'] };
+  const cells = Object.keys(T).filter(k => k in a.media).map(k => {
+    const m = a.media[k], src = mediaSrc(m), vec = k !== 'image' && a.view?.[k];
+    return `<figure><figcaption>${T[k][0]}<span>${src ? (m.url ? 'Link' : 'Datei') : vec ? 'Vektoransicht unten' : 'Platzhalter'}</span></figcaption>
+      ${src ? `<a href="${esc(src)}" target="_blank" rel="noopener noreferrer"><img src="${esc(src)}" alt="${esc(T[k][0] + ': ' + a.name)}" loading="lazy"></a>`
+        : `<div class="mph">${PH_ICON}<div>${T[k][1]} fehlt<br><code>media.${k}</code></div></div>`}${m?.note ? `<small class="sub">${esc(m.note)}</small>` : ''}</figure>`;
+  }).join('');
+  return `<section><h3>Bild &amp; Ansichten</h3><div class="media">${cells}</div></section>`;
+}
+function mountSection(a) {
+  const m = a.mount; if (!m || (!m.fits?.length && !m.provides?.length)) return '';
+  const fits = (m.fits || []).map(k => `<div class="m"><b>${esc(sysName(k))}</b><span class="sub">${esc(DB.systems[k]?.d || '')}</span>
+    <span class="path">${esc(sysChain(k))}</span>${DB.systems[k]?.providedBy ? `<button class="linkbtn" type="button" data-go="prov:${k}">Passende Träger zeigen</button>` : ''}</div>`).join('');
+  const byS = {}; for (const p of m.provides || []) (byS[p.system] ??= []).push(p);
+  const prov = Object.entries(byS).map(([k, ps]) => `<div class="m"><b>${esc(sysName(k))}</b><span>${ps.map(p => [p.side && SIDE[p.side], p.fastener && DB.systems[k]?.fasteners?.[p.fastener]?.split(' – ')[0], p.optional && 'optional'].filter(Boolean).join(', ')).filter(Boolean).map(esc).join(' · ')}</span>
+    <span class="path">${esc(sysChain(k))}</span><button class="linkbtn" type="button" data-go="fit:${k}">Was passt hinein?</button></div>`).join('');
+  return `<section><h3>Einbau</h3><div class="mnt">${fits ? `<p class="sub" style="margin:0">Passt in${m.fits.length > 1 ? ' (eines davon)' : ''}:</p>${fits}` : ''}${prov ? `<p class="sub" style="margin:${fits ? '6px' : 0} 0 0">Nimmt auf:</p>${prov}` : ''}</div></section>`;
+}
+function specsSection(a) {
+  const K = DB.kinds[a.kind]; if (!a.specs || !K?.props?.length) return '';
+  const f = (p, v) => v === true ? 'ja' : v === false ? 'nein' : typeof v === 'number' ? nf(v, v % 1 ? 1 : 0) + (p.u ? ' ' + p.u : '') : v;
+  return `<section><h3>Eigenschaften · ${esc(K.n)}</h3><dl class="kv">${K.props.filter(p => p.k in a.specs).map(p => `<div><dt>${esc(p.n)}</dt><dd class="${a.specs[p.k] === null ? 'open' : ''}">${esc(a.specs[p.k] === null ? OPENTXT : f(p, a.specs[p.k]))}</dd></div>`).join('')}</dl></section>`;
+}
+
 function detail(id, push = true) {
   const a = DB.articles.find(x => x.id === id); if (!a) return;
   const kv = [
-    ['Kategorie', catName(a.category)], ['Bereich', a.area], ['Gruppe', a.group], ['Hersteller', a.manufacturer], ['Artikel-Nr.', a.partNumber],
-    ['Bauform', a.rack && MOUNT[a.rack.mount]], ['Höhe', a.rack?.units != null && `${nf(a.rack.units, 1).replace(',0', '')} HE`],
+    ['Kategorie', catPath(a.category)], ['Elementtyp', kindName(a.kind)], ['Bereich', a.area], ['Gruppe', a.group], ['Hersteller', a.manufacturer], ['Artikel-Nr.', a.partNumber],
+    ['Bauform', a.rack && MOUNT[a.rack.mount]], ['Höhe', a.rack?.units != null && fmtHE(a.rack.units)],
     ['Breite', a.rack?.fraction ? `${frac(a.rack.fraction)} von 19″` : a.rack?.width && `${nf(a.rack.width)} mm`],
-    ['Höhe (mm)', a.rack?.height && `${nf(a.rack.height)} mm`], ['Einbautiefe', a.rack?.depth && `${nf(a.rack.depth)} mm`],
-    ['Gewicht', fmtKg(a.weightKg)], ['Preis', a.price && (a.price.eur != null ? fmtPrice(a.price.eur) : 'unbekannt')],
+    ['Höhe (mm)', a.rack?.height && `${nf(a.rack.height)} mm`], ['Einbautiefe', val(a.rack?.depth, d => `${nf(d)} mm`)],
+    ...(a.dimensions ? [['Breite', val(a.dimensions.w, v => nf(v) + ' mm')], ['Höhe', val(a.dimensions.h, v => nf(v) + ' mm')], ['Tiefe', val(a.dimensions.d, v => nf(v) + ' mm')]] : []),
+    ['Gewicht', val(a.weightKg, fmtKg)], ['Preis', a.price && (a.price.eur != null ? fmtPrice(a.price.eur) : 'unbekannt')],
     ['Preisquelle', a.price && [SRC[a.price.source], a.price.note].filter(Boolean).join(' · ')],
     ['Steckertyp', a.connectorType && (DB.connectorTypes[a.connectorType]?.n || a.connectorType)],
     ['Einbau', a.connector && FORM[a.connector.form]],
@@ -439,28 +836,31 @@ function detail(id, push = true) {
     ['Aufbau', a.cable?.spec],
     ['Bestand', a.inventory && [a.inventory.qty != null && `${a.inventory.qty} Stk.`, a.inventory.location, a.inventory.note].filter(Boolean).join(' · ')],
     ['Rackmanufaktur', a.rackmanufaktur?.key],
-  ].filter(([, v]) => v);
+  ].filter(([, v]) => v || v === null);
   const port = p => `<li><span class="cnt">${p.count}×</span><span>${esc(p.label || DB.ioTypes[p.type] || p.type)}<span class="ty">${esc(DB.ioTypes[p.type] || p.type)}</span></span></li>`;
-  const io = a.io && (a.io.front?.length || a.io.rear?.length) ? `<section><h3>Anschlüsse</h3><div class="io">
-    ${a.io.front?.length ? `<div><h4>Vorderseite</h4><ul>${a.io.front.map(port).join('')}</ul></div>` : ''}
-    ${a.io.rear?.length ? `<div><h4>Rückseite</h4><ul>${a.io.rear.map(port).join('')}</ul></div>` : ''}</div></section>` : '';
+  const ioSide = (s, t) => a.io[s] === null ? `<div><h4>${t}</h4><ul><li><span class="cnt">?</span><span class="sub">offen – noch nicht erfasst</span></li></ul></div>` : a.io[s]?.length ? `<div><h4>${t}</h4><ul>${a.io[s].map(port).join('')}</ul></div>` : '';
+  const io = a.io && ('front' in a.io || 'rear' in a.io) ? `<section><h3>Anschlüsse</h3><div class="io">${ioSide('front', 'Vorderseite')}${ioSide('rear', 'Rückseite')}</div></section>` : '';
   const vcols = [['units', 'HE', v => v.units], ['partNumber', 'Artikel-Nr.', v => v.partNumber], ['dimensions', 'Außenmaße', v => v.dimensions],
     ['usableDepth', 'Nutztiefe', v => v.usableDepth && v.usableDepth + ' mm'], ['weightKg', 'Gewicht', v => fmtKg(v.weightKg)], ['price', 'Preis', v => fmtPrice(v.price?.eur)]]
     .filter(([k, , f]) => a.variants?.some(v => f(v)));
   const variants = a.variants?.length ? `<section><h3>Varianten (${a.variants.length})</h3><div style="overflow-x:auto"><table class="vt"><thead><tr>${vcols.map(c => `<th>${c[1]}</th>`).join('')}</tr></thead>
     <tbody>${a.variants.map(v => `<tr>${vcols.map(c => `<td>${esc(c[2](v) ?? '')}</td>`).join('')}</tr>`).join('')}</tbody></table></div></section>` : '';
   const file = `data/articles/${a.category}/${a.id}.json`;
-  $('#dlg-body').innerHTML = `<div class="dh"><div><p class="eyebrow">${esc(catName(a.category))}${a.manufacturer ? ' · ' + esc(a.manufacturer) : ''}</p>
+  $('#dlg-body').innerHTML = `<div class="dh"><div><p class="eyebrow">${esc(catPath(a.category))}${a.manufacturer ? ' · ' + esc(a.manufacturer) : ''}</p>
       <h2 id="dlg-title">${esc(a.name)}</h2><div>${statusTags(a)}</div></div>
       <button class="close" type="button" aria-label="Schließen" data-close>×</button></div>
     <div class="db">
-      ${a.category === 'steckverbinder' && a.rackmanufaktur?.key?.startsWith('con:') ? `<section><h3>Vorschau</h3><div class="cviews" id="conviews"><p class="vload">Vorschau wird geladen …</p></div></section>` : ''}
+      ${mediaSection(a)}
+      ${a.kind === 'connector' && a.rackmanufaktur?.key?.startsWith('con:') ? `<section><h3>Vorschau</h3><div class="cviews" id="conviews"><p class="vload">Vorschau wird geladen …</p></div></section>` : ''}
       ${a.panelCutout ? cutoutSection(a) : ''}
-      ${a.view ? `<section><h3>Maßstäbliche Ansicht</h3><div class="views" id="views"><p class="vload">Ansicht wird geladen …</p></div></section>` : ''}
+      ${a.view ? `<section><h3>Maßstäbliche Ansicht · Anschlusspositionen</h3><div class="views" id="views"><p class="vload">Ansicht wird geladen …</p></div></section>` : ''}
       ${a.description ? `<p class="desc">${esc(a.description)}</p>` : ''}
       ${a.notes ? `<p class="desc">Hinweis: ${esc(a.notes)}</p>` : ''}
-      <section><h3>Daten</h3><dl class="kv">${kv.map(([k, v]) => `<div><dt>${k}</dt><dd>${esc(v)}</dd></div>`).join('')}</dl></section>
+      ${mountSection(a)}
+      <section><h3>Daten</h3><dl class="kv">${kv.map(([k, v]) => `<div><dt>${k}</dt><dd class="${v === null ? 'open' : ''}">${esc(v === null ? OPENTXT : v)}</dd></div>`).join('')}</dl></section>
+      ${specsSection(a)}
       ${io}${variants}
+      ${a.open?.length ? `<p class="sub">Offen (${a.open.length}): ${esc(a.open.map(openName).join(', '))} – in der Artikeldatei steht dafür <code>null</code>.</p>` : ''}
       <div class="actions">
         ${a.url ? `<a class="btn primary" href="${esc(a.url)}" target="_blank" rel="noopener noreferrer">Herstellerseite ↗</a>` : ''}
         <a class="btn" href="api/v1/articles/${encodeURIComponent(a.id)}.json" target="_blank">JSON</a>
@@ -468,7 +868,7 @@ function detail(id, push = true) {
         <a class="btn" href="${REPO}/edit/main/${file}" target="_blank" rel="noopener">In Git bearbeiten</a>
         <button class="btn" type="button" data-copy="${esc(a.id)}">ID kopieren</button>
       </div>
-      <details><summary>Rohdaten</summary><pre>${esc(JSON.stringify(a, null, 2))}</pre></details>
+      <details><summary>Rohdaten</summary><pre>${esc(JSON.stringify(a, (k, v) => k === '_h' ? undefined : v, 2))}</pre></details>
     </div>`;
   const dlg = $('#dlg');
   if (!dlg.open) dlg.showModal();
@@ -547,48 +947,43 @@ async function loadView(a) {
   }
 }
 
+
+// ---------- URL ----------
 function syncURL() {
   const p = new URLSearchParams();
-  for (const k of ['q', 'cat', 'mk', 'area', 'mount', 'st']) if (S[k]) p.set(k, S[k]);
-  if (S.sort !== 'name' || S.dir < 0) p.set('sort', (S.dir < 0 ? '-' : '') + S.sort);
+  if (S.browse && !FILTERS.some(k => S[k])) p.set('browse', '1');
+  if (S.browse && S.nav !== 'cat') p.set('nav', S.nav);
+  for (const k of FILTERS) if (S[k]) p.set(k, S[k]);
+  if (S.browse && (S.sort !== 'name' || S.dir < 0)) p.set('sort', (S.dir < 0 ? '-' : '') + S.sort);
   if (S.id) p.set('id', S.id);
   const url = location.pathname + (p.toString() ? '?' + p : '') + location.hash;
-  history.replaceState(null, '', url);
+  if (url !== location.pathname + location.search + location.hash) history.replaceState(null, '', url);
 }
 function readURL() {
   const p = new URLSearchParams(location.search);
-  for (const k of ['q', 'cat', 'mk', 'area', 'mount', 'st']) S[k] = p.get(k) || '';
-  const s = p.get('sort'); if (s) { S.dir = s.startsWith('-') ? -1 : 1; S.sort = s.replace('-', ''); }
+  for (const k of FILTERS) S[k] = p.get(k) || '';
+  S.nav = ['cat', 'mount', 'mk', 'kind'].includes(p.get('nav')) ? p.get('nav') : S.mnt ? 'mount' : 'cat';
+  const s = p.get('sort'); S.dir = s?.startsWith('-') ? -1 : 1; S.sort = s ? s.replace('-', '') : S.q ? 'rel' : 'name';
+  S.browse = p.has('browse') || FILTERS.some(k => S[k]) || p.has('nav');
   S.id = p.get('id') || '';
-  $('#q').value = S.q; for (const k of ['mk', 'area', 'mount', 'st']) $('#' + k).value = S[k];
 }
+function resetFilters() { Object.assign(S, F0); if (S.sort === 'rel') S.sort = 'name'; $('#q').value = ''; apply(); }
 
-function resetFilters() {
-  Object.assign(S, { q: '', cat: '', mk: '', area: '', mount: '', st: '' });
-  $('#q').value = ''; for (const k of ['mk', 'area', 'mount', 'st']) $('#' + k).value = '';
-  apply();
-}
+const setH = () => { const t = document.querySelector('.tools'); if (t && !t.closest('[hidden]')) document.documentElement.style.setProperty('--tools-h', (60 + t.offsetHeight) + 'px'); };
 
 async function init() {
-  let data;
   try {
-    const [arts, cats, io, ct, cf, tm] = await Promise.all(['articles', 'categories', 'io-types', 'connector-types', 'connector-faces', 'terminations'].map(n => fetch(`api/v1/${n}.json`, { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })));
-    data = { articles: arts.articles, categories: cats.categories, ioTypes: io.ioTypes, connectorTypes: ct.connectorTypes, connectorFaces: cf.connectorFaces, terminations: tm.terminations, meta: arts };
+    const [arts, cats, io, ct, cf, tm, kinds, ms] = await Promise.all(['articles', 'categories', 'io-types', 'connector-types', 'connector-faces', 'terminations', 'kinds', 'mount-systems'].map(n => fetch(`api/v1/${n}.json`, { cache: 'no-cache' }).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); })));
+    DB = { articles: arts.articles, categories: cats.categories, taxonomy: cats.taxonomy, ioTypes: io.ioTypes, connectorTypes: ct.connectorTypes, connectorFaces: cf.connectorFaces, terminations: tm.terminations, kinds: kinds.kinds, systems: ms.mountSystems, meta: arts };
   } catch (e) {
     $('#stats').textContent = 'Daten konnten nicht geladen werden. Wurde „node scripts/build.mjs“ ausgeführt?';
     return;
   }
-  DB = data;
+  DB.cat = Object.fromEntries(DB.categories.map(c => [c.path, c]));
+  Object.defineProperty(DB.kinds, '_props', { value: Object.fromEntries(Object.values(DB.kinds).flatMap(k => k.props.map(p => [p.k, p.n]))) });
   DB.articles.forEach(a => { a._h = haystack(a); });
-  const mks = [...new Set(DB.articles.map(a => a.manufacturer).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'de'));
-  const areas = [...new Set(DB.articles.map(a => a.area).filter(Boolean))].sort((a, b) => a.localeCompare(b, 'de'));
-  $('#mk').insertAdjacentHTML('beforeend', mks.map(m => `<option>${esc(m)}</option>`).join(''));
-  $('#area').insertAdjacentHTML('beforeend', areas.map(m => `<option>${esc(m)}</option>`).join(''));
-  const cats = DB.categories.filter(c => c.count);
-  $('#cats').innerHTML = `<button class="chip" type="button" data-cat="">Alle <span>${DB.articles.length}</span></button>` +
-    cats.map(c => `<button class="chip" type="button" data-cat="${esc(c.id)}" title="${esc(c.description)}">${esc(c.name)} <span>${c.count}</span></button>`).join('');
-  const m = DB.meta;
-  $('#stats').innerHTML = `<span><b>${nf(DB.articles.length)}</b> Artikel</span><span><b>${cats.length}</b> Kategorien</span><span><b>${mks.length}</b> Hersteller</span>` +
+  const mks = new Set(DB.articles.map(a => a.manufacturer).filter(Boolean)).size, m = DB.meta;
+  $('#stats').innerHTML = `<span><b>${nf(DB.articles.length)}</b> Artikel</span><span><b>${DB.categories.filter(c => c.leaf && c.count).length}</b> Unterkategorien</span><span><b>${mks}</b> Hersteller</span>` +
     `<span>Stand <b>${new Date(m.commitDate || m.generatedAt).toLocaleDateString('de-DE')}</b>${m.commit ? ` · <a href="${REPO}/commit/${esc(m.commitFull || m.commit)}" target="_blank" rel="noopener"><b>${esc(m.commit)}</b></a>` : ''}</span>`;
   if (m.commit) {
     const b = $('#buildRef'), when = new Date(m.commitDate || m.generatedAt);
@@ -596,19 +991,43 @@ async function init() {
     b.textContent = `Version ${m.commit} · ${when.toLocaleDateString('de-DE')}`;
     b.hidden = false;
   }
-  readURL();
-  apply();
+  if (matchMedia('(max-width:980px)').matches) $('#side').open = false;
+  renderHome();
+  readURL(); showView(); apply();
   if (S.id) detail(S.id, false);
-  const tools = document.querySelector('.tools');
-  const setH = () => document.documentElement.style.setProperty('--tools-h', (60 + tools.offsetHeight) + 'px');
   setH(); addEventListener('resize', setH);
 }
 
-// Ereignisse
+// ---------- Ereignisse ----------
 let t;
-$('#q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { S.q = e.target.value.trim(); apply(); }, 120); });
-for (const k of ['mk', 'area', 'mount', 'st']) $('#' + k).addEventListener('change', e => { S[k] = e.target.value; apply(); });
-$('#cats').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) { S.cat = c.dataset.cat; apply(); } });
+$('#q').addEventListener('input', e => { clearTimeout(t); t = setTimeout(() => { const had = !!S.q; S.q = e.target.value.trim(); if (S.q && !had && S.sort === 'name') S.sort = 'rel'; if (!S.q && S.sort === 'rel') S.sort = 'name'; apply(); }, 120); });
+$('#hq').addEventListener('input', e => { sugSel = -1; suggest(e.target.value); });
+$('#hq').addEventListener('keydown', e => {
+  const box = $('#sugg'); if (box.hidden) return;
+  if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sugSel = (sugSel + (e.key === 'ArrowDown' ? 1 : -1) + sugItems.length) % sugItems.length; suggest(e.target.value); box.querySelector('[aria-selected=true]')?.scrollIntoView({ block: 'nearest' }); }
+  if (e.key === 'Escape') box.hidden = true;
+});
+$('#homeForm').addEventListener('submit', e => { e.preventDefault(); const v = $('#hq').value.trim(); if (sugSel >= 0) pickSug(sugSel); else go(v ? { q: v, sort: 'rel' } : {}); });
+$('#sugg').addEventListener('mousedown', e => { const b = e.target.closest('[data-si]'); if (b) { e.preventDefault(); pickSug(+b.dataset.si); } });
+$('#hq').addEventListener('blur', () => setTimeout(() => { $('#sugg').hidden = true; }, 100));
+$('#sort').addEventListener('change', e => { S.sort = e.target.value; S.dir = 1; apply(); });
+
+document.addEventListener('click', e => {
+  const x = e.target;
+  const home = x.closest('[data-home]'); if (home) { e.preventDefault(); Object.assign(S, F0, { browse: false }); showView(); syncURL(); $('#hq').value = ''; $('#hq').focus(); return; }
+  const qk = x.closest('[data-q]'); if (qk) { go({ q: qk.dataset.q, sort: 'rel' }); return; }
+  const gm = x.closest('[data-mnt]'); if (gm && !x.closest('#tree')) { go({ mnt: gm.dataset.mnt }); return; }
+  const gc = x.closest('[data-cat]'); if (gc && !x.closest('#tree')) { e.preventDefault(); if (S.browse) { S.cat = gc.dataset.cat; apply(); } else go({ cat: gc.dataset.cat }); return; }
+  const cr = x.closest('[data-crumb]'); if (cr) { S.cat = cr.dataset.crumb; if (!S.cat) Object.assign(S, F0); apply(); return; }
+  const g = x.closest('[data-go]'); if (g) { $('#dlg').close(); go({ mnt: g.dataset.go }); return; }
+  const nv = x.closest('[data-nav]'); if (nv) { S.nav = nv.dataset.nav; render(); syncURL(); return; }
+  const tg = x.closest('[data-tg]'); if (tg) { const k = S.nav + tg.dataset.tg; if (tg.getAttribute('aria-expanded') === 'true') { opened.delete(k); closed.add(k); } else { closed.delete(k); opened.add(k); } renderTree(); return; }
+  const nd = x.closest('#tree [data-v]'); if (nd) { const f = { cat: 'cat', mount: 'mnt', mk: 'mk', kind: 'kind' }[S.nav]; S[f] = S[f] === nd.dataset.v && nd.dataset.v ? '' : nd.dataset.v; apply(); return; }
+  const he = x.closest('[data-he]'); if (he) { S.he = S.he === he.dataset.he ? '' : he.dataset.he; apply(); return; }
+  const cl = x.closest('[data-clr]'); if (cl) { const k = cl.dataset.clr; if (k === 'dw') { S.dmax = ''; S.wmax = ''; } else S[k] = ''; if (k === 'q') { $('#q').value = ''; if (S.sort === 'rel') S.sort = 'name'; } apply(); return; }
+});
+document.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.matches('.tile')) { e.preventDefault(); e.target.click(); } });
+$('#facets').addEventListener('change', e => { const f = e.target.dataset.f; if (f) { S[f] = e.target.value; apply(); } });
 document.querySelectorAll('thead th[data-sort] button').forEach(b => b.addEventListener('click', () => {
   const k = b.parentElement.dataset.sort; S.dir = S.sort === k ? -S.dir : 1; S.sort = k; apply();
 }));
@@ -627,7 +1046,7 @@ dlg.addEventListener('click', e => {
 });
 dlg.addEventListener('close', () => { S.id = ''; syncURL(); });
 addEventListener('keydown', e => {
-  if (e.key === '/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName) && !dlg.open) { e.preventDefault(); $('#q').focus(); }
+  if (e.key === '/' && !/INPUT|SELECT|TEXTAREA/.test(document.activeElement.tagName) && !dlg.open) { e.preventDefault(); (S.browse ? $('#q') : $('#hq')).focus(); }
 });
 init();
 </script>

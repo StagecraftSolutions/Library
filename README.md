@@ -11,9 +11,12 @@ ausschließlich von hier.
 
 | Pfad | Inhalt |
 |---|---|
-| `data/articles/<kategorie>/<id>.json` | **ein Artikel pro Datei** – das ist die Datenbank |
+| `data/articles/<bereich>/<unterkategorie>/<id>.json` | **ein Artikel pro Datei** – das ist die Datenbank |
+| `data/taxonomy.json` | Kategoriebaum (Bereich › Unterkategorie, Reihenfolge = Anzeige) |
+| `data/meta/kinds.json` | Elementtypen (19″-Gerät, Case, Rackwanne, Lautsprecher, Stativ, Kabel …) mit ihren Eigenschaften |
+| `data/meta/mount-systems.json` | Einbausysteme: was passt worin (Case › 19″-Schiene › Rackwanne/Systemrahmen › Gerät) |
+| `data/media/` | eigene Bilder und Grafiken (`media.*.file`) |
 | `data/views/<id>.json` | maßstäbliche Front-/Rückansicht eines Artikels (Zeichenelemente in mm) |
-| `data/categories.json` | Kategorien (Reihenfolge = Anzeige) |
 | `data/meta/io-types.json` | Anschlusstypen für `io` (`xlr`, `bnc`, `powercon` …) |
 | `data/meta/connector-types.json` | Steckertypen der Steckverbinder |
 | `data/meta/connector-faces.json` | Steckgesichter für Vorder-/Rückseite der Steckverbinder (`xlr3`, `rj45`, `lc_duplex` …) |
@@ -44,7 +47,8 @@ Dann <http://localhost:8752/> öffnen. Benötigt nur Node.js ≥ 20, keine Paket
 
 ## Daten ändern
 
-1. Artikeldatei anlegen oder bearbeiten (Vorlage: eine ähnliche Datei kopieren, `id` = Dateiname).
+1. Artikeldatei anlegen oder bearbeiten (Vorlage: eine ähnliche Datei kopieren, `id` = Dateiname, Ordner = `category`).
+   Noch unbekannte Werte als `null` stehen lassen – sie erscheinen im Katalog als „offen“.
 2. `node scripts/build.mjs --check` – bricht mit verständlicher Meldung ab, wenn etwas nicht stimmt.
    `node scripts/build.mjs --format` bringt Dateien in die einheitliche Feldreihenfolge.
 3. Commit, Pull Request. GitHub Actions prüft die Daten; nach dem Merge wird die API neu gebaut.
@@ -61,8 +65,8 @@ Statische JSON-Dateien unter `/api/v1/`, CORS offen, jede Antwort mit `commit` u
 | `views/{id}.json` | maßstäbliche Ansicht |
 | `dxf/{id}.dxf` | Einbauausschnitt eines Steckverbinders als DXF (R12, mm, Ursprung = Steckermitte; Ebenen AUSSCHNITT, BOHRUNG, FLANSCH, MITTE, ggf. BLINDPLATTE). Im Artikel: `panelCutout` mit Geometrie, Text und Pfad |
 | `articles.csv` | Tabelle (Semikolon, UTF-8 mit BOM, Dezimalkomma) |
-| `categories.json`, `io-types.json`, `connector-types.json`, `connector-faces.json`, `terminations.json`, `io-faces.json`, `article.schema.json` | Stammdaten |
-| `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json`, `parts.json`, `wiring.json` | Datenquelle von Rackmanufaktur (rack.stagecraft.solutions), Format wie früher `Rackmanufactur/data/*.json`; `parts.json` = Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör – siehe unten |
+| `categories.json` (Baum + flache Liste mit Anzahl), `kinds.json`, `mount-systems.json`, `io-types.json`, `connector-types.json`, `connector-faces.json`, `terminations.json`, `io-faces.json`, `article.schema.json` | Stammdaten |
+| `rackmanufaktur/devices.json`, `connectors.json`, `sysboxx.json`, `weights.json`, `views.json`, `parts.json`, `wiring.json`, `catalog.json` | Datenquelle von Rackmanufaktur (rack.stagecraft.solutions), Format wie früher `Rackmanufactur/data/*.json`; `parts.json` = Anschlussfelder, Blenden, Wannen, Schubladen, Cases, Zubehör – siehe unten |
 
 ## Zusammenspiel mit Rackmanufaktur
 

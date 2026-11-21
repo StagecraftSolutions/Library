@@ -4,7 +4,7 @@
 //   node scripts/build.mjs            prüfen + bauen
 //   node scripts/build.mjs --check    nur prüfen (z. B. vor einem Commit)
 //   node scripts/build.mjs --format   Artikeldateien einheitlich formatieren, dann prüfen + bauen
-import { rmSync, mkdirSync, writeFileSync, readFileSync } from 'node:fs';
+import { rmSync, mkdirSync, writeFileSync, readFileSync, cpSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { execSync } from 'node:child_process';
 import { ROOT, DATA, readJSON, loadAll, validate, formatArticle, formatView } from './lib/articles.mjs';
@@ -110,6 +110,8 @@ put('connector-faces.json', { ...meta, connectorFaces: db.connectorFaces });
 put('terminations.json', { ...meta, terminations: db.terminations });
 put('io-faces.json', { ...meta, ioFaces: db.ioFaces });
 writeFileSync(join(OUT, 'article.schema.json'), readFileSync(join(ROOT, 'schema', 'article.schema.json')));
+// eigene Bilder/Grafiken (media.*.file) unter api/v1/media/
+if (existsSync(join(DATA, 'media'))) cpSync(join(DATA, 'media'), join(OUT, 'media'), { recursive: true, filter: p => !p.endsWith('README.md') });
 
 // Anschlussseite eines Steckverbinders als Text, z. B. "XLR 3-pol Stecker" oder "Lötanschluss"
 const sideTxt = x => !x ? '' : x.term ? (db.terminations[x.term]?.n ?? x.term)
