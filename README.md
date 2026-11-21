@@ -8,10 +8,6 @@ JSON-/CSV-Downloads und dokumentierter API. Eigenständiges Projekt; Rackmanufac
 ## Betrieb (Hermes)
 
 - Adresse: `library.stagecraft.solutions` → DSM-Reverse-Proxy → `127.0.0.1:8751`
-- Starten/aktualisieren:
-
-  ```bash
-  git pull && docker compose up -d --build
-  ```
-
-- Datenbank: in `docker-compose.yml` als `db` (PostgreSQL) vorbereitet und auskommentiert. Zum Aktivieren `.env` aus `.env.example` anlegen und den Block einkommentieren.
+- Der Container läuft über die gemeinsame `docker-compose.yml` in `/volume1/docker/StagecraftSolutions` (Dienst `library`).
+- Datenbank: als `library-db` (PostgreSQL) in der gemeinsamen Compose-Datei vorbereitet und auskommentiert.
+- Aktualisieren: dort `./update.sh library` (holt `main` per `git pull` und baut neu).
