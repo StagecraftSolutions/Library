@@ -153,6 +153,8 @@ export function validateMeta({ ioTypes = {}, connectorFaces = {}, ioFaces = {} }
   const errs = [], fams = new Set(Object.entries(connectorFaces).map(([k, f]) => f.fam || k));
   for (const [k, f] of Object.entries(connectorFaces)) {
     if (typeof f.n !== 'string') errs.push(`connector-faces.json: ${k}.n fehlt`);
+    if (f.any !== undefined && f.any !== true) errs.push(`connector-faces.json: ${k}.any nur true oder weglassen`);
+    if (f.any && !f.fam) errs.push(`connector-faces.json: ${k}.any braucht eine Familie (fam)`);
     for (const m of f.mates || []) if (!fams.has(m) && !connectorFaces[m]) errs.push(`connector-faces.json: ${k}.mates "${m}" ist weder Steckgesicht noch Familie`);
   }
   for (const t of Object.keys(ioTypes)) if (!ioFaces[t]) errs.push(`io-faces.json: io-Typ "${t}" fehlt (Steckgesicht oder none eintragen)`);

@@ -102,7 +102,7 @@ Rackmanufaktur verbindet Anschlüsse von Geräten und Blendensteckern. Damit es 
   Jeder io-Typ muss hier stehen – `build.mjs --check` meldet fehlende.
 - **`data/meta/connector-faces.json`**: `fam` fasst Steckgesichter zusammen, die ineinander passen können
   (`xlr3`/`xlr5` → `xlr`, `rj45`/`ethercon` → `rj45`, alle powerCON → `powercon`); `mates` nennt weitere passende
-  Familien (Combobuchse: XLR und Klinke).
+  Familien (Combobuchse: XLR und Klinke). `any: true` = Typ offen (z. B. `iec`, `powercon`, `usb`): passt zu jedem Steckgesicht derselben Familie.
 - **Einzelne Anschlüsse (optional, nach und nach):** Eine io-Gruppe kann `dir` und `ports` bekommen – eine Liste mit
   genau `count` Einträgen `{ label, face?, gender?, dir? }`. Ohne `ports` nummeriert Rackmanufaktur die Gruppe durch.
 
