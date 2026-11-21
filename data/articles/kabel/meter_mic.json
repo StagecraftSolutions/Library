@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "meter_mic",
+  "name": "Mikrofonkabel (Meterware)",
+  "category": "kabel",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "bulk",
+    "spec": "2 × 0,22 mm², geschirmt, für XLR 3-pol"
+  },
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Meterware, Preis je m"
+  }
+}

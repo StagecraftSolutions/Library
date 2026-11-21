@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "meter_dmx",
+  "name": "DMX/AES-Kabel 110 Ω (Meterware)",
+  "category": "kabel",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "bulk",
+    "spec": "110 Ω, 2 × 0,22 mm², geschirmt, für XLR 5-pol/AES3"
+  },
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Meterware, Preis je m"
+  }
+}

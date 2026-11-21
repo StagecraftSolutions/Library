@@ -1,0 +1,16 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "meter_cat6a",
+  "name": "Netzwerk-Verlegekabel Cat 6A (Meterware)",
+  "category": "kabel",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "bulk",
+    "spec": "S/FTP AWG 23, für RJ45-Feldstecker"
+  },
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Meterware, Preis je m"
+  }
+}
