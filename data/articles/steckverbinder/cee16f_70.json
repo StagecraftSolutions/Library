@@ -7,6 +7,11 @@
   "manufacturer": "PCE",
   "partNumber": "PCE CEE-Anbausteckdose 16 A 5p 6h",
   "connectorType": "cee16f",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee16_5", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 70,
     "h": 70,

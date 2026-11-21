@@ -7,6 +7,11 @@
   "manufacturer": "Mennekes",
   "partNumber": "Mennekes 1387ZA",
   "connectorType": "cee16f4",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "cee16_4", "gender": "f"},
+    "rear": {"term": "screw"}
+  },
   "cutout": {
     "w": 65,
     "h": 72,
