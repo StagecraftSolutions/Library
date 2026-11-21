@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "xlr3f_a",
+  "name": "XLR 3-pol Buchse",
+  "shortName": "XLR3 F",
+  "category": "steckverbinder",
+  "manufacturer": "Amphenol",
+  "partNumber": "Amphenol AC3FDZ",
+  "connectorType": "xlr3f",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "con:xlr3f_a",
+    "order": 27,
+    "extra": {"fit": "d", "g": "xlrf", "p": 3}
+  }
+}

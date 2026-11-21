@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "foam3",
+  "name": "Schaumstoffeinlage für Schublade 3 HE",
+  "category": "schubladen",
+  "partNumber": "",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "art:foam3",
+    "order": 20
+  }
+}

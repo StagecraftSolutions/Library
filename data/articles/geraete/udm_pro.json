@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "udm_pro",
+  "name": "UniFi Dream Machine Pro (UDM-Pro)",
+  "category": "geraete",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi",
+  "manufacturer": "Ubiquiti",
+  "url": "https://eu.store.ui.com/eu/en/category/cloud-gateways-large-scale/products/udm-pro",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 286
+  },
+  "price": {
+    "eur": 340
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "rj45", "count": 9, "label": "GbE"},
+      {"type": "sfp", "count": 2, "label": "10G SFP+"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:udm_pro",
+    "order": 89
+  }
+}

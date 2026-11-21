@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "db_d25",
+  "name": "d&b D25 Verstärker",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Endstufen · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "url": "https://www.dbaudio.com/global/en/products/amplifiers/d25/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 512
+  },
+  "weightKg": 13.8,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "4.3″ touchscreen"},
+      {"type": "knob", "count": 1, "label": "Rotary encoder"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 1, "label": "Mains In (powerCON TRUE1 TOP)"},
+      {"type": "nl4", "count": 6, "label": "Speaker Out A–D, A/B and C/D mix 2-way"},
+      {"type": "nl8", "count": 1, "label": "4-channel Out"},
+      {"type": "xlrf", "count": 6, "label": "Input A1–A4, AES3 In D1/2, D3/4"},
+      {"type": "xlr", "count": 6, "label": "Link A1–A4, AES3 Out D1/2, D3/4"},
+      {"type": "ethercon", "count": 2, "label": "ETH1/PRI, ETH2/SEC (Milan)"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_d25",
+    "order": 175
+  }
+}

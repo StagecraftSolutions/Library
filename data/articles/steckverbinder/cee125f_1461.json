@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "cee125f_1461",
+  "name": "CEE-Anbausteckdose 125 A 5-pol IP67, Flansch 130 × 130",
+  "shortName": "CEE125 F",
+  "category": "steckverbinder",
+  "manufacturer": "Mennekes",
+  "partNumber": "Mennekes 1461",
+  "connectorType": "cee125f",
+  "weightKg": 1.256,
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Ausschnitt Ø 95, Löcher 104 × 104 Ø 6,5 nach Mennekes-Produktinfo (Zeichnung 1 MB 212/258)."
+  },
+  "rackmanufaktur": {
+    "key": "con:cee125f_1461",
+    "order": 42,
+    "extra": {
+      "fit": "fp",
+      "el": {"t": "cee125f", "w": 130, "h": 130},
+      "fp": {
+        "w": 130,
+        "h": 130,
+        "cut": [
+          {"t": "c", "d": 95},
+          {"t": "h", "x": -52, "y": -52, "d": 6.5},
+          {"t": "h", "x": 52, "y": -52, "d": 6.5},
+          {"t": "h", "x": -52, "y": 52, "d": 6.5},
+          {"t": "h", "x": 52, "y": 52, "d": 6.5}
+        ]
+      }
+    }
+  }
+}

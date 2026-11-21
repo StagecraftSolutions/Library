@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "ps_qu8804",
+  "name": "Powersoft Quattrocanali 8804 DSP",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Endstufen · Powersoft",
+  "manufacturer": "Powersoft",
+  "url": "https://www.powersoft.com/en/products/install-amps/quattrocanali-series/quattrocanali-8804-dsp",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 380
+  },
+  "weightKg": 7,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"}
+    ],
+    "rear": [
+      {"type": "euroblock", "count": 10, "label": "Analog In/Out, Aux, GPIO"},
+      {"type": "rj45", "count": 2, "label": "Ethernet"},
+      {"type": "iec", "count": 1, "label": "Power (IEC C19)"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Tiefe geschätzt; Varianten DSP / DSP+ (AES67) / DSP+D (Dante)",
+  "rackmanufaktur": {
+    "key": "dev:ps_qu8804",
+    "order": 206
+  }
+}

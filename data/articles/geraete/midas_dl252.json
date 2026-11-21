@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "midas_dl252",
+  "name": "Midas DL252 Stagebox 16/48",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Stagebox",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/en/products/0606-AAY",
+  "rack": {
+    "mount": "rack",
+    "units": 5,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 16, "label": "Mic In (Midas PRO)"},
+      {"type": "lcd", "count": 1, "label": "Status"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 48, "label": "Line Out"},
+      {"type": "ethercon", "count": 3, "label": "AES50"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "din", "count": 3, "label": "MIDI"},
+      {"type": "iec", "count": 2, "label": "Netzteile redundant"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:midas_dl252",
+    "order": 134
+  }
+}

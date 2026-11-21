@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "rj45",
+  "name": "Netzwerk RJ45 (etherCON)",
+  "shortName": "RJ45",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NE8FDP",
+  "connectorType": "rj45",
+  "price": {
+    "eur": 9.1,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "rackmanufaktur": {
+    "key": "con:rj45",
+    "order": 8,
+    "extra": {"fit": "d", "g": "rj45"}
+  }
+}

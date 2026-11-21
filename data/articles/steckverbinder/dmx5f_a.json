@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "dmx5f_a",
+  "name": "DMX 5-pol Buchse (Out)",
+  "shortName": "DMX OUT",
+  "category": "steckverbinder",
+  "manufacturer": "Amphenol",
+  "partNumber": "Amphenol AC5FDZ",
+  "connectorType": "dmx5f",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "con:dmx5f_a",
+    "order": 30,
+    "extra": {"fit": "d", "g": "xlrf", "p": 5}
+  }
+}

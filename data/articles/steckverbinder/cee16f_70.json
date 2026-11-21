@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "cee16f_70",
+  "name": "CEE-Anbausteckdose 16 A 5-pol, Flansch 70 × 70",
+  "shortName": "CEE16 F",
+  "category": "steckverbinder",
+  "manufacturer": "PCE",
+  "partNumber": "PCE CEE-Anbausteckdose 16 A 5p 6h",
+  "connectorType": "cee16f",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Footprint nach Herstellerangabe (Flansch, Lochabstand); Ausschnitt-Ø nach Maßblatt prüfen."
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:cee16f_70",
+    "order": 33,
+    "extra": {
+      "fit": "fp",
+      "el": {"t": "cee16f", "w": 70, "h": 70},
+      "fp": {
+        "w": 70,
+        "h": 70,
+        "cut": [
+          {"t": "c", "d": 54},
+          {"t": "h", "x": -28, "y": -28, "d": 4.5},
+          {"t": "h", "x": 28, "y": -28, "d": 4.5},
+          {"t": "h", "x": -28, "y": 28, "d": 4.5},
+          {"t": "h", "x": 28, "y": 28, "d": 4.5}
+        ]
+      }
+    }
+  }
+}

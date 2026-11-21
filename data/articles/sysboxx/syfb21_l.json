@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syfb21_l",
+  "name": "Frontblech Leerblech, 2 HE, 1 BE",
+  "shortName": "Leer 1 BE",
+  "category": "sysboxx",
+  "group": "Leerbleche",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-L",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 16.1
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_l",
+    "order": 0,
+    "extra": {"be": 1, "kind": "blank", "screws": 4}
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "hw": 440,
+  "r": [
+    {"t": "logo", "x": 20, "y": 4, "v": "SHURE", "s": 2.8},
+    {"t": "rect", "x": 24, "y": 19.2, "w": 10, "h": 10, "c": "ex-green"},
+    {"t": "iec", "x": 62.4, "y": 25.3, "s": 17, "l": "Power 1"},
+    {"t": "iec", "x": 101.4, "y": 25.3, "s": 17, "l": "Power 2"},
+    {"t": "txt", "x": 82, "y": 40, "v": "AC IN · OUT", "s": 1.8},
+    {"t": "rect", "x": 121.4, "y": 4, "w": 30, "h": 38, "c": "ex-mod"},
+    {"t": "txt", "x": 136.4, "y": 8, "v": "antenna 2 out", "s": 1.8},
+    {"t": "bnc", "x": 136.4, "y": 34.1, "s": 11, "l": "Antenna 1"},
+    {"t": "rect", "x": 154, "y": 4, "w": 85, "h": 38, "c": "ex-mod"},
+    {"t": "txt", "x": 196, "y": 8, "v": "transmitter 2 inputs", "s": 1.8},
+    {"t": "jack", "x": 168.2, "y": 14.3, "s": 12, "l": "Loop Out 1"},
+    {"t": "jack", "x": 168.2, "y": 30.8, "s": 12, "l": "Loop Out 3"},
+    {"t": "combo", "x": 193.8, "y": 25.3, "s": 12.5, "l": "Transmitter 2 Inputs"},
+    {"t": "combo", "x": 225, "y": 25.3, "s": 12.5, "l": "Audio In 2"},
+    {"t": "rect", "x": 250, "y": 4, "w": 22, "h": 38, "c": "ex-mod"},
+    {"t": "rj45", "x": 260.7, "y": 18.7, "s": 10, "l": "Ethernet 1"},
+    {"t": "rj45", "x": 260.7, "y": 30.8, "s": 10, "l": "Ethernet 2"},
+    {"t": "rect", "x": 283, "y": 4, "w": 85, "h": 38, "c": "ex-mod"},
+    {"t": "txt", "x": 325, "y": 8, "v": "transmitter 1 inputs", "s": 1.8},
+    {"t": "combo", "x": 297.4, "y": 25.3, "s": 12.5, "l": "Audio In 3"},
+    {"t": "combo", "x": 328.6, "y": 25.3, "s": 12.5, "l": "Transmitter 1 Inputs"},
+    {"t": "jack", "x": 356.4, "y": 14.3, "s": 12, "l": "Loop Out 2"},
+    {"t": "jack", "x": 356.4, "y": 30.8, "s": 12, "l": "Loop Out 4"},
+    {"t": "rect", "x": 371, "y": 4, "w": 30, "h": 38, "c": "ex-mod"},
+    {"t": "txt", "x": 386, "y": 8, "v": "antenna 1 out", "s": 1.8},
+    {"t": "bnc", "x": 385.4, "y": 34.1, "s": 11, "l": "Antenna 2"}
+  ]
+}

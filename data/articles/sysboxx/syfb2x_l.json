@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syfb2x_l",
+  "name": "Frontblech Leerblech, 2 HE, 12 BE (19″)",
+  "shortName": "Leer 12 BE",
+  "category": "sysboxx",
+  "group": "Leerbleche",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB2X-L",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 38.7
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb2x_l",
+    "order": 4,
+    "extra": {"be": 12, "kind": "blank", "screws": 10}
+  }
+}

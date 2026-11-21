@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "midas_m32c",
+  "name": "Midas M32C Rack-Core",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Mischpult",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/en/products/0604-AAC",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "usba", "count": 1, "label": "USB"},
+      {"type": "lcd", "count": 1, "label": "Status"}
+    ],
+    "rear": [
+      {"type": "ethercon", "count": 3, "label": "2× AES50, Ultranet"},
+      {"type": "din", "count": 2, "label": "MIDI In/Out"},
+      {"type": "usb", "count": 1, "label": "USB-Audio"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:midas_m32c",
+    "order": 132
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "foam1",
+  "name": "Schaumstoffeinlage für Schublade 1 HE",
+  "category": "schubladen",
+  "partNumber": "",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "art:foam1",
+    "order": 18
+  }
+}

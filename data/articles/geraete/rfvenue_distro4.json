@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "rfvenue_distro4",
+  "name": "RF Venue DISTRO4 Antenna Distribution",
+  "category": "geraete",
+  "area": "Funk",
+  "group": "Funk · RF-Zubehör",
+  "manufacturer": "RF Venue",
+  "url": "https://www.rfvenue.com/distro4",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 250
+  },
+  "weightKg": 2.15,
+  "price": {
+    "eur": 389
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Power switch"},
+      {"type": "lcd", "count": 1, "label": "Power LED"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "AC In (fused)"},
+      {"type": "dc", "count": 4, "label": "DC Out 12 V to receivers"},
+      {"type": "bnc", "count": 12, "label": "Antenna A/B In, Cascade A/B Out, 4× Out A, 4× Out B"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:rfvenue_distro4",
+    "order": 219
+  }
+}

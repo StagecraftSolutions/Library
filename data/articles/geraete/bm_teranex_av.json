@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_teranex_av",
+  "name": "Blackmagic Teranex AV",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Konverter",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/teranex",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 127
+  },
+  "price": {
+    "eur": 1825
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "illuminated Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 12, "label": "SDI In/Loop/Out A/B, 4× Quad-SDI Out, Reference In/Out"},
+      {"type": "hdmi", "count": 3, "label": "HDMI In/Loop/Out"},
+      {"type": "xlr", "count": 4, "label": "2× Analog In, 2× AES/EBU"},
+      {"type": "sfp", "count": 1, "label": "SFP (optional)"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:bm_teranex_av",
+    "order": 74
+  }
+}

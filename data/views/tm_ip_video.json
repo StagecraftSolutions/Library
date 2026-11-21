@@ -1,0 +1,26 @@
+{
+  "hw": 140,
+  "w": 140,
+  "h": 44,
+  "f": [
+    {"t": "txt", "x": 5, "y": 7.5, "v": "Teranex Mini", "s": 3.3, "a": "start", "c": "exorange"},
+    {"t": "txt", "x": 5, "y": 14.5, "v": "IP Video 12G", "s": 5.4, "a": "start"},
+    {"t": "txt", "x": 135, "y": 8, "v": "Blackmagicdesign", "s": 3.2, "a": "end", "c": "exthin"},
+    {"t": "cover", "x": 4, "y": 24, "w": 34, "h": 13},
+    {"t": "txt", "x": 118, "y": 37, "v": "12G SDI", "s": 3, "c": "exorange"},
+    {"t": "led", "x": 133, "y": 37}
+  ],
+  "r": [
+    {"t": "iec", "x": 16.5, "y": 16, "s": 17, "l": "Power"},
+    {"t": "rj45", "x": 39.4, "y": 33, "s": 10, "l": "ETHERNET PoE+"},
+    {"t": "txt", "x": 39.4, "y": 40.5, "v": "ETHERNET PoE+", "s": 1.4},
+    {"t": "sfp", "x": 57, "y": 33, "s": 9, "l": "10G Ethernet"},
+    {"t": "txt", "x": 57, "y": 40.5, "v": "10G ETHERNET", "s": 1.4},
+    {"t": "bnc", "x": 73.1, "y": 31.1, "s": 11, "l": "SDI In"},
+    {"t": "txt", "x": 73.1, "y": 40.5, "v": "SDI IN", "s": 1.4},
+    {"t": "bnc", "x": 90, "y": 31.1, "s": 11, "l": "SDI Out"},
+    {"t": "txt", "x": 90, "y": 40.5, "v": "SDI OUT", "s": 1.4},
+    {"t": "bnc", "x": 105.5, "y": 31.1, "s": 11, "l": "SDI Out"},
+    {"t": "txt", "x": 105.5, "y": 40.5, "v": "SDI OUT", "s": 1.4}
+  ]
+}

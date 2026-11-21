@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pa821b",
+  "name": "Shure PA821B Antennen-Combiner (PSM)",
+  "category": "geraete",
+  "area": "Funk",
+  "group": "Funk · Shure · RF-Zubehör",
+  "manufacturer": "Shure",
+  "url": "https://www.shure.com/de-DE/search?q=PA821B",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 200
+  },
+  "io": {
+    "front": [
+      {"type": "bnc", "count": 1, "label": "Antenna Out (front)"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 8, "label": "8× Transmitter In"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:pa821b",
+    "order": 54
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "beh_s32",
+  "name": "Behringer S32 Stagebox",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Stagebox",
+  "manufacturer": "Behringer",
+  "url": "https://www.behringer.com/en/products/0606-ACQ",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 32, "label": "Mic In (Midas)"},
+      {"type": "btn", "count": 1, "label": "Mute All"},
+      {"type": "din", "count": 2, "label": "MIDI In/Out"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 18, "label": "16× Line Out, 2× AES/EBU"},
+      {"type": "ethercon", "count": 2, "label": "AES50"},
+      {"type": "rj45", "count": 1, "label": "Ultranet"},
+      {"type": "opt", "count": 2, "label": "ADAT"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:beh_s32",
+    "order": 124
+  }
+}

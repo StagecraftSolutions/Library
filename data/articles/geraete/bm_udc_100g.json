@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_udc_100g",
+  "name": "Blackmagic UpDownCross 100G",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Konverter",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/blackmagic2110ipconverter",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 300
+  },
+  "price": {
+    "eur": 3975
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Status"}
+    ],
+    "rear": [
+      {"type": "sfp", "count": 2, "label": "100G Ethernet redundant"},
+      {"type": "rj45", "count": 1, "label": "NMOS-Control"},
+      {"type": "iec", "count": 2, "label": "Power redundant"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:bm_udc_100g",
+    "order": 79
+  }
+}

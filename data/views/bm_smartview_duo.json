@@ -1,0 +1,25 @@
+{
+  "hw": 482.6,
+  "f": [
+    {"t": "screen", "x": 51.3, "y": 18.8, "w": 176.2, "h": 94, "l": "Monitor 2 (8″ LCD)"},
+    {"t": "screen", "x": 255.8, "y": 18.8, "w": 177.5, "h": 94, "l": "Monitor 1 (8″ LCD)"},
+    {"t": "txt", "x": 449, "y": 69.5, "v": "Blackmagicdesign", "s": 2.2, "c": "exthin"},
+    {"t": "ledc", "x": 467.5, "y": 65.5, "r": 0.9, "c": "exled-o"},
+    {"t": "ledc", "x": 467.5, "y": 68.5, "r": 0.9, "c": "exled-o"},
+    {"t": "ledc", "x": 467.5, "y": 71.5, "r": 0.9, "c": "exled-o"}
+  ],
+  "r": [
+    {"t": "txt", "x": 418, "y": 22, "v": "Blackmagicdesign", "s": 2.6, "c": "exthin"},
+    {"t": "txt", "x": 92.7, "y": 64, "v": "MONITOR 2", "s": 2.4},
+    {"t": "txt", "x": 378.7, "y": 64, "v": "MONITOR 1", "s": 2.4},
+    {"t": "bnc", "x": 140.7, "y": 96.3, "s": 11, "l": "Monitor 2 SDI In"},
+    {"t": "bnc", "x": 160.4, "y": 96.3, "s": 11, "l": "Monitor 2 SDI Loop Out"},
+    {"t": "db9", "x": 193.3, "y": 96.3, "l": "Tally"},
+    {"t": "rj45", "x": 224.2, "y": 96.3, "s": 11, "l": "Ethernet In"},
+    {"t": "rj45", "x": 250.5, "y": 96.3, "s": 11, "l": "Ethernet Out"},
+    {"t": "usb", "x": 273.5, "y": 96.3, "s": 9, "l": "USB"},
+    {"t": "dc", "x": 305.1, "y": 96.3, "s": 8, "l": "Power 12 V DC"},
+    {"t": "bnc", "x": 317.6, "y": 96.3, "s": 11, "l": "Monitor 1 SDI In"},
+    {"t": "bnc", "x": 337.3, "y": 96.3, "s": 11, "l": "Monitor 1 SDI Loop Out"}
+  ]
+}

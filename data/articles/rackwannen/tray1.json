@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "tray1",
+  "name": "Rackwanne 1 HE, 375 mm tief, 25 kg",
+  "category": "rackwannen",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87551",
+  "description": "Rackwanne mit Rackohren. Geräte mit Kabelbinder oder Schrauben befestigen, bündig zur Vorderkante. Innenbreite ca. 440 mm (prüfen).",
+  "url": "https://www.adamhall.com",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 375
+  },
+  "price": {
+    "eur": 24,
+    "source": "web",
+    "note": "envirel"
+  },
+  "rackmanufaktur": {
+    "key": "art:tray1",
+    "order": 3,
+    "extra": {"shelf": "ah_1u"}
+  }
+}

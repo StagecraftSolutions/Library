@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "vent3",
+  "name": "U-Lüftungsblende 3 HE, Rundlochung",
+  "category": "blenden",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87223 VR",
+  "rack": {
+    "mount": "rack",
+    "units": 3
+  },
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "gelistet bei Huss, kein Preis"
+  },
+  "rackmanufaktur": {
+    "key": "art:vent3",
+    "order": 8
+  }
+}

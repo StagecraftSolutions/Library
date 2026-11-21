@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "la_la7_16i",
+  "name": "L-Acoustics LA7.16i Amplified Controller (Installation)",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Endstufen · L-Acoustics",
+  "manufacturer": "L-Acoustics",
+  "url": "https://www.l-acoustics.com/products/la7-16i/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 450
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"}
+    ],
+    "rear": [
+      {"type": "euroblock", "count": 20, "label": "Analog/AES In, 16 Outputs"},
+      {"type": "rj45", "count": 2, "label": "Milan-AVB/AES67"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:la_la7_16i",
+    "order": 190
+  }
+}

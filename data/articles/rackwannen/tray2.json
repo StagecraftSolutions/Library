@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "tray2",
+  "name": "Rackwanne 2 HE, 375 mm tief",
+  "category": "rackwannen",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87552",
+  "description": "Rackwanne mit Rackohren, 2 HE. Geräte frei anordnen, bündig zur Vorderkante. Innenbreite ca. 440 mm (prüfen).",
+  "url": "https://www.adamhall.com",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 375
+  },
+  "price": {
+    "eur": 29.5,
+    "source": "web",
+    "note": "aweo"
+  },
+  "rackmanufaktur": {
+    "key": "art:tray2",
+    "order": 4,
+    "extra": {"shelf": "ah_2u"}
+  }
+}

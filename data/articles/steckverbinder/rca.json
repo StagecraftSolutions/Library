@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "rca",
+  "name": "Cinch/RCA-Durchführung (D-Format)",
+  "shortName": "RCA",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NF2D-B-0",
+  "connectorType": "rca",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Farbcode wählbar (-0 … -9)"
+  },
+  "rackmanufaktur": {
+    "key": "con:rca",
+    "order": 18,
+    "extra": {"fit": "d", "g": "rca"}
+  }
+}

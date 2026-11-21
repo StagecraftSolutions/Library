@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "dbt_control8",
+  "name": "dBTechnologies RDNet Control 8",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · dBTechnologies",
+  "manufacturer": "dBTechnologies",
+  "url": "https://www.dbtechnologies.com/en/products/controllers/control-8",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 200
+  },
+  "io": {
+    "front": [
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "lcd", "count": 1, "label": "Link/channel LEDs, card reader"},
+      {"type": "btn", "count": 1, "label": "Power switch"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 1, "label": "Power In"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "xlrf", "count": 8, "label": "RDNet port A"},
+      {"type": "xlr", "count": 8, "label": "RDNet port B"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Daten aus Herstellerliste, Maße noch nicht geprüft. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:dbt_control8",
+    "order": 210
+  }
+}

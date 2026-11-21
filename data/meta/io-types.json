@@ -1,0 +1,14 @@
+{
+  "rj45": "RJ45", "ethercon": "etherCON", "sfp": "SFP", "opt": "Glasfaser", "bnc": "BNC", "sma": "SMA", "ant": "Antenne",
+  "hdmi": "HDMI", "usb": "USB", "usba": "USB-A", "usbc": "USB-C", "sd": "SD-Karte", "db9": "D-Sub 9",
+  "xlr": "XLR 3-pol", "xlrf": "XLR 3-pol Buchse", "xlr5": "XLR 5-pol", "combo": "XLR/Klinke Combo", "jack": "Klinke",
+  "rca": "Cinch", "din": "DIN", "euroblock": "Euroblock", "nl4": "speakON 4-pol", "nl8": "speakON 8-pol",
+  "iec": "Kaltgeräte (IEC)", "dc": "DC", "powercon": "powerCON", "schuko": "Schuko", "rcd": "FI-Schalter", "brk": "Sicherungsautomat",
+  "cee16m": "CEE 16 A Stecker", "cee16f": "CEE 16 A Buchse", "cee16m4": "CEE 16 A 4-pol Stecker", "cee16f4": "CEE 16 A 4-pol Buchse",
+  "cee32m": "CEE 32 A Stecker", "cee32f": "CEE 32 A Buchse", "cee32m4": "CEE 32 A 4-pol Stecker", "cee32f4": "CEE 32 A 4-pol Buchse",
+  "cee63m": "CEE 63 A Stecker", "cee63f": "CEE 63 A Buchse", "cee125m": "CEE 125 A Stecker", "cee125f": "CEE 125 A Buchse",
+  "powerlockm": "Powerlock Stecker", "powerlockf": "Powerlock Buchse", "cpot": "Potentialausgleich",
+  "han6m": "Harting Han 6 Stecker", "han6f": "Harting Han 6 Buchse", "han10m": "Harting Han 10 Stecker", "han10f": "Harting Han 10 Buchse",
+  "han16m": "Harting Han 16 Stecker", "han16f": "Harting Han 16 Buchse", "lka25": "LK 25-pol (Socapex)", "lk37": "LK 37-pol",
+  "lcd": "Display", "btn": "Taster", "knob": "Drehregler", "fan": "Lüfter", "gland": "Kabelverschraubung"
+}

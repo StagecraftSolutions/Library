@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "rj45_6a",
+  "name": "Netzwerk RJ45 Cat 6A (etherCON)",
+  "shortName": "RJ45",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NE8FDX-P6-B",
+  "connectorType": "rj45",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "con:rj45_6a",
+    "order": 31,
+    "extra": {"fit": "d", "g": "rj45"}
+  }
+}

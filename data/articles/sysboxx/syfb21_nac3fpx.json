@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syfb21_nac3fpx",
+  "name": "Frontblech 1 × Ausschnitt powerCON TRUE1 NAC3FPX, 2 HE, 1 BE",
+  "shortName": "Ausschn. TRUE1",
+  "category": "sysboxx",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-NAC3FPX",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 25.3
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_nac3fpx",
+    "order": 27,
+    "extra": {
+      "be": 1,
+      "kind": "cut",
+      "screws": 4,
+      "fits": "Neutrik NAC3FPX",
+      "cut": [
+        {"t": "c", "x": 17.8, "y": 44.45, "d": 28}
+      ],
+      "acc": ["true1_in","true1_out"]
+    }
+  }
+}

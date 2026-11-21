@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "open",
+  "name": "Loch offen (ohne Einsatz)",
+  "shortName": "offen",
+  "category": "steckverbinder",
+  "manufacturer": "–",
+  "partNumber": "",
+  "connectorType": "open",
+  "price": {
+    "eur": null,
+    "source": "user"
+  },
+  "rackmanufaktur": {
+    "key": "con:open",
+    "order": 23,
+    "extra": {"fit": "d", "g": "open", "nobom": true}
+  }
+}

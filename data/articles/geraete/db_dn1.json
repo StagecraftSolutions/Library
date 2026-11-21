@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "db_dn1",
+  "name": "d&b DN1 Ethernet-Switch (Milan/Dante, PoE)",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Netzwerk · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "partNumber": "Z4001",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/electronics/dbaudio-datasheet-dn1-1.3-en.pdf",
+  "rack": {
+    "mount": "half",
+    "fraction": 0.5,
+    "width": 220,
+    "height": 44,
+    "depth": 145
+  },
+  "weightKg": 1.4,
+  "io": {
+    "front": [
+      {"type": "ethercon", "count": 3, "label": "ETH 9, ETH 10 (PoE), ETH 11 (PoE)"},
+      {"type": "btn", "count": 1, "label": "Mode"}
+    ],
+    "rear": [
+      {"type": "rj45", "count": 8, "label": "ETH 1–8"},
+      {"type": "powercon", "count": 1, "label": "Power In (TRUE1 TOP)"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Gehäuse 220 mm breit (Foto, wie DN2); Datenblatt nennt 9,5″ = 241 mm inkl. Montagewinkel. Rackmontage mit Kit Z2624.000 (zwei Geräte nebeneinander) bzw. Z2624.001 (einzeln). PoE 15,4 W pro Port, 25 W gesamt. Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_dn1",
+    "order": 180,
+    "extra": {"kitType": "db"}
+  }
+}

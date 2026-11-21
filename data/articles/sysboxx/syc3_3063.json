@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syc3_3063",
+  "name": "Steckverbinder-Modul 8 × XLR male, 2 HE, 3 BE",
+  "shortName": "8× XLR M",
+  "category": "sysboxx",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC3-3063",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 186
+  },
+  "io": {
+    "front": [
+      {"type": "xlr", "count": 8, "label": "XLR male"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc3_3063",
+    "order": 25,
+    "extra": {
+      "be": 3,
+      "kind": "mod",
+      "screws": 6,
+      "els": [
+        {"t": "xlr", "x": 14.1, "y": 25.5, "s": 12.4, "l": "XLR M 1"},
+        {"t": "xlr", "x": 40.3, "y": 25.5, "s": 12.4, "l": "XLR M 2"},
+        {"t": "xlr", "x": 66.5, "y": 25.5, "s": 12.4, "l": "XLR M 3"},
+        {"t": "xlr", "x": 92.7, "y": 25.5, "s": 12.4, "l": "XLR M 4"},
+        {"t": "xlr", "x": 14.1, "y": 63.4, "s": 12.4, "l": "XLR M 5"},
+        {"t": "xlr", "x": 40.3, "y": 63.4, "s": 12.4, "l": "XLR M 6"},
+        {"t": "xlr", "x": 66.5, "y": 63.4, "s": 12.4, "l": "XLR M 7"},
+        {"t": "xlr", "x": 92.7, "y": 63.4, "s": 12.4, "l": "XLR M 8"}
+      ]
+    }
+  }
+}

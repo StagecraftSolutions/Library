@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "hd_pro",
+  "name": "HyperDeck Studio HD Pro",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · HyperDeck",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/hyperdeckstudio",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 236
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "2,2″-LCD"},
+      {"type": "sd", "count": 2, "label": "SD cards"},
+      {"type": "jack", "count": 1, "label": "Headphones"},
+      {"type": "btn", "count": 1, "label": "Transport"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 6, "label": "SDI In, 2× SDI Out, SDI Monitor, Reference In/Out"},
+      {"type": "xlr", "count": 2, "label": "Timecode In/Out"},
+      {"type": "hdmi", "count": 2, "label": "HDMI In/Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:hd_pro",
+    "order": 15
+  }
+}

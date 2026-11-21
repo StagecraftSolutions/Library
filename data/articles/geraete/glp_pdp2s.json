@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "glp_pdp2s",
+  "name": "GLP PDP-2/S Power Distributor",
+  "category": "geraete",
+  "area": "Strom",
+  "group": "Strom",
+  "manufacturer": "GLP",
+  "url": "https://glp.de/en/products/pdp-2-pdp-2-s",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 194
+  },
+  "weightKg": 4,
+  "io": {
+    "front": [
+      {"type": "schuko", "count": 3, "label": "Schuko Out 16 A"},
+      {"type": "cee16f", "count": 1, "label": "CEE 16 A Out 5-pin"},
+      {"type": "brk", "count": 3, "label": "RCBO C16"}
+    ],
+    "rear": [
+      {"type": "schuko", "count": 6, "label": "Schuko Out 16 A"},
+      {"type": "gland", "count": 1, "label": "CEE 16 A In (2 m cable)"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Ansicht aus Datenblattangaben erzeugt, Anordnung nicht nach Foto geprüft.",
+  "rackmanufaktur": {
+    "key": "dev:glp_pdp2s",
+    "order": 217
+  }
+}

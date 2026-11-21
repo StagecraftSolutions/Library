@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "blank2",
+  "name": "U-Rackblende 2 HE, Stahl",
+  "category": "blenden",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87222 STL",
+  "rack": {
+    "mount": "rack",
+    "units": 2
+  },
+  "price": {
+    "eur": 4.85,
+    "source": "web",
+    "note": "Rockshop"
+  },
+  "rackmanufaktur": {
+    "key": "art:blank2",
+    "order": 11
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "db_dn2",
+  "name": "d&b DN2 PoE++ AVB-Switch",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Netzwerk · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/electronics/dbaudio-datasheet-dn2-1.1-en.pdf",
+  "rack": {
+    "mount": "free",
+    "width": 220,
+    "height": 44,
+    "depth": 292
+  },
+  "weightKg": 3.4,
+  "io": {
+    "front": [
+      {"type": "ethercon", "count": 4, "label": "ETH 1–4 (PoE++)"}
+    ],
+    "rear": [
+      {"type": "ethercon", "count": 4, "label": "ETH 5–8 (PoE++)"},
+      {"type": "powercon", "count": 1, "label": "Power In (TRUE1 TOP)"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Datenblatt vorläufig („preliminary“); Rackmontage-Kit nicht angegeben. Alle 8 Ports PoE++ (802.3bt Klasse 8, 90 W). Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_dn2",
+    "order": 181
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "cee32f_70",
+  "name": "CEE-Anbausteckdose 32 A 5-pol, Flansch 70 × 70",
+  "shortName": "CEE32 F",
+  "category": "steckverbinder",
+  "manufacturer": "PCE",
+  "partNumber": "PCE 325-6",
+  "connectorType": "cee32f",
+  "weightKg": 0.206,
+  "price": {
+    "eur": 11,
+    "source": "web",
+    "note": "Flansch und Lochabstand 56 × 56 nach PCE-Datenblatt; Ausschnitt- und Loch-Ø nicht angegeben (wie CEE 16 A angesetzt) – nach Teil prüfen."
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:cee32f_70",
+    "order": 37,
+    "extra": {
+      "fit": "fp",
+      "el": {"t": "cee32f", "w": 70, "h": 70},
+      "fp": {
+        "w": 70,
+        "h": 70,
+        "cut": [
+          {"t": "c", "d": 54},
+          {"t": "h", "x": -28, "y": -28, "d": 4.5},
+          {"t": "h", "x": 28, "y": -28, "d": 4.5},
+          {"t": "h", "x": -28, "y": 28, "d": 4.5},
+          {"t": "h", "x": 28, "y": 28, "d": 4.5}
+        ]
+      }
+    }
+  }
+}

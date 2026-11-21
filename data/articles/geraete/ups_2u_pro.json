@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "ups_2u_pro",
+  "name": "UniFi UPS 2U Pro (2,2 kVA)",
+  "category": "geraete",
+  "area": "Netzwerk",
+  "group": "Netzwerk · UniFi Speicher & Strom",
+  "manufacturer": "Ubiquiti",
+  "url": "https://eu.store.ui.com/eu/en/category/integrations-power-tech/collections/unifi-power-tech-ups/products/ups-2u-pro-eu",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 630
+  },
+  "price": {
+    "eur": 619
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "3,7″-Touch"}
+    ],
+    "rear": [
+      {"type": "schuko", "count": 9, "label": "Outputs (check EU version)"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:ups_2u_pro",
+    "order": 116
+  }
+}

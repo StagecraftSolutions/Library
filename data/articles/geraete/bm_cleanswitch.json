@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_cleanswitch",
+  "name": "Smart Videohub CleanSwitch 12x12",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Videohub",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/smartvideohub",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 160
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 26, "label": "12× SDI In, 12× SDI Out, Reference In/Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:bm_cleanswitch",
+    "order": 26,
+    "extra": {"col": "silver"}
+  }
+}

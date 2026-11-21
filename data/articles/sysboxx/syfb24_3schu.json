@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syfb24_3schu",
+  "name": "Frontblech 3 × Schuko-Snap-In-Loch, 2 HE, 4 BE",
+  "shortName": "Ausschn. 3× Schuko",
+  "category": "sysboxx",
+  "group": "Bleche mit Ausschnitt · Stecker separat",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB24-3SCHU",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 32.5
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb24_3schu",
+    "order": 39,
+    "extra": {
+      "be": 4,
+      "kind": "cut",
+      "screws": 8,
+      "fits": "3 × Schuko Snap-In",
+      "cut": [
+        {"t": "c", "x": 24.2, "y": 44.45, "d": 40},
+        {"t": "c", "x": 71.2, "y": 44.45, "d": 40},
+        {"t": "c", "x": 118.2, "y": 44.45, "d": 40}
+      ],
+      "acc": ["schuko"]
+    }
+  }
+}

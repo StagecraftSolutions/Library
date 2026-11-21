@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "vent0_5",
+  "name": "U-Lüftungsblende 0,5 HE, Rundlochung, Stahl 1,5 mm",
+  "category": "blenden",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872205 VR",
+  "rack": {
+    "mount": "rack",
+    "units": 0.5
+  },
+  "price": {
+    "eur": 5.5,
+    "source": "web",
+    "note": "Music Store / Thomann (dort als 872005 VR)"
+  },
+  "rackmanufaktur": {
+    "key": "art:vent0_5",
+    "order": 5
+  }
+}

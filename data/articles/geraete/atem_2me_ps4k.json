@@ -1,0 +1,48 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "atem_2me_ps4k",
+  "name": "ATEM 2 M/E Production Studio 4K",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · ATEM",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/products/atem",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 235
+  },
+  "weightKg": 4.1,
+  "price": {
+    "eur": 980
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 42, "label": "Source, Aux and function buttons"},
+      {"type": "lcd", "count": 1, "label": "LCD"}
+    ],
+    "rear": [
+      {
+        "type": "bnc",
+        "count": 34,
+        "label": "20× SDI In, SDI Out, 7× Aux Out, Program/Preview, Multiview, Ref In/Out"
+      },
+      {"type": "hdmi", "count": 4, "label": "HDMI In, HDMI Out, 2× Multiview Out"},
+      {"type": "xlrf", "count": 5, "label": "Analog Audio In, Talkback"},
+      {"type": "xlr", "count": 5, "label": "Analog Audio Out"},
+      {"type": "rca", "count": 2, "label": "HiFi Audio In"},
+      {"type": "db9", "count": 1, "label": "RS-422"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 2, "label": "Power (redundant)"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Abgekündigt. Anschlussbezeichnungen hinten teils angenommen. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:atem_2me_ps4k",
+    "order": 221
+  }
+}

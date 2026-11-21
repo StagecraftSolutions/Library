@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_audiomon",
+  "name": "Blackmagic Audio Monitor 12G G3",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Monitoring",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/blackmagicaudiomonitor",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 242
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Level meter"},
+      {"type": "jack", "count": 1, "label": "Headphones"},
+      {"type": "knob", "count": 2, "label": "Volume, Select"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 2, "label": "12G-SDI In + Loop"},
+      {"type": "xlr", "count": 4, "label": "Analog/AES In"},
+      {"type": "jack", "count": 2, "label": "Line In"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:bm_audiomon",
+    "order": 24
+  }
+}

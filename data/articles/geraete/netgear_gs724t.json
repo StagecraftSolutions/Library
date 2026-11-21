@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "netgear_gs724t",
+  "name": "Netgear GS724T Smart Switch (24 Port)",
+  "category": "geraete",
+  "area": "Netzwerk",
+  "group": "Netzwerk · Switches",
+  "manufacturer": "Netgear",
+  "url": "https://www.netgear.com/business/wired/switches/smart-cloud/gs724t/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 204
+  },
+  "weightKg": 2.74,
+  "price": {
+    "eur": 100
+  },
+  "io": {
+    "front": [
+      {"type": "rj45", "count": 24, "label": "GbE 1–24"},
+      {"type": "sfp", "count": 2, "label": "SFP (shared with 23/24)"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Ansicht aus Datenblattangaben erzeugt, Anordnung nicht nach Foto geprüft.",
+  "rackmanufaktur": {
+    "key": "dev:netgear_gs724t",
+    "order": 214
+  }
+}

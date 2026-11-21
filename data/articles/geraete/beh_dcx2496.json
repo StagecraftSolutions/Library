@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "beh_dcx2496",
+  "name": "Behringer DCX2496 Lautsprecher-Management",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Prozessoren",
+  "manufacturer": "Behringer",
+  "url": "https://www.behringer.com/en/products/0825-AAA",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "Buttons"},
+      {"type": "knob", "count": 1, "label": "Encoder"}
+    ],
+    "rear": [
+      {"type": "xlrf", "count": 3, "label": "In"},
+      {"type": "xlr", "count": 6, "label": "Out"},
+      {"type": "din", "count": 3, "label": "MIDI"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:beh_dcx2496",
+    "order": 128
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "psm1000_p10t",
+  "name": "Shure PSM1000 P10T Sender",
+  "category": "geraete",
+  "area": "Funk",
+  "group": "Funk · Shure",
+  "manufacturer": "Shure",
+  "url": "https://www.shure.com/de-DE/search?q=P10T",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 300
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "jack", "count": 1, "label": "Headphones"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 1, "label": "Antenna"},
+      {"type": "xlr", "count": 4, "label": "Audio In (Kombi XLR/Klinke)"},
+      {"type": "jack", "count": 4, "label": "Loop Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:psm1000_p10t",
+    "order": 49
+  }
+}

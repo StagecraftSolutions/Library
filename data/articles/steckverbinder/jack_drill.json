@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "jack_drill",
+  "name": "Klinkenbuchse 6,3 mm in gebohrter Blindplatte",
+  "shortName": "KLINKE*",
+  "category": "steckverbinder",
+  "manufacturer": "frei wählbar",
+  "partNumber": "Klinkeneinbaubuchse 6,3 mm stereo, Bohrung Ø 9,5 mm (z. B. Neutrik NMJ6HCD2)",
+  "connectorType": "jack",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Blindplatte D wird mitbestellt"
+  },
+  "rackmanufaktur": {
+    "key": "con:jack_drill",
+    "order": 21,
+    "extra": {"fit": "dblank", "g": "jack", "drill": 9.5}
+  }
+}

@@ -1,0 +1,13 @@
+[
+  { "id": "geraete", "name": "Geräte", "description": "19″-Geräte, Geräte halber Breite und Kleingeräte: Konverter, Switches, Endstufen, Funk, Licht, Strom." },
+  { "id": "lautsprecher", "name": "Lautsprecher", "description": "Lautsprecher, Subwoofer und Monitore." },
+  { "id": "steckverbinder", "name": "Steckverbinder", "description": "D-Format-Einsätze, Durchführungen und Einbaustecker mit eigenem Ausschnitt." },
+  { "id": "anschlussfelder", "name": "Anschlussfelder", "description": "U-Rackblenden mit D-Löchern zum Bestücken." },
+  { "id": "blenden", "name": "Blenden", "description": "Blind-, Lüftungs-, Beschriftungs- und Bürstenblenden." },
+  { "id": "rackwannen", "name": "Rackwannen & Kits", "description": "Rackwannen, Rackmontage-Kits und zugehörige Frontblenden." },
+  { "id": "schubladen", "name": "Schubladen", "description": "Rackschubladen und Schaumstoffeinlagen." },
+  { "id": "gehaeuse", "name": "Rack-Cases", "description": "Rack-Cases und Rackmodule, Höhen als Varianten." },
+  { "id": "sysboxx", "name": "SYSBOXX", "description": "Sommer Cable SYSBOXX: Gehäuse-Bausätze, Frontbleche und Zubehör." },
+  { "id": "kabel", "name": "Kabel & Adapter", "description": "Konfektionierte Kabel, Adapter und Peitschen." },
+  { "id": "zubehoer", "name": "Zubehör", "description": "Schrauben, Muttern, Rackschienen und Kleinteile." }
+]

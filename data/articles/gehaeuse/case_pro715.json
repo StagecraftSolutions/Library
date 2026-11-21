@@ -1,0 +1,64 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "case_pro715",
+  "name": "ProCase Pro Rackmodul · 715 mm",
+  "shortName": "Pro Rackmodul 715",
+  "category": "gehaeuse",
+  "group": "ProCase · Rackmodule",
+  "manufacturer": "ProCase",
+  "description": "Innenrack, Systemtiefe 715 mm · stufenlose RSS-Rackschiene vorne · hinten je 2 Kabeldurchführungen · inkl. 4 Geräteschrauben-Sätze. Nutztiefe nicht angegeben, 637 mm abgeleitet – bitte messen.",
+  "rack": {
+    "mount": "rack"
+  },
+  "variants": [
+    {
+      "units": 1,
+      "partNumber": "ProCase 135551",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 77 × 715 mm"
+    },
+    {
+      "units": 2,
+      "partNumber": "ProCase 135552",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 122 × 715 mm"
+    },
+    {
+      "units": 3,
+      "partNumber": "ProCase 135553",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 166 × 715 mm"
+    },
+    {
+      "units": 4,
+      "partNumber": "ProCase 135554",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 211 × 715 mm"
+    },
+    {
+      "units": 5,
+      "partNumber": "ProCase 135555",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 255 × 715 mm"
+    },
+    {
+      "units": 8,
+      "partNumber": "ProCase 135558",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 389 × 715 mm"
+    }
+  ],
+  "rackmanufaktur": {
+    "key": "case:pro715",
+    "order": 1,
+    "extra": {
+      "shop": "ProCase",
+      "sys": 715,
+      "use": 637,
+      "est": true,
+      "rear": "opt",
+      "rail": "rss",
+      "incl": 4
+    }
+  }
+}

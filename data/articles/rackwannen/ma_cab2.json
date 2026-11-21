@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "ma_cab2",
+  "name": "MA Adapterkabelsatz 2Port Node (2× DMX, RJ45/etherCON)",
+  "category": "rackwannen",
+  "manufacturer": "MA Lighting",
+  "partNumber": "MA 210650",
+  "price": {
+    "eur": 119,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "rackmanufaktur": {
+    "key": "art:ma_cab2",
+    "order": 24
+  }
+}

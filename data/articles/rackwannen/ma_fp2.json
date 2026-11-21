@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "ma_fp2",
+  "name": "MA 2Port Node 19″-Rackkit – XLR-Anschlüsse (Frontblende)",
+  "category": "rackwannen",
+  "manufacturer": "MA Lighting",
+  "partNumber": "MA 130285",
+  "price": {
+    "eur": 73,
+    "source": "web",
+    "note": "Thomann (2Port Node 19\" Rack Mount Kit)"
+  },
+  "rackmanufaktur": {
+    "key": "art:ma_fp2",
+    "order": 22
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "label",
+  "name": "U-Rackblende 0,5 HE mit Beschriftungsstreifen",
+  "category": "blenden",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872205 LBL",
+  "rack": {
+    "mount": "rack",
+    "units": 0.5
+  },
+  "price": {
+    "eur": 5.9,
+    "source": "cart"
+  },
+  "rackmanufaktur": {
+    "key": "art:label",
+    "order": 0
+  }
+}

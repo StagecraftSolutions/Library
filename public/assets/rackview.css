@@ -1,0 +1,102 @@
+/* Erzeugt von scripts/sync-renderer.mjs aus Rackmanufaktur (Commit 589ed30) – nicht von Hand ändern. */
+.rv { --hw-panel: #1b1d20; --hw-hole: #050607; --hw-dev-black: #2f3338; --hw-dev-silver: #b9bfc7; --hw-ink: #e8eaed; --f-mono: "IBM Plex Mono", ui-monospace, monospace; --f-display: "Barlow Condensed", "Arial Narrow", sans-serif; --hw-ink-dim: #8c939b; display: block; width: 100%; height: auto; }
+.rv .pnl { fill: var(--hw-panel); stroke: #000; stroke-width: .3; }
+.rv .earslot { fill: var(--hw-hole); }
+.rv .dev-black { fill: var(--hw-dev-black); stroke: #000; stroke-width: .3; }
+.rv .dev-silver { fill: var(--hw-dev-silver); stroke: #6d737a; stroke-width: .3; }
+.rv .on-black { fill: var(--hw-ink); }
+.rv .on-silver { fill: #1b1d20; }
+.rv .exred { fill: #e2001a; font-style: italic; font-weight: 700; }
+.rv .exredline { fill: none; stroke: #c4141f; stroke-width: .5; }
+.rv .rearinfo.on-silver { fill: #3a3e43; }
+.rv .cnum.on-tr { fill: #1b1d20; }
+.rv .pg-portk { fill: #2a2e33; }
+.rv .pg-led { fill: #3ddc84; }
+.rv .pg-pwr { fill: #3ddc84; }
+.rv .pg-lcdl { fill: #6fb6e8; opacity: .55; }
+.rv .pg-knobl { stroke: #c9ced4; stroke-width: .45; stroke-linecap: round; }
+.rv .pg-lbl { font-family: var(--f-mono); font-size: 2.1px; letter-spacing: .05em; opacity: .8; }
+.rv .pg-ceebase { fill: #9a0e22; stroke: #5e0714; stroke-width: .3; }
+.rv .pg-ceein { fill: #6e0a18; }
+.rv .pg-ceelid { fill: #e05a6a; }
+.rv .pg-ceepin { fill: #d9b45a; }
+.rv .pg-brk { fill: #e8eaed; stroke: #9aa1a9; stroke-width: .2; }
+.rv .pg-brkt { fill: #1b1d20; }
+.rv .pg-rcdt { fill: #2b6fd6; }
+.rv .exlbl { fill: #e8eaed; font-family: var(--f-display); font-weight: 600; letter-spacing: .04em; dominant-baseline: central; }
+.rv .exorange { fill: #f0a030; }
+.rv .exthin { font-weight: 400; letter-spacing: .02em; }
+.rv .exdark { fill: #4b5159; }
+.rv .ex-cover { fill: #15171a; stroke: #3a3f45; stroke-width: .3; }
+.rv .ex-led { fill: #f4f4f4; }
+.rv .ex-screen { fill: #0d1b2a; stroke: #7d8790; stroke-width: .4; }
+.rv .ex-ring { fill: none; stroke: #6fb6e8; stroke-width: .6; }
+.rv .exbtn-dk { fill: #3a3f45; stroke: #22262a; stroke-width: .3; }
+.rv .exbtn-w { fill: #e9ecef; }
+.rv .exbtn-g { fill: #4ade80; }
+.rv .exbtn-r { fill: #ef4444; }
+.rv .exbtn-a { fill: #fbbf24; }
+.rv .exbtnt { fill: #2a2e33; font-family: var(--f-display); font-weight: 600; text-anchor: middle; dominant-baseline: central; }
+.rv .exbtnt-l { fill: #e8eaed; }
+.rv .exlbl.exink { fill: #2a2e33; }
+.rv .exma { fill: #f4f4f4; }
+.rv .exmat { fill: #15171a; font-family: var(--f-display); font-weight: 700; text-anchor: middle; dominant-baseline: central; }
+.rv .exmal { stroke: #15171a; stroke-width: .5; }
+.rv .exmabar { fill: #3a4048; }
+.rv .exmagreen { fill: #22c55e; }
+.rv .exmayel { fill: #eab308; }
+.rv .exencring { fill: none; stroke: #22c55e; stroke-width: .9; }
+.rv .ex-mod { fill: #23262a; stroke: #5d646c; stroke-width: .35; }
+.rv .ex-vline { stroke: #4b5159; stroke-width: .35; }
+.rv .ex-tag { fill: none; stroke: #6b737c; stroke-width: .3; }
+.rv .ex-ir { fill: #3a1418; }
+.rv .ex-sw { fill: #c9ced4; }
+.rv .exled-g { fill: #22c55e; }
+.rv .exled-o { fill: #f97316; }
+.rv .exled-b { fill: #60a5fa; }
+.rv .exled-y { fill: #eab308; }
+.rv .exled-off { fill: #3a3f45; }
+.rv .ex-lcdl { fill: #d7dbd2; stroke: #6b737c; stroke-width: .3; }
+.rv .ex-lcdt { fill: #2a2e33; opacity: .75; }
+.rv .ex-swb { fill: #15171a; stroke: #6b737c; stroke-width: .3; }
+.rv .ex-swt { fill: #3a3f45; }
+.rv .exbtn-gd { fill: #1b2b20; stroke: #22c55e; stroke-width: .7; }
+.rv .ex-wmag { fill: #d946ef; }
+.rv .ex-segoff { fill: #2a2e33; }
+.rv .ex-sego { fill: #f97316; }
+.rv .ex-segg { fill: #22c55e; }
+.rv .ex-seg7 { fill: #0d0e10; stroke: #3a3f45; stroke-width: .3; }
+.rv .exred { fill: #ef4444; }
+.rv .ex-tft { fill: #050607; stroke: #3a3f45; stroke-width: .4; }
+.rv .ex-ring2 { fill: #22262a; stroke: #3a3f45; stroke-width: .5; }
+.rv .ex-grillw { fill: #0d0e10; stroke: #2a2e33; stroke-width: .6; }
+.rv .ex-slot { fill: #1b1d20; }
+.rv .ex-badge { fill: #d9dde2; stroke: #8d959e; stroke-width: .3; }
+.rv .ex-fan { fill: #15171a; stroke: #3a3f45; stroke-width: .4; }
+.rv .exbtn-cr { fill: #f6ead0; }
+.rv .exbtn-bl { fill: #1e4fa0; }
+.rv .ex-slotw { fill: #e9ecef; }
+.rv .pg-rcaw { fill: #e9ecef; }
+.rv .pg-rcar { fill: #d42a2a; }
+.rv .ex-pill { fill: #0d1b2a; stroke: #8d959e; stroke-width: .3; }
+.rv .ex-green { fill: #22a35a; stroke: #0d5c2e; stroke-width: .4; }
+.rv .exlogo { fill: #f4f4f4; font-family: var(--f-display); font-weight: 700; font-style: italic; }
+.rv .ex-din { fill: #0d0e10; stroke: #3a3f45; stroke-width: .4; }
+.rv .ex-lbl { fill: #c9ced4; opacity: .6; }
+.rv .pg-lamp { fill: #d42a2a; }
+.rv .pg-lampb { fill: #2a2e33; stroke: #6b737c; stroke-width: .3; }
+.rv .pg-schuko { fill: #141517; stroke: #3a3f45; stroke-width: .4; }
+.rv .pg-schukol { fill: #1d1f22; stroke: #2c3035; stroke-width: .4; }
+.rv .pg-schukoh { fill: #2a2d31; }
+.rv .pg-metal { fill: #c9ced4; stroke: #6b737c; stroke-width: .2; }
+.rv .pg-hole { fill: #050607; }
+.rv .pg-ring { fill: #3a3f45; stroke: #8d959e; stroke-width: .3; }
+.rv .pg-pcon { fill: #1f5fbf; stroke: #9bb8e6; stroke-width: .3; }
+.rv .pg-knob { fill: #15171a; stroke: #6b737c; stroke-width: .4; }
+.rv .pg-cee { fill: #c8102e; stroke: #f0a0a0; stroke-width: .4; }
+.rv .pg-lcd { fill: #0f2a3d; stroke: #3d6f91; stroke-width: .3; }
+.rv .pg-btn { fill: #4b5159; }
+.rv .pg-iec { fill: #111316; stroke: #8d959e; stroke-width: .3; }
+.rv .pg-port { fill: #0a0b0d; stroke: #8d959e; stroke-width: .25; }
+.rv .pg-slot { fill: #0a0b0d; stroke: #6b737c; stroke-width: .2; }
+.rv .pg-more { fill: var(--hw-ink-dim); font-size: 3px; font-family: var(--f-mono); }

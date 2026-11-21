@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "shelf_ma_kit",
+  "name": "MA Rackmontage-Kit für zwei Nodes (130283)",
+  "shortName": "MA-Rackkit",
+  "category": "rackwannen",
+  "manufacturer": "MA Lighting",
+  "partNumber": "MA 130283",
+  "description": "Zwei grandMA3 Nodes halber Breite (2Port/4Port) nebeneinander im 19″-Rack. Für einen einzelnen Node: Rackkit mit Blindblech (130281).",
+  "url": "https://www.malighting.com",
+  "rack": {
+    "mount": "rack",
+    "units": 1
+  },
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Einzel-Node: Kit mit Blindblech 130281"
+  },
+  "rackmanufaktur": {
+    "key": "shelf:ma_kit",
+    "order": 4,
+    "extra": {
+      "shop": "MA Lighting",
+      "mode": "grid",
+      "cells": 2,
+      "acc": ["half"],
+      "kit": true,
+      "kitType": "ma",
+      "depth": 0
+    }
+  }
+}

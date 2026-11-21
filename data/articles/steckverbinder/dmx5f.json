@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "dmx5f",
+  "name": "DMX 5-pol Buchse (Out)",
+  "shortName": "DMX OUT",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC5FD-L-1",
+  "connectorType": "dmx5f",
+  "price": {
+    "eur": 11.7,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "rackmanufaktur": {
+    "key": "con:dmx5f",
+    "order": 7,
+    "extra": {"fit": "d", "g": "xlrf", "p": 5}
+  }
+}

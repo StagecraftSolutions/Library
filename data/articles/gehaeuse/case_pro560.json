@@ -1,0 +1,149 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "case_pro560",
+  "name": "ProCase Pro Rackmodul · 560 mm",
+  "shortName": "Pro Rackmodul 560",
+  "category": "gehaeuse",
+  "group": "ProCase · Rackmodule",
+  "manufacturer": "ProCase",
+  "description": "Systemtiefe 560 mm · Nutztiefe Rackschiene bis Kastenende 482 mm · vorne stufenlose Alu-Rackschiene (RSS) mit Gummikeder · Seitenwände 12 mm, Boden/Deckel 15 mm Multiplex · inkl. 4 Geräteschrauben-Sätze.",
+  "rack": {
+    "mount": "rack"
+  },
+  "variants": [
+    {
+      "units": 1,
+      "partNumber": "ProCase 135501",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 77 × 560 mm"
+    },
+    {
+      "units": 2,
+      "partNumber": "ProCase 135502",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 122 × 560 mm"
+    },
+    {
+      "units": 3,
+      "partNumber": "ProCase 135503",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 166 × 560 mm"
+    },
+    {
+      "units": 4,
+      "partNumber": "ProCase 135504",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 211 × 560 mm"
+    },
+    {
+      "units": 5,
+      "partNumber": "ProCase 135505",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 255 × 560 mm"
+    },
+    {
+      "units": 6,
+      "partNumber": "ProCase 135506",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 300 × 560 mm"
+    },
+    {
+      "units": 7,
+      "partNumber": "ProCase 135507",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 344 × 560 mm"
+    },
+    {
+      "units": 8,
+      "partNumber": "ProCase 135508",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 389 × 560 mm"
+    },
+    {
+      "units": 9,
+      "partNumber": "ProCase 135509",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 433 × 560 mm"
+    },
+    {
+      "units": 10,
+      "partNumber": "ProCase 135510",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 478 × 560 mm"
+    },
+    {
+      "units": 11,
+      "partNumber": "ProCase 135511",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 522 × 560 mm"
+    },
+    {
+      "units": 12,
+      "partNumber": "ProCase 135512",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 566 × 560 mm"
+    },
+    {
+      "units": 13,
+      "partNumber": "ProCase 135513",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 611 × 560 mm"
+    },
+    {
+      "units": 14,
+      "partNumber": "ProCase 135514",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 655 × 560 mm"
+    },
+    {
+      "units": 15,
+      "partNumber": "ProCase 135515",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 700 × 560 mm"
+    },
+    {
+      "units": 16,
+      "partNumber": "ProCase 135516",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 744 × 560 mm"
+    },
+    {
+      "units": 17,
+      "partNumber": "ProCase 135517",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 789 × 560 mm"
+    },
+    {
+      "units": 18,
+      "partNumber": "ProCase 135518",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 833 × 560 mm"
+    },
+    {
+      "units": 20,
+      "partNumber": "ProCase 135520",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 922 × 560 mm"
+    },
+    {
+      "units": 25,
+      "partNumber": "ProCase 135525",
+      "price": {"eur": null, "source": "ref"},
+      "dimensions": "525 × 1144 × 560 mm"
+    }
+  ],
+  "rackmanufaktur": {
+    "key": "case:pro560",
+    "order": 0,
+    "extra": {
+      "shop": "ProCase",
+      "sys": 560,
+      "use": 482,
+      "fix": true,
+      "rear": "opt",
+      "rail": "rss",
+      "incl": 4,
+      "lids": true
+    }
+  }
+}

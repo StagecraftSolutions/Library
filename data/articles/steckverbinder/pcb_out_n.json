@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pcb_out_n",
+  "name": "powerCON Out weiß (D-Format)",
+  "shortName": "PCON OUT",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAC3MPB-1-WOT",
+  "connectorType": "pcon_b",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "con:pcb_out_n",
+    "order": 26,
+    "extra": {"fit": "d", "g": "pcb"}
+  }
+}

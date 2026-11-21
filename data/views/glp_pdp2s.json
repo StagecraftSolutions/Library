@@ -1,0 +1,22 @@
+{
+  "hw": 440,
+  "f": [
+    {"t": "txt", "x": 30, "y": 14, "v": "GLP", "s": 7, "a": "start"},
+    {"t": "txt", "x": 30, "y": 22, "v": "PDP-2/S", "s": 3, "a": "start"},
+    {"t": "din", "x": 30, "y": 30, "w": 58, "h": 50},
+    {"t": "mcb", "x": 33, "y": 34, "n": 3, "h": 42},
+    {"t": "schuko", "x": 130, "y": 45, "l": "Schuko Out 1"},
+    {"t": "schuko", "x": 190, "y": 45, "l": "Schuko Out 2"},
+    {"t": "schuko", "x": 250, "y": 45, "l": "Schuko Out 3"},
+    {"t": "cee16f", "x": 330, "y": 45, "w": 56, "h": 66, "l": "CEE 16 A Out 5-pin"}
+  ],
+  "r": [
+    {"t": "schuko", "x": 70, "y": 45, "l": "Schuko Out 4"},
+    {"t": "schuko", "x": 126, "y": 45, "l": "Schuko Out 5"},
+    {"t": "schuko", "x": 182, "y": 45, "l": "Schuko Out 6"},
+    {"t": "schuko", "x": 238, "y": 45, "l": "Schuko Out 7"},
+    {"t": "schuko", "x": 294, "y": 45, "l": "Schuko Out 8"},
+    {"t": "schuko", "x": 350, "y": 45, "l": "Schuko Out 9"},
+    {"t": "gland", "x": 410, "y": 45, "l": "CEE 16 A In (cable)"}
+  ]
+}

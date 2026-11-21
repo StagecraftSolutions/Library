@@ -1,0 +1,40 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_teranex_express",
+  "name": "Blackmagic Teranex Express",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Konverter",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/teranex",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 127
+  },
+  "price": {
+    "eur": 1515
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "illuminated Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 7, "label": "SDI In A/B, Loop A/B, Out A/B, Reference"},
+      {"type": "sfp", "count": 1, "label": "SFP (optional)"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:bm_teranex_express",
+    "order": 73
+  }
+}

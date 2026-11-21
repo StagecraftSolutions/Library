@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "db_ds100",
+  "name": "d&b DS100 Signal Engine (Soundscape)",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Prozessoren · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "url": "https://www.dbaudio.com/global/en/products/processing-and-matrix/ds100/",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 481
+  },
+  "weightKg": 11.2,
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Power button"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "Mains In"},
+      {"type": "rj45", "count": 3, "label": "Ethernet (control), Dante primary/secondary"},
+      {"type": "usba", "count": 1, "label": "USB 3.0"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Nachfolger DS110; Ansicht nach d&b-Maßzeichnung (Datenblatt, Front) und Produktfotos (Rückseite) gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_ds100",
+    "order": 172
+  }
+}

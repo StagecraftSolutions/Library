@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "schuko_50",
+  "name": "Schuko-Einbausteckdose mit Klappdeckel, Flansch 50 × 50",
+  "shortName": "SCHUKO",
+  "category": "steckverbinder",
+  "manufacturer": "Mennekes",
+  "partNumber": "Mennekes 11081",
+  "connectorType": "schuko",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Footprint nach Herstellerangabe (Flansch, Lochabstand); Ausschnitt-Ø nach Maßblatt prüfen."
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "con:schuko_50",
+    "order": 58,
+    "extra": {
+      "fit": "fp",
+      "el": {"t": "schuko"},
+      "fp": {
+        "w": 50,
+        "h": 50,
+        "cut": [
+          {"t": "c", "d": 40},
+          {"t": "h", "x": -19, "y": -19, "d": 3.5},
+          {"t": "h", "x": 19, "y": -19, "d": 3.5},
+          {"t": "h", "x": -19, "y": 19, "d": 3.5},
+          {"t": "h", "x": 19, "y": 19, "d": 3.5}
+        ]
+      }
+    }
+  }
+}

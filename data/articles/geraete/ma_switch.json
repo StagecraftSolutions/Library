@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "ma_switch",
+  "name": "MA Network Switch",
+  "category": "geraete",
+  "area": "Licht",
+  "group": "Licht · MA Lighting",
+  "manufacturer": "MA Lighting",
+  "url": "https://www.malighting.com/product-archive/product/ma-network-switch-130600/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 233
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Port-Status"}
+    ],
+    "rear": [
+      {"type": "ethercon", "count": 9, "label": "network"},
+      {"type": "sfp", "count": 4, "label": "SFP"},
+      {"type": "powercon", "count": 1, "label": "Power"},
+      {"type": "usb", "count": 1, "label": "USB"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; abgekündigt",
+  "rackmanufaktur": {
+    "key": "dev:ma_switch",
+    "order": 146
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "la_p1",
+  "name": "L-Acoustics P1 Prozessor",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Prozessoren · L-Acoustics",
+  "manufacturer": "L-Acoustics",
+  "url": "https://www.l-acoustics.com/products/p1/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 300
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "jack", "count": 1, "label": "Headphones"}
+    ],
+    "rear": [
+      {"type": "xlr", "count": 12, "label": "4× Line, 4× AES, 4× Mic/Line"},
+      {"type": "ethercon", "count": 2, "label": "Milan-AVB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:la_p1",
+    "order": 193
+  }
+}

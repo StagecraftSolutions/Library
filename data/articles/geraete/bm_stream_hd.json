@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_stream_hd",
+  "name": "Blackmagic Streaming Encoder HD",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Streaming",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/blackmagicstreamingprocessors",
+  "rack": {
+    "mount": "bmd",
+    "fraction": 0.3333333333333333,
+    "depth": 176
+  },
+  "price": {
+    "eur": 549
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "Control panel"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 3, "label": "SDI In, Loop, Monitor"},
+      {"type": "hdmi", "count": 1, "label": "Monitor Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:bm_stream_hd",
+    "order": 21
+  }
+}

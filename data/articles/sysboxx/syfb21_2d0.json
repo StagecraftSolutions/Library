@@ -1,0 +1,22 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syfb21_2d0",
+  "name": "Frontblech 2 × D-Loch 0°, 2 HE, 1 BE",
+  "shortName": "2× D",
+  "category": "sysboxx",
+  "group": "D-Loch-Bleche · Stecker frei wählbar",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB21-2D0",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 19.5
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb21_2d0",
+    "order": 7,
+    "extra": {"be": 1, "kind": "d", "screws": 4, "holes": [[17.8,25.5],[17.8,63.4]]}
+  }
+}

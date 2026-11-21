@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "novastar_uhdjr",
+  "name": "NovaStar NovaPro UHD Jr",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Video · LED",
+  "manufacturer": "NovaStar",
+  "url": "https://www.novastar.tech/product/detail.html?catid=3&id=36",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "knob", "count": 1, "label": "Rotary knob"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "hdmi", "count": 6, "label": "4× DVI, DP, HDMI 2.0 In"},
+      {"type": "bnc", "count": 4, "label": "12G-SDI In/Loop"},
+      {"type": "ethercon", "count": 16, "label": "LED outputs"},
+      {"type": "sfp", "count": 4, "label": "10G OPT"},
+      {"type": "rj45", "count": 1, "label": "Control"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:novastar_uhdjr",
+    "order": 157
+  }
+}

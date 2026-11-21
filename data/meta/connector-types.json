@@ -1,0 +1,207 @@
+{
+  "true1_in": {
+    "n": "powerCON TRUE1 In",
+    "s": "TRUE1 IN",
+    "def": "pc_in"
+  },
+  "true1_out": {
+    "n": "powerCON TRUE1 Out",
+    "s": "TRUE1 OUT",
+    "def": "pc_out_d"
+  },
+  "pcon_a": {
+    "n": "powerCON In blau",
+    "s": "PCON IN",
+    "def": "pca_in"
+  },
+  "pcon_b": {
+    "n": "powerCON Out weiß",
+    "s": "PCON OUT",
+    "def": "pcb_out"
+  },
+  "xlr3f": {
+    "n": "XLR 3-pol Buchse",
+    "s": "XLR3 F",
+    "def": "xlr3f"
+  },
+  "xlr3m": {
+    "n": "XLR 3-pol Stecker",
+    "s": "XLR3 M",
+    "def": "xlr3m"
+  },
+  "dmx5m": {
+    "n": "DMX 5-pol Stecker (In)",
+    "s": "DMX IN",
+    "def": "dmx5m"
+  },
+  "dmx5f": {
+    "n": "DMX 5-pol Buchse (Out)",
+    "s": "DMX OUT",
+    "def": "dmx5f"
+  },
+  "rj45": {
+    "n": "Netzwerk RJ45 (etherCON)",
+    "s": "RJ45",
+    "def": "rj45"
+  },
+  "ocon": {
+    "n": "opticalCON DUO",
+    "s": "OPTICALCON",
+    "def": "ocon"
+  },
+  "hdmi": {
+    "n": "HDMI-Durchführung",
+    "s": "HDMI",
+    "def": "hdmi"
+  },
+  "usb": {
+    "n": "USB-Durchführung",
+    "s": "USB",
+    "def": "usb"
+  },
+  "bnc": {
+    "n": "BNC / SDI",
+    "s": "BNC",
+    "def": "bnc"
+  },
+  "rca": {
+    "n": "Cinch/RCA",
+    "s": "RCA",
+    "def": "rca"
+  },
+  "jack": {
+    "n": "Klinke 6,3 mm",
+    "s": "KLINKE",
+    "def": "jack"
+  },
+  "sma": {
+    "n": "SMA-Antenne",
+    "s": "SMA",
+    "def": "sma_drill"
+  },
+  "nl4": {
+    "n": "speakON 4-pol",
+    "s": "NL4",
+    "def": "nl4"
+  },
+  "nl8": {
+    "n": "speakON 8-pol",
+    "s": "NL8",
+    "def": "nlt8mpxx"
+  },
+  "cee16f": {
+    "n": "CEE 16 A Buchse 5-pol",
+    "s": "CEE16 F",
+    "def": "cee16f_70"
+  },
+  "cee16m": {
+    "n": "CEE 16 A Stecker 5-pol (Einspeisung)",
+    "s": "CEE16 M",
+    "def": "cee16m_70"
+  },
+  "cee16f4": {
+    "n": "CEE 16 A Buchse 4-pol (Motor)",
+    "s": "CEE16 F4",
+    "def": "cee16f4_1387za"
+  },
+  "cee32f": {
+    "n": "CEE 32 A Buchse 5-pol",
+    "s": "CEE32 F",
+    "def": "cee32f_70"
+  },
+  "cee32m": {
+    "n": "CEE 32 A Stecker 5-pol (Einspeisung)",
+    "s": "CEE32 M",
+    "def": "cee32m_70"
+  },
+  "cee63f": {
+    "n": "CEE 63 A Buchse 5-pol",
+    "s": "CEE63 F",
+    "def": "cee63f_1252a"
+  },
+  "cee63m": {
+    "n": "CEE 63 A Stecker 5-pol (Einspeisung)",
+    "s": "CEE63 M",
+    "def": "cee63m_1688"
+  },
+  "cee125f": {
+    "n": "CEE 125 A Buchse 5-pol",
+    "s": "CEE125 F",
+    "def": "cee125f_1461"
+  },
+  "cee125m": {
+    "n": "CEE 125 A Stecker 5-pol (Einspeisung)",
+    "s": "CEE125 M",
+    "def": "cee125m_1983"
+  },
+  "powerlockm": {
+    "n": "Powerlock Source (Stecker, 400 A)",
+    "s": "PL M",
+    "def": "pl_nps_l1"
+  },
+  "cpot": {
+    "n": "cPot Potentialausgleich (Stecker)",
+    "s": "cPot",
+    "def": "cpot_pma"
+  },
+  "han16f": {
+    "n": "Harting Han E 16-pol Buchse (Han 16B)",
+    "s": "HAN16 F",
+    "def": "han16f_b"
+  },
+  "han16m": {
+    "n": "Harting Han E 16-pol Stecker (Han 16B)",
+    "s": "HAN16 M",
+    "def": "han16m_b"
+  },
+  "han6f": {
+    "n": "Harting Han E 6-pol Buchse (Han 6B)",
+    "s": "HAN6 F",
+    "def": "han6f_b"
+  },
+  "han6m": {
+    "n": "Harting Han E 6-pol Stecker (Han 6B)",
+    "s": "HAN6 M",
+    "def": "han6m_b"
+  },
+  "han10f": {
+    "n": "Harting Han E 10-pol Buchse (Han 10B)",
+    "s": "HAN10 F",
+    "def": "han10f_b"
+  },
+  "han10m": {
+    "n": "Harting Han E 10-pol Stecker (Han 10B)",
+    "s": "HAN10 M",
+    "def": "han10m_b"
+  },
+  "lka25": {
+    "n": "Multipin LKA25 (MIL-C-5015, Shell 24)",
+    "s": "LKA25",
+    "def": "lka25_hicon"
+  },
+  "lk37": {
+    "n": "Multipin LK37 (MIL-C-5015, Shell 28)",
+    "s": "LK37",
+    "def": "lk37_hicon"
+  },
+  "schuko": {
+    "n": "Schuko-Einbausteckdose",
+    "s": "SCHUKO",
+    "def": "schuko_50"
+  },
+  "iec_c14": {
+    "n": "Kaltgeräte-Einbaustecker C14",
+    "s": "C14",
+    "def": "iec_c14_snap"
+  },
+  "blank": {
+    "n": "Blindplatte",
+    "s": "Blind",
+    "def": "blank"
+  },
+  "open": {
+    "n": "Loch offen",
+    "s": "offen",
+    "def": "open"
+  }
+}

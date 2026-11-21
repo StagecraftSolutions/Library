@@ -1,0 +1,41 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "case_thp48rr",
+  "name": "Thon Rack Profi 48 RR",
+  "shortName": "Thon Profi 48 RR",
+  "category": "gehaeuse",
+  "group": "Thomann · Thon mit Schiene hinten",
+  "manufacturer": "Thon",
+  "description": "9 mm Multiplex. Stufenlose Rackschienen vorn und hinten, 42 cm (5 HE) bzw. 45 cm (8 HE) von Schiene zu Schiene.",
+  "rack": {
+    "mount": "rack"
+  },
+  "variants": [
+    {
+      "units": 5,
+      "partNumber": "Thon Rack 5U Profi 48 RR · Thomann 408520",
+      "price": {"eur": 235, "source": "web"},
+      "dimensions": "553 × ca. 282 × 645 mm",
+      "usableDepth": 420
+    },
+    {
+      "units": 8,
+      "partNumber": "Thon Rack 8U Profi 48 RR · Thomann 408523",
+      "price": {"eur": 269, "source": "web"},
+      "dimensions": "553 × ca. 416 × 645 mm",
+      "usableDepth": 450
+    }
+  ],
+  "rackmanufaktur": {
+    "key": "case:thP48rr",
+    "order": 6,
+    "extra": {
+      "shop": "Thomann",
+      "fix": true,
+      "rear": "std",
+      "rail": "alu",
+      "railMin": 420,
+      "railMax": 450
+    }
+  }
+}

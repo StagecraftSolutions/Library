@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "shelf_shure_kit",
+  "name": "Shure Rackmontage-Kit für zwei Geräte halber Breite",
+  "shortName": "Shure-Rackkit",
+  "category": "rackwannen",
+  "manufacturer": "Shure",
+  "partNumber": "im Lieferumfang der Geräte",
+  "description": "Zwei Geräte halber Breite mittig nebeneinander mit Verbindungsblech und Seitenteilen (Rackohren) verschrauben – liegt den Geräten bei. Optional Antennen nach vorn: BNC an den Seitenteilen.",
+  "url": "https://www.shure.com/de-DE",
+  "rack": {
+    "mount": "rack",
+    "units": 1
+  },
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "liegt Shure-Empfängern/-Sendern halber Breite bei"
+  },
+  "rackmanufaktur": {
+    "key": "shelf:shure_kit",
+    "order": 6,
+    "extra": {
+      "kitType": "shure",
+      "mode": "grid",
+      "cells": 2,
+      "acc": ["half"],
+      "kit": true,
+      "depth": 0
+    }
+  }
+}

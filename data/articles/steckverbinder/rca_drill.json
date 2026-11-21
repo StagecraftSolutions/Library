@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "rca_drill",
+  "name": "Cinch-Einbaubuchse in gebohrter Blindplatte",
+  "shortName": "RCA*",
+  "category": "steckverbinder",
+  "manufacturer": "frei wählbar",
+  "partNumber": "Cinch-Einbaubuchse isoliert, Bohrung Ø 8 mm",
+  "connectorType": "rca",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Blindplatte D wird mitbestellt"
+  },
+  "rackmanufaktur": {
+    "key": "con:rca_drill",
+    "order": 19,
+    "extra": {"fit": "dblank", "g": "rca", "drill": 8}
+  }
+}

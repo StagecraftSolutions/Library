@@ -1,0 +1,43 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "midas_dl16",
+  "name": "Midas DL16 Stagebox",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Stagebox",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/en/products/0606-ACJ",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 230
+  },
+  "weightKg": 4.9,
+  "price": {
+    "eur": 730
+  },
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 16, "label": "Mic In (Midas PRO)"},
+      {"type": "xlr", "count": 8, "label": "Line Out"},
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "GAIN/HPF/CONFIG"},
+      {"type": "knob", "count": 2, "label": "Head Amp, Level"},
+      {"type": "jack", "count": 1, "label": "Headphones"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 1, "label": "Power with switch"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "ethercon", "count": 3, "label": "AES50 A/B, ULTRANET"},
+      {"type": "opt", "count": 2, "label": "ADAT Out"},
+      {"type": "din", "count": 2, "label": "MIDI In/Out"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:midas_dl16",
+    "order": 57
+  }
+}

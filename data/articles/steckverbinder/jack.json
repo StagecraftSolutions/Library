@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "jack",
+  "name": "Klinke 6,3 mm TRS/TS (D-Format)",
+  "shortName": "KLINKE",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NJ3FP6C-BAG",
+  "connectorType": "jack",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "D-Format, stereo; mono-Stecker passen"
+  },
+  "rackmanufaktur": {
+    "key": "con:jack",
+    "order": 20,
+    "extra": {"fit": "d", "g": "jack"}
+  }
+}

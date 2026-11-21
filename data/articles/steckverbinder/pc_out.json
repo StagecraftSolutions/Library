@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pc_out",
+  "name": "powerCON TRUE1 Out (Loch aufbohren)",
+  "shortName": "TRUE1 OUT",
+  "category": "steckverbinder",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3FPX-LY TR1",
+  "connectorType": "true1_out",
+  "price": {
+    "eur": 4.5,
+    "source": "cart"
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_out",
+    "order": 1,
+    "extra": {"fit": "d", "g": "pcout"}
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_vh_20",
+  "name": "Blackmagic Videohub 20x20 12G",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Videohub",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/smartvideohub",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 236
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 40, "label": "20× SDI In, 20× SDI Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:bm_vh_20",
+    "order": 25
+  }
+}

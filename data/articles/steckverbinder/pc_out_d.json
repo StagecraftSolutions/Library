@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pc_out_d",
+  "name": "TRUE1-kompatible Out-Buchse, D-Norm (ohne Bohren, nur von vorn einbaubar)",
+  "shortName": "TRUE1 OUT",
+  "category": "steckverbinder",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3FPX20",
+  "connectorType": "true1_out",
+  "price": {
+    "eur": 4.5,
+    "source": "web",
+    "note": "Thomann · nur von vorn einbaubar · Alternative: Neutrik NAC3FPX-D-TRUE1"
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_out_d",
+    "order": 2,
+    "extra": {"fit": "d", "g": "pcout", "mount": "f"}
+  }
+}

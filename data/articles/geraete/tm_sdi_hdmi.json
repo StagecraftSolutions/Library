@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "tm_sdi_hdmi",
+  "name": "Teranex Mini SDI to HDMI 12G",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Teranex Mini",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/teranexmini",
+  "rack": {
+    "mount": "bmd",
+    "fraction": 0.3333333333333333,
+    "depth": 230
+  },
+  "price": {
+    "eur": 639
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "Control panel"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 2, "label": "12G-SDI In + Loop"},
+      {"type": "hdmi", "count": 1, "label": "HDMI 2.0 Out"},
+      {"type": "xlr", "count": 4, "label": "Audio Out (2 analog, 4 Kan. AES)"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:tm_sdi_hdmi",
+    "order": 0
+  }
+}

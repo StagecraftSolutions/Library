@@ -1,0 +1,32 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "db_z5578",
+  "name": "d&b Z5578 LS-Anschlusspanel 6× NL8 / 2× LKA25",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Rack-Panels · d&b",
+  "manufacturer": "d&b audiotechnik",
+  "partNumber": "Z5578.000",
+  "url": "https://www.dbaudio.com/assets/products/downloads/manuals-documentation/accessories/dbaudio-manual-z5576.000-1.1-en.pdf",
+  "rack": {
+    "mount": "rack",
+    "units": 2
+  },
+  "io": {
+    "front": [
+      {"type": "ethercon", "count": 1, "label": "ETH/PoE Inclinometer"},
+      {"type": "nl8", "count": 6, "label": "4 CH Out Amp 1–6"},
+      {"type": "lka25", "count": 2, "label": "12 CH Out Amp 1–3, 4–6"}
+    ],
+    "rear": []
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Panel aus dem d&b Touring Rack (im Rack fest verkabelt, nicht einzeln erhältlich); Tiefe und Gewicht nicht angegeben. Höhe aus dem Rackaufbau abgeleitet; Z5578.001 für D40/D25/D90. Ansicht nach d&b-Zeichnungen/Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:db_z5578",
+    "order": 185
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "novastar_mx20",
+  "name": "NovaStar MX20 LED-Controller",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Video · LED",
+  "manufacturer": "NovaStar",
+  "url": "https://www.novastar.tech",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 300
+  },
+  "price": {
+    "eur": 1800
+  },
+  "io": {
+    "front": [
+      {"type": "btn", "count": 1, "label": "On/Standby"},
+      {"type": "lcd", "count": 1, "label": "2″-TFT"},
+      {"type": "knob", "count": 1, "label": "Rotary knob, BACK"},
+      {"type": "usba", "count": 1, "label": "USB 2.0"}
+    ],
+    "rear": [
+      {"type": "rj45", "count": 3, "label": "2× Ethernet (Control), AUX"},
+      {"type": "opt", "count": 1, "label": "S/PDIF Out"},
+      {"type": "bnc", "count": 4, "label": "Genlock In/Loop, 3G-SDI In/Loop"},
+      {"type": "hdmi", "count": 4, "label": "2× HDMI 1.3 In + Loop"},
+      {"type": "ethercon", "count": 6, "label": "LED outputs 1–6"},
+      {"type": "sfp", "count": 2, "label": "OPT 1/2 (10G)"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "rackmanufaktur": {
+    "key": "dev:novastar_mx20",
+    "order": 64
+  }
+}

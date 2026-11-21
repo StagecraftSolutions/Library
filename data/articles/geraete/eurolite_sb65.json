@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "eurolite_sb65",
+  "name": "Eurolite SB-65/19 Stromverteiler 16 A",
+  "category": "geraete",
+  "area": "Strom",
+  "group": "Strom",
+  "manufacturer": "Eurolite",
+  "url": "https://www.steinigke.de/mpn30248305-eurolite-sb-65-19-stromverteiler.html",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 210
+  },
+  "price": {
+    "eur": 106.98
+  },
+  "io": {
+    "front": [
+      {"type": "schuko", "count": 6, "label": "Schuko with hinged lid"}
+    ],
+    "rear": [
+      {"type": "gland", "count": 1, "label": "supply cable CEE 16 A"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:eurolite_sb65",
+    "order": 161
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "hw": 440,
+  "f": [
+    {"t": "txt", "x": 39.9, "y": 11, "v": "L1", "s": 3},
+    {"t": "lamp", "x": 39.9, "y": 20.5, "l": "Phase L1 indicator"},
+    {"t": "txt", "x": 59.7, "y": 11, "v": "L2", "s": 3},
+    {"t": "lamp", "x": 59.7, "y": 20.5, "l": "Phase L2 indicator"},
+    {"t": "txt", "x": 79.5, "y": 11, "v": "L3", "s": 3},
+    {"t": "lamp", "x": 79.5, "y": 20.5, "l": "Phase L3 indicator"},
+    {"t": "logo", "x": 110, "y": 18, "v": "BOTEX", "s": 7},
+    {"t": "txt", "x": 110, "y": 23, "v": "STAGE TECHNOLOGY", "s": 1.6},
+    {"t": "txt", "x": 110, "y": 31, "v": "PSA 16PT2-TR1", "s": 3},
+    {"t": "mcb", "x": 179.4, "y": 13, "n": 1, "h": 45, "rot": 90, "l": "MCB C16 L1 (mounted sideways)"},
+    {"t": "txt", "x": 185.2, "y": 22.5, "v": "L1", "s": 3},
+    {"t": "mcb", "x": 300.1, "y": 13, "n": 1, "h": 45, "rot": 90, "l": "MCB C16 L2 (mounted sideways)"},
+    {"t": "txt", "x": 306.2, "y": 22.5, "v": "L2", "s": 3},
+    {"t": "mcb", "x": 420.7, "y": 13, "n": 1, "h": 45, "rot": 90, "l": "MCB C16 L3 (mounted sideways)"},
+    {"t": "txt", "x": 426.6, "y": 22.5, "v": "L3", "s": 3}
+  ],
+  "r": [
+    {"t": "powercon", "x": 50.3, "y": 20, "s": 14, "l": "TRUE1 Out L3 1"},
+    {"t": "powercon", "x": 97.5, "y": 20, "s": 14, "l": "TRUE1 Out L3 2"},
+    {"t": "txt", "x": 73.9, "y": 24, "v": "‹L3›", "s": 3.2},
+    {"t": "txt", "x": 73.9, "y": 39, "v": "MAX 16A", "s": 2.6},
+    {"t": "powercon", "x": 162.8, "y": 20, "s": 14, "l": "TRUE1 Out L2 1"},
+    {"t": "powercon", "x": 210, "y": 20, "s": 14, "l": "TRUE1 Out L2 2"},
+    {"t": "txt", "x": 186.4, "y": 24, "v": "‹L2›", "s": 3.2},
+    {"t": "txt", "x": 186.4, "y": 39, "v": "MAX 16A", "s": 2.6},
+    {"t": "powercon", "x": 278.6, "y": 20, "s": 14, "l": "TRUE1 Out L1 1"},
+    {"t": "powercon", "x": 323, "y": 20, "s": 14, "l": "TRUE1 Out L1 2"},
+    {"t": "txt", "x": 300.8, "y": 24, "v": "‹L1›", "s": 3.2},
+    {"t": "txt", "x": 300.8, "y": 39, "v": "MAX 16A", "s": 2.6},
+    {"t": "txt", "x": 342.5, "y": 20, "v": "Thomann GmbH", "s": 1.6},
+    {"t": "gland", "x": 391, "y": 20, "l": "Power In CEE 16 A (1.7 m cable)"}
+  ]
+}

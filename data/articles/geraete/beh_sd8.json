@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "beh_sd8",
+  "name": "Behringer SD8 Stagebox",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Stagebox",
+  "manufacturer": "Behringer",
+  "url": "https://www.behringer.com/en/products/0606-ACP",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 8, "label": "Mic In (Midas)"},
+      {"type": "xlr", "count": 8, "label": "Out"}
+    ],
+    "rear": [
+      {"type": "ethercon", "count": 2, "label": "AES50"},
+      {"type": "rj45", "count": 2, "label": "Ultranet"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:beh_sd8",
+    "order": 127
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "midas_as88",
+  "name": "Midas AS88 HyperMAC/AES50-Router",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Netzwerk",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/en/products/0606-ADE",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Status"}
+    ],
+    "rear": [
+      {"type": "ethercon", "count": 8, "label": "AES50"},
+      {"type": "opt", "count": 2, "label": "HyperMAC redundant"},
+      {"type": "iec", "count": 2, "label": "Netzteile redundant"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:midas_as88",
+    "order": 140
+  }
+}

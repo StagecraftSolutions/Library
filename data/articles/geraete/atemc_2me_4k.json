@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "atemc_2me_4k",
+  "name": "ATEM 2 M/E Constellation 4K",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · ATEM Constellation",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/atemconstellation",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 234
+  },
+  "io": {
+    "front": [
+      {"type": "xlr", "count": 1, "label": "Talkback-Headset"},
+      {"type": "btn", "count": 1, "label": "Control panel"},
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "knob", "count": 1, "label": "knobs"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 35, "label": "12G-SDI In/Out, Multiview, Reference"},
+      {"type": "rj45", "count": 2, "label": "Ethernet, Talkback"},
+      {"type": "jack", "count": 2, "label": "Analog-Audio In"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:atemc_2me_4k",
+    "order": 37
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "case_thl63rr",
+  "name": "Thon Rack Live 63 RR",
+  "shortName": "Thon Live 63 RR",
+  "category": "gehaeuse",
+  "group": "Thomann · Thon mit Schiene hinten",
+  "manufacturer": "Thon",
+  "description": "7 mm Multiplex. Einbautiefe 600 mm, stufenlos verstellbare Rackschienen vorn und hinten mit Gummikeder, 2 Deckel. Ab 8 HE mit Rollen. Verstellbereich der hinteren Schiene nicht angegeben.",
+  "rack": {
+    "mount": "rack"
+  },
+  "variants": [
+    {
+      "units": 2,
+      "partNumber": "Thon Rack 2U Live 63 RR · Thomann 651706",
+      "price": {"eur": 205, "source": "web"},
+      "dimensions": "555 × ca. 144 × 782 mm"
+    },
+    {
+      "units": 3,
+      "partNumber": "Thon Rack 3U Live 63 RR · Thomann 651828",
+      "price": {"eur": 209, "source": "web"},
+      "dimensions": "555 × ca. 188 × 782 mm"
+    },
+    {
+      "units": 4,
+      "partNumber": "Thon Rack 4U Live 63 RR · Thomann 651829",
+      "price": {"eur": 222, "source": "web"},
+      "dimensions": "555 × ca. 233 × 782 mm"
+    },
+    {
+      "units": 5,
+      "partNumber": "Thon Rack 5U Live 63 RR · Thomann 651834",
+      "price": {"eur": 229, "source": "web"},
+      "dimensions": "555 × ca. 277 × 782 mm"
+    },
+    {
+      "units": 6,
+      "partNumber": "Thon Rack 6U Live 63 RR · Thomann 651852",
+      "price": {"eur": 235, "source": "web"},
+      "dimensions": "555 × ca. 322 × 782 mm"
+    },
+    {
+      "units": 8,
+      "partNumber": "Thon Rack 8U Live 63 RR Wheels · Thomann 651853",
+      "price": {"eur": 333, "source": "web"},
+      "dimensions": "555 × ca. 411 × 782 mm"
+    },
+    {
+      "units": 10,
+      "partNumber": "Thon Rack 10U Live 63 RR Wheels · Thomann 651855",
+      "price": {"eur": 345, "source": "web"},
+      "dimensions": "555 × ca. 500 × 782 mm"
+    },
+    {
+      "units": 12,
+      "partNumber": "Thon Rack 12U Live 63 RR Wheels · Thomann 651858",
+      "price": {"eur": 355, "source": "web"},
+      "dimensions": "555 × ca. 588 × 782 mm"
+    },
+    {
+      "units": 15,
+      "partNumber": "Thon Rack 15U Live 63 RR Wheels · Thomann 651881",
+      "price": {"eur": 395, "source": "web"},
+      "dimensions": "555 × ca. 722 × 782 mm"
+    },
+    {
+      "units": 18,
+      "partNumber": "Thon Rack 18U Live 63 RR Wheels · Thomann 651883",
+      "price": {"eur": 415, "source": "web"},
+      "dimensions": "555 × ca. 855 × 782 mm"
+    },
+    {
+      "units": 20,
+      "partNumber": "Thon Rack 20U Live 63 RR Wheels · Thomann 651885",
+      "price": {"eur": 419, "source": "web"},
+      "dimensions": "555 × ca. 944 × 782 mm"
+    }
+  ],
+  "rackmanufaktur": {
+    "key": "case:thL63rr",
+    "order": 5,
+    "extra": {
+      "shop": "Thomann",
+      "use": 600,
+      "fix": true,
+      "rear": "std",
+      "rail": "alu",
+      "railMin": 150,
+      "railMax": 600
+    }
+  }
+}

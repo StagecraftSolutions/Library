@@ -1,0 +1,39 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "eurolite_sbm32b",
+  "name": "Eurolite SBM-32B Stromverteiler mit Messung",
+  "category": "geraete",
+  "area": "Strom",
+  "group": "Strom",
+  "manufacturer": "Eurolite",
+  "url": "https://www.steinigke.de/mpn30248401-eurolite-sbm-32b-stromverteiler.html",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 280
+  },
+  "price": {
+    "eur": 534.31
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LED-Display V/A/Hz"},
+      {"type": "rcd", "count": 1, "label": "FI Typ B 63 A/30 mA"},
+      {"type": "brk", "count": 6, "label": "6× LS C16 1-pin"}
+    ],
+    "rear": [
+      {"type": "schuko", "count": 6, "label": "Schuko with hinged lid"},
+      {"type": "cee32f", "count": 1, "label": "CEE 32 A Out"},
+      {"type": "gland", "count": 1, "label": "supply cable CEE 32 A"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:eurolite_sbm32b",
+    "order": 160
+  }
+}

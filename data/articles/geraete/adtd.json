@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "adtd",
+  "name": "Shure ADTD PSM-Zweifachsender (Axient Digital PSM)",
+  "category": "geraete",
+  "area": "Funk",
+  "group": "Funk · Shure",
+  "manufacturer": "Shure",
+  "url": "https://www.shure.com/de-DE/produkte/in-ear-monitoring/adpsm/adtd",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 330
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "6,6″-colour display"},
+      {"type": "jack", "count": 1, "label": "Headphones"}
+    ],
+    "rear": [
+      {"type": "combo", "count": 4, "label": "Audio In (analog/AES3)"},
+      {"type": "rj45", "count": 4, "label": "network/Dante"},
+      {"type": "bnc", "count": 2, "label": "Antenna Out"},
+      {"type": "iec", "count": 2, "label": "Power In/Thru"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:adtd",
+    "order": 121
+  }
+}

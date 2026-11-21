@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "usb3",
+  "name": "USB-3.0-Durchführung",
+  "shortName": "USB 3",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAUSB3-B",
+  "connectorType": "usb",
+  "price": {
+    "eur": null,
+    "source": "check"
+  },
+  "rackmanufaktur": {
+    "key": "con:usb3",
+    "order": 32,
+    "extra": {"fit": "d", "g": "usb"}
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "drawer1",
+  "name": "Rackschublade 1 HE Eco, Stahl, 392 mm tief",
+  "category": "schubladen",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87401 E",
+  "description": "392 mm Außentiefe, Innentiefe 373 mm, 25 kg Traglast.",
+  "url": "https://www.adamhall.com/shop/en/19-rack-drawers",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 392
+  },
+  "price": {
+    "eur": 68,
+    "source": "web",
+    "note": "Thomann über Geizhals"
+  },
+  "rackmanufaktur": {
+    "key": "art:drawer1",
+    "order": 14
+  }
+}

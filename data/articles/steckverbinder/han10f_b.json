@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "han10f_b",
+  "name": "Han 10B Anbaugehäuse mit Han E 10 Buchseneinsatz",
+  "shortName": "HAN10 F",
+  "category": "steckverbinder",
+  "manufacturer": "Harting",
+  "partNumber": "Harting 09 30 010 0301 + 09 33 010 2701",
+  "connectorType": "han10f",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Harting-Katalog Han B (Livebook Kap. 31, S. 31·39), Anbaugehäuse 09 30 010 0301: Flansch 93 × 43, Ausschnitt 60 × 35, Löcher 83 × 32, Ø 4,4. Gehäuse von vorn aufgesetzt, Einsatz von hinten."
+  },
+  "rackmanufaktur": {
+    "key": "con:han10f_b",
+    "order": 54,
+    "extra": {
+      "fit": "fp",
+      "el": {"t": "han10f", "s": 43},
+      "fp": {
+        "w": 93,
+        "h": 43,
+        "cut": [
+          {"t": "r", "w": 60, "h": 35},
+          {"t": "h", "x": -41.5, "y": -16, "d": 4.4},
+          {"t": "h", "x": 41.5, "y": -16, "d": 4.4},
+          {"t": "h", "x": -41.5, "y": 16, "d": 4.4},
+          {"t": "h", "x": 41.5, "y": 16, "d": 4.4}
+        ]
+      }
+    }
+  }
+}

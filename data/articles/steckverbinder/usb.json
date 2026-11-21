@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "usb",
+  "name": "USB-Durchführung",
+  "shortName": "USB",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAUSB-W-B",
+  "connectorType": "usb",
+  "price": {
+    "eur": 6.9,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "rackmanufaktur": {
+    "key": "con:usb",
+    "order": 10,
+    "extra": {"fit": "d", "g": "usb"}
+  }
+}

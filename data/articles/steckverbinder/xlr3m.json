@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "xlr3m",
+  "name": "XLR 3-pol Stecker",
+  "shortName": "XLR3 M",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC3MD-L-1",
+  "connectorType": "xlr3m",
+  "price": {
+    "eur": 4.9,
+    "source": "web",
+    "note": "Thomann"
+  },
+  "rackmanufaktur": {
+    "key": "con:xlr3m",
+    "order": 5,
+    "extra": {"fit": "d", "g": "xlrm", "p": 3}
+  }
+}

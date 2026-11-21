@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pc_out_nd",
+  "name": "powerCON TRUE1 Out, D-Norm (nur von vorn einbaubar)",
+  "shortName": "TRUE1 OUT",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NAC3FPX-D-TRUE1",
+  "connectorType": "true1_out",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis und Bezeichnung prüfen"
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_out_nd",
+    "order": 24,
+    "extra": {"fit": "d", "g": "pcout", "mount": "f"}
+  }
+}

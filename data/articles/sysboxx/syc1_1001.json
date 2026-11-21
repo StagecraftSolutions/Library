@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syc1_1001",
+  "name": "Steckverbinder-Modul 3 × Cinch/RCA female Patch A/V, 2 HE, 1 BE",
+  "shortName": "3× RCA",
+  "category": "sysboxx",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC1-1001",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 65.72
+  },
+  "io": {
+    "front": [
+      {"type": "rca", "count": 3, "label": "Video, Audio L/R"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc1_1001",
+    "order": 18,
+    "extra": {
+      "be": 1,
+      "kind": "mod",
+      "screws": 4,
+      "els": [
+        {"t": "rca", "x": 17.8, "y": 26, "l": "Video"},
+        {"t": "rca", "x": 17.8, "y": 44.45, "l": "Audio L"},
+        {"t": "rca", "x": 17.8, "y": 63, "c": "pg-rcar", "l": "Audio R"}
+      ]
+    }
+  }
+}

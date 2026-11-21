@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "bm_vh12g_80",
+  "name": "Blackmagic Videohub 80x80 12G",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · Videohub",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/blackmagicvideohub",
+  "rack": {
+    "mount": "rack",
+    "units": 4,
+    "depth": 180
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "bnc", "count": 161, "label": "80× SDI In, 80× SDI Out, Reference"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "iec", "count": 2, "label": "Power redundant"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:bm_vh12g_80",
+    "order": 71
+  }
+}

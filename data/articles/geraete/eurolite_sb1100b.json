@@ -1,0 +1,38 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "eurolite_sb1100b",
+  "name": "Eurolite SB-1100B Stromverteiler 32 A",
+  "category": "geraete",
+  "area": "Strom",
+  "group": "Strom",
+  "manufacturer": "Eurolite",
+  "url": "https://www.steinigke.de/mpn30248376-eurolite-sb-1100b-stromverteiler.html",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 295
+  },
+  "price": {
+    "eur": 474.81
+  },
+  "io": {
+    "front": [
+      {"type": "rcd", "count": 1, "label": "FI Typ B 40 A/30 mA 4-pin"},
+      {"type": "brk", "count": 9, "label": "2× LS C16 3-pin, 3× LS C16 1-pin"},
+      {"type": "cee16f", "count": 2, "label": "CEE 16 A Out"}
+    ],
+    "rear": [
+      {"type": "schuko", "count": 6, "label": "Schuko with hinged lid"},
+      {"type": "cee32f", "count": 1, "label": "CEE 32 A Out (through)"},
+      {"type": "gland", "count": 1, "label": "supply cable CEE 32 A"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Daten aus Herstellerliste, Maße noch nicht geprüft. Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:eurolite_sb1100b",
+    "order": 158
+  }
+}

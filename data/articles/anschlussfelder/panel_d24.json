@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "panel_d24",
+  "name": "U-Rackblende 2 HE · 24× D in 2 Reihen",
+  "shortName": "2 HE · 24 D (2 Reihen)",
+  "category": "anschlussfelder",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872214",
+  "rack": {
+    "mount": "rack",
+    "units": 2
+  },
+  "price": {
+    "eur": 16.96,
+    "source": "web",
+    "note": "UVP Adam Hall"
+  },
+  "rackmanufaktur": {
+    "key": "panel:d24",
+    "order": 3,
+    "extra": {"cols": 12, "rows": 2}
+  }
+}

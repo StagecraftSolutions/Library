@@ -1,0 +1,17 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "foam2",
+  "name": "Mikro-Schaumstoffeinlage für Schublade 2 HE",
+  "category": "schubladen",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87402 MI",
+  "price": {
+    "eur": 38,
+    "source": "web",
+    "note": "Music Store"
+  },
+  "rackmanufaktur": {
+    "key": "art:foam2",
+    "order": 19
+  }
+}

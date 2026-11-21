@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pca_in",
+  "name": "powerCON In blau (D-Format)",
+  "shortName": "PCON IN",
+  "category": "steckverbinder",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3MPA",
+  "connectorType": "pcon_a",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "D-Format prüfen · Alternative Neutrik NAC3MPA-1-WOT"
+  },
+  "rackmanufaktur": {
+    "key": "con:pca_in",
+    "order": 14,
+    "extra": {"fit": "d", "g": "pca"}
+  }
+}

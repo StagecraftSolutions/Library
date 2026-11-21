@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "panel_d12",
+  "name": "U-Rackblende 1 HE · 12× D",
+  "shortName": "1 HE · 12 D",
+  "category": "anschlussfelder",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 872213",
+  "rack": {
+    "mount": "rack",
+    "units": 1
+  },
+  "price": {
+    "eur": null,
+    "source": "ref",
+    "note": "adamhall.com · Preis nur mit Login"
+  },
+  "rackmanufaktur": {
+    "key": "panel:d12",
+    "order": 1,
+    "extra": {"cols": 12, "rows": 1}
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "swisson_xes8g",
+  "name": "Swisson XES-8G Gigabit-Switch",
+  "category": "geraete",
+  "area": "Licht",
+  "group": "Licht · Swisson",
+  "manufacturer": "Swisson",
+  "partNumber": "10 42 18",
+  "url": "https://www.swisson.com/produkte/data-distribution/8-port-gigabit-ethernet-switch/",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 136
+  },
+  "weightKg": 1.7,
+  "io": {
+    "front": [
+      {"type": "ethercon", "count": 8, "label": "Gigabit-Ethernet"},
+      {"type": "lcd", "count": 1, "label": "status LED panel"}
+    ],
+    "rear": [
+      {"type": "powercon", "count": 4, "label": "Primary In/Thru, Backup In/Thru"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:swisson_xes8g",
+    "order": 148
+  }
+}

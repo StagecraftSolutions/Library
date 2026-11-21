@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "ma3_2port",
+  "name": "grandMA3 2Port Node",
+  "category": "geraete",
+  "area": "Licht",
+  "group": "Licht · MA Lighting",
+  "manufacturer": "MA Lighting",
+  "partNumber": "4010515",
+  "url": "https://www.malighting.com",
+  "rack": {
+    "mount": "half",
+    "fraction": 0.5,
+    "width": 207,
+    "height": 43,
+    "depth": 184
+  },
+  "weightKg": 2,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "3,9″-colour display"},
+      {"type": "knob", "count": 1, "label": "MENU-Drehgeber"}
+    ],
+    "rear": [
+      {"type": "xlr5", "count": 2, "label": "DMX (In/Out konfigurierbar)"},
+      {"type": "rj45", "count": 1, "label": "etherCON"},
+      {"type": "powercon", "count": 1, "label": "powerCON TRUE1"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "dev:ma3_2port",
+    "order": 27,
+    "extra": {"kitType": "ma"}
+  }
+}

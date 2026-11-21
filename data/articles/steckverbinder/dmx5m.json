@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "dmx5m",
+  "name": "DMX 5-pol Stecker (In)",
+  "shortName": "DMX IN",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC5MD-L-1",
+  "connectorType": "dmx5m",
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "kein Euro-Preis gefunden"
+  },
+  "rackmanufaktur": {
+    "key": "con:dmx5m",
+    "order": 6,
+    "extra": {"fit": "d", "g": "xlrm", "p": 5}
+  }
+}

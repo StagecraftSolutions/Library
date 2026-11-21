@@ -1,0 +1,114 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://library.stagecraft.solutions/schema/article.schema.json",
+  "title": "Artikel der Stagecraft Library",
+  "description": "Ein Artikel = eine Datei data/articles/<category>/<id>.json. Verbindlich geprüft wird mit node scripts/build.mjs --check.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "category"],
+  "$defs": {
+    "price": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "eur": { "type": ["number", "null"], "minimum": 0, "description": "Preis in EUR inkl. MwSt. (netto × 1,19); null = unbekannt" },
+        "source": { "enum": ["cart", "web", "ref", "check", "user"], "description": "cart = Warenkorbpreis, web = Webpreis, ref = gelistet ohne Preis, check = prüfen, user = eigene Angabe" },
+        "note": { "type": "string", "description": "Quelle des Preises bzw. Hinweis (Händler, Stand …)" }
+      }
+    },
+    "port": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "count"],
+      "properties": {
+        "type": { "type": "string", "description": "Anschlusstyp, siehe data/meta/io-types.json" },
+        "count": { "type": "integer", "minimum": 1 },
+        "label": { "type": "string", "description": "Funktion in Englisch, wie auf dem Gerät (z. B. \"SDI In 1\"); kein Semikolon" }
+      }
+    }
+  },
+  "properties": {
+    "$schema": { "type": "string" },
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9_-]*$", "description": "Eindeutig und gleich dem Dateinamen. Nicht mehr ändern, sobald andere Systeme darauf verweisen." },
+    "name": { "type": "string", "minLength": 1, "description": "Anzeigename (Deutsch)" },
+    "shortName": { "type": "string", "description": "Kurzname für Beschriftungen" },
+    "category": { "type": "string", "description": "Kategorie aus data/categories.json; die Datei liegt im gleichnamigen Ordner" },
+    "area": { "type": "string", "description": "Einsatzbereich bei Geräten: Audio, Video, Licht, Netzwerk, Funk, Strom, Rigging …" },
+    "group": { "type": "string", "description": "Gruppe für die Auswahl, z. B. \"Audio · Endstufen · d&b\"" },
+    "manufacturer": { "type": "string" },
+    "partNumber": { "type": "string", "description": "Artikel-/Bestellnummer" },
+    "connectorType": { "type": "string", "description": "Nur Steckverbinder: Typ aus data/meta/connector-types.json" },
+    "description": { "type": "string" },
+    "url": { "type": "string", "pattern": "^https?://", "description": "Hersteller- oder Händlerseite" },
+    "rack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mount"],
+      "properties": {
+        "mount": { "enum": ["rack", "bmd", "half", "free", "desk", "none"], "description": "rack = eigene Rackohren, bmd = Blackmagic-Teilbreite, half = halbe Breite mit Kit, free = Kleingerät für Rackwanne, desk = Tischgerät, none = nicht rackbar" },
+        "units": { "type": "number", "minimum": 0, "multipleOf": 0.5, "description": "Höheneinheiten (HE)" },
+        "fraction": { "type": "number", "exclusiveMinimum": 0, "maximum": 1, "description": "Anteil der 19″-Breite (bmd/half)" },
+        "width": { "type": "number", "minimum": 0, "description": "Breite in mm (free/half)" },
+        "height": { "type": "number", "minimum": 0, "description": "Höhe in mm (free/half)" },
+        "depth": { "type": "number", "minimum": 0, "description": "Einbautiefe in mm inkl. Griffe/Stecker" }
+      }
+    },
+    "weightKg": { "type": "number", "exclusiveMinimum": 0, "description": "Gewicht in kg; unbekannt = weglassen, nie 0" },
+    "price": { "$ref": "#/$defs/price" },
+    "io": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "front": { "type": "array", "items": { "$ref": "#/$defs/port" } },
+        "rear": { "type": "array", "items": { "$ref": "#/$defs/port" } }
+      }
+    },
+    "variants": {
+      "type": "array",
+      "description": "Ausführungen mit eigener Artikelnummer, z. B. Case-Höhen",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "units": { "type": "number" },
+          "depth": { "type": "number" },
+          "partNumber": { "type": "string" },
+          "price": { "$ref": "#/$defs/price" },
+          "weightKg": { "type": "number", "exclusiveMinimum": 0 },
+          "dimensions": { "type": "string", "description": "Außenmaße B × H × T" },
+          "usableDepth": { "type": "number" }
+        }
+      }
+    },
+    "status": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "unchecked": { "const": true, "description": "Werte geschätzt oder noch nicht geprüft" },
+        "placeholder": { "const": true, "description": "Aus Herstellerliste übernommen, Maße/Anschlüsse offen" }
+      }
+    },
+    "notes": { "type": "string" },
+    "inventory": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Eigener Bestand",
+      "properties": {
+        "qty": { "type": "integer", "minimum": 0 },
+        "location": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    },
+    "rackmanufaktur": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["key"],
+      "description": "Verknüpfung mit Rackmanufaktur",
+      "properties": {
+        "key": { "type": "string", "description": "Schlüssel in Rackmanufaktur, z. B. dev:swisson_xnd8, con:xlr3f, art:blank1, case:pro560" },
+        "order": { "type": "integer", "description": "Position in der Auswahlliste von Rackmanufaktur" },
+        "extra": { "type": "object", "description": "Felder, die nur Rackmanufaktur braucht (Footprints, Kit-Typ, Schienenart …) – unverändert übernommen" }
+      }
+    }
+  }
+}

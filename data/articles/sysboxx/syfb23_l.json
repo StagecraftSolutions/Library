@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syfb23_l",
+  "name": "Frontblech Leerblech, 2 HE, 3 BE",
+  "shortName": "Leer 3 BE",
+  "category": "sysboxx",
+  "group": "Leerbleche",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYFB23-L",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 19.6
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syfb23_l",
+    "order": 2,
+    "extra": {"be": 3, "kind": "blank", "screws": 6}
+  }
+}

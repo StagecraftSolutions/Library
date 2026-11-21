@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "midas_dl153",
+  "name": "Midas DL153 Stagebox 8/16",
+  "category": "geraete",
+  "area": "Audio",
+  "group": "Audio · Stagebox",
+  "manufacturer": "Midas",
+  "url": "https://www.midasconsoles.com/en/products/0606-ABQ",
+  "rack": {
+    "mount": "rack",
+    "units": 3,
+    "depth": 250
+  },
+  "io": {
+    "front": [
+      {"type": "xlrf", "count": 8, "label": "Mic In"},
+      {"type": "xlr", "count": 16, "label": "Line Out"}
+    ],
+    "rear": [
+      {"type": "ethercon", "count": 2, "label": "AES50"},
+      {"type": "iec", "count": 1, "label": "Power"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft; HE prüfen",
+  "rackmanufaktur": {
+    "key": "dev:midas_dl153",
+    "order": 137
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "syc2_2195",
+  "name": "Steckverbinder-Modul 1 × Schuko schwarz mit Deckel, 16 A, 2 HE, 2 BE",
+  "shortName": "Schuko",
+  "category": "sysboxx",
+  "group": "Steckverbinder-Module · bestückt",
+  "manufacturer": "Sommer Cable",
+  "partNumber": "SYC2-2195",
+  "url": "https://www.sommercable.com/de-de/Produkte/Verteilsysteme/SYSBOXX-Gehaeusesystem/",
+  "price": {
+    "eur": 41.2
+  },
+  "io": {
+    "front": [
+      {"type": "schuko", "count": 1, "label": "Schuko 16 A"}
+    ]
+  },
+  "rackmanufaktur": {
+    "key": "sbx-plate:syc2_2195",
+    "order": 22,
+    "extra": {
+      "be": 2,
+      "kind": "mod",
+      "screws": 4,
+      "els": [
+        {"t": "schuko", "x": 35.6, "y": 44.45, "l": "Schuko 16 A"}
+      ]
+    }
+  }
+}

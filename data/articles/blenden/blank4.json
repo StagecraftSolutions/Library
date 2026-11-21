@@ -1,0 +1,21 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "blank4",
+  "name": "U-Rackblende 4 HE, Stahl",
+  "category": "blenden",
+  "manufacturer": "Adam Hall",
+  "partNumber": "Adam Hall 87224 STL",
+  "rack": {
+    "mount": "rack",
+    "units": 4
+  },
+  "price": {
+    "eur": 13.5,
+    "source": "web",
+    "note": "Rockshop"
+  },
+  "rackmanufaktur": {
+    "key": "art:blank4",
+    "order": 13
+  }
+}

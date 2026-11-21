@@ -1,0 +1,37 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "glxd4r",
+  "name": "Shure GLXD4R+ (Rack-Empfänger)",
+  "category": "geraete",
+  "area": "Funk",
+  "group": "Funk · Shure",
+  "manufacturer": "Shure",
+  "url": "https://www.shure.com/de-DE/search?q=GLXD4R",
+  "rack": {
+    "mount": "rack",
+    "units": 1,
+    "depth": 200
+  },
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "Display"},
+      {"type": "btn", "count": 1, "label": "Buttons"}
+    ],
+    "rear": [
+      {"type": "sma", "count": 2, "label": "Antenna"},
+      {"type": "xlr", "count": 1, "label": "Audio Out"},
+      {"type": "jack", "count": 1, "label": "Audio Out"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "dc", "count": 1, "label": "power supply"}
+    ]
+  },
+  "status": {
+    "unchecked": true,
+    "placeholder": true
+  },
+  "notes": "Platzhalter: Daten aus Herstellerliste, Maße/Anschlüsse noch nicht geprüft",
+  "rackmanufaktur": {
+    "key": "dev:glxd4r",
+    "order": 118
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "hw": 140,
+  "w": 140,
+  "h": 44,
+  "f": [
+    {"t": "txt", "x": 5, "y": 7.5, "v": "Teranex Mini", "s": 3.3, "a": "start", "c": "exorange"},
+    {"t": "txt", "x": 5, "y": 14.5, "v": "2110 IP SDI to HDMI 12G", "s": 5.4, "a": "start"},
+    {"t": "txt", "x": 135, "y": 8, "v": "Blackmagicdesign", "s": 3.2, "a": "end", "c": "exthin"},
+    {"t": "cover", "x": 4, "y": 24, "w": 34, "h": 13},
+    {"t": "txt", "x": 118, "y": 37, "v": "12G SDI", "s": 3, "c": "exorange"},
+    {"t": "led", "x": 133, "y": 37}
+  ]
+}

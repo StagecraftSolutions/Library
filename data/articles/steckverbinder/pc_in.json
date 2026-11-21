@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "pc_in",
+  "name": "powerCON TRUE1 In",
+  "shortName": "TRUE1 IN",
+  "category": "steckverbinder",
+  "manufacturer": "Seetronic",
+  "partNumber": "Seetronic SAC3MPX TR1",
+  "connectorType": "true1_in",
+  "price": {
+    "eur": 2.9,
+    "source": "cart"
+  },
+  "rackmanufaktur": {
+    "key": "con:pc_in",
+    "order": 0,
+    "extra": {"fit": "d", "g": "pcin"}
+  }
+}

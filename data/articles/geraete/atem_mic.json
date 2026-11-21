@@ -1,0 +1,36 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "atem_mic",
+  "name": "ATEM Microphone Converter",
+  "category": "geraete",
+  "area": "Video",
+  "group": "Blackmagic · ATEM",
+  "manufacturer": "Blackmagic Design",
+  "url": "https://www.blackmagicdesign.com/de/products/atemtelevisionstudio",
+  "rack": {
+    "mount": "free",
+    "width": 200,
+    "height": 41,
+    "depth": 125
+  },
+  "price": {
+    "eur": 419
+  },
+  "io": {
+    "front": [
+      {"type": "combo", "count": 4, "label": "Mic/Line In 1–4"}
+    ],
+    "rear": [
+      {"type": "dc", "count": 1, "label": "+12 V"},
+      {"type": "rj45", "count": 1, "label": "Ethernet"},
+      {"type": "usbc", "count": 1, "label": "USB-C"},
+      {"type": "bnc", "count": 2, "label": "MADI In/Out"},
+      {"type": "hdmi", "count": 1, "label": "Monitor Out"}
+    ]
+  },
+  "notes": "Box 200 × 125 × 40,65 mm, XLR-Seite nach vorn",
+  "rackmanufaktur": {
+    "key": "dev:atem_mic",
+    "order": 20
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "apc_smc1000i_2u",
+  "name": "APC Smart-UPS C 1000 VA (SMC1000I-2U)",
+  "category": "geraete",
+  "area": "Strom",
+  "group": "Strom · USV",
+  "manufacturer": "APC",
+  "url": "https://www.se.com/de/de/product/SMC1000I-2U/",
+  "rack": {
+    "mount": "rack",
+    "units": 2,
+    "depth": 406
+  },
+  "weightKg": 20.5,
+  "io": {
+    "front": [
+      {"type": "lcd", "count": 1, "label": "LCD"},
+      {"type": "btn", "count": 4, "label": "Power, menu buttons"}
+    ],
+    "rear": [
+      {"type": "iec", "count": 5, "label": "Mains In (C14), 4× Out (C13)"},
+      {"type": "usb", "count": 1, "label": "USB"},
+      {"type": "rj45", "count": 1, "label": "Serial"}
+    ]
+  },
+  "status": {
+    "unchecked": true
+  },
+  "notes": "Laut Hersteller abgekündigt (02/2024). Ansicht nach Produktfotos gezeichnet (ungeprüft).",
+  "rackmanufaktur": {
+    "key": "dev:apc_smc1000i_2u",
+    "order": 215
+  }
+}
