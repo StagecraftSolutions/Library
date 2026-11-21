@@ -1,0 +1,19 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "kabel_xlr5_dmx",
+  "name": "DMX-Kabel XLR 5-pol Stecker/Buchse",
+  "category": "kabel",
+  "manufacturer": "frei wählbar",
+  "cable": {
+    "kind": "patch",
+    "a": {"face": "xlr5", "gender": "m"},
+    "b": {"face": "xlr5", "gender": "f"},
+    "lengths": [0.5,1,2,3,5],
+    "spec": "110 Ω, 2 × 0,22 mm², geschirmt"
+  },
+  "price": {
+    "eur": null,
+    "source": "check",
+    "note": "Preis je Länge beim Händler"
+  }
+}
