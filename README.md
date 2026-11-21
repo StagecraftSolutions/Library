@@ -44,7 +44,7 @@ Dann <http://localhost:8752/> öffnen. Benötigt nur Node.js ≥ 20, keine Paket
 1. Artikeldatei anlegen oder bearbeiten (Vorlage: eine ähnliche Datei kopieren, `id` = Dateiname).
 2. `node scripts/build.mjs --check` – bricht mit verständlicher Meldung ab, wenn etwas nicht stimmt.
    `node scripts/build.mjs --format` bringt Dateien in die einheitliche Feldreihenfolge.
-3. Commit, Pull Request. GitHub Actions prüft die Daten; nach dem Merge `./update.sh library` auf Hermes.
+3. Commit, Pull Request. GitHub Actions prüft die Daten; nach dem Merge wird die API neu gebaut.
 
 ## API
 
@@ -83,13 +83,3 @@ inhaltlich mit Rackmanufaktur überein (geprüft mit `check-rackmanufaktur.mjs`,
 und Gewichte nur noch hier gepflegt. Auch die maßstäblichen Ansichten (`views.json`) liegen schon hier und werden
 auf der Katalogseite mit dem Zeichencode von Rackmanufaktur dargestellt (nach Änderungen dort
 `node scripts/sync-renderer.mjs` ausführen). Die Übersetzungen bleiben vorerst in Rackmanufaktur; Blenden, Cases usw. stehen für den Umzug aus dem Code in `parts.json` bereit.
-
-## Betrieb (Hermes)
-
-- Adresse: `library.stagecraft.solutions` → DSM-Reverse-Proxy → `127.0.0.1:8751`
-- Container über die gemeinsame `docker-compose.yml` in `/volume1/docker/StagecraftSolutions` (Dienst `library`).
-- Das Image baut die API beim `docker build` (Node-Stufe) und liefert sie mit nginx aus. Fehlerhafte Daten
-  lassen den Build scheitern – der laufende Container bleibt dann unverändert.
-- Aktualisieren: dort `./update.sh library` (holt `main` per `git pull` und baut neu).
-- Eine Datenbank wird nicht gebraucht: Git ist die Datenbank. Der vorbereitete Dienst `library-db` kann
-  auskommentiert bleiben.
