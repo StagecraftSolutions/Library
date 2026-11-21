@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NC5FD-L-1",
   "connectorType": "dmx5f",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr5", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": 11.7,
     "source": "web",

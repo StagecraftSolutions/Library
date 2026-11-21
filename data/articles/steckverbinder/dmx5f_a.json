@@ -7,6 +7,11 @@
   "manufacturer": "Amphenol",
   "partNumber": "Amphenol AC5FDZ",
   "connectorType": "dmx5f",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr5", "gender": "f"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": null,
     "source": "check"

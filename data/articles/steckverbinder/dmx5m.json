@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NC5MD-L-1",
   "connectorType": "dmx5m",
+  "connector": {
+    "form": "d",
+    "front": {"face": "xlr5", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
   "price": {
     "eur": null,
     "source": "check",

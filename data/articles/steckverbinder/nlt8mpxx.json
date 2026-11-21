@@ -7,6 +7,11 @@
   "manufacturer": "Neutrik",
   "partNumber": "Neutrik NLT8MPXX",
   "connectorType": "nl8",
+  "connector": {
+    "form": "panel",
+    "front": {"face": "speakon8", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
   "cutout": {
     "w": 38,
     "h": 38,
@@ -22,6 +27,9 @@
     "eur": null,
     "source": "check",
     "note": "Footprint nach Neutrik-Zeichnung ST-NLT8MPXX (Nachfolger NLT8MP), Einbau von vorn oder hinten; Preis prüfen."
+  },
+  "status": {
+    "unchecked": true
   },
   "rackmanufaktur": {
     "key": "con:nlt8mpxx",
