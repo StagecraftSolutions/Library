@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schema/article.schema.json",
+  "id": "nc5mxx",
+  "name": "XLR 5-pol Kabelstecker (DMX)",
+  "shortName": "XLR5 M Kabel",
+  "category": "steckverbinder",
+  "manufacturer": "Neutrik",
+  "partNumber": "Neutrik NC5MXX",
+  "connector": {
+    "form": "cable",
+    "front": {"face": "xlr5", "gender": "m"},
+    "rear": {"term": "solder"}
+  },
+  "price": {
+    "eur": null,
+    "source": "check"
+  }
+}
