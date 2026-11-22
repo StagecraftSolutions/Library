@@ -32,7 +32,11 @@
   "media": {
     "image": null,
     "front": null,
-    "rear": null
+    "rear": null,
+    "model": {
+      "file": "tray1.stl",
+      "note": "Vereinfachtes Modell aus den Katalogmaßen (Einbautiefe 375 mm, Innenbreite ca. 440 mm), ohne Bohrungen – kein Herstellermodell."
+    }
   },
   "rackmanufaktur": {
     "key": "art:tray1",

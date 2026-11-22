@@ -548,7 +548,7 @@
     "media": {
       "type": "object",
       "additionalProperties": false,
-      "description": "Produktbild und exakte Grafiken der Vorder-/Rückseite; null = Platzhalter",
+      "description": "Produktbild, exakte Grafiken der Vorder-/Rückseite und 3D-Modell; null = Platzhalter",
       "properties": {
         "image": {
           "type": [
@@ -612,6 +612,35 @@
             }
           },
           "description": "null = Platzhalter (offen); sonst {url} oder {file}"
+        },
+        "model": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "url": {
+              "type": "string",
+              "pattern": "^https?://"
+            },
+            "file": {
+              "type": "string",
+              "description": "Datei unter data/media/ (nur eigene oder frei lizenzierte Modelle)"
+            },
+            "format": {
+              "enum": ["stl", "obj", "glb", "gltf", "step", "3mf"],
+              "description": "nur nötig, wenn die Dateiendung es nicht verrät; Vorschau für stl, obj, glb und gltf"
+            },
+            "up": {
+              "enum": ["y", "z"],
+              "description": "Hochachse des Modells; Standard: z bei stl, sonst y"
+            },
+            "note": {
+              "type": "string"
+            }
+          },
+          "description": "3D-Modell, Maße in mm; weglassen, wenn keines vorliegt"
         }
       }
     },

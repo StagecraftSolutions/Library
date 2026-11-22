@@ -22,8 +22,8 @@ const ORDER = {
   dimensions: ['w', 'h', 'd'],
   mount: ['fits', 'provides'],
   provide: ['system', 'side', 'fastener', 'optional'],
-  media: ['image', 'front', 'rear'],
-  mediaRef: ['url', 'file', 'note'],
+  media: ['image', 'front', 'rear', 'model'],
+  mediaRef: ['url', 'file', 'format', 'up', 'note'],
   rack: ['mount', 'units', 'fraction', 'width', 'height', 'depth'],
   price: ['eur', 'source', 'note'],
   status: ['unchecked', 'placeholder'],
@@ -42,6 +42,10 @@ const ORDER = {
 // Reihenfolge der Eigenschaften je Elementtyp (aus data/meta/kinds.json)
 let KIND_PROPS = {};
 export const setKinds = kinds => { KIND_PROPS = Object.fromEntries(Object.entries(kinds).map(([k, v]) => [k, v.props.map(p => p.k)])); };
+
+// 3D-Modelle: stl, obj und glb/gltf zeigt die Katalogseite als Vorschau, step/3mf nur als Download
+export const MODEL_FORMATS = ['stl', 'obj', 'glb', 'gltf', 'step', '3mf'];
+export const modelFormat = name => { const x = name.split(/[?#]/)[0].split('.').pop().toLowerCase(); return x === 'stp' ? 'step' : x; };
 
 function ordered(obj, order) {
   if (!obj || typeof obj !== 'object' || Array.isArray(obj)) return obj;
@@ -272,10 +276,16 @@ export function validate({ categories, kinds = {}, mountSystems = {}, ioTypes, c
     }
     if (a.media !== undefined) {
       for (const [k, v] of Object.entries(a.media)) {
-        if (!ORDER.media.includes(k)) { e(`media.${k} ist unbekannt (image, front, rear)`); continue; }
+        if (!ORDER.media.includes(k)) { e(`media.${k} ist unbekannt (image, front, rear, model)`); continue; }
         if (v === null) continue;
         if (typeof v !== 'object') { e(`media.${k} muss null oder {"url": …} bzw. {"file": …} sein`); continue; }
-        for (const q of Object.keys(v)) if (!ORDER.mediaRef.includes(q)) e(`media.${k}.${q} ist unbekannt (url, file, note)`);
+        const refKeys = k === 'model' ? ORDER.mediaRef : ['url', 'file', 'note'];
+        for (const q of Object.keys(v)) if (!refKeys.includes(q)) e(`media.${k}.${q} ist unbekannt (${refKeys.join(', ')})`);
+        if (k === 'model') {
+          const fmt = v.format ?? modelFormat(v.url || v.file || '');
+          if (!MODEL_FORMATS.includes(fmt)) e(`media.model: Format "${fmt || '?'}" unbekannt – Dateiendung oder format angeben (${MODEL_FORMATS.join(', ')})`);
+          if (v.up !== undefined && !['y', 'z'].includes(v.up)) e('media.model.up muss "y" oder "z" sein');
+        }
         if ((v.url === undefined) === (v.file === undefined)) e(`media.${k}: genau eines von url oder file angeben`);
         if (v.url !== undefined && !/^https?:\/\//.test(v.url)) e(`media.${k}.url muss mit http:// oder https:// beginnen`);
         if (v.file !== undefined && !existsSync(join(ROOT, 'data', 'media', v.file))) e(`media.${k}.file "${v.file}" gibt es nicht in data/media/`);

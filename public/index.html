@@ -301,14 +301,6 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
 }
 
 /* ---------- Detail: Medien, Einbau, Eigenschaften ---------- */
-.media{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.media figure{margin:0;display:grid;gap:6px}
-.media figcaption{font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:6px}
-.media figcaption span{font:11px var(--mono);color:var(--faint)}
-.mph{aspect-ratio:4/3;border:1.5px dashed var(--line2);border-radius:9px;display:grid;place-items:center;text-align:center;color:var(--faint);font-size:12.5px;padding:10px;background:repeating-linear-gradient(135deg,transparent 0 10px,var(--hover) 10px 20px)}
-.mph svg{display:block;margin:0 auto 6px;opacity:.6}
-.mph code{font:11px var(--mono)}
-.media img{width:100%;aspect-ratio:4/3;object-fit:contain;border:1px solid var(--line);border-radius:9px;background:#fff}
 .mnt{display:grid;gap:8px}
 .mnt .m{border:1px solid var(--line);border-radius:8px;padding:9px 12px;display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;font-size:13.5px}
 .mnt .m b{color:var(--head);font-weight:600}
@@ -316,7 +308,22 @@ footer .flinks{display:flex;gap:18px;flex-wrap:wrap}footer a{color:var(--text);t
 .mnt .m .linkbtn{margin-left:auto}
 dd.open{color:var(--faint)!important;font-style:italic}
 .tag.open{border-style:dashed}
-@media (max-width:640px){.media{grid-template-columns:1fr 1fr}}
+/* Produktbild, Vorder-/Rückansicht (Grafik oder maßstäblich), 3D-Modell */
+.pimg{margin:0}
+.pimg img{width:100%;max-height:340px;object-fit:contain;border:1px solid var(--line);border-radius:9px;background:#fff}
+.pimg figcaption,.m3dnote{font-size:12.5px;color:var(--faint);margin-top:6px}
+.seg{display:inline-flex;border:1px solid var(--line2);border-radius:6px;overflow:hidden;font:11px var(--mono)}
+.seg button{border:0;background:transparent;color:var(--muted);padding:3px 9px;cursor:pointer;font:inherit;text-transform:uppercase;letter-spacing:.06em}
+.seg button+button{border-left:1px solid var(--line2)}
+.seg button[aria-pressed="true"]{background:var(--accent-soft);color:var(--accent)}
+.vimg img{width:100%;border:1px solid var(--line);border-radius:7px;background:#fff}
+.m3d{position:relative;height:340px;background:var(--well);border:1px solid var(--well-line);border-radius:7px;overflow:hidden;touch-action:none}
+.m3d canvas{display:block;width:100%;height:100%;cursor:grab}
+.m3d canvas:active{cursor:grabbing}
+.m3d .vload{position:absolute;inset:0;display:grid;place-items:center;margin:0}
+.m3dbar{display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin-top:8px}
+.m3dbar .dims{font:12px var(--mono);color:var(--muted);margin-left:auto}
+@media (max-width:640px){.m3d{height:260px}}
 </style>
 </head>
 <body>
@@ -487,6 +494,7 @@ dd.open{color:var(--faint)!important;font-style:italic}
 
 <dialog id="dlg" aria-labelledby="dlg-title"><div id="dlg-body"></div></dialog>
 <script src="assets/rackview.js"></script>
+<script src="assets/model3d.js"></script>
 <script>
 const REPO = 'https://github.com/StagecraftSolutions/Library';
 const PAGE = 120;
@@ -539,12 +547,12 @@ const catName = p => DB.cat[p]?.name || p;
 const catPath = p => DB.cat[p]?.names?.join(' › ') || p;
 const mountShort = a => a.mount?.provides?.length ? 'nimmt auf: ' + [...new Set(a.mount.provides.map(p => sysName(p.system)))].join(', ')
   : (a.mount?.fits || []).map(sysName).join(' · ');
-const statusTags = a => (a.view ? '<span class="tag" title="maßstäbliche Ansicht vorhanden">Ansicht</span> ' : '') + (a.status?.placeholder ? '<span class="tag ph">Platzhalter</span> ' : '')
+const statusTags = a => (a.view ? '<span class="tag" title="maßstäbliche Ansicht vorhanden">Ansicht</span> ' : '') + (a.media?.model ? '<span class="tag" title="3D-Modell vorhanden">3D</span> ' : '') + (a.status?.placeholder ? '<span class="tag ph">Platzhalter</span> ' : '')
   + ((a.status?.unchecked ? '<span class="tag warn">ungeprüft</span>' : '') || (a.status?.placeholder ? '' : '<span class="tag ok">geprüft</span>'))
   + (a.open?.length ? ` <span class="tag open" title="${esc(a.open.map(openName).join(', '))}">${a.open.length} offen</span>` : '');
 
 // Offene Felder (Platzhalter) → lesbarer Name
-const OPEN = { weightKg: 'Gewicht', 'rack.depth': 'Einbautiefe', 'io.front': 'Anschlüsse vorn', 'io.rear': 'Anschlüsse hinten', 'media.image': 'Bild', 'media.front': 'Grafik vorn', 'media.rear': 'Grafik hinten', 'dimensions.w': 'Breite', 'dimensions.h': 'Höhe', 'dimensions.d': 'Tiefe' };
+const OPEN = { weightKg: 'Gewicht', 'rack.depth': 'Einbautiefe', 'io.front': 'Anschlüsse vorn', 'io.rear': 'Anschlüsse hinten', 'media.image': 'Bild', 'media.front': 'Grafik vorn', 'media.rear': 'Grafik hinten', 'media.model': '3D-Modell', 'dimensions.w': 'Breite', 'dimensions.h': 'Höhe', 'dimensions.d': 'Tiefe' };
 const openName = p => OPEN[p] || (p.startsWith('specs.') ? (DB.kinds._props?.[p.slice(6)] || p.slice(6)) : p);
 const MISS = [['media.image', 'Bild'], ['media.front', 'Grafik vorn'], ['media.rear', 'Grafik hinten'], ['weightKg', 'Gewicht'], ['rack.depth', 'Einbautiefe'], ['io', 'Anschlüsse'], ['specs', 'Eigenschaften'], ['any', 'irgendein Feld']];
 const missing = (a, m) => m === 'any' ? !!a.open?.length : (a.open || []).some(p => p === m || p.startsWith(m + '.'));
@@ -586,7 +594,7 @@ function match(a, skip = '') {
   if (skip !== 'dmax' && S.dmax && !(depth(a) != null && depth(a) <= +S.dmax)) return false;
   if (skip !== 'wmax' && S.wmax && !(a.weightKg != null && a.weightKg <= +S.wmax)) return false;
   if (skip !== 'io' && S.io && !['front', 'rear'].some(s => (a.io?.[s] || []).some(p => p.type === S.io))) return false;
-  if (skip !== 'st' && S.st && !(S.st === 'ok' ? !a.status : S.st === 'view' ? !!a.view : a.status?.[S.st])) return false;
+  if (skip !== 'st' && S.st && !(S.st === 'ok' ? !a.status : S.st === 'view' ? !!a.view : S.st === 'model' ? !!a.media?.model : a.status?.[S.st])) return false;
   if (skip !== 'miss' && S.miss && !missing(a, S.miss)) return false;
   if (skip !== 'q') {
     const k = P.keys;
@@ -725,8 +733,8 @@ function renderFacets() {
   h += `<div class="facet"><h4>Maße${S.dmax || S.wmax ? '<button type="button" data-clr="dw">zurücksetzen</button>' : ''}</h4><div class="pair"><label>Einbautiefe bis (mm)<input type="number" min="0" step="10" data-f="dmax" value="${esc(S.dmax)}" placeholder="z. B. 450"></label><label>Gewicht bis (kg)<input type="number" min="0" step="0.5" data-f="wmax" value="${esc(S.wmax)}" placeholder="z. B. 5"></label></div></div>`;
   const ic = countBy('io', a => [...new Set(['front', 'rear'].flatMap(s => (a.io?.[s] || []).map(p => p.type)))]);
   h += sel('io', 'Anschluss', Object.keys(ic).sort((a, b) => (DB.ioTypes[a] || a).localeCompare(DB.ioTypes[b] || b, 'de')).map(k => [k, DB.ioTypes[k] || k, ic[k]]), S.io);
-  const sc = countBy('st', a => [a.status ? null : 'ok', a.status?.unchecked && 'unchecked', a.status?.placeholder && 'placeholder', a.view && 'view'].filter(Boolean));
-  h += sel('st', 'Datenstand', [['ok', 'Geprüft', sc.ok || 0], ['unchecked', 'Ungeprüft', sc.unchecked || 0], ['placeholder', 'Platzhalter', sc.placeholder || 0], ['view', 'Mit maßstäblicher Ansicht', sc.view || 0]], S.st);
+  const sc = countBy('st', a => [a.status ? null : 'ok', a.status?.unchecked && 'unchecked', a.status?.placeholder && 'placeholder', a.view && 'view', a.media?.model && 'model'].filter(Boolean));
+  h += sel('st', 'Datenstand', [['ok', 'Geprüft', sc.ok || 0], ['unchecked', 'Ungeprüft', sc.unchecked || 0], ['placeholder', 'Platzhalter', sc.placeholder || 0], ['view', 'Mit maßstäblicher Ansicht', sc.view || 0], ['model', 'Mit 3D-Modell', sc.model || 0]], S.st);
   const mc = countBy('miss', a => MISS.map(([k]) => missing(a, k) ? k : null).filter(Boolean));
   h += sel('miss', 'Fehlende Daten', MISS.map(([k, n]) => [k, n + ' fehlt', mc[k] || 0]), S.miss);
   $('#facets').innerHTML = h;
@@ -746,7 +754,7 @@ function renderCrumbs() {
   $('#subtiles').innerHTML = node?.children ? node.children.filter(c => c.count).map(c => `<button class="chip" type="button" data-cat="${esc(c.path)}">${esc(c.name)} <span>${c.count}</span></button>`).join('') : '';
   const P = [];
   const lab = { cat: v => catPath(v), mk: v => v, kind: kindName, mnt: v => (v.startsWith('prov:') ? 'Träger: ' : 'passt in ') + sysName(v.split(':')[1]), he: v => v.replace('.', ',') + ' HE',
-    dmax: v => `Tiefe ≤ ${v} mm`, wmax: v => `Gewicht ≤ ${v} kg`, io: v => DB.ioTypes[v] || v, st: v => ({ ok: 'geprüft', unchecked: 'ungeprüft', placeholder: 'Platzhalter', view: 'mit Ansicht' }[v]),
+    dmax: v => `Tiefe ≤ ${v} mm`, wmax: v => `Gewicht ≤ ${v} kg`, io: v => DB.ioTypes[v] || v, st: v => ({ ok: 'geprüft', unchecked: 'ungeprüft', placeholder: 'Platzhalter', view: 'mit Ansicht', model: 'mit 3D-Modell' }[v]),
     miss: v => (MISS.find(m => m[0] === v)?.[1] || v) + ' fehlt', q: v => `„${v}“` };
   for (const k of FILTERS) if (S[k]) P.push(`<button type="button" class="pill" data-clr="${k}" title="Filter entfernen">${esc(lab[k](S[k]))}<i aria-hidden="true">×</i></button>`);
   $('#pills').innerHTML = P.join('');
@@ -790,18 +798,48 @@ const val = (v, f = x => x) => v === null ? null : v === undefined ? undefined :
 // Kette eines Einbausystems bis zum Gehäuse, z. B. Case › 19″-Rackschiene › Rackwanne
 const sysChain = k => { const out = []; let x = k; while (x) { out.unshift(sysName(x)); x = DB.systems[x]?.parent?.[0]; } if (out[0] === sysName('rail19')) out.unshift('Case/Rack'); return out.join(' › '); };
 const mediaSrc = m => m?.url || (m?.file ? `api/v1/media/${encodeURIComponent(m.file)}` : '');
-const PH_ICON = '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m21 16-5-5-8 8"/></svg>';
 
-function mediaSection(a) {
-  if (!a.media) return '';
-  const T = { image: ['Produktbild', 'Foto oder Link'], front: ['Grafik vorn', 'exakte Frontansicht'], rear: ['Grafik hinten', 'exakte Rückansicht'] };
-  const cells = Object.keys(T).filter(k => k in a.media).map(k => {
-    const m = a.media[k], src = mediaSrc(m), vec = k !== 'image' && a.view?.[k];
-    return `<figure><figcaption>${T[k][0]}<span>${src ? (m.url ? 'Link' : 'Datei') : vec ? 'Vektoransicht unten' : 'Platzhalter'}</span></figcaption>
-      ${src ? `<a href="${esc(src)}" target="_blank" rel="noopener noreferrer"><img src="${esc(src)}" alt="${esc(T[k][0] + ': ' + a.name)}" loading="lazy"></a>`
-        : `<div class="mph">${PH_ICON}<div>${T[k][1]} fehlt<br><code>media.${k}</code></div></div>`}${m?.note ? `<small class="sub">${esc(m.note)}</small>` : ''}</figure>`;
+// Nur was vorliegt, wird gezeigt: Produktbild, je Seite Grafik und/oder maßstäbliche Ansicht, 3D-Modell
+function imageSection(a) {
+  const m = a.media?.image, src = mediaSrc(m); if (!src) return '';
+  return `<section><h3>Produktbild</h3><figure class="pimg"><a href="${esc(src)}" target="_blank" rel="noopener noreferrer"><img src="${esc(src)}" alt="${esc('Produktbild: ' + a.name)}" loading="lazy"></a>${m.note ? `<figcaption>${esc(m.note)}</figcaption>` : ''}</figure></section>`;
+}
+const SIDES = [['f', 'front', 'Vorderseite'], ['r', 'rear', 'Rückseite']];
+function viewsSection(a) {
+  const sides = SIDES.filter(([, k]) => mediaSrc(a.media?.[k]) || a.view?.[k]);
+  if (!sides.length) return '';
+  const html = sides.map(([s, k, title]) => {
+    const m = a.media?.[k], src = mediaSrc(m), vec = a.view?.[k];
+    const seg = src && vec ? `<span class="seg" role="group" aria-label="${title}: Darstellung"><button type="button" data-vmode="${s}:vec" aria-pressed="true">Maßstäblich</button><button type="button" data-vmode="${s}:img" aria-pressed="false">Grafik</button></span>` : '';
+    return `<div><h4>${title}<span id="vsub-${s}">${vec ? '' : 'Grafik'}</span></h4>${seg ? `<div style="margin:-2px 0 8px">${seg}</div>` : ''}
+      ${vec ? `<div class="vwell" id="vw-${s}"><p class="vload">Ansicht wird geladen …</p></div>` : ''}
+      ${src ? `<a class="vimg" id="vi-${s}" href="${esc(src)}" target="_blank" rel="noopener noreferrer"${vec ? ' hidden' : ''}><img src="${esc(src)}" alt="${esc(title + ': ' + a.name)}" loading="lazy"></a>` : ''}
+      ${m?.note ? `<p class="vload">${esc(m.note)}</p>` : ''}</div>`;
   }).join('');
-  return `<section><h3>Bild &amp; Ansichten</h3><div class="media">${cells}</div></section>`;
+  const hint = a.view ? '<p class="vload">Maßstäblich in mm. Mit der Maus auf einen Anschluss zeigen, um seine Funktion zu sehen.</p>' : '';
+  return `<section><h3>Vorder- und Rückansicht${a.view ? ' · Anschlusspositionen' : ''}</h3><div class="views" id="views">${html}${hint}</div></section>`;
+}
+function modelSection(a) {
+  const m = a.media?.model, src = mediaSrc(m); if (!src) return '';
+  const fmt = m.format || window.Model3D.formatOf(src), can = window.Model3D.VIEWABLE.includes(fmt);
+  return `<section><h3>3D-Modell</h3>
+    ${can ? `<div class="m3d" id="m3d"><p class="vload">Modell wird geladen …</p></div>
+    <div class="m3dbar"><span class="seg" role="group" aria-label="Blickrichtung">${[['iso', '3D'], ['front', 'Vorn'], ['side', 'Seite'], ['top', 'Oben']].map(([k, t], i) => `<button type="button" data-m3d="${k}" aria-pressed="${!i}">${t}</button>`).join('')}</span><span class="dims" id="m3d-dims"></span></div>
+    <p class="m3dnote">Ziehen zum Drehen, Mausrad zum Zoomen, Doppelklick setzt zurück.${m.note ? ' ' + esc(m.note) : ''}</p>`
+    : `<p class="sub" style="margin:0">Für ${esc(fmt.toUpperCase())} gibt es hier keine Vorschau.${m.note ? ' ' + esc(m.note) : ''}</p>`}
+    <div class="actions" style="margin-top:10px"><a class="btn" href="${esc(src)}" download>Modell herunterladen (${esc(fmt.toUpperCase())})</a></div></section>`;
+}
+let m3d = null;
+async function loadModel(a) {
+  const box = document.getElementById('m3d'), m = a.media.model;
+  try {
+    m3d = await window.Model3D.mount(box, { url: mediaSrc(m), format: m.format, up: m.up });
+    if (S.id !== a.id) return;
+    const d = document.getElementById('m3d-dims');
+    if (d) d.textContent = m3d.dims.map(v => nf(v, v < 100 ? 1 : 0).replace(',0', '')).join(' × ') + ' mm';
+  } catch (e) {
+    if (document.getElementById('m3d') === box) box.innerHTML = `<p class="vload">${e.code === 'webgl' ? 'Dieser Browser kann keine 3D-Vorschau zeigen.' : 'Modell konnte nicht geladen werden.'}</p>`;
+  }
 }
 function mountSection(a) {
   const m = a.mount; if (!m || (!m.fits?.length && !m.provides?.length)) return '';
@@ -850,10 +888,11 @@ function detail(id, push = true) {
       <h2 id="dlg-title">${esc(a.name)}</h2><div>${statusTags(a)}</div></div>
       <button class="close" type="button" aria-label="Schließen" data-close>×</button></div>
     <div class="db">
-      ${mediaSection(a)}
+      ${imageSection(a)}
       ${a.kind === 'connector' && a.rackmanufaktur?.key?.startsWith('con:') ? `<section><h3>Vorschau</h3><div class="cviews" id="conviews"><p class="vload">Vorschau wird geladen …</p></div></section>` : ''}
       ${a.panelCutout ? cutoutSection(a) : ''}
-      ${a.view ? `<section><h3>Maßstäbliche Ansicht · Anschlusspositionen</h3><div class="views" id="views"><p class="vload">Ansicht wird geladen …</p></div></section>` : ''}
+      ${viewsSection(a)}
+      ${modelSection(a)}
       ${a.description ? `<p class="desc">${esc(a.description)}</p>` : ''}
       ${a.notes ? `<p class="desc">Hinweis: ${esc(a.notes)}</p>` : ''}
       ${mountSection(a)}
@@ -875,6 +914,7 @@ function detail(id, push = true) {
   dlg.scrollTop = 0;
   S.id = id; if (push) syncURL();
   if (a.view) loadView(a);
+  m3d = null; if (document.getElementById('m3d')) loadModel(a);
   if (document.getElementById('conviews')) loadConnector(a);
 }
 
@@ -929,21 +969,22 @@ function cutoutSection(a) {
 
 const viewCache = {};
 async function loadView(a) {
-  const box = () => document.getElementById('views');
   try {
     const v = viewCache[a.id] ??= await fetch(`api/v1/views/${encodeURIComponent(a.id)}.json`).then(r => { if (!r.ok) throw new Error(r.status); return r.json(); }).then(x => x.view);
-    if (S.id !== a.id || !box()) return;
+    if (S.id !== a.id) return;
     const opt = { units: a.rack?.units || 1, silver: a.rackmanufaktur?.extra?.col === 'silver' };
     const size = v.w ? `${nf(v.w, 1).replace(',0', '')} × ${nf(v.h, 1).replace(',0', '')} mm` : `19″ · ${nf(opt.units, 1).replace(',0', '')} HE`;
-    const part = (side, title) => {
+    for (const [side] of SIDES) {
+      const well = document.getElementById('vw-' + side); if (!well) continue;
       const svg = window.RackView.render(v, side, opt);
-      if (!svg) return '';
-      const sub = side === 'r' && !v.w && v.hw ? `Gehäuse ${nf(v.hw, 1).replace(',0', '')} mm breit · von hinten` : size;
-      return `<div><h4>${title}<span>${sub}</span></h4><div class="vwell ${v.w ? 'small' : 'rack'}">${svg}</div></div>`;
-    };
-    box().innerHTML = part('f', 'Vorderseite') + part('r', 'Rückseite') + '<p class="vload">Maßstäblich in mm. Mit der Maus auf einen Anschluss zeigen, um seine Funktion zu sehen.</p>';
+      if (!svg) { well.remove(); continue; }
+      well.classList.add(v.w ? 'small' : 'rack');
+      well.innerHTML = svg;
+      const sub = document.getElementById('vsub-' + side);
+      if (sub) sub.textContent = side === 'r' && !v.w && v.hw ? `Gehäuse ${nf(v.hw, 1).replace(',0', '')} mm breit · von hinten` : size;
+    }
   } catch (e) {
-    if (box()) box().innerHTML = '<p class="vload">Ansicht konnte nicht geladen werden.</p>';
+    for (const [side] of SIDES) { const w = document.getElementById('vw-' + side); if (w) w.innerHTML = '<p class="vload">Ansicht konnte nicht geladen werden.</p>'; }
   }
 }
 
@@ -1020,6 +1061,12 @@ document.addEventListener('click', e => {
   const gc = x.closest('[data-cat]'); if (gc && !x.closest('#tree')) { e.preventDefault(); if (S.browse) { S.cat = gc.dataset.cat; apply(); } else go({ cat: gc.dataset.cat }); return; }
   const cr = x.closest('[data-crumb]'); if (cr) { S.cat = cr.dataset.crumb; if (!S.cat) Object.assign(S, F0); apply(); return; }
   const g = x.closest('[data-go]'); if (g) { $('#dlg').close(); go({ mnt: g.dataset.go }); return; }
+  const vm = x.closest('[data-vmode]'); if (vm) {
+    const [side, mode] = vm.dataset.vmode.split(':');
+    vm.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b === vm));
+    document.getElementById('vw-' + side).hidden = mode !== 'vec'; document.getElementById('vi-' + side).hidden = mode !== 'img'; return;
+  }
+  const mv = x.closest('[data-m3d]'); if (mv) { m3d?.view(mv.dataset.m3d); mv.parentElement.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', b === mv)); return; }
   const nv = x.closest('[data-nav]'); if (nv) { S.nav = nv.dataset.nav; render(); syncURL(); return; }
   const tg = x.closest('[data-tg]'); if (tg) { const k = S.nav + tg.dataset.tg; if (tg.getAttribute('aria-expanded') === 'true') { opened.delete(k); closed.add(k); } else { closed.delete(k); opened.add(k); } renderTree(); return; }
   const nd = x.closest('#tree [data-v]'); if (nd) { const f = { cat: 'cat', mount: 'mnt', mk: 'mk', kind: 'kind' }[S.nav]; S[f] = S[f] === nd.dataset.v && nd.dataset.v ? '' : nd.dataset.v; apply(); return; }

@@ -15,7 +15,7 @@ ausschließlich von hier.
 | `data/taxonomy.json` | Kategoriebaum (Bereich › Unterkategorie, Reihenfolge = Anzeige) |
 | `data/meta/kinds.json` | Elementtypen (19″-Gerät, Case, Rackwanne, Lautsprecher, Stativ, Kabel …) mit ihren Eigenschaften |
 | `data/meta/mount-systems.json` | Einbausysteme: was passt worin (Case › 19″-Schiene › Rackwanne/Systemrahmen › Gerät) |
-| `data/media/` | eigene Bilder und Grafiken (`media.*.file`) |
+| `data/media/` | eigene Bilder, Grafiken und 3D-Modelle (`media.*.file`) |
 | `data/views/<id>.json` | maßstäbliche Front-/Rückansicht eines Artikels (Zeichenelemente in mm) |
 | `data/meta/io-types.json` | Anschlusstypen für `io` (`xlr`, `bnc`, `powercon` …) |
 | `data/meta/connector-types.json` | Steckertypen der Steckverbinder |

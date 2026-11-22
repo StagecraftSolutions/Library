@@ -126,7 +126,7 @@ const cols = [
   ['gewicht_kg', a => a.weightKg], ['preis_eur', a => a.price?.eur], ['preisquelle', a => a.price?.source],
   ['stecker_vorn', a => sideTxt(a.connector?.front)], ['stecker_hinten', a => sideTxt(a.connector?.rear)],
   ['varianten', a => a.variants?.length], ['ansicht', a => a.view ? [a.view.front && 'vorn', a.view.rear && 'hinten'].filter(Boolean).join('+') : ''], ['ungeprueft', a => a.status?.unchecked ? 1 : ''], ['platzhalter', a => a.status?.placeholder ? 1 : ''],
-  ['bild', a => a.media?.image ? (a.media.image.url || a.media.image.file) : ''], ['offene_felder', a => (a.open || []).length],
+  ['bild', a => a.media?.image ? (a.media.image.url || a.media.image.file) : ''], ['modell3d', a => a.media?.model ? (a.media.model.url || a.media.model.file) : ''], ['offene_felder', a => (a.open || []).length],
   ['bestand', a => a.inventory?.qty], ['rackmanufaktur', a => a.rackmanufaktur?.key], ['url', a => a.url],
 ];
 const cell = v => {
